@@ -1,8 +1,8 @@
 //--------------------------------------------------------------
-// File     : main.c
-// Datum    : 30.03.2016
+/** @file main.c */
+/** @date 24.04.2018 */
 // Version  : 1.0
-// Autor    : UB
+/** @autor Niek Ratering Arntz & Matthijs Daggelders */
 // mods by	: J.F. van der Bent
 // CPU      : STM32F4
 // IDE      : CooCox CoIDE 1.7.x
@@ -18,14 +18,14 @@ int main(void)
 {
 
 	//  uint32_t n;
-
+/** @code */
 	SystemInit(); // System speed to 168MHz
 
 	UB_VGA_Screen_Init(); // Init VGA-Screen
 
   UB_VGA_FillScreen(VGA_COL_BLACK);
   UB_VGA_SetPixel(10,10,10);
-
+/** @endcode */
 
 
 
