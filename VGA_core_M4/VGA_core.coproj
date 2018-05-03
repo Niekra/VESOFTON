@@ -31,7 +31,11 @@
           <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
           <Memory name="IRAM2" type="ReadWrite" size="0x00010000" startValue="0x10000000"/>
         </MemoryAreas>
+<<<<<<< HEAD
         <LocateLinkFile path="d:/programma&apos;s/coide/configuration/programdata/vga_core/arm-gcc-link.ld" type="0"/>
+=======
+        <LocateLinkFile path="../../../../../coocox/coide/configuration/programdata/vga_core/link.ld" type="0"/>
+>>>>>>> 6ad136af296abe8bee0d0afb15664a36b9c7aaee
       </Link>
       <Output>
         <Option name="OutputFileType" value="0"/>
