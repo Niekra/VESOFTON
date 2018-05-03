@@ -1,55 +1,602 @@
-19:45:28 **** Incremental Build of configuration Debug for project script ****
+21:53:26 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\Vgascreen.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\Vgascreen.o 
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::init_VGA()':
+..\src\Vgascreen.cpp:26:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::VGA_pos(int, int)':
+..\src\Vgascreen.cpp:31:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_rectangle(int, int, int, int, int)':
+..\src\Vgascreen.cpp:83:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_triangle(int, int, int, int, int, int, int)':
+..\src\Vgascreen.cpp:89:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+arm-atollic-eabi-g++ -c ..\src\main.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\main.o 
+..\src\main.cpp: In function 'int main()':
+..\src\main.cpp:63:47: error: no matching function for call to 'Vgascreen::draw_rectangle(int, int, int, int, int, int, int)'
+   s1.draw_rectangle(300, 20, 180,180, 120,60,1);
+                                               ^
+In file included from ..\src\main.cpp:14:0:
+../src/Vgascreen.h:59:6: note: candidate: int Vgascreen::draw_rectangle(int, int, int, int, int)
+  int draw_rectangle(int x_lo, int y_lo, int x_rb, int y_rb, int color);
+      ^~~~~~~~~~~~~~
+../src/Vgascreen.h:59:6: note:   candidate expects 5 arguments, 7 provided
+..\src\main.cpp:34:7: warning: unused variable 'b' [-Wunused-variable]
+   int b = 65;
+       ^
+21:54:18 **** Incremental Build of configuration Debug for project script ****
 Info: Internal Builder is used for build
 arm-atollic-eabi-g++ -c ..\src\main.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\main.o 
+..\src\main.cpp: In function 'int main()':
+..\src\main.cpp:34:7: warning: unused variable 'b' [-Wunused-variable]
+   int b = 65;
+       ^
 arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
 C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
 Generate build reports...
 Print size information
    text	   data	    bss	    dec	    hex	filename
-   6956	    140	  78232	  85328	  14d50	script.elf
+   7128	    140	  78232	  85500	  14dfc	script.elf
 Print size information done
 Generate listing file
 Output sent to: script.list
 Generate listing file done
 Generate build reports done
-Info: Nothing to build for script
-19:46:14 **** Incremental Build of configuration Debug for project script ****
+21:56:43 **** Incremental Build of configuration Debug for project script ****
 Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\Vgascreen.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\Vgascreen.o 
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::init_VGA()':
+..\src\Vgascreen.cpp:26:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::VGA_pos(int, int)':
+..\src\Vgascreen.cpp:31:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_rectangle(int, int, int, int, int)':
+..\src\Vgascreen.cpp:83:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_triangle(int, int, int, int, int, int, int)':
+..\src\Vgascreen.cpp:89:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
 arm-atollic-eabi-g++ -c ..\src\main.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\main.o 
+..\src\main.cpp: In function 'int main()':
+..\src\main.cpp:34:7: warning: unused variable 'b' [-Wunused-variable]
+   int b = 65;
+       ^
 arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
 C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
 Generate build reports...
 Print size information
    text	   data	    bss	    dec	    hex	filename
-   6904	    140	  78232	  85276	  14d1c	script.elf
+   7132	    140	  78232	  85504	  14e00	script.elf
 Print size information done
 Generate listing file
 Output sent to: script.list
 Generate listing file done
 Generate build reports done
-19:47:24 **** Incremental Build of configuration Debug for project script ****
+21:57:06 **** Incremental Build of configuration Debug for project script ****
 Info: Internal Builder is used for build
 arm-atollic-eabi-g++ -c ..\src\main.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\main.o 
+..\src\main.cpp: In function 'int main()':
+..\src\main.cpp:34:7: warning: unused variable 'b' [-Wunused-variable]
+   int b = 65;
+       ^
 arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
 C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
 Generate build reports...
 Print size information
    text	   data	    bss	    dec	    hex	filename
-   6900	    140	  78232	  85272	  14d18	script.elf
+   7132	    140	  78232	  85504	  14e00	script.elf
 Print size information done
 Generate listing file
 Output sent to: script.list
 Generate listing file done
 Generate build reports done
-19:52:05 **** Incremental Build of configuration Debug for project script ****
+21:59:46 **** Incremental Build of configuration Debug for project script ****
 Info: Internal Builder is used for build
-arm-atollic-eabi-g++ -c ..\src\main.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\main.o 
+arm-atollic-eabi-g++ -c ..\src\Vgascreen.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\Vgascreen.o 
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::init_VGA()':
+..\src\Vgascreen.cpp:26:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::VGA_pos(int, int)':
+..\src\Vgascreen.cpp:31:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_rectangle(int, int, int, int, int)':
+..\src\Vgascreen.cpp:85:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_triangle(int, int, int, int, int, int, int)':
+..\src\Vgascreen.cpp:91:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
 arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
 C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
 Generate build reports...
 Print size information
    text	   data	    bss	    dec	    hex	filename
-   7036	    140	  78232	  85408	  14da0	script.elf
+   7140	    140	  78232	  85512	  14e08	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+22:01:53 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\Vgascreen.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\Vgascreen.o 
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::init_VGA()':
+..\src\Vgascreen.cpp:26:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::VGA_pos(int, int)':
+..\src\Vgascreen.cpp:31:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_rectangle(int, int, int, int, int)':
+..\src\Vgascreen.cpp:83:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_triangle(int, int, int, int, int, int, int)':
+..\src\Vgascreen.cpp:89:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7132	    140	  78232	  85504	  14e00	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+22:04:12 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\main.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\main.o 
+..\src\main.cpp: In function 'int main()':
+..\src\main.cpp:34:7: warning: unused variable 'b' [-Wunused-variable]
+   int b = 65;
+       ^
+..\src\main.cpp:35:7: warning: unused variable 'x1' [-Wunused-variable]
+   int x1 =10;
+       ^~
+..\src\main.cpp:36:7: warning: unused variable 'y1' [-Wunused-variable]
+   int y1 = 50;
+       ^~
+..\src\main.cpp:37:7: warning: unused variable 'x2' [-Wunused-variable]
+   int x2 = 150;
+       ^~
+..\src\main.cpp:38:7: warning: unused variable 'y2' [-Wunused-variable]
+   int y2 = 150;
+       ^~
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   6840	    140	  78232	  85212	  14cdc	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+22:07:37 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\main.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\main.o 
+..\src\main.cpp: In function 'int main()':
+..\src\main.cpp:34:7: warning: unused variable 'b' [-Wunused-variable]
+   int b = 65;
+       ^
+..\src\main.cpp:35:7: warning: unused variable 'x1' [-Wunused-variable]
+   int x1 =10;
+       ^~
+..\src\main.cpp:36:7: warning: unused variable 'y1' [-Wunused-variable]
+   int y1 = 50;
+       ^~
+..\src\main.cpp:37:7: warning: unused variable 'x2' [-Wunused-variable]
+   int x2 = 150;
+       ^~
+..\src\main.cpp:38:7: warning: unused variable 'y2' [-Wunused-variable]
+   int y2 = 150;
+       ^~
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   6864	    140	  78232	  85236	  14cf4	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+22:09:19 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\Vgascreen.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\Vgascreen.o 
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::init_VGA()':
+..\src\Vgascreen.cpp:26:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::VGA_pos(int, int)':
+..\src\Vgascreen.cpp:31:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_rectangle(int, int, int, int, int)':
+..\src\Vgascreen.cpp:83:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_triangle(int, int, int, int, int, int, int)':
+..\src\Vgascreen.cpp:89:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   6864	    140	  78232	  85236	  14cf4	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+22:10:43 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\Vgascreen.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\Vgascreen.o 
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::init_VGA()':
+..\src\Vgascreen.cpp:26:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::VGA_pos(int, int)':
+..\src\Vgascreen.cpp:31:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_rectangle(int, int, int, int, int)':
+..\src\Vgascreen.cpp:83:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_triangle(int, int, int, int, int, int, int)':
+..\src\Vgascreen.cpp:89:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   6864	    140	  78232	  85236	  14cf4	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+22:12:02 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\Vgascreen.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\Vgascreen.o 
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::init_VGA()':
+..\src\Vgascreen.cpp:26:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::VGA_pos(int, int)':
+..\src\Vgascreen.cpp:31:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_rectangle(int, int, int, int, int)':
+..\src\Vgascreen.cpp:83:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_triangle(int, int, int, int, int, int, int)':
+..\src\Vgascreen.cpp:89:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   6864	    140	  78232	  85236	  14cf4	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+22:16:36 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\Vgascreen.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\Vgascreen.o 
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::init_VGA()':
+..\src\Vgascreen.cpp:26:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::VGA_pos(int, int)':
+..\src\Vgascreen.cpp:31:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_rectangle(int, int, int, int, int)':
+..\src\Vgascreen.cpp:83:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_triangle(int, int, int, int, int, int, int)':
+..\src\Vgascreen.cpp:89:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   6864	    140	  78232	  85236	  14cf4	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+22:20:08 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\main.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\main.o 
+..\src\main.cpp: In function 'int main()':
+..\src\main.cpp:34:7: warning: unused variable 'b' [-Wunused-variable]
+   int b = 65;
+       ^
+arm-atollic-eabi-g++ -c ..\src\Vgascreen.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\Vgascreen.o 
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::init_VGA()':
+..\src\Vgascreen.cpp:26:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::VGA_pos(int, int)':
+..\src\Vgascreen.cpp:31:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_rectangle(int, int, int, int, int)':
+..\src\Vgascreen.cpp:87:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_triangle(int, int, int, int, int, int, int)':
+..\src\Vgascreen.cpp:93:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7164	    140	  78232	  85536	  14e20	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+22:22:07 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\main.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\main.o 
+..\src\main.cpp: In function 'int main()':
+..\src\main.cpp:34:7: warning: unused variable 'b' [-Wunused-variable]
+   int b = 65;
+       ^
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7164	    140	  78232	  85536	  14e20	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+22:22:42 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\main.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\main.o 
+..\src\main.cpp: In function 'int main()':
+..\src\main.cpp:34:7: warning: unused variable 'b' [-Wunused-variable]
+   int b = 65;
+       ^
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7164	    140	  78232	  85536	  14e20	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+22:24:16 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\Vgascreen.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\Vgascreen.o 
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::init_VGA()':
+..\src\Vgascreen.cpp:26:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::VGA_pos(int, int)':
+..\src\Vgascreen.cpp:31:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_rectangle(int, int, int, int, int)':
+..\src\Vgascreen.cpp:87:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_triangle(int, int, int, int, int, int, int)':
+..\src\Vgascreen.cpp:93:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+arm-atollic-eabi-g++ -c ..\src\main.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\main.o 
+..\src\main.cpp: In function 'int main()':
+..\src\main.cpp:34:7: warning: unused variable 'b' [-Wunused-variable]
+   int b = 65;
+       ^
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7140	    140	  78232	  85512	  14e08	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+22:26:08 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\Vgascreen.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\Vgascreen.o 
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::init_VGA()':
+..\src\Vgascreen.cpp:26:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::VGA_pos(int, int)':
+..\src\Vgascreen.cpp:31:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_rectangle(int, int, int, int, int)':
+..\src\Vgascreen.cpp:87:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_triangle(int, int, int, int, int, int, int)':
+..\src\Vgascreen.cpp:93:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7140	    140	  78232	  85512	  14e08	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+22:28:07 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\main.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\main.o 
+..\src\main.cpp: In function 'int main()':
+..\src\main.cpp:34:7: warning: unused variable 'b' [-Wunused-variable]
+   int b = 65;
+       ^
+..\src\main.cpp:35:7: warning: unused variable 'x1' [-Wunused-variable]
+   int x1 =10;
+       ^~
+..\src\main.cpp:36:7: warning: unused variable 'y1' [-Wunused-variable]
+   int y1 = 50;
+       ^~
+..\src\main.cpp:37:7: warning: unused variable 'x2' [-Wunused-variable]
+   int x2 = 150;
+       ^~
+..\src\main.cpp:38:7: warning: unused variable 'y2' [-Wunused-variable]
+   int y2 = 150;
+       ^~
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   6996	    140	  78232	  85368	  14d78	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+22:31:09 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\Vgascreen.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\Vgascreen.o 
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::init_VGA()':
+..\src\Vgascreen.cpp:26:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::VGA_pos(int, int)':
+..\src\Vgascreen.cpp:31:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_rectangle(int, int, int, int, int)':
+..\src\Vgascreen.cpp:88:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_triangle(int, int, int, int, int, int, int)':
+..\src\Vgascreen.cpp:94:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7000	    140	  78232	  85372	  14d7c	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+22:35:47 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\Vgascreen.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\Vgascreen.o 
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::init_VGA()':
+..\src\Vgascreen.cpp:26:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::VGA_pos(int, int)':
+..\src\Vgascreen.cpp:31:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_rectangle(int, int, int, int, int)':
+..\src\Vgascreen.cpp:88:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_triangle(int, int, int, int, int, int, int)':
+..\src\Vgascreen.cpp:94:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7000	    140	  78232	  85372	  14d7c	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+22:38:33 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\main.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\main.o 
+..\src\main.cpp: In function 'int main()':
+..\src\main.cpp:34:7: warning: unused variable 'b' [-Wunused-variable]
+   int b = 65;
+       ^
+arm-atollic-eabi-g++ -c ..\src\Vgascreen.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\Vgascreen.o 
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::init_VGA()':
+..\src\Vgascreen.cpp:26:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::VGA_pos(int, int)':
+..\src\Vgascreen.cpp:31:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_rectangle(int, int, int, int, int)':
+..\src\Vgascreen.cpp:91:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\Vgascreen.cpp: In member function 'int Vgascreen::draw_triangle(int, int, int, int, int, int, int)':
+..\src\Vgascreen.cpp:97:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+   7164	    140	  78232	  85536	  14e20	script.elf
 Print size information done
 Generate listing file
 Output sent to: script.list

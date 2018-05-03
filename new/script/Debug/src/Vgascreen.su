@@ -1,5 +1,9 @@
 Vgascreen.cpp:13:1:Vgascreen::Vgascreen()	16	static
-Vgascreen.cpp:20:1:Vgascreen::~Vgascreen()	16	static
-Vgascreen.cpp:20:1:virtual Vgascreen::~Vgascreen()	16	static
-Vgascreen.cpp:24:5:int Vgascreen::draw_line(int, int, int, int, int, int)	48	static
+Vgascreen.cpp:18:1:Vgascreen::~Vgascreen()	16	static
+Vgascreen.cpp:18:1:virtual Vgascreen::~Vgascreen()	16	static
+Vgascreen.cpp:23:5:int Vgascreen::init_VGA()	16	static
+Vgascreen.cpp:28:5:int Vgascreen::VGA_pos(int, int)	24	static
+Vgascreen.cpp:33:5:int Vgascreen::draw_line(int, int, int, int, int, int)	56	static
+Vgascreen.cpp:86:5:int Vgascreen::draw_rectangle(int, int, int, int, int)	40	static
+Vgascreen.cpp:93:5:int Vgascreen::draw_triangle(int, int, int, int, int, int, int)	40	static
 move.h:184:5:void std::swap(_Tp&, _Tp&) [with _Tp = int]	24	static

@@ -31,7 +31,7 @@
 int main(void)
 {
   int i = 0;
-  int b = 35;
+  int b = 65;
   int x1 =10;
   int y1 = 50;
   int x2 = 150;
@@ -53,19 +53,14 @@ int main(void)
   Vgascreen s1 = Vgascreen();
 
   //sqaure
-  s1.draw_line(x1,y2,x2,y2,3,254);
-  s1.draw_line(x2,y2+1,x2,y1,3,254);
-  s1.draw_line(x2,y1,x1,y1,3,254);
-  s1.draw_line(x1,y1,x1,y2,3,254);
+  s1.draw_rectangle(x1,y1,x2,y2,5);
 
   //linetest
-  s1.draw_line(0,0,240,240,3,254);
-  s1.draw_line(0,240,240,0,3,254);
+  s1.draw_line(180,0,180,240,2,254);
+  //s1.draw_line(120,60,180,180,5,254);
 
   //triangle
-  s1.draw_line(x1+b,y1+b,x2+b,y2+b,3,254);
-  s1.draw_line(x1+b,y1+b,x2+b,y1+b,3,254);
-  s1.draw_line(x2+b,y1+b,x2+b,y2+b,3,254);
+  s1.draw_triangle(300, 20, 180,180, 120,60,1);
 
   /* Initialize LEDs */
   STM_EVAL_LEDInit(LED3);
