@@ -1,0 +1,29 @@
+13:47:12.907 [Worker-51] ERROR org.coocox.codb.common.log.ErrorLog - extraChecked  api exception!PUT API FAILED! 
+PUT API FAILED! 
+org.coocox.codb.client.core.api.ClientBaseApi.putRespCheck(ClientBaseApi.java:54)
+org.coocox.codb.client.core.api.impl.ObjectExtraApiImpl.extraChecked(ObjectExtraApiImpl.java:39)
+org.coocox.component.internal.core.database.ComponentDBCmdHandler.countCheckedComponent(ComponentDBCmdHandler.java:133)
+org.coocox.integrate.component.table.listeners.ComponentItemCheckListener$1.run(ComponentItemCheckListener.java:229)
+org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+
+13:47:32.615 [Worker-55] ERROR org.coocox.codb.common.log.ErrorLog - getExamplesOfCompByCompId API failed 
+GET API FAILED
+org.coocox.codb.client.core.api.ClientBaseApi.getCheckByResponse(ClientBaseApi.java:94)
+org.coocox.codb.client.core.api.impl.ExampleApiImpl.getExamplesOfCompByCompId(ExampleApiImpl.java:329)
+org.coocox.codb.client.core.api.impl.ExampleApiImpl.freshExamplesByCompId(ExampleApiImpl.java:223)
+org.coocox.example.core.impl.ExampleDBCmdHandler.freshExamplesByCompId(ExampleDBCmdHandler.java:51)
+org.coocox.integrate.component.views.ComponentView$4$1.run(ComponentView.java:346)
+org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+
+13:47:33.284 [Worker-57] ERROR org.coocox.codb.common.log.ErrorLog - getExamplesOfCompByCompId API failed 
+GET API FAILED
+org.coocox.codb.client.core.api.ClientBaseApi.getCheckByResponse(ClientBaseApi.java:94)
+org.coocox.codb.client.core.api.impl.ExampleApiImpl.getExamplesOfCompByCompId(ExampleApiImpl.java:329)
+org.coocox.codb.client.core.api.impl.ExampleApiImpl.freshExamplesByCompId(ExampleApiImpl.java:223)
+org.coocox.example.core.impl.ExampleDBCmdHandler.freshExamplesByCompId(ExampleDBCmdHandler.java:51)
+org.coocox.integrate.component.views.ComponentView$4$1.run(ComponentView.java:346)
+org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+

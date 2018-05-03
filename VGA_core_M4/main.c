@@ -13,7 +13,7 @@
 #include "main.h"
 #include "stm32_ub_vga_screen.h"
 #include <math.h>
-
+#include "includes.h"
 
 
 int main(void)
@@ -22,10 +22,10 @@ int main(void)
 	//  uint32_t n;
 /** @code */
 	SystemInit(); // System speed to 168MHz
-
+	UART_init();
 	UB_VGA_Screen_Init(); // Init VGA-Screen
 
-  UB_VGA_FillScreen(VGA_COL_BLACK);
+  UB_VGA_FillScreen(VGA_COL_GREEN);
   UB_VGA_SetPixel(10,10,10);
 /** @endcode */
 
@@ -33,7 +33,8 @@ int main(void)
 
   while(1)
   {
-	  // put the code here
+	  UART_puts("ok");
+
   }
 }
 
