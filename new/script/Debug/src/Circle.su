@@ -1,0 +1,4 @@
+Circle.cpp:10:1:Circle::Circle()	16	static
+Circle.cpp:15:1:Circle::~Circle()	16	static
+Circle.cpp:15:1:virtual Circle::~Circle()	16	static
+Circle.cpp:19:5:int Circle::aenb(int, int)	32	static

@@ -1,0 +1,23 @@
+/*
+ * Circle.cpp
+ *
+ *  Created on: May 3, 2018
+ *      Author: M
+ */
+
+#include <Circle.h>
+
+Circle::Circle() {
+	// TODO Auto-generated constructor stub
+
+}
+
+Circle::~Circle() {
+	// TODO Auto-generated destructor stub
+}
+
+int Circle::aenb(int a, int b){
+	int c = a + b;
+	return c;
+}
+

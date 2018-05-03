@@ -11,9 +11,10 @@
 //--------------------------------------------------------------
 
 /* Includes */
+#include <Vgascreen.h>
 #include "stm32f4xx.h"
 #include "stm32f4_discovery.h"
-#include "stm32_ub_vga_screen.h"
+
 
 /* Private macro */
 /* Private variables */
@@ -30,6 +31,11 @@
 int main(void)
 {
   int i = 0;
+  int b = 35;
+  int x1 =10;
+  int y1 = 50;
+  int x2 = 150;
+  int y2 = 150;
 
   /**
   *  IMPORTANT NOTE!
@@ -44,6 +50,23 @@ int main(void)
   /* TODO - Add your application code here */
   SystemInit(); // System speed to 168MHz
 
+  Vgascreen s1 = Vgascreen();
+
+  //sqaure
+  s1.draw_line(x1,y2,x2,y2,3,254);
+  s1.draw_line(x2,y2+1,x2,y1,3,254);
+  s1.draw_line(x2,y1,x1,y1,3,254);
+  s1.draw_line(x1,y1,x1,y2,3,254);
+
+  //linetest
+  s1.draw_line(0,0,240,240,3,254);
+  s1.draw_line(0,240,240,0,3,254);
+
+  //triangle
+  s1.draw_line(x1+b,y1+b,x2+b,y2+b,3,254);
+  s1.draw_line(x1+b,y1+b,x2+b,y1+b,3,254);
+  s1.draw_line(x2+b,y1+b,x2+b,y2+b,3,254);
+
   /* Initialize LEDs */
   STM_EVAL_LEDInit(LED3);
   STM_EVAL_LEDInit(LED4);
@@ -55,6 +78,7 @@ int main(void)
   STM_EVAL_LEDOn(LED4);
   STM_EVAL_LEDOn(LED5);
   STM_EVAL_LEDOn(LED6);
+
 
   /* Infinite loop */
   while (1)

@@ -1,0 +1,5 @@
+Vgascreen.cpp:13:1:Vgascreen::Vgascreen()	16	static
+Vgascreen.cpp:20:1:Vgascreen::~Vgascreen()	16	static
+Vgascreen.cpp:20:1:virtual Vgascreen::~Vgascreen()	16	static
+Vgascreen.cpp:24:5:int Vgascreen::draw_line(int, int, int, int, int, int)	48	static
+move.h:184:5:void std::swap(_Tp&, _Tp&) [with _Tp = int]	24	static
