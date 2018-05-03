@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
+<<<<<<< HEAD
    <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F407VG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -IC:\Users\niek_\Documents\GitHub\VESOFTON\VGA_core_M4\ports -IC:\Users\niek_\Documents\GitHub\VESOFTON\VGA_core_M4\ub_lib -IC:\Users\niek_\Documents\GitHub\VESOFTON\VGA_core_M4 -IC:\Users\niek_\Documents\GitHub -IC:\Users\niek_\Documents\GitHub\VESOFTON\VGA_core_M4\cmsis -IC:\Users\niek_\Documents\GitHub\VESOFTON\VGA_core_M4\cmsis_boot -IC:\Users\niek_\Documents\GitHub\VESOFTON\VGA_core_M4\cmsis_lib -IC:\Users\niek_\Documents\GitHub\VESOFTON\VGA_core_M4\cmsis_lib\include -IC:\Users\niek_\Documents\GitHub\VESOFTON">
       <target file="syscalls.o" lastModified="16325ad61ad">
          <source file="..\..\..\syscalls\syscalls.c" lastModified="163253a825b"/>
@@ -51,6 +52,35 @@
       </target>
       <target file="misc.o" lastModified="16325ad633c">
          <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="16301459ccf"/>
+=======
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F407VG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\..\..\Users\M\Desktop\VESOFTON\VGA_core_M4\cmsis -I..\..\..\..\..\Users\M\Desktop\VESOFTON -I..\..\..\..\..\Users\M\Desktop\VESOFTON\VGA_core_M4\cmsis_lib -I..\..\..\..\..\Users\M\Desktop\VESOFTON\VGA_core_M4\ub_lib -I..\..\..\..\..\Users\M\Desktop\VESOFTON\VGA_core_M4 -I..\..\..\..\..\Users\M\Desktop\VESOFTON\VGA_core_M4\cmsis_lib\include -I..\..\..\..\..\Users\M\Desktop\VESOFTON\VGA_core_M4\cmsis_boot">
+      <target file="stm32f4xx_gpio.o" lastModified="16301bea473">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="163013de407"/>
+      </target>
+      <target file="stm32_ub_vga_screen.o" lastModified="16301c3abfe">
+         <source file="..\..\..\ub_lib\stm32_ub_vga_screen.c" lastModified="163013de495"/>
+      </target>
+      <target file="stm32f4xx_dma.o" lastModified="16301bea7b4">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_dma.c" lastModified="163013de405"/>
+      </target>
+      <target file="stm32f4xx_tim.o" lastModified="16301beada1">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="163013de40d"/>
+      </target>
+      <target file="system_stm32f4xx.o" lastModified="16301bea68c">
+         <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="163013de3f3"/>
+      </target>
+      <target file="startup_stm32f4xx.o" lastModified="16301bea101">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="163013de3ce"/>
+      </target>
+      <target file="main.o" lastModified="16301dc09ca">
+         <source file="..\..\..\main.c" lastModified="16301dc04a5"/>
+      </target>
+      <target file="stm32f4xx_rcc.o" lastModified="16301bea361">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="163013de40a"/>
+      </target>
+      <target file="misc.o" lastModified="16301beaaec">
+         <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="163013de402"/>
+>>>>>>> 6ad136af296abe8bee0d0afb15664a36b9c7aaee
       </target>
    </processor>
 </history>
