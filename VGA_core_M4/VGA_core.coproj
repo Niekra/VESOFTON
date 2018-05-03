@@ -89,30 +89,40 @@
     <File name="cmsis_boot" path="" type="2"/>
     <File name="ub_lib" path="" type="2"/>
     <File name="cmsis_lib/include/stm32f4xx_usart.h" path="cmsis_lib/include/stm32f4xx_usart.h" type="1"/>
-    <File name="cmsis_boot/stm32f4xx.h" path="cmsis_boot/stm32f4xx.h" type="1"/>
+    <File name="ub_lib/ports/delay.h" path="ports/delay.h" type="1"/>
     <File name="cmsis/core_cm4_simd.h" path="cmsis/core_cm4_simd.h" type="1"/>
+    <File name="cmsis_boot/stm32f4xx.h" path="cmsis_boot/stm32f4xx.h" type="1"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="cmsis/core_cmFunc.h" path="cmsis/core_cmFunc.h" type="1"/>
     <File name="cmsis_boot/system_stm32f4xx.c" path="cmsis_boot/system_stm32f4xx.c" type="1"/>
     <File name="cmsis/core_cm4.h" path="cmsis/core_cm4.h" type="1"/>
     <File name="ub_lib/ports" path="" type="2"/>
+    <File name="ub_lib/ports/lcd.h" path="ports/lcd.h" type="1"/>
     <File name="cmsis_lib/source/misc.c" path="cmsis_lib/source/misc.c" type="1"/>
     <File name="cmsis" path="" type="2"/>
+    <File name="ub_lib/ports/keys.h" path="ports/keys.h" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_tim.h" path="cmsis_lib/include/stm32f4xx_tim.h" type="1"/>
-    <File name="syscalls/syscalls.c" path="syscalls/syscalls.c" type="1"/>
     <File name="cmsis_lib" path="" type="2"/>
+    <File name="syscalls/syscalls.c" path="syscalls/syscalls.c" type="1"/>
+    <File name="ub_lib/ports/delay.c" path="ports/delay.c" type="1"/>
+    <File name="ub_lib/ports/buzzer.c" path="ports/buzzer.c" type="1"/>
     <File name="cmsis_lib/source" path="" type="2"/>
     <File name="cmsis_lib/include/stm32f4xx_dma.h" path="cmsis_lib/include/stm32f4xx_dma.h" type="1"/>
+    <File name="ub_lib/ports/leds.h" path="ports/leds.h" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_tim.c" path="cmsis_lib/source/stm32f4xx_tim.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_gpio.h" path="cmsis_lib/include/stm32f4xx_gpio.h" type="1"/>
     <File name="ub_lib/stm32_ub_vga_screen.h" path="ub_lib/stm32_ub_vga_screen.h" type="1"/>
     <File name="syscalls" path="" type="2"/>
+    <File name="ub_lib/ports/leds.c" path="ports/leds.c" type="1"/>
     <File name="cmsis_lib/include/misc.h" path="cmsis_lib/include/misc.h" type="1"/>
+    <File name="ub_lib/ports/lcd.c" path="ports/lcd.c" type="1"/>
     <File name="cmsis_boot/stm32f4xx_conf.h" path="cmsis_boot/stm32f4xx_conf.h" type="1"/>
     <File name="cmsis_boot/system_stm32f4xx.h" path="cmsis_boot/system_stm32f4xx.h" type="1"/>
     <File name="ub_lib/ports/uart.c" path="ports/uart.c" type="1"/>
     <File name="cmsis_lib/include" path="" type="2"/>
+    <File name="ub_lib/ports/keys.c" path="ports/keys.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_rcc.h" path="cmsis_lib/include/stm32f4xx_rcc.h" type="1"/>
+    <File name="ub_lib/ports/buzzer.h" path="ports/buzzer.h" type="1"/>
     <File name="main.c" path="main.c" type="1"/>
     <File name="cmsis_lib/includes.h" path="includes.h" type="1"/>
   </Files>

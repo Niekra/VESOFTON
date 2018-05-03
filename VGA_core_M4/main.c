@@ -23,18 +23,26 @@ int main(void)
 /** @code */
 	SystemInit(); // System speed to 168MHz
 	UART_init();
+	DELAY_init();
 	UB_VGA_Screen_Init(); // Init VGA-Screen
 
   UB_VGA_FillScreen(VGA_COL_GREEN);
   UB_VGA_SetPixel(10,10,10);
 /** @endcode */
 
+//  char input[];
 
 
   while(1)
   {
 	  UART_puts("ok");
-
+	  DELAY_ms(500);
+//	  UART_gets(input);
+//	  if (sizeof(input) > 0)
+//	  {
+//		 UART_puts(input);
+//
+//	  }
   }
 }
 
