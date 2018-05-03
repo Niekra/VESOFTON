@@ -31,13 +31,14 @@ int Vgascreen::VGA_pos(int x, int y){
 }
 
 int Vgascreen::draw_line(int x1, int y1, int x2, int y2, int width, int color){
-	const int dx = abs(x1-x2);
-	const int dy = abs(y1-y2);
+	int dx = abs(x1-x2);
+	int dy = abs(y1-y2);
 	bool a= true;
 
 	if(dy>dx){
 		std::swap(x1, y1);
 		std::swap(x2, y2);
+		std::swap(dx,dy);
 	}
 
 	if(x1>x2){
@@ -55,17 +56,9 @@ int Vgascreen::draw_line(int x1, int y1, int x2, int y2, int width, int color){
 		for(int i = x1; i< x2; i++){
 			c = i - x1;
 			if(a){
-				if(dx>dy){
-					y = y1 + dy * (c) / dx;
-				}else{
-					y = y1 + dx * (c) / dy;
-				}
+				y = y1 + dy * (c) / dx;
 			}else {
-				if(dx>dy){
-					y = y1 - dy * (c) / dx;
-				}else{
-					y = y1 - dx * (c) / dy;
-				}
+				y = y1 - dy * (c) / dx;
 			}
 			int xset = i;
 			if (dx>dy){
