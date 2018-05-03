@@ -5,8 +5,10 @@
  *      Author: M
  */
 
+
 #include <VGA.h>
 #include <stm32_ub_vga_screen.h>
+#include <stdlib.h>
 
 VGA::VGA() {
 	// TODO Auto-generated constructor stub
@@ -20,8 +22,8 @@ VGA::~VGA() {
 }
 
 int VGA::draw_line(int x1, int y1, int x2, int y2, int width, int color){
-	int dx = (x1-x2);
-	int dy = (y1-y2);
+	int dx = abs(x1-x2);
+	int dy = abs(y1-y2);
 	int xy = dx/dy;
 
 

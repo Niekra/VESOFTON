@@ -1,6 +1,6 @@
 #
-#Thu May 03 16:28:51 CEST 2018
-script.elf=1
-Debug/script=1
+#Thu May 03 16:50:56 CEST 2018
 stm32f4_flash.ld=1
+Debug/script=1
+script.elf=1
 Debug/script.elf=1

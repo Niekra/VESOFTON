@@ -1,4 +1,4 @@
-VGA.cpp:11:1:VGA::VGA()	16	static
-VGA.cpp:18:1:VGA::~VGA()	16	static
-VGA.cpp:18:1:virtual VGA::~VGA()	16	static
-VGA.cpp:22:5:int VGA::draw_line(int, int, int, int, int, int)	56	static
+VGA.cpp:13:1:VGA::VGA()	16	static
+VGA.cpp:20:1:VGA::~VGA()	16	static
+VGA.cpp:20:1:virtual VGA::~VGA()	16	static
+VGA.cpp:24:5:int VGA::draw_line(int, int, int, int, int, int)	56	static
