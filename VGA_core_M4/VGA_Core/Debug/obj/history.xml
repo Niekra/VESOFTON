@@ -1,55 +1,55 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F407VG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -IC:\Users\niek_\Documents\GitHub\VESOFTON\VGA_core_M4\ports -IC:\Users\niek_\Documents\GitHub\VESOFTON\VGA_core_M4\ub_lib -IC:\Users\niek_\Documents\GitHub\VESOFTON\VGA_core_M4 -IC:\Users\niek_\Documents\GitHub -IC:\Users\niek_\Documents\GitHub\VESOFTON\VGA_core_M4\cmsis -IC:\Users\niek_\Documents\GitHub\VESOFTON\VGA_core_M4\cmsis_boot -IC:\Users\niek_\Documents\GitHub\VESOFTON\VGA_core_M4\cmsis_lib -IC:\Users\niek_\Documents\GitHub\VESOFTON\VGA_core_M4\cmsis_lib\include -IC:\Users\niek_\Documents\GitHub\VESOFTON">
-      <target file="syscalls.o" lastModified="163253b3773">
+      <target file="syscalls.o" lastModified="16325ad61ad">
          <source file="..\..\..\syscalls\syscalls.c" lastModified="163253a825b"/>
       </target>
-      <target file="stm32f4xx_gpio.o" lastModified="163253b36b3">
+      <target file="stm32f4xx_gpio.o" lastModified="16325ad60f4">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="16301459ccf"/>
       </target>
-      <target file="uart.o" lastModified="163257f24fb">
+      <target file="uart.o" lastModified="16325ad5f0e">
          <source file="..\..\..\ports\uart.c" lastModified="163257f227d"/>
       </target>
-      <target file="stm32_ub_vga_screen.o" lastModified="163253b383e">
+      <target file="stm32_ub_vga_screen.o" lastModified="16325ad62e9">
          <source file="..\..\..\ub_lib\stm32_ub_vga_screen.c" lastModified="16301459cee"/>
       </target>
-      <target file="stm32f4xx_dma.o" lastModified="163253b37da">
+      <target file="stm32f4xx_dma.o" lastModified="16325ad6210">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_dma.c" lastModified="16301459ccf"/>
       </target>
-      <target file="buzzer.o" lastModified="163254ca5b4">
+      <target file="buzzer.o" lastModified="16325ad5e22">
          <source file="..\..\..\ports\buzzer.c" lastModified="147102eb7f8"/>
       </target>
-      <target file="stm32f4xx_tim.o" lastModified="163253b394f">
+      <target file="stm32f4xx_tim.o" lastModified="16325ad63e0">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="16301459ccf"/>
       </target>
-      <target file="leds.o" lastModified="163254ca615">
+      <target file="leds.o" lastModified="16325ad609f">
          <source file="..\..\..\ports\leds.c" lastModified="147eeefdb26"/>
       </target>
-      <target file="system_stm32f4xx.o" lastModified="163253b3710">
+      <target file="system_stm32f4xx.o" lastModified="16325ad6148">
          <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="16301459ccf"/>
       </target>
-      <target file="startup_stm32f4xx.o" lastModified="163253b3560">
+      <target file="startup_stm32f4xx.o" lastModified="16325ad5f52">
          <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="16301459cbf"/>
       </target>
-      <target file="stm32f4xx_usart.o" lastModified="163253b3403">
+      <target file="stm32f4xx_usart.o" lastModified="16325ad5e8a">
          <source file="..\..\..\cmsis_lib\source\stm32f4xx_usart.c" lastModified="16301c7083c"/>
       </target>
-      <target file="keys.o" lastModified="163254ca547">
+      <target file="keys.o" lastModified="16325ad5dad">
          <source file="..\..\..\ports\keys.c" lastModified="14710ff7190"/>
       </target>
-      <target file="main.o" lastModified="1632590db47">
-         <source file="..\..\..\main.c" lastModified="1632590d8ee"/>
-      </target>
-      <target file="lcd.o" lastModified="163254ca685">
+      <target file="lcd.o" lastModified="16325ad6284">
          <source file="..\..\..\ports\lcd.c" lastModified="147eee54714"/>
       </target>
-      <target file="stm32f4xx_rcc.o" lastModified="163253b3649">
-         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="16301459ccf"/>
+      <target file="main.o" lastModified="16325ad5fb7">
+         <source file="..\..\..\main.c" lastModified="16325acc0a1"/>
       </target>
-      <target file="delay.o" lastModified="163254ca4e2">
+      <target file="delay.o" lastModified="16325ad5d29">
          <source file="..\..\..\ports\delay.c" lastModified="1429c91e3a0"/>
       </target>
-      <target file="misc.o" lastModified="163253b3898">
+      <target file="stm32f4xx_rcc.o" lastModified="16325ad602b">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="16301459ccf"/>
+      </target>
+      <target file="misc.o" lastModified="16325ad633c">
          <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="16301459ccf"/>
       </target>
    </processor>

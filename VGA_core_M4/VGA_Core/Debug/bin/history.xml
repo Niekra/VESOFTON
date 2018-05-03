@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -g -nostartfiles -Map=VGA_core.map -O0 --gc-sections -LD:\Programma's\CoIDE\configuration\ProgramData\VGA_Core -TD:\Programma's\CoIDE\configuration\ProgramData\VGA_Core/arm-gcc-link.ld -g -L..\..\.. -lm">
+      <target file="VGA_core.elf" lastModified="16325ad6764">
+         <source file="..\obj\delay.o" lastModified="16325ad5d29"/>
+         <source file="..\obj\keys.o" lastModified="16325ad5dad"/>
+         <source file="..\obj\buzzer.o" lastModified="16325ad5e22"/>
+         <source file="..\obj\stm32f4xx_usart.o" lastModified="16325ad5e8a"/>
+         <source file="..\obj\uart.o" lastModified="16325ad5f0e"/>
+         <source file="..\obj\startup_stm32f4xx.o" lastModified="16325ad5f52"/>
+         <source file="..\obj\main.o" lastModified="16325ad5fb7"/>
+         <source file="..\obj\stm32f4xx_rcc.o" lastModified="16325ad602b"/>
+         <source file="..\obj\leds.o" lastModified="16325ad609f"/>
+         <source file="..\obj\stm32f4xx_gpio.o" lastModified="16325ad60f4"/>
+         <source file="..\obj\system_stm32f4xx.o" lastModified="16325ad6148"/>
+         <source file="..\obj\syscalls.o" lastModified="16325ad61ad"/>
+         <source file="..\obj\stm32f4xx_dma.o" lastModified="16325ad6210"/>
+         <source file="..\obj\lcd.o" lastModified="16325ad6284"/>
+         <source file="..\obj\stm32_ub_vga_screen.o" lastModified="16325ad62e9"/>
+         <source file="..\obj\misc.o" lastModified="16325ad633c"/>
+         <source file="..\obj\stm32f4xx_tim.o" lastModified="16325ad63e0"/>
+      </target>
+   </processor>
+</history>
