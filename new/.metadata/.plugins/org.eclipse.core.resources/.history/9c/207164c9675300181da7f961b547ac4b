@@ -41,7 +41,7 @@ private:
 	 * \brief teken een lijn.
 	 * \param paramter int.
 	 */
-	int init();
+	int UART_init();
 	/*!
 	 * \brief teken een lijn.
 	 * \param paramter int.

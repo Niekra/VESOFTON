@@ -1,3 +1,8 @@
 UART.cpp:12:1:UART::UART::UART()	16	static
 UART.cpp:17:1:UART::UART::~UART()	16	static
 UART.cpp:17:1:virtual UART::UART::~UART()	16	static
+UART.cpp:26:5:int UART::UART::write(char*)	16	static
+UART.cpp:34:5:int UART::UART::read(char*)	16	static
+UART.cpp:42:5:int UART::UART::init()	16	static
+UART.cpp:50:5:int UART::UART::putchar(char)	16	static
+UART.cpp:57:5:int UART::UART::getchar(char)	16	static

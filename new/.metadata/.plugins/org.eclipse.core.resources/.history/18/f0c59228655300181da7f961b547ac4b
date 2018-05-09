@@ -36,12 +36,12 @@ public:
 	 */
 	int read(char *buf);
 private:
-	char buf[36];
+	char buf[];
 	/*!
 	 * \brief teken een lijn.
 	 * \param paramter int.
 	 */
-	int init();
+	int UART_init();
 	/*!
 	 * \brief teken een lijn.
 	 * \param paramter int.

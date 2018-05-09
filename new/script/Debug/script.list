@@ -23,21 +23,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
   9 .ARM.attributes 0000002a  00000000  00000000  00020084  2**0
                   CONTENTS, READONLY
- 10 .debug_info   00008fe3  00000000  00000000  000200ae  2**0
+ 10 .debug_info   0000911a  00000000  00000000  000200ae  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_abbrev 000018a7  00000000  00000000  00029091  2**0
+ 11 .debug_abbrev 000018a7  00000000  00000000  000291c8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_aranges 00000a90  00000000  00000000  0002a938  2**3
+ 12 .debug_aranges 00000aa8  00000000  00000000  0002aa70  2**3
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_ranges 000009a8  00000000  00000000  0002b3c8  2**3
+ 13 .debug_ranges 000009c0  00000000  00000000  0002b518  2**3
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_line   00003d43  00000000  00000000  0002bd70  2**0
+ 14 .debug_line   00003d7b  00000000  00000000  0002bed8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_str    00003a9e  00000000  00000000  0002fab3  2**0
+ 15 .debug_str    00003ac4  00000000  00000000  0002fc53  2**0
                   CONTENTS, READONLY, DEBUGGING
- 16 .comment      0000007c  00000000  00000000  00033551  2**0
+ 16 .comment      0000007c  00000000  00000000  00033717  2**0
                   CONTENTS, READONLY
- 17 .debug_frame  00002d78  00000000  00000000  000335d0  2**2
+ 17 .debug_frame  00002df0  00000000  00000000  00033794  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -3840,17 +3840,18 @@ int Vgascreen::init_VGA(){
 	UB_VGA_FillScreen(VGA_COL_GREEN);// Set screen green.
  8001582:	201c      	movs	r0, #28
  8001584:	f7ff fcd8 	bl	8000f38 <UB_VGA_FillScreen>
+	return 0;
+ 8001588:	2300      	movs	r3, #0
 }
- 8001588:	bf00      	nop
  800158a:	4618      	mov	r0, r3
  800158c:	3708      	adds	r7, #8
  800158e:	46bd      	mov	sp, r7
  8001590:	bd80      	pop	{r7, pc}
 
 08001592 <_ZN9Vgascreen9draw_lineEiiiiii>:
-int Vgascreen::VGA_pos(int x, int y){
 	x_pos = x;// Set x position.
 	y_pos = y;// Set y position.
+	return 0;
 }
 
 int Vgascreen::draw_line(int x1, int y1, int x2, int y2, int width, int color){
@@ -4065,6 +4066,10 @@ int Vgascreen::draw_line(int x1, int y1, int x2, int y2, int width, int color){
  80016f4:	bd80      	pop	{r7, pc}
 
 080016f6 <_ZN9Vgascreen14draw_rectangleEiiiii>:
+
+int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad,int color){
+	return 0;
+}
 
 int Vgascreen::draw_rectangle(int x_lo, int y_lo, int x_rb, int y_rb, int color){
  80016f6:	b580      	push	{r7, lr}
