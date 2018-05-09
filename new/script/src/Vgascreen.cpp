@@ -85,6 +85,93 @@ int Vgascreen::draw_line(int x1, int y1, int x2, int y2, int width, int color){
 }
 
 int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad,int color){
+
+	  int hh = y_rad * y_rad;
+	  int ww = x_rad * x_rad;
+	  int hhww = hh * ww;
+	  int x0 = x_rad;
+	  int dx = 0;
+
+	  int fill = 0;
+
+	  // do the horizontal diameter
+	  for (int x = -x_rad; x <= x_rad; x++){
+		  if (fill==false){
+			  if (x == -x_rad || x == x_rad)
+				  UB_VGA_SetPixel(x_mp + x, y_mp, color);
+		  }
+		  else
+			  UB_VGA_SetPixel(x_mp + x, y_mp, color);
+	  }
+
+	  // now do both halves at the same time, away from the diameter
+	  for (int y = 1; y <= y_rad; y++)
+	  {
+	      int x1 = x0 - (dx - 1);  // try slopes of dx - 1 or more
+	      for ( ; x1 > 0; x1--)
+	          if (x1*x1*hh + y*y*ww <= hhww)
+	              break;
+	      dx = x0 - x1;  // current approximation of the slope
+	      x0 = x1;
+
+	      for (int x = -x0; x <= x0; x++)
+	      {
+	    	  if (fill==false){
+	    		  if (x==-x0 || x==x0){
+	    			  UB_VGA_SetPixel(x_mp + x, y_mp - y, color);
+	    			  UB_VGA_SetPixel(x_mp + x, y_mp + y, color);
+	    		  }
+	    	  }
+	    	  else{
+	    		  UB_VGA_SetPixel(x_mp + x, y_mp - y, color);
+	    		  UB_VGA_SetPixel(x_mp + x, y_mp + y, color);
+	    	  }
+	      }
+	  }
+
+
+	  hh = x_rad * x_rad;
+	  ww = y_rad * y_rad;
+	  hhww = hh * ww;
+	  x0 = y_rad;
+	  dx = 0;
+
+		  // do the horizontal diameter
+		  for (int x = -y_rad; x <= y_rad; x++){
+			  if (fill==false){
+				  if (x == -y_rad || x == y_rad)
+					  UB_VGA_SetPixel(x_mp, y_mp + x, color);
+			  }
+			  else
+				  UB_VGA_SetPixel(x_mp, y_mp + x, color);
+		  }
+
+		  // now do both halves at the same time, away from the diameter
+		  for (int y = 1; y <= x_rad; y++)
+		  {
+		      int x1 = x0 - (dx - 1);  // try slopes of dx - 1 or more
+		      for ( ; x1 > 0; x1--)
+		          if (x1*x1*hh + y*y*ww <= hhww)
+		              break;
+		      dx = x0 - x1;  // current approximation of the slope
+		      x0 = x1;
+
+		      for (int x = -x0; x <= x0; x++)
+		      {
+		    	  if (fill==false){
+		    		  if (x==-x0 || x==x0){
+		    			  UB_VGA_SetPixel(x_mp - y, y_mp + x, color);
+		    			  UB_VGA_SetPixel(x_mp + y, y_mp + x, color);
+		    		  }
+		    	  }
+		    	  else{
+		    		  UB_VGA_SetPixel(x_mp - y, y_mp + x, color);
+		    		  UB_VGA_SetPixel(x_mp + y, y_mp + x, color);
+		    	  }
+		      }
+		  }
+
+
 	return 0;
 }
 

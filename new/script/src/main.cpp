@@ -52,7 +52,7 @@ int main(void)
 
   Vgascreen s1 = Vgascreen();
 
-  //sqaure
+  //square
   s1.draw_rectangle(x1,y1,x2,y2,5);
 
   //linetest
@@ -62,6 +62,8 @@ int main(void)
   //triangle
   s1.draw_triangle(300, 20, 180,180, 120,60,1);
 
+  //ellipse
+  s1.draw_ellipse(40, 40, 20, 30, 0);
   /* Initialize LEDs */
   STM_EVAL_LEDInit(LED3);
   STM_EVAL_LEDInit(LED4);
