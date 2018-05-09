@@ -37,20 +37,20 @@ int UART::write(char *text_out){
  * \param paramter int.
  */
 int UART::read(char *buf){
-	while (1)
+	while (TRUE)
 	{
 	 	*buf = getchar();
 
 	 	if (*buf==-1)             // check for data available
 	 		continue;
 
-	 	if (*buf==0xff || *buf==LF) // if no data or LF, continue
+	 	if (*buf==0xff || *s==LF) // if no data or LF, continue
 			continue;
 
 		if (*buf==CR)            // if enter pressed
 		{
 			*buf = '\0';         // ignore char and close string
-		    return 0;            // buf ready, exit loop
+		    return;            // buf ready, exit loop
 		}
 		buf++;
 	}

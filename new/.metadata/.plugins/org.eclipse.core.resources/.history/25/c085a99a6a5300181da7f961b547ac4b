@@ -37,7 +37,7 @@ int UART::write(char *text_out){
  * \param paramter int.
  */
 int UART::read(char *buf){
-	while (1)
+	while (TRUE)
 	{
 	 	*buf = getchar();
 

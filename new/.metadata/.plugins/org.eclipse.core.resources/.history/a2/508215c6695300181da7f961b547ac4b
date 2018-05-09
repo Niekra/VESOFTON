@@ -8,15 +8,6 @@
 #ifndef UART_H_
 #define UART_H_
 
-#include "stm32f4xx_usart.h"
-#include "stm32f4xx_gpio.h"
-#include "stm32f4xx_rcc.h"
-#include "stm32f4xx_tim.h"
-#include "uart.h"
-
-#define CR 13 // carriage return char
-#define LF 10 // linefeed char
-
 /*!
  * \brief De UART class
  */
@@ -59,7 +50,10 @@ private:
 	/*!
 	 * \brief de VGA class
 	 */
-	char getchar(void);
+	int getchar(char c);
+
+
+
 };
 
 } /* namespace UART */

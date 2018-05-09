@@ -28,7 +28,7 @@ int UART::write(char *text_out){
 	volatile unsigned int i;
 	for (i=0; text_out[i]; i++)
 	{
-		putchar(text_out[i]);
+		putchar(s[i]);
 	}
 }
 
@@ -37,22 +37,22 @@ int UART::write(char *text_out){
  * \param paramter int.
  */
 int UART::read(char *buf){
-	while (1)
+	while (TRUE)
 	{
-	 	*buf = getchar();
+	 	*s = UART_get();
 
-	 	if (*buf==-1)             // check for data available
+	 	if (*s==-1)             // check for data available
 	 		continue;
 
-	 	if (*buf==0xff || *buf==LF) // if no data or LF, continue
+	 	if (*s==0xff || *s==LF) // if no data or LF, continue
 			continue;
 
-		if (*buf==CR)            // if enter pressed
+		if (*s==CR)            // if enter pressed
 		{
-			*buf = '\0';         // ignore char and close string
-		    return 0;            // buf ready, exit loop
+			*s = '\0';         // ignore char and close string
+		    return;            // buf ready, exit loop
 		}
-		buf++;
+		s++;
 	}
 }
 
