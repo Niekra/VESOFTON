@@ -1,0 +1,3 @@
+UART.cpp:12:1:UART::UART::UART()	16	static
+UART.cpp:17:1:UART::UART::~UART()	16	static
+UART.cpp:17:1:virtual UART::UART::~UART()	16	static
