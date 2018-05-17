@@ -11,6 +11,7 @@
 //--------------------------------------------------------------
 
 /* Includes */
+#include <Uart.h>
 #include <Vgascreen.h>
 #include "stm32f4xx.h"
 #include "stm32f4_discovery.h"
@@ -50,6 +51,8 @@ int main(void)
   /* TODO - Add your application code here */
   SystemInit(); // System speed to 168MHz
 
+  Uart u1 = Uart();
+
   Vgascreen s1 = Vgascreen();
 
   //square
@@ -76,11 +79,18 @@ int main(void)
   STM_EVAL_LEDOn(LED5);
   STM_EVAL_LEDOn(LED6);
 
-
+  char inputs[10];
   /* Infinite loop */
   while (1)
   {
-	i++;
+
+	u1.read(inputs);
+
+
+
+	u1.write("ok");
+	i =2+3;
+	i =2+3;
   }
 }
 

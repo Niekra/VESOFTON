@@ -1,39 +1,37 @@
 /*
- * UART.h
+ * Uart.h
  *
  *  Created on: May 9, 2018
  *      Author: M
  */
 
-#ifndef UART_H_
-#define UART_H_
+#ifndef Uart_H_
+#define Uart_H_
 
 #include "stm32f4xx_usart.h"
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_rcc.h"
 #include "stm32f4xx_tim.h"
-#include "uart.h"
+#include "Uart.h"
 
 #define CR 13 // carriage return char
 #define LF 10 // linefeed char
 
 /*!
- * \brief De UART class
+ * \brief De Uart class
  */
-namespace UART {
-
-class UART {
+class Uart {
 public:
 	/*!
 	 * \brief teken een lijn.
 	 * \param paramter int.
 	 */
-	UART();
+	Uart();
 	/*!
 	 * \brief teken een lijn.
 	 * \param paramter int.
 	 */
-	virtual ~UART();
+	virtual ~Uart();
 	/*!
 	 * \brief teken een lijn.
 	 * \param paramter int.
@@ -62,6 +60,4 @@ private:
 	char getchar(void);
 };
 
-} /* namespace UART */
-
-#endif /* UART_H_ */
+#endif /* Uart_H_ */

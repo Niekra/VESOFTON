@@ -1,21 +1,19 @@
 /*
- * UART.cpp
+ * Uart.cpp
  *
  *  Created on: May 9, 2018
  *      Author: M
  */
 
-#include <UART.h>
+#include <Uart.h>
 
-namespace UART {
-
-UART::UART() {
+Uart::Uart() {
 	// TODO Auto-generated constructor stub
 	init();
 
 }
 
-UART::~UART() {
+Uart::~Uart() {
 	// TODO Auto-generated destructor stub
 }
 
@@ -24,7 +22,7 @@ UART::~UART() {
  * \brief teken een lijn.
  * \param paramter int.
  */
-int UART::write(char *text_out){
+int Uart::write(char *text_out){
 	volatile unsigned int i;
 	for (i=0; text_out[i]; i++)
 	{
@@ -36,7 +34,7 @@ int UART::write(char *text_out){
  * \brief teken een lijn.
  * \param paramter int.
  */
-int UART::read(char *buf){
+int Uart::read(char *buf){
 	while (1)
 	{
 	 	*buf = getchar();
@@ -60,7 +58,7 @@ int UART::read(char *buf){
  * \brief teken een lijn.
  * \param paramter int.
  */
-int UART::init(){
+int Uart::init(){
 	  /* --------------------------- System Clocks Configuration -----------------*/
 	  /* USART2 clock enable */
 	  RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
@@ -111,7 +109,7 @@ int UART::init(){
  * \brief teken een lijn.
  * \param paramter int.
  */
-int UART::putchar(char c){
+int Uart::putchar(char c){
 	while(USART_GetFlagStatus(USART2, USART_FLAG_TXE) == RESET); // Wait for Empty
 	USART_SendData(USART2, c);
 }
@@ -119,11 +117,10 @@ int UART::putchar(char c){
 /*!
  * \brief de VGA class
  */
-char UART::getchar(void){
-	char uart_char = -1;
+char Uart::getchar(void){
+	char Uart_char = -1;
 	if (USART_GetFlagStatus(USART2, USART_FLAG_RXNE)== SET)  // check for data available
-		 uart_char= USART2->DR & 0xFF; // and read the data from peripheral
-	return uart_char;
+		 Uart_char= USART2->DR & 0xFF; // and read the data from peripheral
+	return Uart_char;
 }
 
-} /* namespace UART */

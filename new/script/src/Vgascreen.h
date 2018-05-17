@@ -10,6 +10,7 @@
 #ifndef VGASCREEN_H_
 #define VGASCREEN_H_
 
+
 class Vgascreen {
 private:
 	int x_pos;

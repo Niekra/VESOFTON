@@ -92,7 +92,7 @@ int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad,int color){
 	int x0 = x_rad;
 	int dx = 0;
 
-	int fill = 1;
+	int fill = 0;
 
 	// do the horizontal diameter
 	for (int x = -x_rad; x <= x_rad; x++){
@@ -129,7 +129,6 @@ int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad,int color){
 	    }
 	}
 
-
 	hh = x_rad * x_rad;
 	ww = y_rad * y_rad;
 	hhww = hh * ww;
@@ -163,8 +162,6 @@ int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad,int color){
 
 		}
 	}
-
-
 	return 0;
 }
 
