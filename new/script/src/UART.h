@@ -20,8 +20,6 @@
 /*!
  * \brief De UART class
  */
-namespace UART {
-
 class UART {
 public:
 	/*!
@@ -61,7 +59,5 @@ private:
 	 */
 	char getchar(void);
 };
-
-} /* namespace UART */
 
 #endif /* UART_H_ */

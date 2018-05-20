@@ -1,0 +1,17 @@
+/*
+ * Userinterface.h
+ *
+ *  Created on: May 20, 2018
+ *      Author: M
+ */
+
+#ifndef USERINTERFACE_H_
+#define USERINTERFACE_H_
+
+class Userinterface {
+public:
+	Userinterface();
+	virtual ~Userinterface();
+};
+
+#endif /* USERINTERFACE_H_ */

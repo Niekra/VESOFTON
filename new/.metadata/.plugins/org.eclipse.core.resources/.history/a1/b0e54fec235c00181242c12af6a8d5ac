@@ -1,0 +1,32 @@
+/*
+ * InputOutput.cpp
+ *
+ *  Created on: May 20, 2018
+ *      Author: M
+ */
+
+#include <InputOutput.h>
+
+InputOutput::InputOutput() {
+	// TODO Auto-generated constructor stub
+
+}
+
+InputOutput::~InputOutput() {
+	// TODO Auto-generated destructor stub
+}
+
+int write(char *text_out){
+
+}
+/*!
+ * \brief teken een lijn.
+ * \param paramter int.
+ */
+int read(char *buf){
+
+}
+
+int initUART(){
+
+}

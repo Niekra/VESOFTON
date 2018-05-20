@@ -11,7 +11,7 @@
 //--------------------------------------------------------------
 
 /* Includes */
-#include <Vgascreen.h>
+#include <Userinterface.h>
 #include "stm32f4xx.h"
 #include "stm32f4_discovery.h"
 
@@ -30,12 +30,6 @@
 */
 int main(void)
 {
-  int i = 0;
-  int b = 65;
-  int x1 =10;
-  int y1 = 50;
-  int x2 = 150;
-  int y2 = 150;
 
   /**
   *  IMPORTANT NOTE!
@@ -49,36 +43,13 @@ int main(void)
   /** @code */
   /* TODO - Add your application code here */
   SystemInit(); // System speed to 168MHz
-
-  Vgascreen s1 = Vgascreen();
-
-  //sqaure
-  s1.draw_rectangle(x1,y1,x2,y2,5);
-
-  //linetest
-  s1.draw_line(180,0,180,240,2,254);
-  //s1.draw_line(120,60,180,180,5,254);
-
-  //triangle
-  s1.draw_triangle(300, 20, 180,180, 120,60,1);
-
-  /* Initialize LEDs */
-  STM_EVAL_LEDInit(LED3);
-  STM_EVAL_LEDInit(LED4);
-  STM_EVAL_LEDInit(LED5);
-  STM_EVAL_LEDInit(LED6);
-
-  /* Turn on LEDs */
-  STM_EVAL_LEDOn(LED3);
-  STM_EVAL_LEDOn(LED4);
-  STM_EVAL_LEDOn(LED5);
-  STM_EVAL_LEDOn(LED6);
+  Userinterface UI = Userinterface();
 
 
   /* Infinite loop */
   while (1)
   {
-	i++;
+	UI.mainLoop();
   }
 }
 

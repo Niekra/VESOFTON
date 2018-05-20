@@ -7,8 +7,6 @@
 
 #include <UART.h>
 
-namespace UART {
-
 UART::UART() {
 	// TODO Auto-generated constructor stub
 	init();
@@ -126,4 +124,3 @@ char UART::getchar(void){
 	return uart_char;
 }
 
-} /* namespace UART */

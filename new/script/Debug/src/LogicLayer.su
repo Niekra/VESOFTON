@@ -1,0 +1,14 @@
+Vgascreen.h:13:7:Vgascreen& Vgascreen::operator=(const Vgascreen&)	16	static
+LogicLayer.cpp:20:1:LogicLayer::LogicLayer()	40	static
+LogicLayer.cpp:31:1:LogicLayer::~LogicLayer()	16	static
+LogicLayer.cpp:31:1:virtual LogicLayer::~LogicLayer()	16	static
+LogicLayer.cpp:39:5:int LogicLayer::exec()	16	static
+LogicLayer.cpp:47:5:int LogicLayer::setCommand(char*)	32	static
+LogicLayer.cpp:91:5:int LogicLayer::clearCommands()	16	static
+LogicLayer.cpp:99:5:int LogicLayer::repeat()	16	static
+LogicLayer.cpp:107:5:int LogicLayer::addLastCommand()	16	static
+LogicLayer.cpp:115:5:int LogicLayer::clearLastCommands()	16	static
+LogicLayer.cpp:123:5:int LogicLayer::execBuffer()	16	static
+LogicLayer.cpp:131:5:int LogicLayer::addBufCommand()	16	static
+LogicLayer.cpp:139:5:int LogicLayer::clearBufCommands()	16	static
+LogicLayer.cpp:147:5:int LogicLayer::waitMs()	16	static

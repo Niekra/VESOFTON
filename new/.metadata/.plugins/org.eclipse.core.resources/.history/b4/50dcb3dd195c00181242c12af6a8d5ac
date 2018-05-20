@@ -1,0 +1,17 @@
+/*
+ * LogicLayer.h
+ *
+ *  Created on: May 20, 2018
+ *      Author: M
+ */
+
+#ifndef LOGICLAYER_H_
+#define LOGICLAYER_H_
+
+class LogicLayer {
+public:
+	LogicLayer();
+	virtual ~LogicLayer();
+};
+
+#endif /* LOGICLAYER_H_ */

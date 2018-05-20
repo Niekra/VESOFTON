@@ -1,0 +1,34 @@
+/*
+ * InputOutput.h
+ *
+ *  Created on: May 20, 2018
+ *      Author: M
+ */
+
+#ifndef INPUTOUTPUT_H_
+#define INPUTOUTPUT_H_
+
+#include <UART.h>
+
+class InputOutput {
+public:
+	InputOutput();
+	virtual ~InputOutput();
+	/*!
+	 * \brief teken een lijn.
+	 * \param paramter int.
+	 */
+	int write(char *text_out);
+	/*!
+	 * \brief teken een lijn.
+	 * \param paramter int.
+	 */
+	int read(char *buf);
+	int err;
+private:
+	UART u1;
+	int initUART();
+
+};
+
+#endif /* INPUTOUTPUT_H_ */

@@ -4,6 +4,9 @@
  *  Created on: May 3, 2018
  *      Author: M
  */
+/*!
+ * \brief de VGA class
+ */
 
 #include <stm32_ub_vga_screen.h>
 #include <stdlib.h>

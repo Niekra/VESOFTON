@@ -1,0 +1,56 @@
+/*
+ * LogicLayer.h
+ *
+ *  Created on: May 20, 2018
+ *      Author: M
+ */
+
+#ifndef LOGICLAYER_H_
+#define LOGICLAYER_H_
+
+//--------INCLUDES-----------
+#include <Vgascreen.h>
+
+
+class LogicLayer {
+public:
+	LogicLayer();
+	virtual ~LogicLayer();
+	int exec();
+	int set_command();
+	int clear_commands();
+private:
+	command lastCommands[20];
+	command bufCommands[20];
+	command command;
+	VGA screen;
+	int bufCount = 0;
+	int lastCount = 0;
+
+	int repeat(int count = 10);
+	int addLastCommand();
+	int clearLastCommands();
+	int execBuffer();
+	int addBufCommand();
+	int clearBufCommands();
+	int wait_ms();
+
+
+
+
+};
+
+struct command_10 {
+	char type;
+	char attr1 = 0;
+	char attr2 = 0;
+	char attr3 = 0;
+	char attr4 = 0;
+	char attr5 = 0;
+	char attr6 = 0;
+	char attr7 = 0;
+	char attr8 = 0;
+	char attr9 = 0;
+} command;
+
+#endif /* LOGICLAYER_H_ */

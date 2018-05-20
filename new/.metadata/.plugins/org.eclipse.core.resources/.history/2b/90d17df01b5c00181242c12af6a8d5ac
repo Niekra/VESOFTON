@@ -1,0 +1,18 @@
+/*
+ * LogicLayer.cpp
+ *
+ *  Created on: May 20, 2018
+ *      Author: M
+ */
+
+#include <LogicLayer.h>
+
+LogicLayer::LogicLayer() {
+	// TODO Auto-generated constructor stub
+
+}
+
+LogicLayer::~LogicLayer() {
+	// TODO Auto-generated destructor stub
+}
+
