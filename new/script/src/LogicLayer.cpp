@@ -7,12 +7,14 @@
 
 #include <LogicLayer.h>
 //#include <cstring>
-//#include <iostream>
+#include <iostream>
 #include <stdio.h>
 #include<stdlib.h>
 #include <string.h>
+#include <new>
 //#include <vector>
 using namespace std;
+
 
 /*!
  * \brief teken een lijn.
@@ -23,7 +25,8 @@ LogicLayer::LogicLayer() {
 	screen = Vgascreen();
 	bufCount = 0;
 	lastCount = 0;
-	//command = command;
+	//command = command_10;
+	//malloc(sizeof(char)* 10);
 }
 
 /*!
@@ -109,7 +112,7 @@ int LogicLayer::exec(){
 		lastCount = 0;
 	}
 
-	//clearInputArray();
+	clearInputArray();
 	return 0;
 }
 
@@ -126,13 +129,14 @@ int LogicLayer::setCommand(char *buf){
 	char *out;
 
 	out = strtok_r(str, ",", &saveptr);
-	inputArray[0] = out;
+	inputArray[0]=out;
 
 	while(out != NULL){
 		out = strtok_r(NULL, ",", &saveptr);
 		inputArray[i] = out;
 		i++;
 	}
+	exec();
 	return 0;
 }
 

@@ -21,8 +21,6 @@ Userinterface::~Userinterface() {
 void Userinterface::mainLoop(){
 	LL.setCommand("lijn,10,100,200,220,4");
 
-	LL.exec();
-
 	char test[] = "hallo";
 	while(err==0){
 
@@ -34,7 +32,7 @@ void Userinterface::mainLoop(){
 
 	//LL.exec();
 
-		for(int i = 0; i < 100000000; i++){
+		for(int i = 0; i < 10000000; i++){
 			i++;
 		}
 

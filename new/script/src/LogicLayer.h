@@ -15,7 +15,6 @@
 #define BUFFER_LENGTH 10
 #define INPUT_LENGTH 10
 
-
 class LogicLayer {
 public:
 	LogicLayer();
@@ -23,6 +22,7 @@ public:
 	int exec();
 	int setCommand(char *buf);
 	int clearCommands();
+	char *input1;
 private:
 	Vgascreen screen;
 	int bufCount;
