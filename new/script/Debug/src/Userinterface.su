@@ -1,9 +1,9 @@
 Vgascreen.h:13:7:Vgascreen& Vgascreen::operator=(const Vgascreen&)	16	static
-LogicLayer.h:28:7:LogicLayer& LogicLayer::operator=(const LogicLayer&)	16	static
+LogicLayer.h:19:7:LogicLayer& LogicLayer::operator=(const LogicLayer&)	16	static
 UART.h:23:7:UART& UART::operator=(const UART&)	16	static
 InputOutput.h:13:7:InputOutput& InputOutput::operator=(const InputOutput&)	16	static
-Userinterface.cpp:10:1:Userinterface::Userinterface()	384	static
+Userinterface.cpp:10:1:Userinterface::Userinterface()	304	static
 Userinterface.cpp:17:1:Userinterface::~Userinterface()	16	static
 Userinterface.cpp:17:1:virtual Userinterface::~Userinterface()	16	static
-Userinterface.cpp:21:6:void Userinterface::mainLoop()	24	static
-Userinterface.cpp:37:6:void Userinterface::write_error(int)	16	static
+Userinterface.cpp:21:6:void Userinterface::mainLoop()	32	static
+Userinterface.cpp:47:6:void Userinterface::write_error(int)	16	static

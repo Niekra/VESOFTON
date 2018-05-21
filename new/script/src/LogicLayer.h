@@ -12,18 +12,9 @@
 //--------INCLUDES-----------
 #include <Vgascreen.h>
 
-struct Command {
-	char type;
-	char attr1;
-	char attr2;
-	char attr3;
-	char attr4;
-	char attr5;
-	char attr6;
-	char attr7;
-	char attr8;
-	char attr9;
-};
+#define BUFFER_LENGTH 10
+#define INPUT_LENGTH 10
+
 
 class LogicLayer {
 public:
@@ -36,8 +27,9 @@ private:
 	Vgascreen screen;
 	int bufCount;
 	int lastCount;
-	Command lastCommands[10];
-	Command bufferedCommands[10];
+	char *lastCommands[BUFFER_LENGTH];
+	char *bufferedCommands[BUFFER_LENGTH];
+	char *inputArray[INPUT_LENGTH];
 
 	//Functies private
 	int repeat();
@@ -47,6 +39,8 @@ private:
 	int addBufCommand();
 	int clearBufCommands();
 	int waitMs();
+	void clearInputArray();
+	char* getInput(int index);
 };
 
 

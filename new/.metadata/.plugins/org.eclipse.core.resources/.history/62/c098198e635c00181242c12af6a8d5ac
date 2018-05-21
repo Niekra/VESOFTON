@@ -1,0 +1,167 @@
+/*
+ * LogicLayer.cpp
+ *
+ *  Created on: May 20, 2018
+ *      Author: M
+ */
+
+#include <LogicLayer.h>
+//#include <cstring>
+//#include <iostream>
+#include <stdio.h>
+#include<stdlib.h>
+#include <string.h>
+//#include <vector>
+using namespace std;
+
+/*!
+ * \brief teken een lijn.
+ * \param paramter int.
+ */
+LogicLayer::LogicLayer() {
+	// TODO Auto-generated constructor stub
+	screen = Vgascreen();
+	bufCount = 0;
+	lastCount = 0;
+	command = command;
+}
+
+/*!
+ * \brief teken een lijn.
+ * \param paramter int.
+ */
+LogicLayer::~LogicLayer() {
+	// TODO Auto-generated destructor stub
+}
+
+/*!
+ * \brief teken een lijn.
+ * \param paramter int.
+ */
+int LogicLayer::exec(){
+
+}
+
+/*!
+ * \brief teken een lijn.
+ * \param paramter int.
+ */
+int LogicLayer::setCommand(char *buf){
+	int i = 1;
+	int j = 1;
+	char str[100];
+	strcpy(str, buf);
+	char *saveptr;
+	char *out;
+	char *outArray[10];
+
+	out = strtok_r(str, " ", &saveptr);
+	outArray[0] = out;
+
+	while(out != NULL){
+		out = strtok_r(NULL, " ", &saveptr);
+		outArray[i] = out;
+		i++;
+	}
+
+	if(outArray[0] == "repeat"){
+
+	}else if(outArray[0]=="buffer"){
+		return;
+	}else if(outArray[0]=="exec"){
+		return;
+	}else if(outArray[0]=="clear"){
+		return;
+	}else if(outArray[0]=="wait"){
+		return;
+	}else{
+		command.type = outArray[0];
+	}
+
+	while(j<i){
+		command.attr1 = outArray[j];
+		j++;
+		command.attr2 = outArray[j];
+		j++;
+		command.attr3 = outArray[j];
+		j++;
+		command.attr4 = outArray[j];
+		j++;
+		command.attr5 = outArray[j];
+		j++;
+		command.attr6 = outArray[j];
+		j++;
+		command.attr7 = outArray[j];
+		j++;
+		command.attr8 = outArray[j];
+		j++;
+		command.attr9 = outArray[j];
+		j++;
+	}
+
+	return;
+}
+
+/*!
+ * \brief teken een lijn.
+ * \param paramter int.
+ */
+int LogicLayer::clearCommands(){
+
+}
+
+/*!
+ * \brief teken een lijn.
+ * \param paramter int.
+ */
+int LogicLayer::repeat(){
+
+}
+
+/*!
+ * \brief teken een lijn.
+ * \param paramter int.
+ */
+int LogicLayer::addLastCommand(){
+
+}
+
+/*!
+ * \brief teken een lijn.
+ * \param paramter int.
+ */
+int LogicLayer::clearLastCommands(){
+
+}
+
+/*!
+ * \brief teken een lijn.
+ * \param paramter int.
+ */
+int LogicLayer::execBuffer(){
+
+}
+
+/*!
+ * \brief teken een lijn.
+ * \param paramter int.
+ */
+int LogicLayer::addBufCommand(){
+
+}
+
+/*!
+ * \brief teken een lijn.
+ * \param paramter int.
+ */
+int LogicLayer::clearBufCommands(){
+
+}
+
+/*!
+ * \brief teken een lijn.
+ * \param paramter int.
+ */
+int LogicLayer::waitMs(){
+
+}

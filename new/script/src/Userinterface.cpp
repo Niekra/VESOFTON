@@ -19,17 +19,27 @@ Userinterface::~Userinterface() {
 }
 
 void Userinterface::mainLoop(){
+	LL.setCommand("lijn,10,100,200,220,4");
+
+	LL.exec();
 
 	char test[] = "hallo";
 	while(err==0){
 
 		//IO.write(test);
 
-		//IO.read(buf);
+	//IO.read(buf);
 
-		LL.setCommand("hallo test dit eens");
+	//LL.setCommand("lijn,100,1,100,1,4");
 
-		LL.exec();
+	//LL.exec();
+
+		for(int i = 0; i < 100000000; i++){
+			i++;
+		}
+
+	LL.setCommand("lijn,100,10,100,100,8");
+	LL.exec();
 
 	}
 }

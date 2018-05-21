@@ -1,47 +1,44 @@
-18:06:09 **** Incremental Build of configuration Debug for project script ****
+02:07:57 **** Incremental Build of configuration Debug for project script ****
 Info: Internal Builder is used for build
 arm-atollic-eabi-g++ -c ..\src\LogicLayer.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\LogicLayer.o 
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::exec()':
-..\src\LogicLayer.cpp:41:1: warning: no return statement in function returning non-void [-Wreturn-type]
- }
- ^
-..\src\LogicLayer.cpp: In member function 'int LogicLayer::setCommand(char*)':
-..\src\LogicLayer.cpp:48:6: warning: unused variable 'i' [-Wunused-variable]
-  int i = 1;
+..\src\LogicLayer.cpp:46:6: warning: unused variable 'k' [-Wunused-variable]
+  int k;
       ^
-..\src\LogicLayer.cpp:81:1: warning: no return statement in function returning non-void [-Wreturn-type]
- }
- ^
+..\src\LogicLayer.cpp: In member function 'int LogicLayer::setCommand(char*)':
+..\src\LogicLayer.cpp:122:6: warning: unused variable 'j' [-Wunused-variable]
+  int j = 1;
+      ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::clearCommands()':
-..\src\LogicLayer.cpp:89:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:145:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::repeat()':
-..\src\LogicLayer.cpp:97:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:153:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::addLastCommand()':
-..\src\LogicLayer.cpp:105:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:161:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::clearLastCommands()':
-..\src\LogicLayer.cpp:113:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:169:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::execBuffer()':
-..\src\LogicLayer.cpp:121:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:177:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::addBufCommand()':
-..\src\LogicLayer.cpp:129:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:185:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::clearBufCommands()':
-..\src\LogicLayer.cpp:137:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:193:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::waitMs()':
-..\src\LogicLayer.cpp:145:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:201:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\InputOutput.o src\LogicLayer.o src\UART.o src\Userinterface.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
@@ -49,50 +46,54 @@ C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar 
 Generate build reports...
 Print size information
    text	   data	    bss	    dec	    hex	filename
-   8588	    140	  78232	  86960	  153b0	script.elf
+  10400	    504	  78232	  89136	  15c30	script.elf
 Print size information done
 Generate listing file
 Output sent to: script.list
 Generate listing file done
 Generate build reports done
 Info: Nothing to build for script
-18:08:01 **** Incremental Build of configuration Debug for project script ****
+02:09:07 **** Incremental Build of configuration Debug for project script ****
 Info: Internal Builder is used for build
 arm-atollic-eabi-g++ -c ..\src\LogicLayer.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\LogicLayer.o 
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::exec()':
-..\src\LogicLayer.cpp:41:1: warning: no return statement in function returning non-void [-Wreturn-type]
- }
- ^
+..\src\LogicLayer.cpp:46:6: warning: unused variable 'k' [-Wunused-variable]
+  int k;
+      ^
+..\src\LogicLayer.cpp: In member function 'int LogicLayer::setCommand(char*)':
+..\src\LogicLayer.cpp:122:6: warning: unused variable 'j' [-Wunused-variable]
+  int j = 1;
+      ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::clearCommands()':
-..\src\LogicLayer.cpp:90:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:145:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::repeat()':
-..\src\LogicLayer.cpp:98:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:153:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::addLastCommand()':
-..\src\LogicLayer.cpp:106:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:161:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::clearLastCommands()':
-..\src\LogicLayer.cpp:114:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:169:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::execBuffer()':
-..\src\LogicLayer.cpp:122:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:177:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::addBufCommand()':
-..\src\LogicLayer.cpp:130:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:185:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::clearBufCommands()':
-..\src\LogicLayer.cpp:138:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:193:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::waitMs()':
-..\src\LogicLayer.cpp:146:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:201:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\InputOutput.o src\LogicLayer.o src\UART.o src\Userinterface.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
@@ -100,56 +101,56 @@ C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar 
 Generate build reports...
 Print size information
    text	   data	    bss	    dec	    hex	filename
-   8596	    140	  78232	  86968	  153b8	script.elf
+  10400	    504	  78232	  89136	  15c30	script.elf
 Print size information done
 Generate listing file
 Output sent to: script.list
 Generate listing file done
 Generate build reports done
-18:09:53 **** Incremental Build of configuration Debug for project script ****
+02:10:42 **** Incremental Build of configuration Debug for project script ****
 Info: Internal Builder is used for build
 arm-atollic-eabi-g++ -c ..\src\LogicLayer.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\LogicLayer.o 
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::exec()':
-..\src\LogicLayer.cpp:41:1: warning: no return statement in function returning non-void [-Wreturn-type]
- }
- ^
-..\src\LogicLayer.cpp: In member function 'int LogicLayer::setCommand(char*)':
-..\src\LogicLayer.cpp:48:6: warning: unused variable 'i' [-Wunused-variable]
-  int i = 1;
+..\src\LogicLayer.cpp:42:6: warning: variable 'i' set but not used [-Wunused-but-set-variable]
+  int i = 0;
       ^
-..\src\LogicLayer.cpp:82:1: warning: no return statement in function returning non-void [-Wreturn-type]
- }
- ^
+..\src\LogicLayer.cpp:46:6: warning: unused variable 'k' [-Wunused-variable]
+  int k;
+      ^
+..\src\LogicLayer.cpp: In member function 'int LogicLayer::setCommand(char*)':
+..\src\LogicLayer.cpp:122:6: warning: unused variable 'j' [-Wunused-variable]
+  int j = 1;
+      ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::clearCommands()':
-..\src\LogicLayer.cpp:90:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:145:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::repeat()':
-..\src\LogicLayer.cpp:98:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:153:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::addLastCommand()':
-..\src\LogicLayer.cpp:106:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:161:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::clearLastCommands()':
-..\src\LogicLayer.cpp:114:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:169:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::execBuffer()':
-..\src\LogicLayer.cpp:122:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:177:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::addBufCommand()':
-..\src\LogicLayer.cpp:130:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:185:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::clearBufCommands()':
-..\src\LogicLayer.cpp:138:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:193:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::waitMs()':
-..\src\LogicLayer.cpp:146:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:201:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\InputOutput.o src\LogicLayer.o src\UART.o src\Userinterface.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
@@ -157,59 +158,53 @@ C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar 
 Generate build reports...
 Print size information
    text	   data	    bss	    dec	    hex	filename
-   8588	    140	  78232	  86960	  153b0	script.elf
+  10364	    504	  78232	  89100	  15c0c	script.elf
 Print size information done
 Generate listing file
 Output sent to: script.list
 Generate listing file done
 Generate build reports done
-18:12:44 **** Incremental Build of configuration Debug for project script ****
+02:11:45 **** Incremental Build of configuration Debug for project script ****
 Info: Internal Builder is used for build
 arm-atollic-eabi-g++ -c ..\src\LogicLayer.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\LogicLayer.o 
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::exec()':
-..\src\LogicLayer.cpp:41:1: warning: no return statement in function returning non-void [-Wreturn-type]
- }
- ^
-..\src\LogicLayer.cpp: In member function 'int LogicLayer::setCommand(char*)':
-..\src\LogicLayer.cpp:48:6: warning: unused variable 'i' [-Wunused-variable]
-  int i = 1;
+..\src\LogicLayer.cpp:46:6: warning: unused variable 'k' [-Wunused-variable]
+  int k;
       ^
-..\src\LogicLayer.cpp:54:8: warning: variable 'test2' set but not used [-Wunused-but-set-variable]
-  char *test2;
-        ^~~~~
-..\src\LogicLayer.cpp:85:1: warning: no return statement in function returning non-void [-Wreturn-type]
- }
- ^
+..\src\LogicLayer.cpp: In member function 'int LogicLayer::setCommand(char*)':
+..\src\LogicLayer.cpp:122:6: warning: unused variable 'j' [-Wunused-variable]
+  int j = 1;
+      ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::clearCommands()':
-..\src\LogicLayer.cpp:93:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:145:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::repeat()':
-..\src\LogicLayer.cpp:101:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:153:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::addLastCommand()':
-..\src\LogicLayer.cpp:109:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:161:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::clearLastCommands()':
-..\src\LogicLayer.cpp:117:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:169:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::execBuffer()':
-..\src\LogicLayer.cpp:125:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:177:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::addBufCommand()':
-..\src\LogicLayer.cpp:133:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:185:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::clearBufCommands()':
-..\src\LogicLayer.cpp:141:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:193:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ..\src\LogicLayer.cpp: In member function 'int LogicLayer::waitMs()':
-..\src\LogicLayer.cpp:149:1: warning: no return statement in function returning non-void [-Wreturn-type]
+..\src\LogicLayer.cpp:201:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\InputOutput.o src\LogicLayer.o src\UART.o src\Userinterface.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
@@ -217,7 +212,7 @@ C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar 
 Generate build reports...
 Print size information
    text	   data	    bss	    dec	    hex	filename
-   8592	    140	  78232	  86964	  153b4	script.elf
+  10372	    504	  78232	  89108	  15c14	script.elf
 Print size information done
 Generate listing file
 Output sent to: script.list
