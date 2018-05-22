@@ -27,7 +27,7 @@ Vgascreen::~Vgascreen() {
 
 int Vgascreen::init_VGA(){
 	UB_VGA_Screen_Init(); // Init VGA-Screen
-	UB_VGA_FillScreen(VGA_COL_GREEN);// Set screen green.
+	UB_VGA_FillScreen(0x1C);// Set screen green.
 	return 0;
 }
 
@@ -38,10 +38,14 @@ int Vgascreen::VGA_pos(int x, int y){
 }
 
 int Vgascreen::draw_line(int x1, int y1, int x2, int y2, int width, int color){
-	//int b = (int)strtol("100", NULL, 10);
 	const int dx = abs(x1-x2);
 	const int dy = abs(y1-y2);
 	bool a= true;
+
+	if(dx==0 && dy==0){
+		UB_VGA_SetPixel(x1,y1,color);
+		return 0;
+	}
 
 	if(dy>dx){
 		std::swap(x1, y1);
@@ -77,9 +81,9 @@ int Vgascreen::draw_line(int x1, int y1, int x2, int y2, int width, int color){
 			}
 			int xset = i;
 			if (dx>dy){
-				UB_VGA_SetPixel((xset),(y),126);
+				UB_VGA_SetPixel((xset),(y),color);
 			}else{
-				UB_VGA_SetPixel((y),(xset),126);
+				UB_VGA_SetPixel((y),(xset),color);
 			}
 		}
 
@@ -95,16 +99,18 @@ int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad,int color){
 }
 
 int Vgascreen::draw_rectangle(int x_lo, int y_lo, int x_rb, int y_rb, int color){
-	  /*draw_line(x_lo,y_rb,x_rb,y_rb,1,254);
-	  draw_line(x_rb,y_rb+1,x_rb,y_lo,1,254);
-	  draw_line(x_rb,y_lo,x_lo,y_lo,1,254);
-	  draw_line(x_lo,y_lo,x_lo,y_rb,1,254);*/
+	  draw_line(x_lo,y_rb,x_rb,y_rb,1,color);
+	  draw_line(x_rb,y_rb+1,x_rb,y_lo,1,color);
+	  draw_line(x_rb,y_lo,x_lo,y_lo,1,color);
+	  draw_line(x_lo,y_lo,x_lo,y_rb,1,color);
+	  return 0;
 }
 
 int Vgascreen::draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3, int color){
-	  /*draw_line(x1,y1,x2,y2,1,254);
-	  draw_line(x1,y1,x3,y3,1,254);
-	  draw_line(x2,y2,x3,y3,1,254);*/
+	  draw_line(x1,y1,x2,y2,1,color);
+	  draw_line(x1,y1,x3,y3,1,color);
+	  draw_line(x2,y2,x3,y3,1,color);
+	  return 0;
 }
 
 int Vgascreen::draw_text(int x, int y, char *text, char* font_name, int color, int style){
@@ -112,5 +118,10 @@ int Vgascreen::draw_text(int x, int y, char *text, char* font_name, int color, i
 }
 
 int Vgascreen::draw_bitmap(int nr, int x_lo, int y_lo){
+	return 0;
+}
+
+int Vgascreen::clear_screen(int color){
+	UB_VGA_FillScreen(color);
 	return 0;
 }

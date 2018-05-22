@@ -14,6 +14,8 @@
 
 #define BUFFER_LENGTH 10
 #define INPUT_LENGTH 10
+#define COLORS 16
+#define CORE_CLOCK 168000000
 
 class LogicLayer {
 public:
@@ -22,25 +24,23 @@ public:
 	int exec();
 	int setCommand(char *buf);
 	int clearCommands();
-	char *input1;
+	int waitMs(int ms);
 private:
 	Vgascreen screen;
+	/*
 	int  bufCount;
 	int  *lastCount;
 	char *lastCommands[BUFFER_LENGTH];
 	char *bufferedCommands[BUFFER_LENGTH];
+	*/
 	char *inputArray[BUFFER_LENGTH];
+	const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+	int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0xE0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF};
 
 	//Functies private
-	int repeat();
-	int addLastCommand();
-	int clearLastCommands();
-	int execBuffer();
-	int addBufCommand();
-	int clearBufCommands();
-	int waitMs();
 	void clearInputArray();
 	char* getInput(int index);
+	int colorToInt(char *color);
 };
 
 

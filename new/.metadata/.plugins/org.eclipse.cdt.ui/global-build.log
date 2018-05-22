@@ -1,62 +1,483 @@
-11:31:29 **** Incremental Build of configuration Debug for project script ****
+19:57:14 **** Incremental Build of configuration Debug for project script ****
 Info: Internal Builder is used for build
 arm-atollic-eabi-g++ -c ..\src\Userinterface.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\Userinterface.o 
+In file included from ../src/Userinterface.h:11:0,
+                 from ..\src\Userinterface.cpp:8:
+../src/LogicLayer.h:37:175: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+                                                                                                            ^
+../src/LogicLayer.h:37:175: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+                                                                                                            ^
 ..\src\Userinterface.cpp: In member function 'void Userinterface::mainLoop()':
-..\src\Userinterface.cpp:22:39: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-  LL.setCommand("lijn,10,100,200,220,4");
-                                       ^
-..\src\Userinterface.cpp:41:41: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-    LL.setCommand("lijn,100,10,100,100,8");
-                                         ^
+..\src\Userinterface.cpp:24:45: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  LL.setCommand("lijn,10,100,200,220,4,blauw");
+                                             ^
+..\src\Userinterface.cpp:26:35: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  LL.setCommand("clearscherm,groen");
+                                   ^
+..\src\Userinterface.cpp:28:60: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  LL.setCommand("driehoek,150,60,101,101,201,101,lichtblauw");
+                                                            ^
+arm-atollic-eabi-g++ -c ..\src\Vgascreen.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\Vgascreen.o 
+arm-atollic-eabi-g++ -c ..\src\LogicLayer.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\LogicLayer.o 
+In file included from ..\src\LogicLayer.cpp:8:0:
+../src/LogicLayer.h:37:175: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+                                                                                                            ^
+../src/LogicLayer.h:37:175: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+                                                                                                            ^
+..\src\LogicLayer.cpp: In member function 'int LogicLayer::waitMs(int)':
+..\src\LogicLayer.cpp:154:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int i = 0; i<total;i++);
+                 ~^~~~~~
+arm-atollic-eabi-g++ -c ..\src\main.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\main.o 
+In file included from ../src/Userinterface.h:11:0,
+                 from ..\src\main.cpp:14:
+../src/LogicLayer.h:37:175: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+                                                                                                            ^
+../src/LogicLayer.h:37:175: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+                                                                                                            ^
 arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\InputOutput.o src\LogicLayer.o src\UART.o src\Userinterface.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
 C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
 Generate build reports...
 Print size information
    text	   data	    bss	    dec	    hex	filename
- 162016	    736	  83940	 246692	  3c3a4	script.elf
+ 163184	    736	  83940	 247860	  3c834	script.elf
 Print size information done
 Generate listing file
 Output sent to: script.list
 Generate listing file done
 Generate build reports done
 Info: Nothing to build for script
-11:40:57 **** Incremental Build of configuration Debug for project script ****
+19:59:45 **** Incremental Build of configuration Debug for project script ****
 Info: Internal Builder is used for build
 arm-atollic-eabi-g++ -c ..\src\Userinterface.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\Userinterface.o 
+In file included from ../src/Userinterface.h:11:0,
+                 from ..\src\Userinterface.cpp:8:
+../src/LogicLayer.h:37:175: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+                                                                                                            ^
+../src/LogicLayer.h:37:175: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+                                                                                                            ^
 ..\src\Userinterface.cpp: In member function 'void Userinterface::mainLoop()':
-..\src\Userinterface.cpp:22:39: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-  LL.setCommand("lijn,10,100,200,220,4");
-                                       ^
-..\src\Userinterface.cpp:33:41: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-    LL.setCommand("lijn,100,10,100,100,8");
-                                         ^
+..\src\Userinterface.cpp:24:45: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  LL.setCommand("lijn,10,100,200,220,4,blauw");
+                                             ^
+..\src\Userinterface.cpp:26:35: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  LL.setCommand("clearscherm,groen");
+                                   ^
+..\src\Userinterface.cpp:28:60: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  LL.setCommand("driehoek,150,60,101,101,201,101,lichtblauw");
+                                                            ^
 arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\InputOutput.o src\LogicLayer.o src\UART.o src\Userinterface.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
 C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
 Generate build reports...
 Print size information
    text	   data	    bss	    dec	    hex	filename
- 162016	    736	  83940	 246692	  3c3a4	script.elf
+ 163184	    736	  83940	 247860	  3c834	script.elf
 Print size information done
 Generate listing file
 Output sent to: script.list
 Generate listing file done
 Generate build reports done
-11:41:53 **** Incremental Build of configuration Debug for project script ****
+20:00:42 **** Incremental Build of configuration Debug for project script ****
 Info: Internal Builder is used for build
 arm-atollic-eabi-g++ -c ..\src\Userinterface.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\Userinterface.o 
+In file included from ../src/Userinterface.h:11:0,
+                 from ..\src\Userinterface.cpp:8:
+../src/LogicLayer.h:37:175: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+                                                                                                            ^
+../src/LogicLayer.h:37:175: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+                                                                                                            ^
 ..\src\Userinterface.cpp: In member function 'void Userinterface::mainLoop()':
-..\src\Userinterface.cpp:22:39: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-  LL.setCommand("lijn,10,100,200,220,4");
-                                       ^
-..\src\Userinterface.cpp:33:41: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
-    LL.setCommand("lijn,100,10,100,100,8");
-                                         ^
+..\src\Userinterface.cpp:24:45: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  LL.setCommand("lijn,10,100,200,220,4,blauw");
+                                             ^
+..\src\Userinterface.cpp:26:35: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  LL.setCommand("clearscherm,groen");
+                                   ^
+..\src\Userinterface.cpp:28:60: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  LL.setCommand("driehoek,150,60,101,101,201,101,lichtblauw");
+                                                            ^
 arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\InputOutput.o src\LogicLayer.o src\UART.o src\Userinterface.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
 C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
 Generate build reports...
 Print size information
    text	   data	    bss	    dec	    hex	filename
- 162016	    736	  83940	 246692	  3c3a4	script.elf
+ 163184	    736	  83940	 247860	  3c834	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+20:05:01 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\main.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\main.o 
+In file included from ../src/Userinterface.h:11:0,
+                 from ..\src\main.cpp:14:
+../src/LogicLayer.h:37:175: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF};
+                                                                                                            ^
+../src/LogicLayer.h:37:175: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF};
+                                                                                                            ^
+arm-atollic-eabi-g++ -c ..\src\Userinterface.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\Userinterface.o 
+In file included from ../src/Userinterface.h:11:0,
+                 from ..\src\Userinterface.cpp:8:
+../src/LogicLayer.h:37:175: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF};
+                                                                                                            ^
+../src/LogicLayer.h:37:175: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF};
+                                                                                                            ^
+..\src\Userinterface.cpp: In member function 'void Userinterface::mainLoop()':
+..\src\Userinterface.cpp:24:45: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  LL.setCommand("lijn,10,100,200,220,4,blauw");
+                                             ^
+..\src\Userinterface.cpp:26:35: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  LL.setCommand("clearscherm,groen");
+                                   ^
+..\src\Userinterface.cpp:28:60: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  LL.setCommand("driehoek,150,60,101,101,201,101,lichtblauw");
+                                                            ^
+arm-atollic-eabi-g++ -c ..\src\LogicLayer.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\LogicLayer.o 
+In file included from ..\src\LogicLayer.cpp:8:0:
+../src/LogicLayer.h:37:175: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF};
+                                                                                                            ^
+../src/LogicLayer.h:37:175: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF};
+                                                                                                            ^
+..\src\LogicLayer.cpp: In member function 'int LogicLayer::waitMs(int)':
+..\src\LogicLayer.cpp:154:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int i = 0; i<total;i++);
+                 ~^~~~~~
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\InputOutput.o src\LogicLayer.o src\UART.o src\Userinterface.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+ 163192	    736	  83940	 247868	  3c83c	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+20:06:25 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\LogicLayer.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\LogicLayer.o 
+In file included from ..\src\LogicLayer.cpp:8:0:
+../src/LogicLayer.h:37:175: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0xE0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF};
+                                                                                                            ^
+../src/LogicLayer.h:37:175: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0xE0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF};
+                                                                                                            ^
+..\src\LogicLayer.cpp: In member function 'int LogicLayer::waitMs(int)':
+..\src\LogicLayer.cpp:154:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(int i = 0; i<total;i++);
+                 ~^~~~~~
+arm-atollic-eabi-g++ -c ..\src\main.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\main.o 
+In file included from ../src/Userinterface.h:11:0,
+                 from ..\src\main.cpp:14:
+../src/LogicLayer.h:37:175: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0xE0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF};
+                                                                                                            ^
+../src/LogicLayer.h:37:175: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0xE0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF};
+                                                                                                            ^
+arm-atollic-eabi-g++ -c ..\src\Userinterface.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\Userinterface.o 
+In file included from ../src/Userinterface.h:11:0,
+                 from ..\src\Userinterface.cpp:8:
+../src/LogicLayer.h:37:175: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0xE0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF};
+                                                                                                            ^
+../src/LogicLayer.h:37:175: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0xE0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF};
+                                                                                                            ^
+..\src\Userinterface.cpp: In member function 'void Userinterface::mainLoop()':
+..\src\Userinterface.cpp:24:45: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  LL.setCommand("lijn,10,100,200,220,4,blauw");
+                                             ^
+..\src\Userinterface.cpp:26:35: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  LL.setCommand("clearscherm,groen");
+                                   ^
+..\src\Userinterface.cpp:28:60: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  LL.setCommand("driehoek,150,60,101,101,201,101,lichtblauw");
+                                                            ^
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\InputOutput.o src\LogicLayer.o src\UART.o src\Userinterface.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+ 163200	    736	  83940	 247876	  3c844	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+20:07:39 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\Userinterface.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\Userinterface.o 
+In file included from ../src/Userinterface.h:11:0,
+                 from ..\src\Userinterface.cpp:8:
+../src/LogicLayer.h:37:175: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0xE0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF};
+                                                                                                            ^
+../src/LogicLayer.h:37:175: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0xE0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF};
+                                                                                                            ^
+..\src\Userinterface.cpp: In member function 'void Userinterface::mainLoop()':
+..\src\Userinterface.cpp:24:45: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  LL.setCommand("lijn,10,100,200,220,4,blauw");
+                                             ^
+..\src\Userinterface.cpp:26:35: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  LL.setCommand("clearscherm,groen");
+                                   ^
+..\src\Userinterface.cpp:28:60: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  LL.setCommand("driehoek,150,60,101,101,201,101,lichtblauw");
+                                                            ^
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\InputOutput.o src\LogicLayer.o src\UART.o src\Userinterface.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+ 163200	    736	  83940	 247876	  3c844	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+20:09:26 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\UART.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\UART.o 
+..\src\UART.cpp: In member function 'int UART::write(char*)':
+..\src\UART.cpp:31:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\UART.cpp: In member function 'int UART::init()':
+..\src\UART.cpp:109:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\UART.cpp: In member function 'int UART::putchar(char)':
+..\src\UART.cpp:118:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\InputOutput.o src\LogicLayer.o src\UART.o src\Userinterface.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+ 163216	    736	  83940	 247892	  3c854	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+Info: Nothing to build for script
+20:13:27 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\UART.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\UART.o 
+..\src\UART.cpp: In member function 'int UART::write(char*)':
+..\src\UART.cpp:31:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\UART.cpp: In member function 'int UART::init()':
+..\src\UART.cpp:109:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\UART.cpp: In member function 'int UART::putchar(char)':
+..\src\UART.cpp:118:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\InputOutput.o src\LogicLayer.o src\UART.o src\Userinterface.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+ 163216	    736	  83940	 247892	  3c854	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+20:15:13 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\UART.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\UART.o 
+..\src\UART.cpp: In member function 'int UART::write(char*)':
+..\src\UART.cpp:31:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\UART.cpp: In member function 'int UART::init()':
+..\src\UART.cpp:109:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\UART.cpp: In member function 'int UART::putchar(char)':
+..\src\UART.cpp:118:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\InputOutput.o src\LogicLayer.o src\UART.o src\Userinterface.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+ 163216	    736	  83940	 247892	  3c854	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+20:18:26 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\UART.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\UART.o 
+..\src\UART.cpp: In member function 'int UART::write(char*)':
+..\src\UART.cpp:31:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\UART.cpp: In member function 'int UART::init()':
+..\src\UART.cpp:109:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\UART.cpp: In member function 'int UART::putchar(char)':
+..\src\UART.cpp:118:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+arm-atollic-eabi-g++ -c ..\src\Userinterface.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\Userinterface.o 
+In file included from ../src/Userinterface.h:11:0,
+                 from ..\src\Userinterface.cpp:8:
+../src/LogicLayer.h:37:175: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0xE0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF};
+                                                                                                            ^
+../src/LogicLayer.h:37:175: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+                                                                                                                                                                               ^
+../src/LogicLayer.h:38:108: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+  int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0xE0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF};
+                                                                                                            ^
+..\src\Userinterface.cpp: In member function 'void Userinterface::mainLoop()':
+..\src\Userinterface.cpp:24:45: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  LL.setCommand("lijn,10,100,200,220,4,blauw");
+                                             ^
+..\src\Userinterface.cpp:26:35: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  LL.setCommand("clearscherm,groen");
+                                   ^
+..\src\Userinterface.cpp:28:60: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+  LL.setCommand("driehoek,150,60,101,101,201,101,lichtblauw");
+                                                            ^
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\InputOutput.o src\LogicLayer.o src\UART.o src\Userinterface.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+ 163208	    736	  83940	 247884	  3c84c	script.elf
+Print size information done
+Generate listing file
+Output sent to: script.list
+Generate listing file done
+Generate build reports done
+20:21:36 **** Incremental Build of configuration Debug for project script ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-g++ -c ..\src\UART.cpp -mthumb -mcpu=cortex-m4 -std=gnu++98 -DSTM32F4XX -DSTM32F40XX -DUSE_STDPERIPH_DRIVER -DUSE_STM32F4_DISCOVERY -DHSE_VALUE=8000000 -I../src -I../Libraries/CMSIS/Include -I../Libraries/Device/STM32F4xx/Include -I../Libraries/STM32F4xx_StdPeriph_Driver/inc -I../Libraries/UB_VGA/inc -I../Utilities/STM32F4-Discovery -O0 -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -g -fstack-usage -Wall -fno-threadsafe-statics -specs=nano.specs -o src\UART.o 
+..\src\UART.cpp: In member function 'int UART::write(char*)':
+..\src\UART.cpp:31:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\UART.cpp: In member function 'int UART::init()':
+..\src\UART.cpp:109:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+..\src\UART.cpp: In member function 'int UART::putchar(char)':
+..\src\UART.cpp:118:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+arm-atollic-eabi-g++ -o script.elf Libraries\STM32F4xx_StdPeriph_Driver\src\misc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.o Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.o Libraries\UB_VGA\src\stm32_ub_vga_screen.o Utilities\STM32F4-Discovery\stm32f4_discovery.o Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o Utilities\STM32F4-Discovery\stm32f4_discovery_lis302dl.o src\InputOutput.o src\LogicLayer.o src\UART.o src\Userinterface.o src\Vgascreen.o src\main.o src\startup_stm32f40xx.o src\stm32f4xx_it.o src\syscalls.o src\system_stm32f4xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m4 -T../stm32f4_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=script.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x1000 -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.0.1\Tools\arm-atollic-reports.jar sizeinfo list script.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+ 163208	    736	  83940	 247884	  3c84c	script.elf
 Print size information done
 Generate listing file
 Output sent to: script.list

@@ -10,7 +10,8 @@
 
 #include <UART.h>
 
-class InputOutput {
+class InputOutput
+{
 public:
 	InputOutput();
 	virtual ~InputOutput();

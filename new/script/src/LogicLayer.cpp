@@ -6,11 +6,13 @@
  */
 
 #include <LogicLayer.h>
+#include "stm32f4xx.h"
 //#include <cstring>
 #include <iostream>
 #include <stdio.h>
 #include<stdlib.h>
 #include <string.h>
+#include <exception>
 #include <new>
 //#include <vector>
 using namespace std;
@@ -23,14 +25,15 @@ using namespace std;
 LogicLayer::LogicLayer() {
 	// TODO Auto-generated constructor stub
 	screen = Vgascreen();
-	bufCount = 0;
-	lastCount = 0;
+	//bufCount = 0;
+	//lastCount = 0;
 	//inputArray = (char**)malloc(10 * sizeof(char*));
 	for(int i = 0;i < INPUT_LENGTH; i++){
 		inputArray[i] = (char*)malloc(10* sizeof(char));
 	}
 	//command = command_10;
 	//malloc(sizeof(char)* 10);
+	//DWT->CTRL |= 1;
 }
 
 /*!
@@ -41,71 +44,72 @@ LogicLayer::~LogicLayer() {
 	// TODO Auto-generated destructor stub
 }
 
+
 /*!
  * \brief teken een lijn.
  * \param paramter int.
  */
-int LogicLayer::exec(){
+int LogicLayer::exec()
+{
 	int i = 0;
-	char *str;
-	char str2[10],str3[10],str4[10],str5[10],str6[10];
+	const char *str;
+	int a,b,c,d,e,f;
+	int color;
+
 	str = getInput(i);
-	//strcpy(str, inputArray[0]);
-	/*
-	if (strcmp(str,"exec") == 0){
-		execBuffer();
-		return 0;
-	}else if (strcmp(str,"buffer") == 0){
 
-		for(int j = 0; j<BUFFER_LENGTH; j++){
-			inputArray[j] = inputArray[j + 1];
+	if (strcmp(str, "clearscherm") == 0)					//Command zonder int.
+	{
+		color = colorToInt(inputArray[1]);
+		screen.clear_screen(color);
+	}else
+	{													//Command met 1x int.
+		a = (int)strtol(inputArray[1], NULL, 10);
+		if (strcmp(str, "wacht") == 0)
+		{
+			waitMs(a);
+		}else											//Command met 2x int.
+		{
+			b = (int)strtol(inputArray[2], NULL, 10);
+			if (strcmp(str, "tekst") == 0)
+			{
+				color = colorToInt(inputArray[6]);
+				//style
+				screen.draw_text(a,b,inputArray[3],inputArray[4],color,4);
+			}else										//Commands met 3x int.
+			{
+				c = (int)strtol(inputArray[3], NULL, 10);
+				if (strcmp(str, "bitmap") == 0){
+					screen.draw_bitmap(a,b,c);
+				}else									//Commands met 4x int.
+				{
+					d = (int)strtol(inputArray[4], NULL, 10);
+					if (strcmp(str, "rechthoek") == 0)
+					{
+						color = colorToInt(inputArray[5]);
+						screen.draw_rectangle(a,b,c,d,color);
+					}else								//Commands met 5x int.
+					{
+						e = (int)strtol(inputArray[5], NULL, 10);
+						if (strcmp(str, "lijn") == 0)
+						{
+							color = colorToInt(inputArray[6]);
+							screen.draw_line(a,b,c,d,e,color);
+						}else							//Commands met 6x int.
+						{
+							f = (int)strtol(inputArray[5], NULL, 10);
+							if (strcmp(str, "driehoek") == 0)
+							{
+								color = colorToInt(inputArray[7]);
+								screen.draw_triangle(a,b,c,d,e,f,color);
+							}
+						}
+
+					}
+				}
+			}
 		}
-		bufferedCommands[bufCount] = *inputArray;
-		bufCount++;
 
-		if (bufCount >= 10){
-			bufCount = 0;
-		}
-
-		clearInputArray();
-		return 0;
-	}else if (strcmp(str,"repeat") == 0){
-		repeat();
-		return 0;
-	}*/
-	//char *str2;
-	//strcpy(str2,inputArray[1]);
-	strcpy(str3,inputArray[2]);
-	strcpy(str4,inputArray[3]);
-	strcpy(str5,inputArray[4]);
-	strcpy(str6,inputArray[5]);
-	//str2 = inputArray[1];
-	//int z = atoi(str2);
-
-	if (strcmp(str,"lijn") == 0){
-		screen.draw_line((int)strtol(inputArray[1], NULL, 10),(int)strtol(str3, NULL, 10),(int)strtol(str4, NULL, 10),(int)strtol(str5, NULL, 10)
-				,(int)strtol(str6, NULL, 10),55);
-	}/*else if (strcmp(str,"ellips") == 0){
-
-	}else if (strcmp(str,"rechthoek") == 0){
-
-	}else if (strcmp(str,"driehoek") == 0){
-
-	}else if (strcmp(getInput[i],"tekst") == 0){
-
-	}else if (strcmp(getInput[i],"bitmap") == 0){
-
-	}else if (strcmp(getInput[i],"wacht") == 0){
-
-	}else{
-		return 10;
-	}*/
-
-	//lastCommands[(lastCount)] = *inputArray;
-	(lastCount)++;
-
-	if((lastCount[0]) >= BUFFER_LENGTH){
-		(lastCount[0]) = 0;
 	}
 
 	clearInputArray();
@@ -118,7 +122,6 @@ int LogicLayer::exec(){
  */
 int LogicLayer::setCommand(char *buf){
 	int i = 1;
-	int j = 1;
 	char str[100];
 	strcpy(str, buf);
 	char *saveptr;
@@ -140,64 +143,28 @@ int LogicLayer::setCommand(char *buf){
  * \brief teken een lijn.
  * \param paramter int.
  */
-int LogicLayer::clearCommands(){
+int LogicLayer::waitMs(int ms){
 
+	int calcMs = CORE_CLOCK/1000/18;
+	volatile uint32_t total = (calcMs * ms);
+	//volatile uint32_t cnt,begin;
+
+	//begin = DWT->CYCCNT;
+
+	for(int i = 0; i<total;i++);
+
+	//cnt = DWT->CYCCNT - begin;
+
+	return 0;
 }
 
-/*!
- * \brief teken een lijn.
- * \param paramter int.
- */
-int LogicLayer::repeat(){
-
-}
-
-/*!
- * \brief teken een lijn.
- * \param paramter int.
- */
-int LogicLayer::addLastCommand(){
-
-}
-
-/*!
- * \brief teken een lijn.
- * \param paramter int.
- */
-int LogicLayer::clearLastCommands(){
-
-}
-
-/*!
- * \brief teken een lijn.
- * \param paramter int.
- */
-int LogicLayer::execBuffer(){
-
-}
-
-/*!
- * \brief teken een lijn.
- * \param paramter int.
- */
-int LogicLayer::addBufCommand(){
-
-}
-
-/*!
- * \brief teken een lijn.
- * \param paramter int.
- */
-int LogicLayer::clearBufCommands(){
-
-}
-
-/*!
- * \brief teken een lijn.
- * \param paramter int.
- */
-int LogicLayer::waitMs(){
-
+int LogicLayer::colorToInt(char *color){
+	for(int i = 0; i<COLORS; i++){
+		if(strcmp(color,colors[i]) == 0){
+			return rgb[i];
+		}
+	}
+	return 0;
 }
 
 void LogicLayer::clearInputArray(){

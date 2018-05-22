@@ -1,0 +1,4 @@
+#Tue May 22 13:27:07 CEST 2018
+__DEFAULT__=false
+org.eclipse.help.ui.localSearch.master=true
+expression=exception

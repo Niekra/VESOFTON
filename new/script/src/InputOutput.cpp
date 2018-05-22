@@ -26,7 +26,7 @@ int InputOutput::write(char *text_out){
  * \param paramter int.
  */
 int InputOutput::read(char *buf){
-	u1.read(buf);
+	return u1.read(buf);
 }
 
 int InputOutput::initUART(){

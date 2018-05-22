@@ -42,13 +42,12 @@ int UART::read(char *buf){
 	 	if (*buf==-1)             // check for data available
 	 		continue;
 
-	 	if (*buf==0xff) // if no data or LF, continue
-			return 0;
+	 	if (*buf==0xff ) // if no data or LF, continue
+	 		return 1;
 
-	 	if(*buf == LF){
-	 		continue;
+	 	if (*buf == LF){
+	 		return 1;
 	 	}
-
 		if (*buf==CR)            // if enter pressed
 		{
 			*buf = '\0';         // ignore char and close string

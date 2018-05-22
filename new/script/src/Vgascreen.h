@@ -81,6 +81,7 @@ public:
 	 * \param paramter int.
 	 */
 
+	int clear_screen(int color);
 };
 
 #endif /* VGASCREEN_H_ */
