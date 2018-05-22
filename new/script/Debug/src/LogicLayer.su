@@ -1,19 +1,19 @@
 gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	16	static
 Vgascreen.h:13:7:Vgascreen& Vgascreen::operator=(const Vgascreen&)	16	static
 LogicLayer.cpp:23:1:LogicLayer::LogicLayer()	40	static
-LogicLayer.cpp:36:1:LogicLayer::~LogicLayer()	16	static
-LogicLayer.cpp:36:1:virtual LogicLayer::~LogicLayer()	16	static
-LogicLayer.cpp:44:5:int LogicLayer::exec()	128	static
-LogicLayer.cpp:123:5:int LogicLayer::setCommand(char*)	136	static
-LogicLayer.cpp:147:5:int LogicLayer::clearCommands()	16	static
-LogicLayer.cpp:155:5:int LogicLayer::repeat()	16	static
-LogicLayer.cpp:163:5:int LogicLayer::addLastCommand()	16	static
-LogicLayer.cpp:171:5:int LogicLayer::clearLastCommands()	16	static
-LogicLayer.cpp:179:5:int LogicLayer::execBuffer()	16	static
-LogicLayer.cpp:187:5:int LogicLayer::addBufCommand()	16	static
-LogicLayer.cpp:195:5:int LogicLayer::clearBufCommands()	16	static
-LogicLayer.cpp:203:5:int LogicLayer::waitMs()	16	static
-LogicLayer.cpp:207:6:void LogicLayer::clearInputArray()	24	static
-LogicLayer.cpp:213:7:char* LogicLayer::getInput(int)	16	static
-LogicLayer.cpp:215:1:void __static_initialization_and_destruction_0(int, int)	16	static
-LogicLayer.cpp:215:1:cpp)	8	static
+LogicLayer.cpp:40:1:LogicLayer::~LogicLayer()	16	static
+LogicLayer.cpp:40:1:virtual LogicLayer::~LogicLayer()	16	static
+LogicLayer.cpp:48:5:int LogicLayer::exec()	128	static
+LogicLayer.cpp:119:5:int LogicLayer::setCommand(char*)	136	static
+LogicLayer.cpp:143:5:int LogicLayer::clearCommands()	16	static
+LogicLayer.cpp:151:5:int LogicLayer::repeat()	16	static
+LogicLayer.cpp:159:5:int LogicLayer::addLastCommand()	16	static
+LogicLayer.cpp:167:5:int LogicLayer::clearLastCommands()	16	static
+LogicLayer.cpp:175:5:int LogicLayer::execBuffer()	16	static
+LogicLayer.cpp:183:5:int LogicLayer::addBufCommand()	16	static
+LogicLayer.cpp:191:5:int LogicLayer::clearBufCommands()	16	static
+LogicLayer.cpp:199:5:int LogicLayer::waitMs()	16	static
+LogicLayer.cpp:203:6:void LogicLayer::clearInputArray()	24	static
+LogicLayer.cpp:209:7:char* LogicLayer::getInput(int)	16	static
+LogicLayer.cpp:211:1:void __static_initialization_and_destruction_0(int, int)	16	static
+LogicLayer.cpp:211:1:cpp)	8	static

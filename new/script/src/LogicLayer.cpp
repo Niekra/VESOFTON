@@ -25,6 +25,10 @@ LogicLayer::LogicLayer() {
 	screen = Vgascreen();
 	bufCount = 0;
 	lastCount = 0;
+	//inputArray = (char**)malloc(10 * sizeof(char*));
+	for(int i = 0;i < INPUT_LENGTH; i++){
+		inputArray[i] = (char*)malloc(10* sizeof(char));
+	}
 	//command = command_10;
 	//malloc(sizeof(char)* 10);
 }
@@ -43,13 +47,11 @@ LogicLayer::~LogicLayer() {
  */
 int LogicLayer::exec(){
 	int i = 0;
-	i = 1-1;
 	char *str;
 	char str2[10],str3[10],str4[10],str5[10],str6[10];
-	int k;
 	str = getInput(i);
 	//strcpy(str, inputArray[0]);
-
+	/*
 	if (strcmp(str,"exec") == 0){
 		execBuffer();
 		return 0;
@@ -70,10 +72,9 @@ int LogicLayer::exec(){
 	}else if (strcmp(str,"repeat") == 0){
 		repeat();
 		return 0;
-	}
-
+	}*/
 	//char *str2;
-	strcpy(str2,inputArray[1]);
+	//strcpy(str2,inputArray[1]);
 	strcpy(str3,inputArray[2]);
 	strcpy(str4,inputArray[3]);
 	strcpy(str5,inputArray[4]);
@@ -82,13 +83,8 @@ int LogicLayer::exec(){
 	//int z = atoi(str2);
 
 	if (strcmp(str,"lijn") == 0){
-		int a = (int)strtol(str2, NULL, 10);
-		int b = (int)strtol(str3, NULL, 10);
-		int c = (int)strtol(str4, NULL, 10);
-		int d = (int)strtol(str5, NULL, 10);
-		int e = (int)strtol(str6, NULL, 10);
-		//a = 12;
-		screen.draw_line(a,b,c,d,e,55);
+		screen.draw_line((int)strtol(inputArray[1], NULL, 10),(int)strtol(str3, NULL, 10),(int)strtol(str4, NULL, 10),(int)strtol(str5, NULL, 10)
+				,(int)strtol(str6, NULL, 10),55);
 	}/*else if (strcmp(str,"ellips") == 0){
 
 	}else if (strcmp(str,"rechthoek") == 0){
@@ -105,11 +101,11 @@ int LogicLayer::exec(){
 		return 10;
 	}*/
 
-	lastCommands[lastCount] = *inputArray;
-	lastCount++;
+	//lastCommands[(lastCount)] = *inputArray;
+	(lastCount)++;
 
-	if(lastCount >= BUFFER_LENGTH){
-		lastCount = 0;
+	if((lastCount[0]) >= BUFFER_LENGTH){
+		(lastCount[0]) = 0;
 	}
 
 	clearInputArray();

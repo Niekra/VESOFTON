@@ -25,11 +25,11 @@ public:
 	char *input1;
 private:
 	Vgascreen screen;
-	int bufCount;
-	int lastCount;
+	int  bufCount;
+	int  *lastCount;
 	char *lastCommands[BUFFER_LENGTH];
 	char *bufferedCommands[BUFFER_LENGTH];
-	char *inputArray[INPUT_LENGTH];
+	char *inputArray[BUFFER_LENGTH];
 
 	//Functies private
 	int repeat();
