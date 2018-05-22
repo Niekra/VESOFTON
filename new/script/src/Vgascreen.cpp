@@ -178,9 +178,9 @@ int Vgascreen::draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3, int
 	  draw_line(x2,y2,x3,y3,1,254);
 }
 
-int Vgascreen::draw_text(int x, int y, char *text, char* font_name, int color, int style){
-	return 0;
-}
+//int Vgascreen::draw_text(int x, int y, char *text, char* font_name, int color, int style){
+//	return 0;
+//}
 
 int Vgascreen::draw_bitmap(int nr, int x_lo, int y_lo){
 	int color;
@@ -220,3 +220,47 @@ int Vgascreen::draw_bitmap(int nr, int x_lo, int y_lo){
 	}
 	return 0;
 }
+
+#define CHAR_WIDTH 6
+#define CHAR_HEIGHT 8
+
+void DrawChar(char c, int x, int y, int brightness) {
+    int i,j;
+
+    // Convert the character to an index
+//    c = c & 0x7F;
+//    if (c < ' ') {
+//        c = 0;
+//    } else {
+//        c -= ' ';
+//    }
+//    c = 0x62;
+    // 'font' is a multidimensional array of [96][char_width]
+    // which is really just a 1D array of size 96*char_width.
+//
+    int index = c + -32;
+//    const int* chr = static_cast<const int*>( *ff );
+    const unsigned char* chr;
+    chr = font[index];
+
+    // Draw pixels
+    for (j=0; j<CHAR_WIDTH; j++) {
+        for (i=0; i<CHAR_HEIGHT; i++) {
+
+            if (chr[j] & (1<<i)) {
+            	UB_VGA_SetPixel(x+j, y+i, brightness);
+            }
+        }
+    }
+}
+
+int Vgascreen::draw_text(int x, int y, const char *str, char* font_name, int color, int style){
+//	void DrawString(const char* str, uint8 x, uint8 y, uint8 brightness) {
+	    while (*str) {
+	        DrawChar(*str++, x, y, color);
+	        x += CHAR_WIDTH;
+	    }
+	return 0;
+}
+
+

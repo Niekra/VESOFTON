@@ -70,12 +70,13 @@ int main(void)
 
   //bitmap
   s1.draw_bitmap(1, 50, 50);
-  s1.draw_bitmap(2, 100, 50);
-  s1.draw_bitmap(3, 150, 50);
-  s1.draw_bitmap(4, 200, 50);
-  s1.draw_bitmap(5, 50, 100);
-  s1.draw_bitmap(6, 100, 100);
+//  s1.draw_bitmap(2, 100, 50);
+//  s1.draw_bitmap(3, 150, 50);
+//  s1.draw_bitmap(4, 200, 50);
+//  s1.draw_bitmap(5, 50, 100);
+//  s1.draw_bitmap(6, 100, 100);
 
+  s1.draw_text(50, 200, "ok Ja Nee", "font", 0, 0);
 
   /* Initialize LEDs */
   STM_EVAL_LEDInit(LED3);
