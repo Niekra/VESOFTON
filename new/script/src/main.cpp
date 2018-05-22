@@ -69,7 +69,13 @@ int main(void)
   s1.draw_ellipse(40, 40, 20, 30, 0);
 
   //bitmap
-  s1.draw_bitmap(1, 1, 1);
+  s1.draw_bitmap(1, 50, 50);
+  s1.draw_bitmap(2, 100, 50);
+  s1.draw_bitmap(3, 150, 50);
+  s1.draw_bitmap(4, 200, 50);
+  s1.draw_bitmap(5, 50, 100);
+  s1.draw_bitmap(6, 100, 100);
+
 
   /* Initialize LEDs */
   STM_EVAL_LEDInit(LED3);
