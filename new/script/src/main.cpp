@@ -67,6 +67,10 @@ int main(void)
 
   //ellipse
   s1.draw_ellipse(40, 40, 20, 30, 0);
+
+  //bitmap
+  s1.draw_bitmap(1, 1, 1);
+
   /* Initialize LEDs */
   STM_EVAL_LEDInit(LED3);
   STM_EVAL_LEDInit(LED4);
@@ -74,10 +78,10 @@ int main(void)
   STM_EVAL_LEDInit(LED6);
 
   /* Turn on LEDs */
-  STM_EVAL_LEDOn(LED3);
-  STM_EVAL_LEDOn(LED4);
-  STM_EVAL_LEDOn(LED5);
-  STM_EVAL_LEDOn(LED6);
+//  STM_EVAL_LEDOn(LED3);
+//  STM_EVAL_LEDOn(LED4);
+//  STM_EVAL_LEDOn(LED5);
+//  STM_EVAL_LEDOn(LED6);
 
   char inputs[10];
   /* Infinite loop */

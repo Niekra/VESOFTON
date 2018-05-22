@@ -183,5 +183,23 @@ int Vgascreen::draw_text(int x, int y, char *text, char* font_name, int color, i
 }
 
 int Vgascreen::draw_bitmap(int nr, int x_lo, int y_lo){
+	int x_l = 200;
+	int y_l = 50;
+	int color;
+	int count = 0;
+
+	for(int i=0; i<32; i++)
+	{
+		for(int j=0; j<32; j++){
+			color = smileyBmp[count];
+			UB_VGA_SetPixel(x_l + j, y_l + i, color);
+			count++;
+		}
+	}
+
+
+
+
+
 	return 0;
 }
