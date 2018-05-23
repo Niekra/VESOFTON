@@ -415,7 +415,6 @@ const unsigned char font2[96][6] = {
 };
 
 
-
 class Vgascreen {
 private:
 	int x_pos;
@@ -476,7 +475,6 @@ public:
 	 */
 	int draw_text(int x, int y,  const char *str, int color, const char *style, int font_name);
 
-//	void DrawChar(char c, int x, int y, int brightness);
 	/*!
 	 * \brief teken een lijn.
 	 * \param paramter int.
@@ -488,7 +486,6 @@ public:
 	 * \brief teken een lijn.
 	 * \param paramter int.
 	 */
-
 };
 
 #endif /* VGASCREEN_H_ */

@@ -59,14 +59,14 @@ int main(void)
   s1.draw_rectangle(x1,y1,x2,y2,5);
 
   //linetest
-  s1.draw_line(180,0,180,240,2,254);
+  s1.draw_line(180,0,180,240,2,223);
   //s1.draw_line(120,60,180,180,5,254);
 
   //triangle
-  s1.draw_triangle(300, 20, 180,180, 120,60,1);
+  s1.draw_triangle(300, 20, 180,180, 120,60,0xED);
 
   //ellipse
-  s1.draw_ellipse(40, 40, 20, 30, 0);
+  s1.draw_ellipse(40, 40, 20, 30, 0x80);
 
   //bitmap
 //  s1.draw_bitmap(10, 50, 50);
@@ -76,7 +76,7 @@ int main(void)
 //  s1.draw_bitmap(5, 50, 100);
 //  s1.draw_bitmap(6, 100, 100);
 
-  s1.draw_text(50, 200, "1@33$%^&^&^&)*([][\\||/., gG hH oO", 200, "norm", 3);
+  s1.draw_text(50, 200, "aA bB cC dD eE fF gG hH oO", 200, "norm", 3);
   s1.draw_text(50, 150, "aA bB cC dD eE fF gG hH oO", 0, "cursief", 1);
   s1.draw_text(50, 100, "aA bB cC dD eE fF gG hH oO", 255, "vet", 2);
 

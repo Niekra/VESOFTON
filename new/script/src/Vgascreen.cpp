@@ -72,9 +72,9 @@ int Vgascreen::draw_line(int x1, int y1, int x2, int y2, int width, int color){
 			}
 			int xset = i;
 			if (dx>dy){
-				UB_VGA_SetPixel((xset),(y),254);
+				UB_VGA_SetPixel((xset),(y),color);
 			}else{
-				UB_VGA_SetPixel((y),(xset),254);
+				UB_VGA_SetPixel((y),(xset),color);
 			}
 		}
 		y1 += 1;
@@ -165,17 +165,17 @@ int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad,int color){
 }
 
 int Vgascreen::draw_rectangle(int x_lo, int y_lo, int x_rb, int y_rb, int color){
-	  draw_line(x_lo,y_rb,x_rb,y_rb,1,254);
-	  draw_line(x_rb,y_rb+1,x_rb,y_lo,1,254);
-	  draw_line(x_rb,y_lo,x_lo,y_lo,1,254);
-	  draw_line(x_lo,y_lo,x_lo,y_rb,1,254);
+	  draw_line(x_lo,y_rb,x_rb,y_rb,1,color);
+	  draw_line(x_rb,y_rb+1,x_rb,y_lo,1,color);
+	  draw_line(x_rb,y_lo,x_lo,y_lo,1,color);
+	  draw_line(x_lo,y_lo,x_lo,y_rb,1,color);
 	  return 0;
 }
 
 int Vgascreen::draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3, int color){
-	  draw_line(x1,y1,x2,y2,1,254);
-	  draw_line(x1,y1,x3,y3,1,254);
-	  draw_line(x2,y2,x3,y3,1,254);
+	  draw_line(x1,y1,x2,y2,1,color);
+	  draw_line(x1,y1,x3,y3,1,color);
+	  draw_line(x2,y2,x3,y3,1,color);
 	  return 0;
 }
 
@@ -223,20 +223,8 @@ int DrawChar(char c, int x, int y, int color, int stijl, int fontNr)
 {
     int i,j, cursief, charWidth;
 	int charHeight = 8;
-
-//    }
-    // Convert the character to an index
-//    c = c & 0x7F;
-//    if (c < ' ') {
-//        c = 0;
-//    } else {
-//        c -= ' ';
-//    }
-//    c = 0x62;
-    // 'font' is a multidimensional array of [96][char_width]
-    // which is really just a 1D array of size 96*char_width.
-//
     int index = c - 32;
+
     if (index<0 || index>95)
     	return 1; //ongeldige karakters ingevoerd
 

@@ -29,14 +29,20 @@ extern "C" {
 // Blue  (2bit) -> Bit1-Bit0
 //--------------------------------------------------------------
 #define  VGA_COL_BLACK          0x00
+#define  VGA_COL_GREY	        0x92
+#define  VGA_COL_BROWN       	0x64
+#define  VGA_COL_WHITE          0xFF
 #define  VGA_COL_BLUE           0x03
 #define  VGA_COL_GREEN          0x1C
 #define  VGA_COL_RED            0xE0
-#define  VGA_COL_WHITE          0xFF
-
+#define  VGA_COL_LIGHTRED       0xED
 #define  VGA_COL_CYAN           0x1F
+#define  VGA_COL_LIGHTCYAN	    0x7F
 #define  VGA_COL_MAGENTA        0xE3
+#define  VGA_COL_LIGHTMAGENTA   0xCE
 #define  VGA_COL_YELLOW         0xFC
+
+
 
 
 
