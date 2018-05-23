@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <Vgascreen.h>
 #include <algorithm>
+#include <string.h>
 
 Vgascreen::Vgascreen() {
 	// TODO Auto-generated constructor stub
@@ -178,9 +179,6 @@ int Vgascreen::draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3, int
 	  draw_line(x2,y2,x3,y3,1,254);
 }
 
-//int Vgascreen::draw_text(int x, int y, char *text, char* font_name, int color, int style){
-//	return 0;
-//}
 
 int Vgascreen::draw_bitmap(int nr, int x_lo, int y_lo){
 	int color;
@@ -224,9 +222,19 @@ int Vgascreen::draw_bitmap(int nr, int x_lo, int y_lo){
 #define CHAR_WIDTH 6
 #define CHAR_HEIGHT 8
 
-void DrawChar(char c, int x, int y, int brightness) {
-    int i,j;
-
+void DrawChar(char c, int x, int y, int color, int stijl, int fontNr) {
+    int i,j, cursief;
+//    const char* font;
+//
+//    switch(fontNr){
+//    case 1:font = *font1;
+//    break;
+//    case 2: *font = font2;
+//    break;
+//    default: *font = font1;
+//    break;
+//
+//    }
     // Convert the character to an index
 //    c = c & 0x7F;
 //    if (c < ' ') {
@@ -241,23 +249,39 @@ void DrawChar(char c, int x, int y, int brightness) {
     int index = c + -32;
 //    const int* chr = static_cast<const int*>( *ff );
     const unsigned char* chr;
-    chr = font[index];
+    chr = font1[index];
 
     // Draw pixels
     for (j=0; j<CHAR_WIDTH; j++) {
+    	cursief = 0;
         for (i=0; i<CHAR_HEIGHT; i++) {
 
             if (chr[j] & (1<<i)) {
-            	UB_VGA_SetPixel(x+j, y+i, brightness);
+            	if (stijl == 0)
+            		UB_VGA_SetPixel(x+j-cursief, y+i, color);
+            	else if(stijl == 1)
+            		UB_VGA_SetPixel(x+j+cursief, y+i, color);
+            	else
+            		UB_VGA_SetPixel(x+j, y+i, color);
+
             }
+            cursief++;
         }
     }
 }
 
-int Vgascreen::draw_text(int x, int y, const char *str, char* font_name, int color, int style){
+int Vgascreen::draw_text(int x, int y, const char *str, char* fontNr, int color, const char* style){
 //	void DrawString(const char* str, uint8 x, uint8 y, uint8 brightness) {
-	    while (*str) {
-	        DrawChar(*str++, x, y, color);
+
+
+	int stijl;
+	if (strcmp(style, "cursief")==0)
+		stijl = 0;
+	else if (strcmp(style, "vet")==0)
+		stijl = 1;
+
+	while (*str) {
+	        DrawChar(*str++, x, y, color, stijl, *fontNr);
 	        x += CHAR_WIDTH;
 	    }
 	return 0;
