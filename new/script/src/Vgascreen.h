@@ -474,6 +474,7 @@ public:
 	 * \param paramter int.
 	 */
 	int draw_text(int x, int y,  const char *str, int color, const char *style, int font_name);
+	int draw_text(int x, int y,  const char *str, int color, const char* style, int fontNr);
 
 	/*!
 	 * \brief teken een lijn.
@@ -486,6 +487,10 @@ public:
 	 * \brief teken een lijn.
 	 * \param paramter int.
 	 */
+
+
+	int clear_screen(int color);
+
 };
 
 #endif /* VGASCREEN_H_ */

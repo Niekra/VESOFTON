@@ -283,4 +283,7 @@ int Vgascreen::draw_text(int x, int y, const char *str, int color, const char* s
 	return 0;
 }
 
-
+int Vgascreen::clear_screen(int color){
+	UB_VGA_FillScreen(color);
+	return 0;
+}
