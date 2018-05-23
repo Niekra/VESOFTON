@@ -1,0 +1,27 @@
+/*
+ * Dma_usart.h
+ *
+ *  Created on: May 22, 2018
+ *      Author: M
+ */
+
+#ifndef DMA_USART_H_
+#define DMA_USART_H_
+
+void clock_Init(void);
+void NVIC_Config(void);
+void GPIO_Config(void);
+void UART2_Init(void);
+void DMA_Config(void);
+void USART_DMA_Send();
+void UART_putchar(char c);
+void UART_puts(char *s);
+void UART_putint(unsigned int num);
+void UART_putnum(unsigned int num, unsigned char deel);
+
+char* USART_Buffer[20];
+char* out_Buf[16];
+
+
+
+#endif /* DMA_USART_H_ */

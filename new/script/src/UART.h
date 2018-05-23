@@ -20,6 +20,7 @@
 /*!
  * \brief De UART class
  */
+void USART2_IRQHandler(void);
 class UART {
 public:
 	/*!

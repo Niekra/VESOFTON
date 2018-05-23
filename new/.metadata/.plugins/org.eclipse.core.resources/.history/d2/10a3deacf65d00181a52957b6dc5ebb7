@@ -1,0 +1,37 @@
+/*
+ * Dma_usart.h
+ *
+ *  Created on: May 22, 2018
+ *      Author: M
+ */
+
+#ifndef DMA_USART_H_
+#define DMA_USART_H_
+
+#include "stm32f4xx_usart.h"
+#include "misc.h"
+#include "stm32f4xx_dma.h"
+#include "string.h"
+
+#define BUFFER_LENGTH 100
+uint8_t RxBuffer[BUFFER_LENGTH];
+
+#define UART_BUFFER_SIZE            256
+uint8_t UART_Buffer[UART_BUFFER_SIZE];
+
+size_t Write, Read;
+
+void clock_Init(void);
+void NVIC_Config(void);
+void GPIO_Config(void);
+void UART2_Init(void);
+void DMA_Config(void);
+void USART_DMA_Send();
+void UART_putchar(char c);
+void UART_puts(char *s);
+void UART_putint(unsigned int num);
+void UART_putnum(unsigned int num, unsigned char deel);
+
+
+
+#endif /* DMA_USART_H_ */

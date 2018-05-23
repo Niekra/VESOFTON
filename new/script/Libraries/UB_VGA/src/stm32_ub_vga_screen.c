@@ -380,8 +380,7 @@ void TIM2_IRQHandler(void)
 //
 // still a bit buggy
 //--------------------------------------------------------------
-void DMA2_Stream5_IRQHandler(void)
-{
+void DMA2_Stream5_IRQHandler(void){
   if(DMA_GetITStatus(DMA2_Stream5, DMA_IT_TCIF5))
   {
     // TransferInterruptComplete Interrupt from DMA2

@@ -6,6 +6,7 @@
  */
 
 #include <UART.h>
+#include <string.h>
 
 UART::UART() {
 	// TODO Auto-generated constructor stub
@@ -39,15 +40,14 @@ int UART::read(char *buf){
 	{
 	 	*buf = getchar();
 
-	 	if (*buf==-1)             // check for data available
+	 	if (*buf=='ÿ')             // check for data available
+	 	{
+	 		continue;
+	 	}
+
+	 	if (*buf==0xff | *buf == LF) // if no data or LF, continue
 	 		continue;
 
-	 	if (*buf==0xff ) // if no data or LF, continue
-	 		return 1;
-
-	 	if (*buf == LF){
-	 		return 1;
-	 	}
 		if (*buf==CR)            // if enter pressed
 		{
 			*buf = '\0';         // ignore char and close string
@@ -106,6 +106,13 @@ int UART::init(){
 	USART_ITConfig(USART2,USART_IT_RXNE,ENABLE);
 
 	USART_Cmd(USART2, ENABLE);
+
+	NVIC_InitTypeDef  NVIC_InitStruct;
+
+	NVIC_InitStruct.NVIC_IRQChannel = USART2_IRQn;
+	NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStruct);
+
 }
 
 /*!
@@ -123,7 +130,16 @@ int UART::putchar(char c){
 char UART::getchar(void){
 	char uart_char = -1;
 	if (USART_GetFlagStatus(USART2, USART_FLAG_RXNE)== SET)  // check for data available
-		 uart_char= USART2->DR & 0xFF; // and read the data from peripheral
+		uart_char= USART2->DR & 0xFF; // and read the data from peripheral
 	return uart_char;
 }
+
+void USART2_IRQHandler(void) {
+	char uart_char = -1;
+		if (USART_GetFlagStatus(USART2, USART_FLAG_RXNE)!=RESET)  // check for data available
+			uart_char= USART2->DR & 0xFF; // and read the data from peripheral
+
+	return;
+}
+
 

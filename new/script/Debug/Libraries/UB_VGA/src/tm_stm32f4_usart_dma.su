@@ -1,0 +1,10 @@
+tm_stm32f4_usart_dma.c:59:6:TM_USART_DMA_Init	24	static
+tm_stm32f4_usart_dma.c:92:6:TM_USART_DMA_InitWithStreamAndChannel	32	static
+tm_stm32f4_usart_dma.c:104:21:TM_USART_DMA_GetStream	16	static
+tm_stm32f4_usart_dma.c:109:6:TM_USART_DMA_Deinit	24	static
+tm_stm32f4_usart_dma.c:117:9:TM_USART_DMA_Send	32	static
+tm_stm32f4_usart_dma.c:149:9:TM_USART_DMA_Puts	16	static
+tm_stm32f4_usart_dma.c:154:10:TM_USART_DMA_Sending	24	static
+tm_stm32f4_usart_dma.c:167:6:TM_USART_DMA_EnableInterrupts	24	static
+tm_stm32f4_usart_dma.c:175:6:TM_USART_DMA_DisableInterrupts	24	static
+tm_stm32f4_usart_dma.c:184:28:TM_USART_DMA_INT_GetSettings	24	static

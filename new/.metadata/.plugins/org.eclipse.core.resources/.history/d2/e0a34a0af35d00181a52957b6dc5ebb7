@@ -1,0 +1,129 @@
+/*
+ * Dma_usart.cpp
+ *
+ *  Created on: May 22, 2018
+ *      Author: M
+ */
+
+#include "Dma_usart.h"
+#include "stm32f4xx_usart.h"
+#include "misc.h"
+#include "stm32f4xx_dma.h"
+
+
+DMA_InitTypeDef		DMA_InitStruct;
+
+void clock_Init(void)
+{
+	  /* USART2 clock enable */
+	  RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
+
+	  /* GPIOA clock enable */
+	  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA1 | RCC_AHB1Periph_GPIOA, ENABLE);
+}
+
+void NVIC_Config(void)
+{
+	NVIC_InitTypeDef   NVIC_InitStructure;
+	NVIC_InitStructure.NVIC_IRQChannel = DMA1_Stream5_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 10;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 10;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
+}
+
+void GPIO_Config(void)
+{
+	  GPIO_InitTypeDef GPIO_InitStructure;
+
+	  /*-------------------------- GPIO Configuration ----------------------------*/
+	  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2 | GPIO_Pin_3; //  | GPIO_Pin_3;
+	  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+	  GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	  GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+	  /* Connect USART pins to AF */
+	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource2, GPIO_AF_USART2);   // USART2_TX
+	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource3, GPIO_AF_USART2);		//USART_RX
+}
+
+void UART2_Init(void)
+{
+
+	USART_InitTypeDef USART_InitStructure;
+
+	/* USARTx configuration ------------------------------------------------------*/
+	/* USARTx configured as follow:
+	- BaudRate = 115200 baud
+	- Word Length = 8 Bits
+	- One Stop Bit
+	- No parity
+	- Hardware flow control disabled (RTS and CTS signals)
+	- Receive and transmit enabled
+	*/
+	USART_InitStructure.USART_BaudRate = 115200;
+	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+	USART_InitStructure.USART_StopBits = USART_StopBits_1;
+	USART_InitStructure.USART_Parity = USART_Parity_No;
+	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+
+	USART_InitStructure.USART_Mode = USART_Mode_Tx | USART_Mode_Rx;
+
+	USART_Init(USART2, &USART_InitStructure);
+
+	USART2->CR1 |= USART_CR1_UE;		//enable usart.
+	//USART_Cmd(USART2, ENABLE);
+
+}
+
+void DMA_Config(void)
+{
+
+	DMA_InitTypeDef DMA_InitStructure;
+
+	  /* USARTy RX DMA1 Channel (triggered by USARTy Rx event) Config */
+	  DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)&USART1->DR;//0x40013804;
+	  DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)RxBuffer;
+	  DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC;
+	  DMA_InitStructure.DMA_BufferSize = 16;
+	  DMA_Init(DMA1_Channel5, &DMA_InitStructure);
+	}
+}
+
+void USART_DMA_Send() {
+
+	/* Check if DMA is working now */
+	if (DMA1_Stream6->NDTR) {
+		/* DMA works right now */
+		return;
+	}
+
+	DMA_DeInit(DMA1_Stream6);
+
+	/* Set DMA options */
+	DMA_InitStruct.DMA_Channel = DMA_Channel_4;
+	DMA_InitStruct.DMA_BufferSize = 16;
+	DMA_InitStruct.DMA_PeripheralBaseAddr = (uint32_t) &USART2->DR;
+	DMA_InitStruct.DMA_Memory0BaseAddr = (uint32_t) &out_Buf[0];
+
+	/* Deinit first, clear all flags */
+//	TM_DMA_ClearFlags(DMA1_Stream6);
+	DMA_ClearFlag(DMA1_Stream6, DMA_FLAG_TCIF6 + DMA_FLAG_HTIF6 + DMA_FLAG_TEIF6 + DMA_FLAG_DMEIF6 + DMA_FLAG_FEIF6);
+
+	/* Init DMA */
+	DMA_Init(DMA1_Stream6, &DMA_InitStruct);
+
+	DMA_Cmd(DMA1_Stream6, ENABLE);
+
+	/* Enable USART TX DMA */
+	USART2->CR3 |= USART_CR3_DMAT;
+
+	/* DMA has started */
+	return;
+}
+
+
+
+

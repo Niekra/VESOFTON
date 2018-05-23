@@ -10,4 +10,5 @@ Vgascreen.cpp:109:5:int Vgascreen::draw_triangle(int, int, int, int, int, int, i
 Vgascreen.cpp:116:5:int Vgascreen::draw_text(int, int, char*, char*, int, int)	24	static
 Vgascreen.cpp:120:5:int Vgascreen::draw_bitmap(int, int, int)	24	static
 Vgascreen.cpp:124:5:int Vgascreen::clear_screen(int)	16	static
-move.h:184:5:void std::swap(_Tp&, _Tp&) [with _Tp = int]	24	static
+move.h:101:5:constexpr typename std::remove_reference< <template-parameter-1-1> >::type&& std::move(_Tp&&) [with _Tp = int&]	16	static
+move.h:179:5:typename std::enable_if<std::__and_<std::is_move_constructible<_Tp>, std::is_move_assignable<_Tp> >::value>::type std::swap(_Tp&, _Tp&) [with _Tp = int]	24	static
