@@ -10,8 +10,8 @@
 namespace LL {
 
 char *inputArray[BUFFER_LENGTH];
-const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgoren","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
-const int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x00, 0x00, 0xE0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFF};
+const char *colors[COLORS]= {"zwart","blauw","lichtblauw","groen","lichtgroen","cyaan","lichtcyaan","rood","lichtrood","magenta", "lichtmagenta","bruin","geel","grijs","wit"};
+const int rgb[COLORS]= {0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x1F, 0x7F, 0xE0, 0xED, 0xE3, 0xCE, 0x64, 0xFC, 0x92, 0xFF};
 
 void clearInputArray();
 int colorToInt(char *color);

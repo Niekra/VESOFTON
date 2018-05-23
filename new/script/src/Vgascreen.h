@@ -473,7 +473,6 @@ public:
 	 * \brief teken een lijn.
 	 * \param paramter int.
 	 */
-	int draw_text(int x, int y,  const char *str, int color, const char *style, int font_name);
 	int draw_text(int x, int y,  const char *str, int color, const char* style, int fontNr);
 
 	/*!
