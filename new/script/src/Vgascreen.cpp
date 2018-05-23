@@ -77,10 +77,8 @@ int Vgascreen::draw_line(int x1, int y1, int x2, int y2, int width, int color){
 				UB_VGA_SetPixel((y),(xset),254);
 			}
 		}
-
 		y1 += 1;
 		y2 += 1;
-
 	}
 	return 0;
 }
@@ -136,7 +134,7 @@ int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad,int color){
 	x0 = y_rad;
 	dx = 0;
 
-	// do the horizontal diameter
+	// do the vertical diameter
 	for (int x = -y_rad; x <= y_rad; x++) {
 		if (fill == false) {
 			if (x == -y_rad || x == y_rad)
@@ -171,12 +169,14 @@ int Vgascreen::draw_rectangle(int x_lo, int y_lo, int x_rb, int y_rb, int color)
 	  draw_line(x_rb,y_rb+1,x_rb,y_lo,1,254);
 	  draw_line(x_rb,y_lo,x_lo,y_lo,1,254);
 	  draw_line(x_lo,y_lo,x_lo,y_rb,1,254);
+	  return 0;
 }
 
 int Vgascreen::draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3, int color){
 	  draw_line(x1,y1,x2,y2,1,254);
 	  draw_line(x1,y1,x3,y3,1,254);
 	  draw_line(x2,y2,x3,y3,1,254);
+	  return 0;
 }
 
 
@@ -187,20 +187,19 @@ int Vgascreen::draw_bitmap(int nr, int x_lo, int y_lo){
 
 	switch(nr)
 	{
-	case 1: bitmap = smileyBmp;
-	break;
-	case 2: bitmap = angryBmp;
-	break;
-	case 3: bitmap = arrowUp;
-	break;
-	case 4: bitmap = arrowDown;
-	break;
-	case 5: bitmap = arrowRight;
-	break;
-	case 6: bitmap = arrowLeft;
-	break;
-	default: bitmap = smileyBmp;
-	break;
+		case 1: bitmap = smileyBmp;
+		break;
+		case 2: bitmap = angryBmp;
+		break;
+		case 3: bitmap = arrowUp;
+		break;
+		case 4: bitmap = arrowDown;
+		break;
+		case 5: bitmap = arrowRight;
+		break;
+		case 6: bitmap = arrowLeft;
+		break;
+		default: return 1; // Geen geldig bitmap nummer
 	}
 
 	for(int i=0; i<32; i++)
@@ -219,21 +218,12 @@ int Vgascreen::draw_bitmap(int nr, int x_lo, int y_lo){
 	return 0;
 }
 
-#define CHAR_WIDTH 6
-#define CHAR_HEIGHT 8
 
-void DrawChar(char c, int x, int y, int color, int stijl, int fontNr) {
-    int i,j, cursief;
-//    const char* font;
-//
-//    switch(fontNr){
-//    case 1:font = *font1;
-//    break;
-//    case 2: *font = font2;
-//    break;
-//    default: *font = font1;
-//    break;
-//
+int DrawChar(char c, int x, int y, int color, int stijl, int fontNr)
+{
+    int i,j, cursief, charWidth;
+	int charHeight = 8;
+
 //    }
     // Convert the character to an index
 //    c = c & 0x7F;
@@ -246,43 +236,61 @@ void DrawChar(char c, int x, int y, int color, int stijl, int fontNr) {
     // 'font' is a multidimensional array of [96][char_width]
     // which is really just a 1D array of size 96*char_width.
 //
-    int index = c + -32;
-//    const int* chr = static_cast<const int*>( *ff );
+    int index = c - 32;
+    if (index<0 || index>95)
+    	return 1; //ongeldige karakters ingevoerd
+
     const unsigned char* chr;
-    chr = font1[index];
+    chr = font2[index];
+
+    switch(fontNr)
+    {
+    	case 1: chr = font1[index];
+    			charWidth = 7;
+    	break;
+    	case 2: chr = font2[index];
+    			charWidth = 6;
+    	break;
+    	default: chr = font1[index];
+    			 charWidth = 7;
+    	break;
+    }
 
     // Draw pixels
-    for (j=0; j<CHAR_WIDTH; j++) {
+    for (j=0; j<charWidth; j++) {
     	cursief = 0;
-        for (i=0; i<CHAR_HEIGHT; i++) {
+        for (i=0; i<charHeight; i++) {
 
             if (chr[j] & (1<<i)) {
             	if (stijl == 0)
             		UB_VGA_SetPixel(x+j-cursief, y+i, color);
-            	else if(stijl == 1)
-            		UB_VGA_SetPixel(x+j+cursief, y+i, color);
+            	else if(stijl == 1){
+            		UB_VGA_SetPixel(x+j, y+i, color);
+        			UB_VGA_SetPixel(x+j+1, y+i, color);
+            	}
             	else
             		UB_VGA_SetPixel(x+j, y+i, color);
-
             }
             cursief++;
         }
     }
+    return 0;
 }
 
-int Vgascreen::draw_text(int x, int y, const char *str, char* fontNr, int color, const char* style){
-//	void DrawString(const char* str, uint8 x, uint8 y, uint8 brightness) {
-
+int Vgascreen::draw_text(int x, int y, const char *str, int color, const char* style, int fontNr)
+{
 
 	int stijl;
 	if (strcmp(style, "cursief")==0)
 		stijl = 0;
 	else if (strcmp(style, "vet")==0)
 		stijl = 1;
+	else
+		stijl = 3;
 
 	while (*str) {
-	        DrawChar(*str++, x, y, color, stijl, *fontNr);
-	        x += CHAR_WIDTH;
+	        DrawChar(*str++, x, y, color, stijl, fontNr);
+	        x += 6;
 	    }
 	return 0;
 }
