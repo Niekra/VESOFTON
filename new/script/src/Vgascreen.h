@@ -474,7 +474,7 @@ public:
 	 * \brief teken een lijn.
 	 * \param paramter int.
 	 */
-	int draw_text(int x, int y,  const char *str, int color, const char *style, int font_name);
+	int draw_text(int x, int y,  const char *str, int color, const char* style, int fontNr);
 
 //	void DrawChar(char c, int x, int y, int brightness);
 	/*!
@@ -488,6 +488,7 @@ public:
 	 * \brief teken een lijn.
 	 * \param paramter int.
 	 */
+	int clear_screen(int color);
 
 };
 

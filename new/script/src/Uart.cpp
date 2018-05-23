@@ -5,60 +5,54 @@
  *      Author: M
  */
 
+
 #include <Uart.h>
 
-Uart::Uart() {
-	// TODO Auto-generated constructor stub
-	init();
+namespace UART {
 
-}
-
-Uart::~Uart() {
-	// TODO Auto-generated destructor stub
-}
-
+int inputIndex = 0;
+char inputBuffer[100];
+volatile int bReady = 0;
 
 /*!
  * \brief teken een lijn.
  * \param paramter int.
  */
-int Uart::write(char *text_out){
+int write(char *text_out){
 	volatile unsigned int i;
 	for (i=0; text_out[i]; i++)
 	{
-		putchar(text_out[i]);
+		UART::putchar(text_out[i]);
 	}
+	return 0;
 }
 
 /*!
  * \brief teken een lijn.
  * \param paramter int.
  */
-int Uart::read(char *buf){
-	while (1)
-	{
-	 	*buf = getchar();
+int read(char *buf){
 
-	 	if (*buf==-1)             // check for data available
-	 		continue;
+	while(!bReady){
 
-	 	if (*buf==0xff || *buf==LF) // if no data or LF, continue
-			continue;
+	}
 
-		if (*buf==CR)            // if enter pressed
-		{
-			*buf = '\0';         // ignore char and close string
-		    return 0;            // buf ready, exit loop
+	if(bReady){
+		for (int i = 0; i<= inputIndex; i++){
+			buf[i] = inputBuffer[i];
 		}
-		buf++;
 	}
+	inputIndex = 0;
+	bReady = 0;
+
+	return 0;
 }
 
 /*!
  * \brief teken een lijn.
  * \param paramter int.
  */
-int Uart::init(){
+int initUART2(){
 	  /* --------------------------- System Clocks Configuration -----------------*/
 	  /* USART2 clock enable */
 	  RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
@@ -97,19 +91,28 @@ int Uart::init(){
 	USART_InitStructure.USART_Parity = USART_Parity_No;
 	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
 
-	USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+	USART_InitStructure.USART_Mode = USART_Mode_Tx | USART_Mode_Rx;
 
 	USART_Init(USART2, &USART_InitStructure);
 	USART_ITConfig(USART2,USART_IT_RXNE,ENABLE);
 
 	USART_Cmd(USART2, ENABLE);
+	//NVIC_EnableIRQ(USART2_IRQn);
+
+	NVIC_InitTypeDef NVIC_InitStruct;
+	NVIC_InitStruct.NVIC_IRQChannel = USART2_IRQn;
+	NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 2;
+	NVIC_InitStruct.NVIC_IRQChannelSubPriority = 2;
+	NVIC_Init(&NVIC_InitStruct);
+
 }
 
 /*!
  * \brief teken een lijn.
  * \param paramter int.
  */
-int Uart::putchar(char c){
+int putchar(char c){
 	while(USART_GetFlagStatus(USART2, USART_FLAG_TXE) == RESET); // Wait for Empty
 	USART_SendData(USART2, c);
 }
@@ -117,10 +120,34 @@ int Uart::putchar(char c){
 /*!
  * \brief de VGA class
  */
-char Uart::getchar(void){
+char getchar(void){
 	char Uart_char = -1;
 	if (USART_GetFlagStatus(USART2, USART_FLAG_RXNE)== SET)  // check for data available
 		 Uart_char= USART2->DR & 0xFF; // and read the data from peripheral
 	return Uart_char;
+}
+
+void USART2_IRQHandler(void)
+{
+    /* RXNE handler */
+    if(USART_GetITStatus(USART2, USART_IT_RXNE) != RESET && bReady != 1)
+    {
+    		inputBuffer[inputIndex] = (char)USART_ReceiveData(USART2);
+
+    		if(inputBuffer[inputIndex] == CR){
+    			inputBuffer[inputIndex] = '\0';
+    			bReady = 1;
+    			return;
+    		}
+    		inputIndex++;
+    		//USART_ClearITPendingBit(USART2, USART_IT_RXNE);
+    }
+
+
+    USART_ClearITPendingBit(USART1, USART_IT_RXNE);
+    /* ------------------------------------------------------------ */
+    /* Other USART1 interrupts handler can go here ...             */
+}
+
 }
 
