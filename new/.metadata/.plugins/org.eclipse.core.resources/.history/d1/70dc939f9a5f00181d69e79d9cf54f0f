@@ -45,11 +45,6 @@ int init_LL()
 	return 0;
 }
 
-int destroy_LL()
-{
-	return 0;
-}
-
 int init_TIM5()
 {
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM5, ENABLE);

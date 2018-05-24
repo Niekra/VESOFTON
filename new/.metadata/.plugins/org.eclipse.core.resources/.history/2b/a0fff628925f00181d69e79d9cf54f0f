@@ -12,7 +12,7 @@ namespace UI
 	void initUI()
 	{
 		IO::initIO();
-		LL::init_LL();
+		LL::initLL();
 	}
 
 	void mainLoop()
@@ -27,7 +27,7 @@ namespace UI
 
 			if (buffered == 0)
 			{
-				LL: set_Command(buf);
+				LL: setCommand(buf);
 			}
 		}
 	}

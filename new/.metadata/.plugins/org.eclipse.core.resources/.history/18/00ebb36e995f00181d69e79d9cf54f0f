@@ -23,15 +23,14 @@
 #define COLORS 16
 #define CORE_CLOCK 168000000
 
-#define TIM5_PRESCALE 10
-#define TIM5_PERIOD 8400
+#define TIM5_PRESCALE
+#define TIM5_PERIOD
 
 namespace LL {
 
 //	public functions
 int init_LL();
-int destroy_LL();
-int set_Command(char *buf);
+int setCommand(char *buf);
 
 // Global interrupt handler
 void TIM5_IRQHandler(void);

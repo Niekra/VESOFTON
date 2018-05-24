@@ -73,7 +73,7 @@ int init_IDLE_Line(void)
 	timerInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	timerInitStructure.TIM_Period = TIM3_PERIOD;
 	timerInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
-	timerInitStructure.TIM_RepetitionCounter = 0;
+	timerInitStructure.TIM_RepetitionCounter = 1;
 	TIM_TimeBaseInit(TIM3, &timerInitStructure);
 
 	TIM3->CNT = 0;

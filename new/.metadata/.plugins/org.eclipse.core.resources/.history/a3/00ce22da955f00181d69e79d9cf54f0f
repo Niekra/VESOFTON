@@ -12,6 +12,7 @@ namespace UART {
 
 /*local variables*/
 volatile int iIndex = 0;					//Input index. Keeps track of which is the next buffer input.
+volatile int bIndex = 0;
 volatile int bReady = 0;					//Bool, to signal inputBuffer is ready for transfer.
 volatile int iLine = 0;
 volatile int uBusy = 0;
@@ -73,7 +74,7 @@ int init_IDLE_Line(void)
 	timerInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	timerInitStructure.TIM_Period = TIM3_PERIOD;
 	timerInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
-	timerInitStructure.TIM_RepetitionCounter = 0;
+	timerInitStructure.TIM_RepetitionCounter = 1;
 	TIM_TimeBaseInit(TIM3, &timerInitStructure);
 
 	TIM3->CNT = 0;

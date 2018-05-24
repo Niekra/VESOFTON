@@ -15,7 +15,7 @@ volatile int iIndex = 0;					//Input index. Keeps track of which is the next buf
 volatile int bReady = 0;					//Bool, to signal inputBuffer is ready for transfer.
 volatile int iLine = 0;
 volatile int uBusy = 0;
-uint8_t inputBuffer[BUFFER_LENGTH];
+uint8_t inputBuffer[100];
 
 //Local functions
 int put_Char(char c);
@@ -23,6 +23,9 @@ void init_RCC(void);
 void init_GPIO(void);
 void init_USART(void);
 void init_NVIC(void);
+void TIM3_IRQHandler(void);
+void USART2_IRQHandler(void);
+void DMA1_Stream5_IRQHandler(void);
 
 /*!
  * \brief teken een lijn.
@@ -73,7 +76,7 @@ int init_IDLE_Line(void)
 	timerInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	timerInitStructure.TIM_Period = TIM3_PERIOD;
 	timerInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
-	timerInitStructure.TIM_RepetitionCounter = 0;
+	timerInitStructure.TIM_RepetitionCounter = 1;
 	TIM_TimeBaseInit(TIM3, &timerInitStructure);
 
 	TIM3->CNT = 0;
@@ -194,8 +197,6 @@ int init_UART2(){
 int put_Char(char c){
 	while(USART_GetFlagStatus(USART2, USART_FLAG_TXE) == RESET); // Wait for Empty
 	USART_SendData(USART2, c);
-
-	return 0;
 }
 
 void TIM3_IRQHandler(void)

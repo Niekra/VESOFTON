@@ -19,7 +19,7 @@ namespace IO {
  * \param paramter int.
  */
 int write(char *text_out){
-	return UART::write(text_out);
+	UART::write(text_out);
 }
 
 /*!
@@ -35,8 +35,9 @@ int read(char *buf){
  * \param paramter int.
  */
 int initIO(){
-	UART::init_UART2();
-	UART::init_IDLE_Line();
+	UART::initUART2();
+	//UB_VGA_Screen_Init(); // Init VGA-Screen
+	//UB_VGA_FillScreen(VGA_COL_GREEN);// Set screen green.
 }
 
 } /* namespace IO */

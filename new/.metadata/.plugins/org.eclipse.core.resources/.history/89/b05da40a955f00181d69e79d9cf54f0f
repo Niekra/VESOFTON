@@ -10,31 +10,25 @@
 //--------INCLUDES-----------
 #include <Vgascreen.h>
 #include "stm32f4xx.h"
+//#include <cstring>
 #include <iostream>
 #include <stdio.h>
 #include<stdlib.h>
 #include <string.h>
-#include "stm32f4xx_rcc.h"
-#include "stm32f4xx_tim.h"
-#include "string.h"
 
-
+//#define BUFFER_LENGTH 64
 #define INPUT_LENGTH 10
 #define COLORS 16
 #define CORE_CLOCK 168000000
 
-#define TIM5_PRESCALE 10
-#define TIM5_PERIOD 8400
 
 namespace LL {
 
-//	public functions
-int init_LL();
-int destroy_LL();
-int set_Command(char *buf);
-
-// Global interrupt handler
-void TIM5_IRQHandler(void);
+	int initLL();
+	int exec();
+	int setCommand(char *buf);
+	int clearCommands();
+	int waitMs(int ms);
 
 } /* namespace LL */
 

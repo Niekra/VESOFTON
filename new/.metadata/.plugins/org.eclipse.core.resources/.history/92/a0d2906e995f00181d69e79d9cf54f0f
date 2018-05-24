@@ -13,7 +13,6 @@ namespace LL
 #define BUFFER_LENGTH 64
 
 char *inputArray[BUFFER_LENGTH];
-Vgascreen screen;
 
 
 const char *colors[COLORS] =
@@ -26,18 +25,18 @@ const int rgb[COLORS] =
 		0xFC, 0x92, 0xFF };
 
 //Local functions
-void clear_Input_Array();
-int color_To_Int(char *color);
+void clearInputArray();
+int colorToInt(char *color);
 int init_TIM5();
 int exec();
-int clear_Commands();
-int wait_Ms(int ms);
+int clearCommands();
+int waitMs(int ms);
 
 /*!
  * \brief teken een lijn.
  * \param paramter int.
  */
-int init_LL()
+int initLL()
 {
 	// TODO Auto-generated constructor stub
 	screen = Vgascreen();
@@ -45,19 +44,13 @@ int init_LL()
 	return 0;
 }
 
-int destroy_LL()
-{
-	return 0;
-}
-
-int init_TIM5()
-{
+int init_TIM5(){
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM5, ENABLE);
 
-	//Timer-5
+	//Timer-3
 	// basefreq = 2*APB1 (APB2=84MHz) => TIM_CLK=84MHz
-	// 84Mhz/10000/ = 1kHz
-	// 84Mhz = 84 MHz /10/ 8400 = 1000
+	// 1/115200/11 = 10.5kHz
+	// 84Mhz = 84 MHz /10000/ 8400 = 1000
 
 	TIM_TimeBaseInitTypeDef timerInitStructure;
 	timerInitStructure.TIM_Prescaler = TIM5_PRESCALE;
@@ -100,7 +93,7 @@ int exec()
 
 	if (strcmp(str, "clearscherm") == 0)			//Command zonder int.
 	{
-		color = color_To_Int(inputArray[1]);
+		color = colorToInt(inputArray[1]);
 		screen.clear_screen(color);
 	}
 	else
@@ -108,14 +101,14 @@ int exec()
 		a = (int) strtol(inputArray[1], NULL, 10);
 		if (strcmp(str, "wacht") == 0)
 		{
-			wait_Ms(a);
+			waitMs(a);
 		}
 		else										//Command met 2x int.
 		{
 			b = (int) strtol(inputArray[2], NULL, 10);
 			if (strcmp(str, "tekst") == 0)
 			{
-				color = color_To_Int(inputArray[4]);
+				color = colorToInt(inputArray[4]);
 				g = (int) strtol(inputArray[6], NULL, 10);
 				//style
 				screen.draw_text(a, b, inputArray[3], color, inputArray[5],
@@ -131,7 +124,7 @@ int exec()
 				else								//Commands met 4x int.
 				{
 					d = (int) strtol(inputArray[4], NULL, 10);
-					color = color_To_Int(inputArray[5]);
+					color = colorToInt(inputArray[5]);
 					if (strcmp(str, "rechthoek") == 0)
 					{
 						screen.draw_rectangle(a, b, c, d, color);
@@ -145,7 +138,7 @@ int exec()
 						e = (int) strtol(inputArray[5], NULL, 10);
 						if (strcmp(str, "lijn") == 0)
 						{
-							color = color_To_Int(inputArray[6]);
+							color = colorToInt(inputArray[6]);
 							screen.draw_line(a, b, c, d, e, color);
 						}
 						else						//Commands met 6x int.
@@ -153,7 +146,7 @@ int exec()
 							f = (int) strtol(inputArray[5], NULL, 10);
 							if (strcmp(str, "driehoek") == 0)
 							{
-								color = color_To_Int(inputArray[7]);
+								color = colorToInt(inputArray[7]);
 								screen.draw_triangle(a, b, c, d, e, f,
 										color);
 							}
@@ -167,11 +160,11 @@ int exec()
 		}
 	}
 
-	clear_Input_Array();
+	clearInputArray();
 	return 0;
 }
 
-int set_Command(char *buf)
+int setCommand(char *buf)
 {
 	int i = 1;
 	char str[100];
@@ -192,7 +185,7 @@ int set_Command(char *buf)
 	return 0;
 }
 
-int wait_Ms(int ms)
+int waitMs(int ms)
 {
 
 	int calcMs = CORE_CLOCK / 1000 / 18;
@@ -201,14 +194,15 @@ int wait_Ms(int ms)
 
 	//begin = DWT->CYCCNT;
 
-	for (int i = 0; i < total; i++);
+	for (int i = 0; i < total; i++)
+		;
 
 	//cnt = DWT->CYCCNT - begin;
 
 	return 0;
 }
 
-int color_To_Int(char *color)
+int colorToInt(char *color)
 {
 	for (int i = 0; i < COLORS; i++)
 	{
@@ -227,7 +221,7 @@ int color_To_Int(char *color)
 	return 0;
 }
 
-void clear_Input_Array()
+void clearInputArray()
 {
 	for (int i = 0; i < INPUT_LENGTH; i++)
 	{

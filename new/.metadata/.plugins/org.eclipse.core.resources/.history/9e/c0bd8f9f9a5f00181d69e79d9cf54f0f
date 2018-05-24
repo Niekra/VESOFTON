@@ -30,7 +30,6 @@ namespace LL {
 
 //	public functions
 int init_LL();
-int destroy_LL();
 int set_Command(char *buf);
 
 // Global interrupt handler

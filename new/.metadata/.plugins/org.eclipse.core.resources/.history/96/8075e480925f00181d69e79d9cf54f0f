@@ -34,8 +34,12 @@ namespace UART {
 #define  TIM3_PERIOD   16000
 #define  TIM3_PRESCALE     1
 
-//Buffer length
-#define BUFFER_LENGTH 64
+// UART struct.
+typedef struct {
+
+}UART_t;
+UART_t UART;
+
 
 // public functions
 int write(char *text_out);
@@ -43,10 +47,6 @@ int read(char *buf);
 int init_UART2(void);
 int init_IDLE_Line(void);
 int disable_IDLE_line(void);
-
-//Global intterupt handlers
-void TIM3_IRQHandler(void);
-void USART2_IRQHandler(void);
 
 } //namesspace
 

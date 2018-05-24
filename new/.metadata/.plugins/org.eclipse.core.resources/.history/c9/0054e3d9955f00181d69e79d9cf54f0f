@@ -37,6 +37,7 @@ namespace UART {
 //Buffer length
 #define BUFFER_LENGTH 64
 
+
 // public functions
 int write(char *text_out);
 int read(char *buf);

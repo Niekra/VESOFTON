@@ -27,7 +27,7 @@ namespace UI
 
 			if (buffered == 0)
 			{
-				LL: set_Command(buf);
+				LL: setCommand(buf);
 			}
 		}
 	}
