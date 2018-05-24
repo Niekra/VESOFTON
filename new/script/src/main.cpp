@@ -9,7 +9,6 @@
 // Module   : CMSIS_BOOT, M4_CMSIS_CORE
 // Function : VGA_core DMA LIB 320x240, 8bit color
 //--------------------------------------------------------------
-
 /* Includes */
 #include <Userinterface.h>
 #include <Vgascreen.h>
@@ -18,109 +17,74 @@
 #include "stm32f4_discovery.h"
 using namespace UI;
 
-
 /* Private macro */
 /* Private variables */
 /* Private function prototypes */
 /* Private functions */
 
 /**
-**===========================================================================
-**
-**  Abstract: main program
-**
-**===========================================================================
-*/
+ **===========================================================================
+ **
+ **  Abstract: main program
+ **
+ **===========================================================================
+ */
 int main(void)
 {
-  int i = 0;
-  int b = 65;
-  int x1 =10;
-  int y1 = 50;
-  int x2 = 150;
-  int y2 = 150;
+	/**
+	 *  IMPORTANT NOTE!
+	 *  The symbol VECT_TAB_SRAM needs to be defined when building the project
+	 *  if code has been located to RAM and interrupts are used.
+	 *  Otherwise the interrupt table located in flash will be used.
+	 *  See also the <system_*.c> file and how the SystemInit() function updates
+	 *  SCB->VTOR register.
+	 *  E.g.  SCB->VTOR = 0x20000000;
+	 */
+	/** @code */
+	/* TODO - Add your application code here */
+	SystemInit(); // System speed to 168MHz
 
-  /**
-  *  IMPORTANT NOTE!
-  *  The symbol VECT_TAB_SRAM needs to be defined when building the project
-  *  if code has been located to RAM and interrupts are used. 
-  *  Otherwise the interrupt table located in flash will be used.
-  *  See also the <system_*.c> file and how the SystemInit() function updates 
-  *  SCB->VTOR register.  
-  *  E.g.  SCB->VTOR = 0x20000000;  
-  */
-  /** @code */
-  /* TODO - Add your application code here */
-  SystemInit(); // System speed to 168MHz
+	//Uart u1 = Uart();
 
-  //Uart u1 = Uart();
+	Vgascreen s1 = Vgascreen();
 
-  Vgascreen s1 = Vgascreen();
+	UI::initUI();
 
-  UI::initUI();
+	/* Initialize LEDs */
+	STM_EVAL_LEDInit(LED3);
+	STM_EVAL_LEDInit(LED4);
+	STM_EVAL_LEDInit(LED5);
+	STM_EVAL_LEDInit(LED6);
 
-  //square
-  s1.draw_rectangle(x1,y1,x2,y2,5);
-
-  //linetest
-  s1.draw_line(180,0,180,240,2,223);
-  //s1.draw_line(120,60,180,180,5,254);
-
-  //triangle
-  s1.draw_triangle(300, 20, 180,180, 120,60,0xED);
-
-  //ellipse
-  s1.draw_ellipse(40, 40, 20, 30, 0x80);
-
-  //bitmap
-  s1.draw_bitmap(1, 50, 50);
-//  s1.draw_bitmap(2, 100, 50);
-//  s1.draw_bitmap(3, 150, 50);
-//  s1.draw_bitmap(4, 200, 50);
-//  s1.draw_bitmap(5, 50, 100);
-//  s1.draw_bitmap(6, 100, 100);
-
-  s1.draw_text(50, 200, "aA bB cC dD eE fF gG hH oO", 200, "norm", 3);
-  s1.draw_text(50, 150, "aA bB cC dD eE fF gG hH oO", 0, "cursief", 1);
-  s1.draw_text(50, 100, "aA bB cC dD eE fF gG hH oO", 255, "vet", 2);
-
-
-  s1.draw_text(50, 200, "Hallo daar vriendjes.", 0 , "norm",1);
-
-  /* Initialize LEDs */
-  STM_EVAL_LEDInit(LED3);
-  STM_EVAL_LEDInit(LED4);
-  STM_EVAL_LEDInit(LED5);
-  STM_EVAL_LEDInit(LED6);
-
-  /* Turn on LEDs */
+	/* Turn on LEDs */
 //  STM_EVAL_LEDOn(LED3);
 //  STM_EVAL_LEDOn(LED4);
 //  STM_EVAL_LEDOn(LED5);
 //  STM_EVAL_LEDOn(LED6);
-
-  /* Infinite loop */
-  while (1)
-  {
-	  UI::mainLoop();
-  }
+	/* Infinite loop */
+	while (1)
+	{
+		UI::mainLoop();
+	}
 }
-
 
 /*
  * Callback used by stm32f4_discovery_audio_codec.c.
  * Refer to stm32f4_discovery_audio_codec.h for more info.
  */
-extern "C" void EVAL_AUDIO_TransferComplete_CallBack(uint32_t pBuffer, uint32_t Size){
-  /* TODO, implement your code here */
-  return;
+extern "C" void EVAL_AUDIO_TransferComplete_CallBack(uint32_t pBuffer,
+		uint32_t Size)
+{
+	/* TODO, implement your code here */
+	return;
 }
 
 /*
  * Callback used by stm324xg_eval_audio_codec.c.
  * Refer to stm324xg_eval_audio_codec.h for more info.
  */
-extern "C" uint16_t EVAL_AUDIO_GetSampleCallBack(void){
-  /* TODO, implement your code here */
-  return -1;
+extern "C" uint16_t EVAL_AUDIO_GetSampleCallBack(void)
+{
+	/* TODO, implement your code here */
+	return -1;
 }
