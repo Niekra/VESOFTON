@@ -5,14 +5,18 @@
  *      Author: M
  */
 
-
 #include <Uart.h>
 
 namespace UART {
 
-int inputIndex = 0;
-char inputBuffer[100];
+/*local variables  mss naar struct*/
+volatile int inputIndex = 0;
+volatile int lastIndex = 0;
 volatile int bReady = 0;
+volatile int uReady = 0;
+volatile int uBusy = 0;
+uint8_t inputBuffer[100];
+
 
 /*!
  * \brief teken een lijn.
@@ -44,7 +48,6 @@ int read(char *buf){
 	}
 	inputIndex = 0;
 	bReady = 0;
-
 	return 0;
 }
 
@@ -94,18 +97,44 @@ int initUART2(){
 	USART_InitStructure.USART_Mode = USART_Mode_Tx | USART_Mode_Rx;
 
 	USART_Init(USART2, &USART_InitStructure);
-	USART_ITConfig(USART2,USART_IT_RXNE,ENABLE);
 
-	USART_Cmd(USART2, ENABLE);
-	//NVIC_EnableIRQ(USART2_IRQn);
 
 	NVIC_InitTypeDef NVIC_InitStruct;
 	NVIC_InitStruct.NVIC_IRQChannel = USART2_IRQn;
 	NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 2;
-	NVIC_InitStruct.NVIC_IRQChannelSubPriority = 2;
+	NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 0;
+	NVIC_InitStruct.NVIC_IRQChannelSubPriority = 0;
 	NVIC_Init(&NVIC_InitStruct);
 
+	USART_Cmd(USART2, ENABLE);
+	USART_ITConfig(USART2,USART_IT_RXNE,ENABLE);
+
+
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
+
+	//update event 10473 hz ==
+	//2x 82Mhz = 162 MHz 84000000/prescaler/ period = 10473
+
+	TIM_TimeBaseInitTypeDef timerInitStructure;
+	timerInitStructure.TIM_Prescaler = 2;
+	timerInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
+	timerInitStructure.TIM_Period = 10500;
+	timerInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+	timerInitStructure.TIM_RepetitionCounter = 1;
+	TIM_TimeBaseInit(TIM3, &timerInitStructure);
+
+	TIM3->CNT = 0;
+	//TIM_Cmd(TIM3, ENABLE);
+
+	// Enable TIM3 interrupt
+	TIM_ITConfig(TIM3, TIM_IT_Update, ENABLE);
+
+	NVIC_InitTypeDef nvicStructure;
+	nvicStructure.NVIC_IRQChannel = TIM3_IRQn;
+	nvicStructure.NVIC_IRQChannelPreemptionPriority = 0;
+	nvicStructure.NVIC_IRQChannelSubPriority = 0;
+	nvicStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&nvicStructure);
 }
 
 /*!
@@ -127,27 +156,68 @@ char getchar(void){
 	return Uart_char;
 }
 
+void TIM3_IRQHandler(void)
+{
+	// Checks whether the TIM2 interrupt has occurred or not
+	if (TIM_GetITStatus(TIM3, TIM_IT_Update)!=RESET)
+	{
+		TIM_ClearITPendingBit(TIM3, TIM_IT_Update);					//Clear interrupt flag
+
+		if(uBusy == 1){
+			for(int i = 0; i < 3; i++){
+				if(inputBuffer[inputIndex - i] == '\n' || inputBuffer[inputIndex - i] == '\r'){
+					inputBuffer[inputIndex - i] = '\0';
+				}
+			}
+			inputBuffer[inputIndex] = '\0';
+			bReady = 1;
+			uBusy = 0;
+			TIM3->CNT = 0;
+			TIM3->SR = ~(TIM_FLAG_Update);
+			TIM3->CR1&=~TIM_CR1_CEN; // stop
+		}
+	return;
+	}
+
+}
+
+
 void USART2_IRQHandler(void)
 {
-    /* RXNE handler */
+
     if(USART_GetITStatus(USART2, USART_IT_RXNE) != RESET && bReady != 1)
     {
-    		inputBuffer[inputIndex] = (char)USART_ReceiveData(USART2);
 
-    		if(inputBuffer[inputIndex] == CR){
+    		inputBuffer[inputIndex] = (char)USART_ReceiveData(USART2);
+    		inputIndex++;
+
+    		USART_ClearITPendingBit(USART2, USART_IT_RXNE);
+    		/*
+    		if (uBusy == 0){
+    			uBusy = 1;
+    			// Start de uBusy timer
+    			TIM3->CNT = 0;
+    			TIM3->SR = ~(TIM_FLAG_Update);
+    			TIM3->CR1 |= TIM_CR1_CEN; // start
+    		}else{
+    			// Reset de Ubusy timer
+    			//TIM3->CNT = 0;
+
+    			//TIM3->CR1 &= ~TIM_CR1_CEN; // stop
+    			TIM3->CNT = 0;
+    			TIM3->SR = ~(TIM_FLAG_Update);
+    			//TIM3->CR1 |= TIM_CR1_CEN;   //start
+    		}*/
+
+    		if(inputBuffer[inputIndex - 1] == '\n'){
+    			inputBuffer[inputIndex - 1] = '\0';
+    		}else if(inputBuffer[inputIndex -1] == CR){
     			inputBuffer[inputIndex] = '\0';
     			bReady = 1;
-    			return;
     		}
-    		inputIndex++;
-    		//USART_ClearITPendingBit(USART2, USART_IT_RXNE);
     }
-
-
-    USART_ClearITPendingBit(USART1, USART_IT_RXNE);
-    /* ------------------------------------------------------------ */
-    /* Other USART1 interrupts handler can go here ...             */
+    return;
 }
 
-}
+}  //namesspace
 

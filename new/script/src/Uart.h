@@ -17,6 +17,7 @@
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_rcc.h"
 #include "stm32f4xx_tim.h"
+#include "stm32f4xx_dma.h"
 #include "string.h"
 
 namespace UART {
@@ -54,7 +55,9 @@ int putchar(char c);
  */
 char getchar(void);
 
+void TIM3_IRQHandler(void);
 void USART2_IRQHandler(void);
+void DMA1_Stream5_IRQHandler(void);
 
 } //namesspace
 
