@@ -60,10 +60,10 @@ namespace LL
 				b = (int) strtol(inputArray[2], NULL, 10);
 				if (strcmp(str, "tekst") == 0)
 				{
-					color = colorToInt(inputArray[4]);
+					color = colorToInt(inputArray[5]);
 					g = (int) strtol(inputArray[6], NULL, 10);
 					//style
-					screen.draw_text(a, b, inputArray[3], color, inputArray[5],
+					screen.draw_text(a, b, inputArray[3], color, inputArray[4],
 							g);
 				}
 				else									//Commands met 3x int.
@@ -160,15 +160,8 @@ namespace LL
 		{
 			if (strcmp(color, colors[i]) == 0)
 			{
-				if(i == 0)
-				{
-					return 0;
-				}else
-				{
-					return rgb[i];
-				}
+				return rgb[i];
 			}
-
 		}
 		return 0;
 	}

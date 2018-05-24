@@ -42,10 +42,6 @@ int Vgascreen::draw_line(int x1, int y1, int x2, int y2, int width, int color)
 	const int dy = abs(y1 - y2);
 	bool a = true;
 
-	if (dx == 0 && dy == 0){
-		UB_VGA_SetPixel(x1, y1, color);
-	}
-
 	if (dy > dx)
 	{
 		std::swap(x1, y1);

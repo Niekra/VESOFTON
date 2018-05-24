@@ -21,7 +21,7 @@ namespace UI
 		int err = 0;
 		char buf[100];
 
-		while (1)
+		while (err == 0)
 		{
 			buffered = IO::read(buf);
 

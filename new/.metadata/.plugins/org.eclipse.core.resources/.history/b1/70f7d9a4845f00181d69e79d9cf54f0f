@@ -42,10 +42,6 @@ int Vgascreen::draw_line(int x1, int y1, int x2, int y2, int width, int color)
 	const int dy = abs(y1 - y2);
 	bool a = true;
 
-	if (dx == 0 && dy == 0){
-		UB_VGA_SetPixel(x1, y1, color);
-	}
-
 	if (dy > dx)
 	{
 		std::swap(x1, y1);
@@ -226,22 +222,22 @@ int Vgascreen::draw_bitmap(int nr, int x_lo, int y_lo)
 
 	switch (nr)
 	{
-		case 0:
+		case 1:
 			bitmap = smileyBmp;
 			break;
-		case 1:
+		case 2:
 			bitmap = angryBmp;
 			break;
-		case 2:
+		case 3:
 			bitmap = arrowUp;
 			break;
-		case 3:
+		case 4:
 			bitmap = arrowDown;
 			break;
-		case 4:
+		case 5:
 			bitmap = arrowRight;
 			break;
-		case 5:
+		case 6:
 			bitmap = arrowLeft;
 			break;
 		default:
