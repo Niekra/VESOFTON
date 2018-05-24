@@ -34,10 +34,8 @@ namespace UART {
 #define  TIM3_PERIOD   16000
 #define  TIM3_PRESCALE     1
 
-#define USART2_BAUT 115200
-
 //Buffer length
-#define BUFFER_LENGTH 100
+#define BUFFER_LENGTH 64
 
 // public functions
 int write(char *text_out);

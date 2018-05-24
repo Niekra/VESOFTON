@@ -37,7 +37,7 @@ namespace UART {
 #define USART2_BAUT 115200
 
 //Buffer length
-#define BUFFER_LENGTH 100
+#define BUFFER_LENGTH 64
 
 // public functions
 int write(char *text_out);

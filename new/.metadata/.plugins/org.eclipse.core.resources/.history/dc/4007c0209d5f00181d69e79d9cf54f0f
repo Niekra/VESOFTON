@@ -10,7 +10,7 @@
 namespace LL
 {
 
-#define BUFFER_LENGTH 100
+#define BUFFER_LENGTH 64
 
 char *inputArray[BUFFER_LENGTH];
 Vgascreen screen;

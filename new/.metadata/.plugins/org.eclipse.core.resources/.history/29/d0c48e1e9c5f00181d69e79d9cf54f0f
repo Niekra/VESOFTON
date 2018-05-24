@@ -52,8 +52,8 @@ int read(char *buf){
 			buf[i] = inputBuffer[i];
 		}
 	}
-	iIndex = RESET;
-	bReady = RESET;
+	iIndex = 0;
+	bReady = 0;
 
 	return 0;
 }
@@ -76,7 +76,7 @@ int init_IDLE_Line(void)
 	timerInitStructure.TIM_RepetitionCounter = 0;
 	TIM_TimeBaseInit(TIM3, &timerInitStructure);
 
-	TIM3->CNT = RESET;
+	TIM3->CNT = 0;
 	//TIM_Cmd(TIM3, ENABLE);
 
 	// Enable TIM3 interrupt
@@ -90,7 +90,7 @@ int init_IDLE_Line(void)
 	nvicStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&nvicStructure);
 
-	iLine = SET;
+	iLine = 1;
 
 	return 0;
 }
@@ -98,8 +98,8 @@ int init_IDLE_Line(void)
 
 int disable_IDLE_line(void)
 {
-	iLine = RESET;
-	TIM3->CNT = RESET;
+	iLine = 0;
+	TIM3->CNT = 0;
 	TIM3->SR = ~(TIM_FLAG_Update);
 	TIM3->CR1&=~TIM_CR1_CEN; // stop
 
@@ -149,7 +149,7 @@ void init_USART(void)
 	      - Hardware flow control disabled (RTS and CTS signals)
 	      - Receive and transmit enabled
 	*/
-	USART_InitStructure.USART_BaudRate = USART2_BAUT;
+	USART_InitStructure.USART_BaudRate = 115200;
 	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
 	USART_InitStructure.USART_StopBits = USART_StopBits_1;
 	USART_InitStructure.USART_Parity = USART_Parity_No;
@@ -205,7 +205,7 @@ void TIM3_IRQHandler(void)
 	{
 		TIM_ClearITPendingBit(TIM3, TIM_IT_Update);					//Clear interrupt flag
 
-		if(uBusy == SET){
+		if(uBusy == 1){
 			for(int i = 0; i < 3; i++){
 				if(inputBuffer[iIndex - i] == '\n' || inputBuffer[iIndex - i] == '\r'){
 					inputBuffer[iIndex - i] = '\0';
@@ -213,10 +213,10 @@ void TIM3_IRQHandler(void)
 			}
 			inputBuffer[iIndex] = '\0';
 
-			bReady = SET;
-			uBusy = RESET;
+			bReady = 1;
+			uBusy = 0;
 
-			TIM3->CNT = RESET;
+			TIM3->CNT = 0;
 			TIM3->SR = ~(TIM_FLAG_Update);
 			TIM3->CR1&=~TIM_CR1_CEN; // stop
 		}
@@ -229,7 +229,7 @@ void TIM3_IRQHandler(void)
 void USART2_IRQHandler(void)
 {
 
-    if(USART_GetITStatus(USART2, USART_IT_RXNE) != RESET && bReady != SET)
+    if(USART_GetITStatus(USART2, USART_IT_RXNE) != RESET && bReady != 1)
     {
 
     		inputBuffer[iIndex] = (char)USART_ReceiveData(USART2);
@@ -239,15 +239,15 @@ void USART2_IRQHandler(void)
 
     		if(iLine == 1)
     		{
-				if (uBusy == RESET){
-					uBusy = SET;
+				if (uBusy == 0){
+					uBusy = 1;
 					// Start de uBusy timer
-					TIM3->CNT = RESET;
+					TIM3->CNT = 0;
 					TIM3->SR = ~(TIM_FLAG_Update);
 					TIM3->CR1 |= TIM_CR1_CEN; // start
 				}else{
 					// Reset de Ubusy timer
-					TIM3->CNT = RESET;
+					TIM3->CNT = 0;
 					TIM3->SR = ~(TIM_FLAG_Update);
 				}
     		}else
@@ -256,7 +256,7 @@ void USART2_IRQHandler(void)
 					inputBuffer[iIndex - 1] = '\0';
 				}else if(inputBuffer[iIndex -1] == CR){
 					inputBuffer[iIndex] = '\0';
-					bReady = SET;
+					bReady = 1;
 				}
     		}
     }
