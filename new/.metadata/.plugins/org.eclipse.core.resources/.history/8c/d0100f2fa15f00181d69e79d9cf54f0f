@@ -36,7 +36,7 @@ int read(char *buf){
  */
 int initIO(){
 	UART::init_UART2();
-	//UART::init_IDLE_Line();
+	UART::init_IDLE_Line();
 }
 
 } /* namespace IO */

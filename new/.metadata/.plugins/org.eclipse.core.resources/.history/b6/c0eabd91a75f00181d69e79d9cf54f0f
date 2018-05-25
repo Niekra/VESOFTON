@@ -10,8 +10,7 @@
 namespace LL
 {
 
-#define BUFFER_LENGTH 10
-#define ROW_LENNGTH 10
+#define BUFFER_LENGTH 100
 
 char *inputArray[BUFFER_LENGTH];
 Vgascreen screen;
@@ -45,10 +44,6 @@ int init_LL()
 	// TODO Auto-generated constructor stub
 	screen = Vgascreen();
 	init_TIM5();
-
-	for(int i = 0;i < BUFFER_LENGTH; i++){
-		inputArray[i] = (char*)malloc(sizeof(char*)*30);
-	}
 
 	return 0;
 }
@@ -205,7 +200,7 @@ int wait_Ms(int ms)
 
 	//cnt = DWT->CYCCNT - begin;
 
-	waitMs = ms;
+	waitingMs = ms;
 
 	TIM5->CNT = RESET;
 	TIM5->SR = ~(TIM_FLAG_Update);
@@ -251,13 +246,11 @@ void TIM5_IRQHandler(void)
 		if(waitCnt <= waitMs)
 		{
 			waiting = RESET;
-			waitCnt = RESET;
 
 			TIM5->CNT = RESET;
 			TIM5->SR = ~(TIM_FLAG_Update);
 			TIM5->CR1&=~TIM_CR1_CEN; // stop
 			exec();
-			return;
 		}
 		waitCnt++;
 	}

@@ -19,7 +19,6 @@
 #include "stm32f4xx_tim.h"
 #include "string.h"
 #include "stm32f4xx_gpio.h"
-#include "malloc.h"
 
 
 #define INPUT_LENGTH 10
@@ -27,12 +26,12 @@
 #define CORE_CLOCK 168000000
 
 #define TIM5_PRESCALE 100
-#define TIM5_PERIOD 840000
+#define TIM5_PERIOD 8400
 
 namespace LL {
 
 //	public functions
-
+int init_LL();
 int destroy_LL();
 int set_Command(char *buf);
 
@@ -44,7 +43,6 @@ int set_Command(char *buf);
 void TIM5_IRQHandler(void);
 int wait_Ms(int ms);
 int init_TIM5();
-int init_LL();
 
 #ifdef __cplusplus
 }

@@ -32,7 +32,7 @@
 namespace LL {
 
 //	public functions
-
+int init_LL();
 int destroy_LL();
 int set_Command(char *buf);
 
@@ -44,7 +44,6 @@ int set_Command(char *buf);
 void TIM5_IRQHandler(void);
 int wait_Ms(int ms);
 int init_TIM5();
-int init_LL();
 
 #ifdef __cplusplus
 }

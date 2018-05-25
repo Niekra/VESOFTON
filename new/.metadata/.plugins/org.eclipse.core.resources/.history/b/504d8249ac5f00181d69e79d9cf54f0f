@@ -47,7 +47,7 @@ int init_LL()
 	init_TIM5();
 
 	for(int i = 0;i < BUFFER_LENGTH; i++){
-		inputArray[i] = (char*)malloc(sizeof(char*)*30);
+		inputArray[i] = '/0';
 	}
 
 	return 0;

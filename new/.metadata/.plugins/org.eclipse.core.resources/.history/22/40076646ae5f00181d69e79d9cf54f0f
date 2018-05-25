@@ -28,7 +28,7 @@ namespace UI
 
 			if (buffered == 0)
 			{
-				err = LL::set_Command(buf);
+				err = LL: set_Command(buf);
 			}
 
 			if(err ==1)

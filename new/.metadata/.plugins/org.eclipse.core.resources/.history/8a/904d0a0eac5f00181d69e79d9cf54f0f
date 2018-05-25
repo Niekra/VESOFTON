@@ -13,7 +13,7 @@ namespace LL
 #define BUFFER_LENGTH 10
 #define ROW_LENNGTH 10
 
-char *inputArray[BUFFER_LENGTH];
+char **inputArray = (char**)malloc(sizeof(char*)*30);
 Vgascreen screen;
 volatile int waiting = RESET;
 volatile int waitMs = RESET;
@@ -47,7 +47,7 @@ int init_LL()
 	init_TIM5();
 
 	for(int i = 0;i < BUFFER_LENGTH; i++){
-		inputArray[i] = (char*)malloc(sizeof(char*)*30);
+		inputArray[i] = '/0';
 	}
 
 	return 0;

@@ -10,14 +10,10 @@
 namespace LL
 {
 
-#define BUFFER_LENGTH 10
-#define ROW_LENNGTH 10
+#define BUFFER_LENGTH 100
 
 char *inputArray[BUFFER_LENGTH];
 Vgascreen screen;
-volatile int waiting = RESET;
-volatile int waitMs = RESET;
-volatile int waitCnt = RESET;
 
 
 const char *colors[COLORS] =
@@ -32,9 +28,10 @@ const int rgb[COLORS] =
 //Local functions
 void clear_Input_Array();
 int color_To_Int(char *color);
+int init_TIM5();
 int exec();
 int clear_Commands();
-
+int wait_Ms(int ms);
 
 /*!
  * \brief teken een lijn.
@@ -44,11 +41,6 @@ int init_LL()
 {
 	// TODO Auto-generated constructor stub
 	screen = Vgascreen();
-	init_TIM5();
-
-	for(int i = 0;i < BUFFER_LENGTH; i++){
-		inputArray[i] = (char*)malloc(sizeof(char*)*30);
-	}
 
 	return 0;
 }
@@ -75,11 +67,11 @@ int init_TIM5()
 	timerInitStructure.TIM_RepetitionCounter = 1;
 	TIM_TimeBaseInit(TIM5, &timerInitStructure);
 
-	TIM5->CNT = RESET;
-	//TIM_Cmd(TIM5, ENABLE);
+	TIM5->CNT = 0;
+	//TIM_Cmd(TIM3, ENABLE);
 
-	// Enable TIM5 interrupt
-	TIM_ITConfig(TIM5, TIM_IT_Update, ENABLE);
+	// Enable TIM3 interrupt
+	TIM_ITConfig(TIM3, TIM_IT_Update, ENABLE);
 
 	//Set interrupt handler
 	NVIC_InitTypeDef nvicStructure;
@@ -93,6 +85,10 @@ int init_TIM5()
 	return 0;
 }
 
+void TIM5_IRQHandler(void)
+{
+	return;
+}
 
 int exec()
 {
@@ -192,25 +188,22 @@ int set_Command(char *buf)
 		inputArray[i] = out;
 		i++;
 	}
-	if(waiting == SET){
-		return 1;
-	}
 	LL::exec();
 	return 0;
 }
 
 int wait_Ms(int ms)
 {
-	waiting = SET;
+
+	int calcMs = CORE_CLOCK / 1000 / 18;
+	volatile uint32_t total = (calcMs * ms);
+	//volatile uint32_t cnt,begin;
+
+	//begin = DWT->CYCCNT;
+
+	for (int i = 0; i < total; i++);
 
 	//cnt = DWT->CYCCNT - begin;
-
-	waitMs = ms;
-
-	TIM5->CNT = RESET;
-	TIM5->SR = ~(TIM_FLAG_Update);
-	TIM5->CR1 |= TIM_CR1_CEN; // start
-
 
 	return 0;
 }
@@ -240,30 +233,6 @@ void clear_Input_Array()
 	{
 		inputArray[i] = 0;
 	}
-}
-
-void TIM5_IRQHandler(void)
-{
-	if (TIM_GetITStatus(TIM5, TIM_IT_Update)!=RESET)
-	{
-		TIM_ClearITPendingBit(TIM5, TIM_IT_Update);	//Clear interrupt flag
-
-		if(waitCnt <= waitMs)
-		{
-			waiting = RESET;
-			waitCnt = RESET;
-
-			TIM5->CNT = RESET;
-			TIM5->SR = ~(TIM_FLAG_Update);
-			TIM5->CR1&=~TIM_CR1_CEN; // stop
-			exec();
-			return;
-		}
-		waitCnt++;
-	}
-
-	return;
-
 }
 
 } /* namespace LL */

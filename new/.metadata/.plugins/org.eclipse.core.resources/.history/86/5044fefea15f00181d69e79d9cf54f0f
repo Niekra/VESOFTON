@@ -10,14 +10,11 @@
 namespace LL
 {
 
-#define BUFFER_LENGTH 10
-#define ROW_LENNGTH 10
+#define BUFFER_LENGTH 100
 
 char *inputArray[BUFFER_LENGTH];
 Vgascreen screen;
 volatile int waiting = RESET;
-volatile int waitMs = RESET;
-volatile int waitCnt = RESET;
 
 
 const char *colors[COLORS] =
@@ -32,9 +29,10 @@ const int rgb[COLORS] =
 //Local functions
 void clear_Input_Array();
 int color_To_Int(char *color);
+int init_TIM5();
 int exec();
 int clear_Commands();
-
+int wait_Ms(int ms);
 
 /*!
  * \brief teken een lijn.
@@ -44,11 +42,6 @@ int init_LL()
 {
 	// TODO Auto-generated constructor stub
 	screen = Vgascreen();
-	init_TIM5();
-
-	for(int i = 0;i < BUFFER_LENGTH; i++){
-		inputArray[i] = (char*)malloc(sizeof(char*)*30);
-	}
 
 	return 0;
 }
@@ -202,10 +195,14 @@ int set_Command(char *buf)
 int wait_Ms(int ms)
 {
 	waiting = SET;
-
+	TIM_TimeBaseInitTypeDef timerInitStructure;
+	timerInitStructure.TIM_Prescaler = TIM5_PRESCALE;
+	timerInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
+	timerInitStructure.TIM_Period = TIM5_PERIOD;
+	timerInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+	timerInitStructure.TIM_RepetitionCounter = ms;
+	TIM_TimeBaseInit(TIM5, &timerInitStructure);
 	//cnt = DWT->CYCCNT - begin;
-
-	waitMs = ms;
 
 	TIM5->CNT = RESET;
 	TIM5->SR = ~(TIM_FLAG_Update);
@@ -248,18 +245,12 @@ void TIM5_IRQHandler(void)
 	{
 		TIM_ClearITPendingBit(TIM5, TIM_IT_Update);	//Clear interrupt flag
 
-		if(waitCnt <= waitMs)
-		{
-			waiting = RESET;
-			waitCnt = RESET;
+		waiting = RESET;
 
-			TIM5->CNT = RESET;
-			TIM5->SR = ~(TIM_FLAG_Update);
-			TIM5->CR1&=~TIM_CR1_CEN; // stop
-			exec();
-			return;
-		}
-		waitCnt++;
+		TIM5->CNT = RESET;
+		TIM5->SR = ~(TIM_FLAG_Update);
+		TIM5->CR1&=~TIM_CR1_CEN; // stop
+		exec();
 	}
 
 	return;
