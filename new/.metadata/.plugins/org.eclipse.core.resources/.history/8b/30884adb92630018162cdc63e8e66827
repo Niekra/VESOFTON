@@ -124,7 +124,7 @@ typedef struct {
 }command_t;
 
 /**
- * @brief logic_t struct for the different flags and buffer.
+ * @brief Logic_t struct for the different flags and buffer.
  *
  * The logic_t structs saves the different flags of the Logiclayer.
  * The struct also saves the commands in a buffer.
@@ -141,13 +141,13 @@ typedef struct{
 //--------------------------------------------------------------
 // Global functions
 //--------------------------------------------------------------
-/** @brief (GLOBAL)Initiate the LL.
+/** @brief (GLOBAL)Initiate the LogicLevel.
  *
  *	Initiates the LogicLevel. All the flags are reset and a Vgascreen object is created.
  *	Everything is saved in the logic struct.
  *
  *  @param void
- *  @return void
+ *  @return int error
  */
 void init_LL();
 
@@ -163,14 +163,14 @@ void init_LL();
  */
 int exec();
 
-/** @brief (GLOBAL)Destroy the LL
+/** @brief (GLOBAL)Destroy the LogicLayer
  *
  *	Deletes and Vgascreen object and resets all the flags.
  *
  *	Gives the TYPE_NOT_FOUND error if a wrong input is given or the command buffer is empty.
  *
  *  @param void
- *  @return void
+ *  @return int error
  */
 void delete_LL();
 
@@ -192,7 +192,7 @@ int set_Command(char *buf);
 //--------------------------------------------------------------
 // Global functions(C) and interrupt handler for TIM5
 //--------------------------------------------------------------
-/** @brief (GLOBAL) TIM5_IRQh for wait_Ms()
+/** @brief (GLOBAL) TIM5_IRQh for wait_Ms
 *
 *	The TIM5_IRQh interrupts when the timer is triggered.
 *	The interrupt stops the read function of the IO::level to exec() the buffer.
@@ -211,18 +211,18 @@ void TIM5_IRQHandler(void);
  *	The waiting FLAG is also set, so no further commands will be executed.
  *
  *  @param int ms, the time to wait
- *  @return void
+ *  @return int error
  */
-void wait_Ms(int ms);
+int wait_Ms(int ms);
 
 /** @brief (LOCAL)Initiate TIM5 for the wait_Ms function.
  *
  * 	Sets the TIM5 and NVIC settings for interrupts on TIM5.
  *
  *  @param void
- *  @return void
+ *  @return int error
  */
-void init_TIM5();
+int init_TIM5();
 
 #ifdef __cplusplus
 }

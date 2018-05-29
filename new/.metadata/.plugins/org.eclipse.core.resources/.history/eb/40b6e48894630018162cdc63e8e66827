@@ -331,7 +331,7 @@ int set_Command(char *buf)
 //--------------------------------------------------------------
 // Wait x ms.
 //--------------------------------------------------------------
-void wait_Ms(int ms)
+int wait_Ms(int ms)
 {
 	//Set waiting flag.
 	logic.waiting = SET;
@@ -343,7 +343,7 @@ void wait_Ms(int ms)
 	TIM5->CR1 |= TIM_CR1_CEN; // start
 
 	//Return normal.
-	return;
+	return 0;
 }	//wait_Ms
 
 

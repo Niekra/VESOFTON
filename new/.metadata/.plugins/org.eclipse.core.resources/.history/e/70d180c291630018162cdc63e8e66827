@@ -11,7 +11,6 @@
 // Includes
 //--------------------------------------------------------------
 #include <InputOutput.h>
-#include <Uart.h>
 
 using namespace UART;
 
@@ -23,9 +22,9 @@ namespace IO {
 //--------------------------------------------------------------
 // IO::write()
 //--------------------------------------------------------------
-void write(char *text_out)
+int write(char *text_out)
 {
-	UART::write(text_out);
+	return UART::write(text_out);
 }
 
 //--------------------------------------------------------------

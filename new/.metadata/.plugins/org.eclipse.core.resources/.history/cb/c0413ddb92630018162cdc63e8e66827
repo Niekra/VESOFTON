@@ -100,7 +100,7 @@ void delete_LL()
 //--------------------------------------------------------------
 // Initiate TIM5
 //--------------------------------------------------------------
-void init_TIM5()
+int init_TIM5()
 {
 	//Enable the TIM5 system clock.
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM5, ENABLE);
@@ -129,7 +129,7 @@ void init_TIM5()
 	NVIC_Init(&nvicStructure);
 
 
-	return;	//Return
+	return 0;	//Return
 }
 
 //--------------------------------------------------------------
@@ -331,7 +331,7 @@ int set_Command(char *buf)
 //--------------------------------------------------------------
 // Wait x ms.
 //--------------------------------------------------------------
-void wait_Ms(int ms)
+int wait_Ms(int ms)
 {
 	//Set waiting flag.
 	logic.waiting = SET;
@@ -343,7 +343,7 @@ void wait_Ms(int ms)
 	TIM5->CR1 |= TIM_CR1_CEN; // start
 
 	//Return normal.
-	return;
+	return 0;
 }	//wait_Ms
 
 

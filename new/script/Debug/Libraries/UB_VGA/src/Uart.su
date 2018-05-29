@@ -1,6 +1,6 @@
 Uart.cpp:90:6:void UART::init_UART2()	8	static
 Uart.cpp:110:6:void UART::delete_UART()	8	static
-Uart.cpp:128:5:int UART::write(char*)	24	static
+Uart.cpp:128:6:void UART::write(char*)	24	static
 Uart.cpp:140:5:int UART::read(char*)	24	static
 Uart.cpp:172:6:void UART::stop_Read()	4	static
 Uart.cpp:181:6:void UART::init_IDLE_Line()	24	static
@@ -9,6 +9,6 @@ Uart.cpp:230:6:void UART::init_RCC()	8	static
 Uart.cpp:245:6:void UART::init_GPIO()	16	static
 Uart.cpp:265:6:void UART::init_USART()	24	static
 Uart.cpp:292:6:void UART::init_NVIC()	16	static
-Uart.cpp:308:5:int UART::put_Char(char)	16	static
+Uart.cpp:308:6:void UART::put_Char(char)	16	static
 Uart.cpp:319:6:void UART::TIM3_IRQHandler()	8	static
 Uart.cpp:356:6:void UART::USART2_IRQHandler()	16	static

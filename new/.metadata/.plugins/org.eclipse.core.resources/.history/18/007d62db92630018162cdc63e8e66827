@@ -34,9 +34,9 @@ UART_T uart;
  *	Print a single char.
  *
  *  @param char c, char to print.
- *  @return void
+ *  @return int error
  */
-void put_Char(char c);
+int put_Char(char c);
 
 /** @brief (Local) Initiate the needed systemclock
  *
@@ -125,13 +125,13 @@ void delete_UART(void)
 //--------------------------------------------------------------
 // UART::write()
 //--------------------------------------------------------------
-void write(char *text_out)
+int write(char *text_out)
 {
 	for (int i=0; text_out[i]; i++)	//Loop through the output text.
 	{
 		UART::put_Char(text_out[i]);	//Print single char
 	}
-	return;
+	return 0;
 }	//write()
 
 //--------------------------------------------------------------
@@ -305,12 +305,12 @@ void init_NVIC(void)
 //--------------------------------------------------------------
 // Transmit 1 single char.
 //--------------------------------------------------------------
-void put_Char(char c)
+int put_Char(char c)
 {
 	while(USART_GetFlagStatus(USART2, USART_FLAG_TXE) == RESET); // Wait for Empty
 	USART_SendData(USART2, c);		//Send the char
 
-	return;
+	return 0;
 } // put_Char()
 
 //--------------------------------------------------------------

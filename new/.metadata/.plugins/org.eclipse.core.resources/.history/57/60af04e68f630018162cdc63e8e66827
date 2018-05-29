@@ -39,7 +39,7 @@ void init_UI(void);
 
 /** @brief (GLOBAL)Deletes the UI.
  *
- *	Deletes the UI-layer. Calls the LL::delete_LL() and the IO::delete_IO() functions.
+ *	Initializes the UI and initiates the logic layer and the IO-layer.
  *
  *  @param void
  *  @return void

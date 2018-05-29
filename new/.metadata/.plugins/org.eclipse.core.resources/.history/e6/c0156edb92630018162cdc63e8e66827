@@ -105,16 +105,16 @@ typedef struct{
 //--------------------------------------------------------------
 /** @brief (GLOBAL) Write text using UART2
  *
- *	prints a string char by char using the put_Char() function..
+ *	prints a string char by char.
  *
  *  @param char *text_out, the text that needs to be printed.
- *  @return void
+ *  @return int error
  */
-void write(char *text_out);
+int write(char *text_out);
 
 /** @brief (GLOBAL) Read from the USART2
  *
- *	Waits until a input is given or stop_Read() is called.
+ *	Waits until a input is given or read_stop is called.
  *
  *  @param char *buf, output buffer with the user input.
  *  @return int error
@@ -141,7 +141,7 @@ void init_UART2(void);
 
 /** @brief (GLOBAL) Initiate the idle line detection for USART2.
  *
- * Setup TIM3 and enable interrupts (TIM3_IRQHandler()).
+ * Setup TIM3 and enable interrupts (TIM3_IRQh).
  *
  *  @param void
  *  @return int error
@@ -159,7 +159,7 @@ void disable_IDLE_line(void);
 
 /** @brief (GLOBAL) Stops the UART and TIM3
  *
- *	Deletes the UART stops the interrupts and the idle line detection by calling UART::disable_IDLE_Line() if its on.
+ *	Deletes the UART stops the interrupts and the idle line detection by calling disable_IDLE_Line() if its on.
  *
  *  @param void
  *  @return int error
@@ -180,7 +180,7 @@ void TIM3_IRQHandler(void);
 
 /** @brief (GLOBAL) IT RXNE interrupt handler for USART2
  *
- *	Fills the input buffer and sets the LL::logic_t.bReady flag when done.
+ *	Fills the input buffer and sets the bReady flag when done.
  *
  *  @param void
  *  @return void
