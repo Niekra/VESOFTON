@@ -12,6 +12,12 @@
 // Includes
 //--------------------------------------------------------------
 #include <Userinterface.h>
+#include <InputOutput.h>
+#include <LogicLayer.h>
+#include <stm32f4xx.h>
+
+using namespace IO;
+using namespace LL;
 
 //--------------------------------------------------------------
 // Namespace UI

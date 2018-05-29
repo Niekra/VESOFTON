@@ -11,8 +11,6 @@
 //--------------------------------------------------------------
 /* Includes */
 #include <Userinterface.h>
-#include <Vgascreen.h>
-#include <iostream>
 #include "stm32f4xx.h"
 #include "stm32f4_discovery.h"
 using namespace UI;

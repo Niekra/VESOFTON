@@ -14,11 +14,6 @@
 //--------------------------------------------------------------
 // Includes
 //--------------------------------------------------------------
-#include <InputOutput.h>
-#include <LogicLayer.h>
-
-using namespace IO;
-using namespace LL;
 
 /** @brief Namespace UI
  *
