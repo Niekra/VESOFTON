@@ -135,7 +135,7 @@ int exec()
 {
 	//Local variables
 	char *str;		//Local string to check with.
-	int a, b, c, d, e, f, g,h;		//Integers to save the strtol() values.
+	int a, b, c, d, e, f, g, h;		//Integers to save the strtol() values.
 	int i = 0;						//while loop counter.
 	int color;						//Integer to save the color value.
 
@@ -190,6 +190,7 @@ int exec()
 					else								//Commands with 4x int.
 					{
 						d = (int) strtol(logic.buffers[i+logic.bufferIndex].input4, NULL, 10);
+						e = (int) strtol(logic.buffers[i+logic.bufferIndex].input6, NULL, 10);
 						color = color_To_Int(logic.buffers[i+logic.bufferIndex].input5);
 						if (strcmp(str, "rechthoek") == 0)
 						{
@@ -216,6 +217,7 @@ int exec()
 								if (strcmp(str, "driehoek") == 0)
 								{
 									color = color_To_Int(logic.buffers[i+logic.bufferIndex].input7);
+									e = (int) strtol(logic.buffers[i+logic.bufferIndex].input8, NULL, 10);
 
 									//Draw traingle
 									logic.screen.draw_triangle(a, b, c, d, e, f,
