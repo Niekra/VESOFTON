@@ -46,7 +46,7 @@ void delete_UI(void)
 //--------------------------------------------------------------
 // MainLoop UI.
 //-------------------------------------------------------------
-void main_Loop(void)
+void main_Loop()
 {
 	int buffered;  				//Buffered flag
 	int err = RESET;			//Error flag

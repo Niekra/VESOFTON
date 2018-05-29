@@ -149,7 +149,7 @@ typedef struct{
  *  @param void
  *  @return void
  */
-void init_LL(void);
+void init_LL();
 
 /** @brief (GLOBAL)executes the last command or the command buffer.
  *
@@ -161,7 +161,7 @@ void init_LL(void);
  *  @param void
  *  @return void
  */
-int exec(void);
+int exec();
 
 /** @brief (GLOBAL)Destroy the LL
  *
@@ -172,7 +172,7 @@ int exec(void);
  *  @param void
  *  @return void
  */
-void delete_LL(void);
+void delete_LL();
 
 /** @brief (GLOBAL)Sets the command struct.
  *
@@ -222,7 +222,7 @@ void wait_Ms(int ms);
  *  @param void
  *  @return void
  */
-void init_TIM5(void);
+void init_TIM5();
 
 #ifdef __cplusplus
 }

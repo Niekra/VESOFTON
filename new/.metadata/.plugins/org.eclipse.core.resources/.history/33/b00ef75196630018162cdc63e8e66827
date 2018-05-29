@@ -11,6 +11,7 @@
 #ifndef USERINTERFACE_H_
 #define USERINTERFACE_H_
 
+#define ERRORS 1
 
 //--------------------------------------------------------------
 // Includes
@@ -19,21 +20,13 @@
 /** @brief Namespace UI
  *
  * 	In the namespace UI are all the functions and variables concerning the User interface.
- * 	The UI gets the user input from the IO layer and parses it to the Logic-layer.
- * 	The LL may encounter and return a error code.
- * 	The error text is send to the IO layer to be send back to the user if ERROR = on.
+ * 	The UI gets the user input from the IO-layer and parses it to the Logic-layer.
+ * 	The Logic-layer may encounter and return a error code.
+ * 	The error text is send to the IO-layer to be send back to the user.
  *
  */
 namespace UI
 {
-/** @addtogroup Global defines
-  * @{
-  */
-/** @brief Error feedback 1=on/0=off. */
-#define ERRORS 1
-/**
-  * @}
-  */
 
 /** @brief (GLOBAL)Initiates the UI.
  *
@@ -72,7 +65,7 @@ void main_Loop(void);
  *  @param void
  *  @return void
  */
-void write_Error(int err);
+void write_Error(int);
 /** @} */ // end of UI Global functions
 
 } /* namespace UI */

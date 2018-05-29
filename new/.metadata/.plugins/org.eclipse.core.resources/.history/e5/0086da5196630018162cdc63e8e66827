@@ -87,7 +87,7 @@ void init_LL()
 //--------------------------------------------------------------
 // Destroy logicLevel
 //--------------------------------------------------------------
-void delete_LL(void)
+void delete_LL()
 {
 	logic.screen.~Vgascreen();			//Delete Vgascreen object.
 	//Reset rest of the values
@@ -100,7 +100,7 @@ void delete_LL(void)
 //--------------------------------------------------------------
 // Initiate TIM5
 //--------------------------------------------------------------
-void init_TIM5(void)
+void init_TIM5()
 {
 	//Enable the TIM5 system clock.
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM5, ENABLE);
@@ -135,7 +135,7 @@ void init_TIM5(void)
 //--------------------------------------------------------------
 // Execute command or command buffer.
 //--------------------------------------------------------------
-int exec(void)
+int exec()
 {
 	//Local variables
 	char *str;		//Local string to check with.
