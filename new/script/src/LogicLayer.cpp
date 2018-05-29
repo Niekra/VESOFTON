@@ -65,6 +65,8 @@ const int rgb[COLORS] =
 int color_To_Int(char *color);
 
 
+
+
 //--------------------------------------------------------------
 // Initiate logicLevel
 //--------------------------------------------------------------
@@ -135,9 +137,10 @@ int exec()
 {
 	//Local variables
 	char *str;		//Local string to check with.
-	int a, b, c, d, e, f, g, h;		//Integers to save the strtol() values.
+	int a, b, c, d, e, f, g;		//Integers to save the strtol() values.
 	int i = 0;						//while loop counter.
-	int color;						//Integer to save the color value.
+	int color;//Integer to save the color value.
+	int fill;
 
 	//Execute commands as long as the index+i is below the bufferCnt and if the waiting flag isnt set.
 	while(i+logic.bufferIndex<logic.bufferCnt && logic.waiting == 0)
@@ -194,34 +197,38 @@ int exec()
 						color = color_To_Int(logic.buffers[i+logic.bufferIndex].input5);
 						if (strcmp(str, "rechthoek") == 0)
 						{
+							fill = (int) strtol(logic.buffers[i+logic.bufferIndex].input6, NULL, 10);
+
 							//Draw rectangle
-							logic.screen.draw_rectangle(a, b, c, d, color);
+							logic.screen.draw_rectangle(a, b, c, d, color, fill);
 						}
 						else if (strcmp(str, "ellips") == 0)
 						{
+							fill = (int) strtol(logic.buffers[i+logic.bufferIndex].input6, NULL, 10);
 							//Draw ellipse
-							logic.screen.draw_ellipse(a, b, c, d, color);
+							logic.screen.draw_ellipse(a, b, c, d, color, fill);
 						}
 						else							//Commands with 5x int.
 						{
 							e = (int) strtol(logic.buffers[i+logic.bufferIndex].input5, NULL, 10);
 							if (strcmp(str, "lijn") == 0)
 							{
-								color = color_To_Int(logic.buffers[i+logic.bufferIndex].input6);
+								color = color_To_Int(logic.buffers[i+logic.bufferIndex].input7);
 								//Draw line
 								logic.screen.draw_line(a, b, c, d, e, color);
 							}
 							else						//Commands with 6x int.
 							{
-								f = (int) strtol(logic.buffers[i+logic.bufferIndex].input6, NULL, 10);
 								if (strcmp(str, "driehoek") == 0)
 								{
+									f = (int) strtol(logic.buffers[i+logic.bufferIndex].input6, NULL, 10);
+									fill = (int) strtol(logic.buffers[i+logic.bufferIndex].input8, NULL, 10);
 									color = color_To_Int(logic.buffers[i+logic.bufferIndex].input7);
 									e = (int) strtol(logic.buffers[i+logic.bufferIndex].input8, NULL, 10);
 
 									//Draw traingle
 									logic.screen.draw_triangle(a, b, c, d, e, f,
-											color);
+											color, fill);
 								}
 							}	//With 6x int.
 						}	//With 5x int.

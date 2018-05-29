@@ -38,6 +38,15 @@ int Vgascreen::VGA_pos(int x, int y)
 
 int Vgascreen::draw_line(int x1, int y1, int x2, int y2, int width, int color)
 {
+	if (x1>320)
+		x1=320;
+	if (x2>320)
+		x2=320;
+	if (y1>240)
+		y2=240;
+	if (y2>240)
+		y2=240;
+
 	const int dx = abs(x1 - x2);
 	const int dy = abs(y1 - y2);
 	bool a = true;
@@ -108,7 +117,7 @@ int Vgascreen::draw_line(int x1, int y1, int x2, int y2, int width, int color)
 	return 0;
 }
 
-int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad, int color)
+int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad, int color, int fill)
 {
 
 	int hh = y_rad * y_rad;
@@ -117,12 +126,10 @@ int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad, int color)
 	int x0 = x_rad;
 	int dx = 0;
 
-	int fill = 0;
-
 	// do the horizontal diameter
 	for (int x = -x_rad; x <= x_rad; x++)
 	{
-		if (fill == false)
+		if (fill != true)
 		{
 			if (x == -x_rad || x == x_rad)
 				UB_VGA_SetPixel(x_mp + x, y_mp, color);
@@ -143,7 +150,7 @@ int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad, int color)
 
 		for (int x = -x0; x <= x0; x++)
 		{
-			if (fill == false)
+			if (fill != true)
 			{
 				if (x == -x0 || x == x0)
 				{
@@ -168,7 +175,7 @@ int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad, int color)
 	// do the vertical diameter
 	for (int x = -y_rad; x <= y_rad; x++)
 	{
-		if (fill == false)
+		if (fill != true)
 		{
 			if (x == -y_rad || x == y_rad)
 				UB_VGA_SetPixel(x_mp, y_mp + x, color);
@@ -200,23 +207,91 @@ int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad, int color)
 	return 0;
 }
 
-int Vgascreen::draw_rectangle(int x_lo, int y_lo, int x_rb, int y_rb, int color)
+int Vgascreen::draw_rectangle(int x_lo, int y_lo, int x_rb, int y_rb, int color, int fill)
 {
-	draw_line(x_lo, y_rb, x_rb, y_rb, 1, color);
-	draw_line(x_rb, y_rb + 1, x_rb, y_lo, 1, color);
-	draw_line(x_rb, y_lo, x_lo, y_lo, 1, color);
-	draw_line(x_lo, y_lo, x_lo, y_rb, 1, color);
+	const int breedte = abs(y_lo - y_rb);
+
+	if (fill != true)
+	{
+		draw_line(x_lo, y_rb, x_rb, y_rb, 1, color);
+		draw_line(x_rb, y_rb + 1, x_rb, y_lo, 1, color);
+		draw_line(x_rb, y_lo, x_lo, y_lo, 1, color);
+		draw_line(x_lo, y_lo, x_lo, y_rb, 1, color);
+	}
+	else
+		draw_line(x_lo, y_lo, x_rb, y_lo, breedte, color);
+
 	return 0;
 }
 
+
 int Vgascreen::draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3,
-		int color)
+		int color, int fill)
 {
-	draw_line(x1, y1, x2, y2, 1, color);
-	draw_line(x1, y1, x3, y3, 1, color);
-	draw_line(x2, y2, x3, y3, 1, color);
-	return 0;
+
+	if (fill != true)
+	{
+		draw_line(x1, y1, x2, y2, 1, color);
+		draw_line(x1, y1, x3, y3, 1, color);
+		draw_line(x2, y2, x3, y3, 1, color);
+	}
+	else
+	{
+		int pt0[3] = {x1, y1};
+		int pt1[3] = {x2, y2};
+		int pt2[3] = {x3, y3};
+
+		if (pt0[1] > pt1[1])
+			std::swap(pt0, pt1);
+		if (pt0[1] > pt2[1])
+			std::swap(pt0, pt2);
+		if (pt1[1] > pt2[1])
+			std::swap(pt1, pt2);
+
+		int total_height = pt2[1] - pt0[1];
+		for (int y = pt0[1]; y <= pt1[1]; y++)
+		{
+			int segment_height = pt1[1] - pt0[1] + 1;
+			float alpha = (float) (y - pt0[1]) / total_height;
+			float beta = (float) (y - pt0[1]) / segment_height; // be careful with divisions by zero
+//			int A[3];
+			int A = int(pt0[0] + (pt2[0] - pt0[0]) * alpha);
+//			A[1] = int(pt0[1] + (pt2[1] - pt0[1]) * alpha);
+//			int B[3];
+			int B = int(pt0[0] + (pt1[0] - pt0[0]) * beta);
+//			B[1] = int(pt0[1] + (pt1[1] - pt0[1]) * beta);
+			if (A > B)
+				std::swap(A, B);
+			for (int j = A; j <= B; j++)
+			{
+				UB_VGA_SetPixel(j, y, color);
+			}
+		}
+
+		for (int y = pt1[1]; y <= pt2[1]; y++)
+		{
+			int segment_height = pt2[1] - pt1[1] + 1;
+			float alpha = (float) (y - pt0[1]) / total_height;
+			float beta = (float) (y - pt1[1]) / segment_height; // be careful with divisions by zero
+//			int A[3];
+			int A = int(pt0[0] + (pt2[0] - pt0[0]) * alpha);
+//			A[1] = int(pt0[0] + (pt2[0] - pt0[0]) * alpha);
+//			int B[3];
+			int B = int(pt1[0] + (pt2[0] - pt1[0]) * beta);
+//			B[1] = int(pt1[1] + (pt2[1] - pt1[1]) * beta);
+
+			if (A > B)
+				std::swap(A, B);
+			for (int j = A; j <= B; j++)
+			{
+				UB_VGA_SetPixel(j, y, color); // attention, due to int casts t0.y+i != A.y
+			}
+		}
+
+	}
+
 }
+
 
 int Vgascreen::draw_bitmap(int nr, int x_lo, int y_lo)
 {

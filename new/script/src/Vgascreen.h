@@ -654,20 +654,20 @@ class Vgascreen
 		 * \brief teken een lijn.
 		 * \param paramter int.
 		 */
-		int draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad, int color);
+		int draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad, int color, int fill);
 
 		/*!
 		 * \brief teken een lijn.
 		 * \param paramter int.
 		 */
-		int draw_rectangle(int x_lo, int y_lo, int x_rb, int y_rb, int color);
+		int draw_rectangle(int x_lo, int y_lo, int x_rb, int y_rb, int color, int fill);
 
 		/*!
 		 * \brief teken een lijn.
 		 * \param paramter int.
 		 */
 		int draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3,
-				int color);
+				int color, int fill);
 
 		/*!
 		 * \brief teken een lijn.
