@@ -1,42 +1,56 @@
-/*
- * InputOutput.cpp
+/** @file InputOutput.cpp
+ *  @brief Function prototypes of the Userinterface.
  *
- *  Created on: May 23, 2018
- *      Author: M
+ *	Gets the user input from the IO layer and parses it to the LogicLayer.
+ *	Takes care of the error handling.
+ *
+ *  @author Matthijs Daggelders
+ *  @author Niek Ratering Arntz
  */
 
+//--------------------------------------------------------------
+// Includes
+//--------------------------------------------------------------
 #include <InputOutput.h>
 
-
-/*!
- * \brief teken een lijn.
- * \param paramter int.
- */
+//--------------------------------------------------------------
+// Namespace IO
+//--------------------------------------------------------------
 namespace IO {
 
-/*!
- * \brief teken een lijn.
- * \param paramter int.
- */
-int write(char *text_out){
+//--------------------------------------------------------------
+// IO::write()
+//--------------------------------------------------------------
+int write(char *text_out)
+{
 	return UART::write(text_out);
 }
 
-/*!
- * \brief teken een lijn.
- * \param paramter int.
- */
-int read(char *buf){
+//--------------------------------------------------------------
+// IO::read()
+//--------------------------------------------------------------
+int read(char *buf)
+{
 	return UART::read(buf);
 }
 
-/*!
- * \brief teken een lijn.
- * \param paramter int.
- */
-int initIO(){
+//--------------------------------------------------------------
+// IO::stop_Read()
+//--------------------------------------------------------------
+void stop_Read()
+{
+	UART::stop_Read();
+	return;
+}
+
+//--------------------------------------------------------------
+// Initiate the IO-layer
+//--------------------------------------------------------------
+int init_IO()
+{
 	UART::init_UART2();
 	//UART::init_IDLE_Line();
+	return 0;
 }
 
 } /* namespace IO */

@@ -1,269 +1,378 @@
-/*
- * LogicLevel.cpp
+/** @file LogicLayer.cpp
+ *  @brief Functions of the logiclayer.
  *
- *  Created on: May 23, 2018
- *      Author: M
+ *  The Logiclayer gets the input from the User interface.
+ *  The input gets saved inside a command struct and then executed.
+ *  The LogicLayer uses TIM5 to beable to waiting executing commands
+ *  for x ms.
+ *
+ *  @author Matthijs Daggelders
+ *  @author Niek Ratering Arntz
+ *  @bug Wait time isnt't correctly waiting the first time.
  */
 
+//--------------------------------------------------------------
+// Includes
+//--------------------------------------------------------------
 #include <LogicLayer.h>
 
+//--------------------------------------------------------------
+// Namespace LL
+//--------------------------------------------------------------
 namespace LL
 {
 
-#define BUFFER_LENGTH 10
-#define ROW_LENNGTH 10
+//--------------------------------------------------------------
+// Local variables
+//--------------------------------------------------------------
+/** @brief Struct with the LL variables.
+ *
+ *
+ */
+logic_t logic;
 
-char *inputArray[BUFFER_LENGTH];
-Vgascreen screen;
-volatile int waiting = RESET;
-volatile int waitMs = RESET;
-volatile int waitCnt = RESET;
-
-
+//--------------------------------------------------------------
+// Local constants
+//--------------------------------------------------------------
+/** @brief List with all color names.
+ *
+ *
+ */
 const char *colors[COLORS] =
 { "zwart", "blauw", "lichtblauw", "groen", "lichtgroen", "cyaan",
 		"lichtcyaan", "rood", "lichtrood", "magenta", "lichtmagenta",
 		"bruin", "geel", "grijs", "wit" };
 
+/** @brief List with all color values.
+ *
+ *
+ */
 const int rgb[COLORS] =
 { 0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x1F, 0x7F, 0xE0, 0xED, 0xE3, 0xCE, 0x64,
 		0xFC, 0x92, 0xFF };
 
-//Local functions
-void clear_Input_Array();
-int color_To_Int(char *color);
-int exec();
-int clear_Commands();
-
-
-/*!
- * \brief teken een lijn.
- * \param paramter int.
+//--------------------------------------------------------------
+// Local functions
+//--------------------------------------------------------------
+/** @brief (LOCAL)Gets 8 bit color value from the color name.
+ *
+ *	Loops through the color names and checks whether a name is the same.
+ *	Returns the 8 bit color value from rgb[].
+ *
+ *  @param void
+ *  @return int error
  */
+int color_To_Int(char *color);
+
+
+//--------------------------------------------------------------
+// Initiate logicLevel
+//--------------------------------------------------------------
 int init_LL()
 {
 	// TODO Auto-generated constructor stub
-	screen = Vgascreen();
-	init_TIM5();
-
-	for(int i = 0;i < BUFFER_LENGTH; i++){
-		inputArray[i] = (char*)malloc(sizeof(char*)*30);
-	}
+	logic.screen = Vgascreen();
+	logic.waiting = RESET;
+	logic.bufferIndex = RESET;
+	logic.bufferCnt = RESET;
+	init_TIM5();				//init TIM5 for the wait function.
 
 	return 0;
 }
 
+//--------------------------------------------------------------
+// Destroy logicLevel
+//--------------------------------------------------------------
 int destroy_LL()
 {
+	logic.screen.~Vgascreen();			//Delete Vgascreen object.
+	//Reset rest of the values
+	logic.waiting = RESET;
+	logic.bufferIndex = RESET;
+	logic.bufferCnt = RESET;
 	return 0;
 }
 
+//--------------------------------------------------------------
+// Initiate TIM5
+//--------------------------------------------------------------
 int init_TIM5()
 {
+	//Enable the TIM5 system clock.
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM5, ENABLE);
 
-	//Timer-5
-	// basefreq = 2*APB1 (APB2=84MHz) => TIM_CLK=84MHz
-	// 84Mhz/10000/ = 1kHz
-	// 84Mhz = 84 MHz /10/ 8400 = 1000
-
+	//Set the TIM5 settings
 	TIM_TimeBaseInitTypeDef timerInitStructure;
 	timerInitStructure.TIM_Prescaler = TIM5_PRESCALE;
 	timerInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	timerInitStructure.TIM_Period = TIM5_PERIOD;
 	timerInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
-	timerInitStructure.TIM_RepetitionCounter = 1;
+	timerInitStructure.TIM_RepetitionCounter = TIM5_REP;
 	TIM_TimeBaseInit(TIM5, &timerInitStructure);
 
-	TIM5->CNT = RESET;
-	//TIM_Cmd(TIM5, ENABLE);
+	TIM5->CNT = RESET;		//Reset the counter.
+	TIM5->SR = ~(TIM_FLAG_Update);	//Update the flag.
 
-	// Enable TIM5 interrupt
+	//Enable interrupts
 	TIM_ITConfig(TIM5, TIM_IT_Update, ENABLE);
 
-	//Set interrupt handler
+	//Set interrupt handler for TIM5
 	NVIC_InitTypeDef nvicStructure;
 	nvicStructure.NVIC_IRQChannel = TIM5_IRQn;
-	nvicStructure.NVIC_IRQChannelPreemptionPriority = 0;
-	nvicStructure.NVIC_IRQChannelSubPriority = 0;
+	nvicStructure.NVIC_IRQChannelPreemptionPriority = LOW_PRIORITY;
+	nvicStructure.NVIC_IRQChannelSubPriority = LOW_PRIORITY;
 	nvicStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&nvicStructure);
 
 
-	return 0;
+	return 0;	//Return
 }
 
-
+//--------------------------------------------------------------
+// Execute command or command buffer.
+//--------------------------------------------------------------
 int exec()
 {
-	char *str;
-	int a, b, c, d, e, f, g;
-	int color;
+	//Local variables
+	char *str;		//Local string to check with.
+	int a, b, c, d, e, f, g;		//Integers to save the strtol() values.
+	int i = 0;						//while loop counter.
+	int color;						//Integer to save the color value.
 
-	str = inputArray[0];
-
-	if (strcmp(str, "clearscherm") == 0)			//Command zonder int.
+	//Execute commands as long as the index+i is below the bufferCnt and if the waiting flag isnt set.
+	while(i+logic.bufferIndex<logic.bufferCnt && logic.waiting == 0)
 	{
-		color = color_To_Int(inputArray[1]);
-		screen.clear_screen(color);
-	}
-	else
-	{												//Command met 1x int.
-		a = (int) strtol(inputArray[1], NULL, 10);
-		if (strcmp(str, "wacht") == 0)
+		str = logic.buffers[i+logic.bufferIndex].type;
+
+		if (strcmp(str, "clearscherm") == 0)			//Command without int.
 		{
-			wait_Ms(a);
-		}
-		else										//Command met 2x int.
+			color = color_To_Int(logic.buffers[i+logic.bufferIndex].input1);		//Get the color value.
+			logic.screen.clear_screen(color);									//Clear the screen.
+		}else if(strcmp(str, "repeat") == 0)
 		{
-			b = (int) strtol(inputArray[2], NULL, 10);
-			if (strcmp(str, "tekst") == 0)
+			//Only repeat if repat is the last input given.
+			//This way its possible to cancel the repeat loop by sending a new command.
+			if (i+logic.bufferIndex == logic.bufferCnt-1)
 			{
-				color = color_To_Int(inputArray[4]);
-				g = (int) strtol(inputArray[6], NULL, 10);
-				//style
-				screen.draw_text(a, b, inputArray[3], color, inputArray[5],
-						g);
+				logic.bufferIndex = 0;		//Reset the bufferIndex
+				exec();					//Exec the first command. (Should be a wait ("wacht"))
+				return 0;				//Done here, return to finish the wait.
 			}
-			else									//Commands met 3x int.
+		}
+		else							//Command with 1x int.
+		{
+			a = (int) strtol(logic.buffers[i+logic.bufferIndex].input1, NULL, 10);		//set int a as (int)input1
+			if (strcmp(str, "wacht") == 0)
 			{
-				c = (int) strtol(inputArray[3], NULL, 10);
-				if (strcmp(str, "bitmap") == 0)
+				wait_Ms(a);									// wait a ms.
+				i++;										//Increase i to not get stuck in an endless loop of waiting.
+			}
+			else										//Command with 2x int.
+			{
+				b = (int) strtol(logic.buffers[i+logic.bufferIndex].input2, NULL, 10);		//set int b as strtol(input2)
+				if (strcmp(str, "tekst") == 0)
 				{
-					screen.draw_bitmap(a, b, c);
+					color = color_To_Int(logic.buffers[i+logic.bufferIndex].input4);
+					g = (int) strtol(logic.buffers[i+logic.bufferIndex].input6, NULL, 10);
+
+					//Draw text on the screen.
+					logic.screen.draw_text(a, b, logic.buffers[i+logic.bufferIndex].input3, color, logic.buffers[i+logic.bufferIndex].input5,
+							g);
 				}
-				else								//Commands met 4x int.
+				else									//Commands with 3x int.
 				{
-					d = (int) strtol(inputArray[4], NULL, 10);
-					color = color_To_Int(inputArray[5]);
-					if (strcmp(str, "rechthoek") == 0)
+					c = (int) strtol(logic.buffers[i+logic.bufferIndex].input3, NULL, 10);
+					if (strcmp(str, "bitmap") == 0)
 					{
-						screen.draw_rectangle(a, b, c, d, color);
+						//Draw bitmap
+						logic.screen.draw_bitmap(a, b, c);
 					}
-					else if (strcmp(str, "ellips") == 0)
+					else								//Commands with 4x int.
 					{
-						screen.draw_ellipse(a, b, c, d, color);
-					}
-					else							//Commands met 5x int.
-					{
-						e = (int) strtol(inputArray[5], NULL, 10);
-						if (strcmp(str, "lijn") == 0)
+						d = (int) strtol(logic.buffers[i+logic.bufferIndex].input4, NULL, 10);
+						color = color_To_Int(logic.buffers[i+logic.bufferIndex].input5);
+						if (strcmp(str, "rechthoek") == 0)
 						{
-							color = color_To_Int(inputArray[6]);
-							screen.draw_line(a, b, c, d, e, color);
+							//Draw rectangle
+							logic.screen.draw_rectangle(a, b, c, d, color);
 						}
-						else						//Commands met 6x int.
+						else if (strcmp(str, "ellips") == 0)
 						{
-							f = (int) strtol(inputArray[5], NULL, 10);
-							if (strcmp(str, "driehoek") == 0)
+							//Draw ellipse
+							logic.screen.draw_ellipse(a, b, c, d, color);
+						}
+						else							//Commands with 5x int.
+						{
+							e = (int) strtol(logic.buffers[i+logic.bufferIndex].input5, NULL, 10);
+							if (strcmp(str, "lijn") == 0)
 							{
-								color = color_To_Int(inputArray[7]);
-								screen.draw_triangle(a, b, c, d, e, f,
-										color);
+								color = color_To_Int(logic.buffers[i+logic.bufferIndex].input6);
+								//Draw line
+								logic.screen.draw_line(a, b, c, d, e, color);
 							}
-							else
-								return 2;
-						}
+							else						//Commands with 6x int.
+							{
+								f = (int) strtol(logic.buffers[i+logic.bufferIndex].input5, NULL, 10);
+								if (strcmp(str, "driehoek") == 0)
+								{
+									color = color_To_Int(logic.buffers[i+logic.bufferIndex].input7);
 
-					}
-				}
-			}
-		}
+									//Draw traingle
+									logic.screen.draw_triangle(a, b, c, d, e, f,
+											color);
+								}
+							}	//With 6x int.
+						}	//With 5x int.
+					}	//With 4x int.
+				}	//With 3x int.
+			}	//With 2x int.
+		}	//With 1x int.
+		i++;		//Increase i
+	}	//While loop.
+
+	// If finished with executing commands.
+	//if waiting = 0 all commands are executed and the buffer can be reseted.
+	//Else save the bufferIndex + i - 1. To execute the next command if the wait is over.
+	if(logic.waiting == 0)
+	{
+		logic.bufferIndex = RESET;
+		logic.bufferCnt = RESET;
+		return 1;
+	}else
+	{
+		logic.bufferIndex = logic.bufferIndex + i-1;
 	}
-
-	clear_Input_Array();
 	return 0;
-}
+}	//exec
 
+//--------------------------------------------------------------
+// Set the command
+//--------------------------------------------------------------
 int set_Command(char *buf)
 {
+	//Local variables
 	int i = 1;
-	char str[100];
-	strcpy(str, buf);
-	char *saveptr;
-	char *out;
+	char str[BUFFER_LENGTH];			//Make string
+	strcpy(str, buf);		//Copy the input
+	char *saveptr;			//Needed for the strtok_r
+	char *out;				//Output string
 
+	//Check if maximum number of buffers are in use.
+	if(logic.bufferCnt >= MAX_BUFFERS)
+	{
+		logic.bufferCnt = RESET;
+	}
+
+	// Get first word of the sentence. splitted by ","
 	out = strtok_r(str, ",", &saveptr);
-	inputArray[0] = out;
+	strcpy(logic.buffers[logic.bufferCnt].type, out);
 
+	//Loop through the rest of the sentence and save it inside a command.
 	while (out != NULL)
 	{
 		out = strtok_r(NULL, ",", &saveptr);
-		inputArray[i] = out;
-		i++;
-	}
-	if(waiting == SET){
-		return 1;
-	}
-	LL::exec();
-	return 0;
-}
 
+		if(i==1){
+			strcpy(logic.buffers[logic.bufferCnt].input1, out);
+		}else if(i==2)
+		{
+			strcpy(logic.buffers[logic.bufferCnt].input2, out);
+		}else if(i==3)
+		{
+			strcpy(logic.buffers[logic.bufferCnt].input3, out);
+		}else if(i==4)
+		{
+			strcpy(logic.buffers[logic.bufferCnt].input4, out);
+		}else if(i==5)
+		{
+			strcpy(logic.buffers[logic.bufferCnt].input5, out);
+		}else if(i==6)
+		{
+			strcpy(logic.buffers[logic.bufferCnt].input6, out);
+		}else if(i==7)
+		{
+			strcpy(logic.buffers[logic.bufferCnt].input7, out);
+		}
+		i++;		//Increase i.
+	}
+
+	logic.bufferCnt++;				//Increase bufferCnt since new input is filled.
+
+	// Check the waiting flag. If waiting is SET return. Else exec the command.
+	if(logic.waiting == SET){
+		return 1;
+	}else
+	{
+		exec();
+		return 0;
+	}
+}	//set_Command
+
+
+//--------------------------------------------------------------
+// Wait x ms.
+//--------------------------------------------------------------
 int wait_Ms(int ms)
 {
-	waiting = SET;
+	//Set waiting flag.
+	logic.waiting = SET;
 
-	//cnt = DWT->CYCCNT - begin;
-
-	waitMs = ms;
-
-	TIM5->CNT = RESET;
-	TIM5->SR = ~(TIM_FLAG_Update);
+	//Set up TIM5 to interrupt after the wait and start it.
+	TIM5->PSC = ms;					//Set prescale to the amount of ms.
+	TIM5->CNT = RESET;				//Reset the counter.
+	TIM5->SR = ~(TIM_FLAG_Update);	//Update flag.
 	TIM5->CR1 |= TIM_CR1_CEN; // start
 
-
+	//Return normal.
 	return 0;
-}
+}	//wait_Ms
 
+
+//--------------------------------------------------------------
+// Color name to 8bit color.
+//--------------------------------------------------------------
 int color_To_Int(char *color)
 {
-	for (int i = 0; i < COLORS; i++)
+	for (int i = 0; i < COLORS; i++)				//Loop through the color names.
 	{
-		if (strcmp(color, colors[i]) == 0)
+		if (strcmp(color, colors[i]) == 0)			//Check for the right color.
 		{
 			if(i == 0)
 			{
+				// Return 0 rgb[0] was giving back '/0'.
 				return 0;
 			}else
 			{
-				return rgb[i];
+				return rgb[i];	//Return rgb value.
 			}
 		}
 
 	}
 	return 0;
-}
+}	// color_To_Int
 
-void clear_Input_Array()
-{
-	for (int i = 0; i < INPUT_LENGTH; i++)
-	{
-		inputArray[i] = 0;
-	}
-}
 
+//--------------------------------------------------------------
+// TIM5_IRQhandler
+//--------------------------------------------------------------
 void TIM5_IRQHandler(void)
 {
 	if (TIM_GetITStatus(TIM5, TIM_IT_Update)!=RESET)
 	{
-		TIM_ClearITPendingBit(TIM5, TIM_IT_Update);	//Clear interrupt flag
+		TIM_ClearITPendingBit(TIM5, TIM_IT_Update);	//Clear interrupt flag.
 
-		if(waitCnt <= waitMs)
-		{
-			waiting = RESET;
-			waitCnt = RESET;
+		logic.waiting = RESET;	// Clear the waiting flag.
 
-			TIM5->CNT = RESET;
-			TIM5->SR = ~(TIM_FLAG_Update);
-			TIM5->CR1&=~TIM_CR1_CEN; // stop
-			exec();
-			return;
-		}
-		waitCnt++;
+		//Update the timer.
+		TIM5->CNT = RESET;					//Reset the timer.
+		TIM5->SR = ~(TIM_FLAG_Update);		//Update TIM5 flag.
+		TIM5->CR1&=~(TIM_CR1_CEN); 			// Stop TIM5.
+		IO::stop_Read();					//Stop waiting for input and try running the buffered inputs.
+		return;
 	}
 
 	return;
 
-}
+} // TIM5_IRQh
 
-} /* namespace LL */
+} // namespace LL

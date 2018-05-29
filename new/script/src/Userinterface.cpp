@@ -1,46 +1,61 @@
-/*
- * Userinterface.cpp
+/** @file UserInterface.cpp
+ *  @brief Functions of the UserInterface.
  *
- *  Created on: May 23, 2018
- *      Author: M
+ *	Gets the user input from the IO layer and parses it to the LogicLayer.
+ *	Takes care of the error handling.
+ *
+ *  @author Matthijs Daggelders
+ *  @author Niek Ratering Arntz
  */
 
+//--------------------------------------------------------------
+// Includes
+//--------------------------------------------------------------
 #include <Userinterface.h>
 
+//--------------------------------------------------------------
+// Namespace UI
+//--------------------------------------------------------------
 namespace UI
 {
-	void initUI()
+
+//--------------------------------------------------------------
+// Initiate UI.
+//--------------------------------------------------------------
+void initUI()
+{
+	IO::init_IO();
+	LL::init_LL();
+} // initUI
+
+//--------------------------------------------------------------
+// MainLoop UI.
+//-------------------------------------------------------------
+void mainLoop()
+{
+	int buffered;  				//Buffered flag
+	int err = RESET;			//Error flag
+	char buf[BUFFER_LENGTH];	//Input buffer.
+
+	while (true)
 	{
-		IO::initIO();
-		LL::init_LL();
-	}
+		buffered = IO::read(buf);		//Get input from the IO-layer.
 
-	void mainLoop()
-	{
-		int buffered;  //error
-
-		int err = 0;
-		char buf[100];
-
-		while (1)
+		if (buffered == SET)			//Check if theres a new input.
 		{
-			buffered = IO::read(buf);
-
-			if (buffered == 0)
-			{
-				err = LL::set_Command(buf);
-			}
-
-			if(err ==1)
-			{
-				int f = 5 + 6;
-			}
+			err = LL::set_Command(buf);
+		}else if(buffered == RESET){		//If there's no new input.
+			err = LL::exec();				//Execute the buffered commands.
 		}
 	}
+}	//Mainloop
 
-	void write_error(int)
-	{
+//--------------------------------------------------------------
+// Write error message.
+//--------------------------------------------------------------
+void write_error(int)
+{
 
-	}
+}	// Write error
 
 } /* namespace UI */

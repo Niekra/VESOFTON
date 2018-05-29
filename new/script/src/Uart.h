@@ -1,9 +1,14 @@
-/*
- * Uart.h
+/** @file Uart.h
+ *  @brief Function prototypes of the UART.
  *
- *  Created on: May 9, 2018
- *      Author: M
+ *	Reads and sends data to the user using USART2.
+ *	USES: USART2, TIM3, USART2 TX PA2, USART2 RX PA3
+ *
+ *  @author Matthijs Daggelders
+ *  @author Niek Ratering Arntz
  */
+
+
 #ifdef __cplusplus
  extern "C" {
 #endif
@@ -11,43 +16,173 @@
 #ifndef Uart_H_
 #define Uart_H_
 
+//--------------------------------------------------------------
+// Includes
+//--------------------------------------------------------------
 #include "stm32f4xx_usart.h"
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_rcc.h"
 #include "stm32f4xx_tim.h"
 #include "string.h"
 
- // Namespace UART.
+//--------------------------------------------------------------
+// Namespace UART
+//--------------------------------------------------------------
+ /** @brief namespace UART
+  *
+  *	Reads and sends data to the user using USART2.
+  *	USES: USART2, TIM3, USART2 TX PA2, USART2 RX PA3
+  *
+  */
 namespace UART {
 
-//Defines
+//--------------------------------------------------------------
+// Defines
+//--------------------------------------------------------------
+/** @defgroup UART defines
+ *  Group of UART global defines.
+ *  @{
+ */
+
+/** @brief Carraige return char. */
 #define CR 13 // carriage return char
-#define LF 10 // linefeed char
 
-//--------------------------------------------------------------
-// Timer-3
-// Function  = Idle line detect.
-//
-// basefreq = 2*APB1 (APB1=48MHz) => TIM_CLK=84MHz
-// Frq       = 84MHz/1/16000 = 10,5kHz =>
-//--------------------------------------------------------------
-#define  TIM3_PERIOD   16000
-#define  TIM3_PRESCALE     1
+/** @brief Linefeed char. */
+#define LF 10
 
+/** @brief TIM3 period.
+ *
+ * Function  = Idle line detect.
+ * 1/115200/11 = 10.5kHz
+ * basefreq = 2*APB1 (APB1=42MHz) => TIM_CLK=84MHz
+ * Frq       = 84MHz/1/16000 = 10,5kHz
+ *  */
+#define  TIM3_PERIOD   1
+
+/** @brief TIM3 prescale.
+ * Function  = Idle line detect.
+ * 1/115200/11 = 10.5kHz
+ * basefreq = 2*APB1 (APB1=42MHz) => TIM_CLK=84MHz
+ * Frq       = 84MHz/1/16000 = 10,5kHz
+ * */
+#define  TIM3_PRESCALE     16000
+
+/** @brief TIM3 repetitions. */
+#define TIM3_REP 0
+
+/** @brief USART2 baudrate. */
 #define USART2_BAUT 115200
 
-//Buffer length
-#define BUFFER_LENGTH 100
+/** @brief Interrupt priority. */
+#define LOW_PRIORITY 0
 
-// public functions
+/** @brief Input buffer length. */
+#define BUFFER_LENGTH 100
+/** @} */ // end of UART defines
+
+
+//--------------------------------------------------------------
+// UART_T struct
+//--------------------------------------------------------------
+
+/** @brief Struct UART_T.
+ *
+ * Contains the different viarables needed for the UART to work.
+ *
+ *  */
+typedef struct{
+	volatile int iIndex;				/**< Input index, keeps track what the next position is in the buffer. */
+	volatile int bReady;				/**< Buffer ready FLAG. To signal if theres any user input. */
+	volatile int iLine;					/**< Idle line FLAG to enable/disable idle line detection. */
+	volatile int uBusy;					/**< USART busy flag, needed for the idle line detection. */
+	volatile int rCancel;				/**< read cancel FLAG. to cancel the read function. */
+	uint8_t inputBuffer[BUFFER_LENGTH];	/**< Input buffer with size BUFFER_LENGTH. */
+}UART_T;
+
+//--------------------------------------------------------------
+// Includes
+//--------------------------------------------------------------
+/** @brief (GLOBAL) Write text using UART2
+ *
+ *	prints a string char by char.
+ *
+ *  @param char *text_out, the text that needs to be printed.
+ *  @return int error
+ */
 int write(char *text_out);
+
+/** @brief (GLOBAL) Read from the USART2
+ *
+ *	Waits until a input is given or read_stop is called.
+ *
+ *  @param char *buf, output buffer with the user input.
+ *  @return int error
+ */
 int read(char *buf);
+
+/** @brief (GLOBAL) Stops the read loop without user input.
+ *
+ * Stops the read function from waiting for user input.
+ *
+ *  @param void
+ *  @return void
+ */
+void stop_Read(void);
+
+/** @brief (GLOBAL) Initiate the UART components.
+ *
+ *	Sets the UART_T struct and initiates the RCC,GPIO,USART and the NVIC
+ *
+ *  @param void
+ *  @return void
+ */
 int init_UART2(void);
+
+/** @brief (GLOBAL) Initiate the idle line detection for USART2.
+ *
+ * Setup TIM3 and enable interrupts (TIM3_IRQh).
+ *
+ *  @param void
+ *  @return int error
+ */
 int init_IDLE_Line(void);
+
+/** @brief (GLOBAL) Disable idle line detection.
+ *
+ *	Disables TIM3 and TIM3 interrupts.
+ *
+ *  @param void
+ *  @return int error
+ */
 int disable_IDLE_line(void);
 
-//Global intterupt handlers
+/** @brief (GLOBAL) Stops the UART and TIM3
+ *
+ *
+ *  @param void
+ *  @return int error
+ */
+int delete_UART(void);
+
+//--------------------------------------------------------------
+// Includes
+//--------------------------------------------------------------
+/** @brief (GLOBAL) TIM3 IRQhandler dor idle line detection.
+ *
+ *	calls the UART::stop_Read() function to continue with executing the buffer.
+ *
+ *  @param void
+ *  @return void
+ */
 void TIM3_IRQHandler(void);
+
+/** @brief (GLOBAL) IT RXNE interrupt handler for USART2
+ *
+ *	Fills the input buffer and sets bReady flag when done.
+ *
+ *  @param void
+ *  @return void
+ */
 void USART2_IRQHandler(void);
 
 } //namesspace

@@ -40,23 +40,14 @@ int main(void)
 	 *  SCB->VTOR register.
 	 *  E.g.  SCB->VTOR = 0x20000000;
 	 */
-	/** @code */
-	/* TODO - Add your application code here */
 	SystemInit(); // System speed to 168MHz
 
-	UI::initUI();
-
-	/* Initialize LEDs */
-	STM_EVAL_LEDInit(LED3);
-	STM_EVAL_LEDInit(LED4);
-	STM_EVAL_LEDInit(LED5);
-	STM_EVAL_LEDInit(LED6);
-
+	UI::initUI();	//init the UI.
 
 	/* Infinite loop */
 	while (1)
 	{
-		UI::mainLoop();
+		UI::mainLoop();		//Main program loop.
 	}
 }
 

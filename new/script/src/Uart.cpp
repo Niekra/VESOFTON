@@ -1,64 +1,183 @@
-/*
- * Uart.cpp
+/** @file Uart.cpp
+ *  @brief Global and local functions of the UART.
  *
- *  Created on: May 9, 2018
- *      Author: M
+ *	USES: USART2, TIM3, USART2 TX PA2, USART2 RX PA3
+ *
+ *  @author Matthijs Daggelders
+ *  @author Niek Ratering Arntz
  */
 
-//Includes
+//--------------------------------------------------------------
+// Includes
+//--------------------------------------------------------------
 #include <Uart.h>
 
-namespace UART {
+//--------------------------------------------------------------
+// Namespace UART
+//--------------------------------------------------------------
+namespace UART
+{
 
-/*local variables*/
-volatile int iIndex = 0;					//Input index. Keeps track of which is the next buffer input.
-volatile int bReady = 0;					//Bool, to signal inputBuffer is ready for transfer.
-volatile int iLine = 0;
-volatile int uBusy = 0;
-uint8_t inputBuffer[BUFFER_LENGTH];
+//--------------------------------------------------------------
+// Local variables
+//--------------------------------------------------------------
+/** @brief Struct with the UART variables.
+ *
+ */
+UART_T uart;
 
-//Local functions
+//--------------------------------------------------------------
+// Local functions
+//--------------------------------------------------------------
+/** @brief (Local) Print char using USART2
+ *
+ *	Print a single char.
+ *
+ *  @param char c, char to print.
+ *  @return int error
+ */
 int put_Char(char c);
+
+/** @brief (Local) Initiate the needed systemclock
+ *
+ *	Enables APB1 RCC USART2
+ *	Enables APB1 RCC TIM3
+ *
+ *  @param void
+ *  @return void
+ */
 void init_RCC(void);
+
+/** @brief (Local) Initiate the GPIO for USART2
+ *
+ *	Initiate the GPIO needed for USART2
+ *
+ *	(Pins pack 1)
+ *	TX = PA2
+ *	RX = PA3
+ *
+ *  @param void
+ *  @return void
+ */
 void init_GPIO(void);
+
+/** @brief (Local) Initiate USART2
+ *
+ * 	      - BaudRate = 115200 baud
+ *	      - Word Length = 8 Bits
+ *	      - One Stop Bit
+ *	      - No parity
+ *	      - Hardware flow control disabled (RTS and CTS signals)
+ *	      - Receive and transmit enabled
+ *
+ *  @param void
+ *  @return void
+ */
 void init_USART(void);
+
+/** @brief (Local) Initiate the NVIC for the USART2 interrupt.
+ *
+ *	Initiate the NVIC for the UART2 interrupt.
+ *
+ *  @param void
+ *  @return void
+ */
 void init_NVIC(void);
 
-/*!
- * \brief teken een lijn.
- * \param paramter int.
- */
-int write(char *text_out){
-	volatile unsigned int i;
-	for (i=0; text_out[i]; i++)
+//--------------------------------------------------------------
+// initialize UART2
+//--------------------------------------------------------------
+int init_UART2()
+{
+	/*local variables*/
+	uart.iIndex = RESET;					//Input index. Keeps track of which is the next buffer input.
+	uart.bReady = RESET;					//Bool, to signal inputBuffer is ready for transfer.
+	uart.iLine = RESET;						//Reset the IDLE line FLAG.
+	uart.uBusy = RESET;						//Reset the USART busy FLAG.
+	uart.rCancel = RESET;					//Reset the read cancel FLAG.
+
+	init_RCC();		//Initiate system clocks
+	init_GPIO();	//Initiate GPIO
+	init_USART();	//Initiate USART
+	init_NVIC();	//Initiate USART interrupts
+
+	return 0;
+}
+
+//--------------------------------------------------------------
+// Stop UART2
+//--------------------------------------------------------------
+int delete_UART(void)
+{
+	uart.iIndex = RESET;					//Input index. Keeps track of which is the next buffer input.
+	uart.bReady = RESET;					//Bool, to signal inputBuffer is ready for transfer.
+	uart.iLine = RESET;						//Reset the IDLE line FLAG.
+	uart.uBusy = RESET;						//Reset the USART busy FLAG.
+	uart.rCancel = RESET;					//Reset the read cancel FLAG.
+
+	TIM_Cmd(TIM3, DISABLE);					//Disable TIM3
+	USART_Cmd(USART2, DISABLE);				//Disable USART2
+	USART_ITConfig(USART2,USART_IT_RXNE,DISABLE);	//Disable USART2 IT RXNE interrupts
+
+	return 0;
+}
+
+//--------------------------------------------------------------
+// UART::write()
+//--------------------------------------------------------------
+int write(char *text_out)
+{
+	for (int i=0; text_out[i]; i++)	//Loop through the output text.
 	{
-		UART::put_Char(text_out[i]);
+		UART::put_Char(text_out[i]);	//Print single char
 	}
 	return 0;
-}
+}	//write()
 
-/*!
- * \brief teken een lijn.
- * \param paramter int.
- */
-int read(char *buf){
+//--------------------------------------------------------------
+// UART::read()
+//--------------------------------------------------------------
+int read(char *buf)
+{
 
-	while(!bReady){
+	//Wait until stop_read() is called or the input buffer is ready.
+	while(!uart.bReady && !uart.rCancel)
+	{
 
 	}
 
-	if(bReady){
-		for (int i = 0; i<= iIndex; i++){
-			buf[i] = inputBuffer[i];
+	//Check if input buffer is ready.
+	if(uart.bReady){
+		//Loop through the input sentence
+		for (int i = 0; i<= uart.iIndex; i++)
+		{
+			buf[i] = uart.inputBuffer[i];		//Set the buffer values.
 		}
+
+		uart.iIndex = RESET;		//Reset the input index to restart at the beginning of the input buffer.
+		uart.bReady = RESET;		//Reset the buffer ready FLAG.
+
+		return SET;
+	}else if(uart.rCancel)	//Check if the read cancel FLAG is set.
+	{
+		uart.rCancel = RESET;	//Reset the read cancel FLAG.
+		return RESET;
 	}
-	iIndex = RESET;
-	bReady = RESET;
+	return RESET;
+}		//read()
 
-	return 0;
-}
+//--------------------------------------------------------------
+// Stop the red function
+//--------------------------------------------------------------
+void stop_Read()
+{
+	uart.rCancel = SET;		//Set the read cancel FLAG
+	return;
+}	//stop_Read()
 
-
+//--------------------------------------------------------------
+// Initiate the IDLE line detection
+//--------------------------------------------------------------
 int init_IDLE_Line(void)
 {
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
@@ -73,40 +192,41 @@ int init_IDLE_Line(void)
 	timerInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	timerInitStructure.TIM_Period = TIM3_PERIOD;
 	timerInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
-	timerInitStructure.TIM_RepetitionCounter = 0;
+	timerInitStructure.TIM_RepetitionCounter = TIM3_REP;
 	TIM_TimeBaseInit(TIM3, &timerInitStructure);
 
-	TIM3->CNT = RESET;
-	//TIM_Cmd(TIM3, ENABLE);
-
-	// Enable TIM3 interrupt
-	TIM_ITConfig(TIM3, TIM_IT_Update, ENABLE);
+	TIM3->CNT = RESET;		//Reset the TIM3 counter.
 
 	//Set interrupt handler
 	NVIC_InitTypeDef nvicStructure;
 	nvicStructure.NVIC_IRQChannel = TIM3_IRQn;
-	nvicStructure.NVIC_IRQChannelPreemptionPriority = 0;
-	nvicStructure.NVIC_IRQChannelSubPriority = 0;
+	nvicStructure.NVIC_IRQChannelPreemptionPriority = LOW_PRIORITY;
+	nvicStructure.NVIC_IRQChannelSubPriority = LOW_PRIORITY;
 	nvicStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&nvicStructure);
 
-	iLine = SET;
+	uart.iLine = SET;	//Set the idle line FLAG.
 
 	return 0;
-}
+}	//init_IDLE_Line
 
-
+//--------------------------------------------------------------
+// Disalbe the idle line detection
+//--------------------------------------------------------------
 int disable_IDLE_line(void)
 {
-	iLine = RESET;
+	uart.iLine = RESET;
+	TIM3->CR1&=~TIM_CR1_CEN; // stop
 	TIM3->CNT = RESET;
 	TIM3->SR = ~(TIM_FLAG_Update);
-	TIM3->CR1&=~TIM_CR1_CEN; // stop
+	TIM_ITConfig(TIM3, TIM_IT_Update, DISABLE);
 
 	return 0;
-}
+}	//disable_IDLE_Line()
 
-
+//--------------------------------------------------------------
+// Turn on the needed system clocks
+//--------------------------------------------------------------
 void init_RCC(void)
 {
 	  /* --------------------------- System Clocks Configuration -----------------*/
@@ -117,8 +237,11 @@ void init_RCC(void)
 	  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
 
 	  return;
-}
+}	//init_RCC()
 
+//--------------------------------------------------------------
+// Initiate the GPIO
+//--------------------------------------------------------------
 void init_GPIO(void)
 {
 	  GPIO_InitTypeDef GPIO_InitStructure;
@@ -134,8 +257,11 @@ void init_GPIO(void)
 	  /* Connect USART pins to AF */
 	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource2, GPIO_AF_USART2);   // USART2_TX
 	  GPIO_PinAFConfig(GPIOA, GPIO_PinSource3, GPIO_AF_USART2);  // USART2_RX
-}
+}	//INIT_GPIO
 
+//--------------------------------------------------------------
+// Initiate the USART
+//--------------------------------------------------------------
 void init_USART(void)
 {
 	USART_InitTypeDef USART_InitStructure;
@@ -158,46 +284,38 @@ void init_USART(void)
 	USART_InitStructure.USART_Mode = USART_Mode_Tx | USART_Mode_Rx;
 
 	USART_Init(USART2, &USART_InitStructure);
-}
+}	//init_USART()
 
+//--------------------------------------------------------------
+// Initiate NVIC for USART IT RXNE interrupt
+//--------------------------------------------------------------
 void init_NVIC(void)
 {
 	NVIC_InitTypeDef NVIC_InitStruct;
 	NVIC_InitStruct.NVIC_IRQChannel = USART2_IRQn;
 	NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 0;
+	NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 1;
 	NVIC_InitStruct.NVIC_IRQChannelSubPriority = 0;
 	NVIC_Init(&NVIC_InitStruct);
 
-	USART_Cmd(USART2, ENABLE);
-	USART_ITConfig(USART2,USART_IT_RXNE,ENABLE);
-}
+	USART_Cmd(USART2, ENABLE);			//Enable USART2
+	USART_ITConfig(USART2,USART_IT_RXNE,ENABLE);	//Enable UART2 IT RXNE interrupt
+}	//init_NVIC
 
-/*!
- * \brief teken een lijn.
- * \param paramter int.
- */
-int init_UART2(){
-
-	init_RCC();
-	init_GPIO();
-	init_USART();
-	init_NVIC();
-
-	return 0;
-}
-
-/*!
- * \brief teken een lijn.
- * \param paramter int.
- */
-int put_Char(char c){
+//--------------------------------------------------------------
+// Transmit 1 single char.
+//--------------------------------------------------------------
+int put_Char(char c)
+{
 	while(USART_GetFlagStatus(USART2, USART_FLAG_TXE) == RESET); // Wait for Empty
-	USART_SendData(USART2, c);
+	USART_SendData(USART2, c);		//Send the char
 
 	return 0;
-}
+} // put_Char()
 
+//--------------------------------------------------------------
+// TIM3-interrupt (idle line detection)
+//--------------------------------------------------------------
 void TIM3_IRQHandler(void)
 {
 	// Checks whether the TIM2 interrupt has occurred or not
@@ -205,63 +323,78 @@ void TIM3_IRQHandler(void)
 	{
 		TIM_ClearITPendingBit(TIM3, TIM_IT_Update);					//Clear interrupt flag
 
-		if(uBusy == SET){
-			for(int i = 0; i < 3; i++){
-				if(inputBuffer[iIndex - i] == '\n' || inputBuffer[iIndex - i] == '\r'){
-					inputBuffer[iIndex - i] = '\0';
+		if(uart.uBusy == SET)		//Check if UART is busy FLAG is set.
+		{
+			//Check for end of line chars (detecting when theres a CR can be done without idle line).
+			/*
+			for(int i = 0; i < 3; i++)
+			{
+				if(uart.inputBuffer[uart.iIndex - i] == '\n' || uart.inputBuffer[uart.iIndex - i] == '\r')
+				{
+					uart.inputBuffer[uart.iIndex - i] = '\0';
 				}
-			}
-			inputBuffer[iIndex] = '\0';
+			}*/
 
-			bReady = SET;
-			uBusy = RESET;
+			uart.inputBuffer[uart.iIndex] = '\0';		//Close the sentence
 
-			TIM3->CNT = RESET;
-			TIM3->SR = ~(TIM_FLAG_Update);
-			TIM3->CR1&=~TIM_CR1_CEN; // stop
+			uart.bReady = SET;				//Set the buffer ready FLAG
+			uart.uBusy = RESET;				//RESET the USART busy FLAG
+
+			TIM3->CR1&=~TIM_CR1_CEN; // stop TIM3 UART is idle
+			TIM_ITConfig(TIM3, TIM_IT_Update, DISABLE);	//Disalbe TIM3 interrupts
+			TIM3->CNT = RESET;			//Reset TIM3 count
+			TIM3->SR = ~(TIM_FLAG_Update);		//Update the TIM3 FLAG.
+
 		}
 	return;
 	}
+}	//TIM3_IRQh
 
-}
-
-
+//--------------------------------------------------------------
+// USART2_IRQh
+//--------------------------------------------------------------
 void USART2_IRQHandler(void)
 {
 
-    if(USART_GetITStatus(USART2, USART_IT_RXNE) != RESET && bReady != SET)
+	//Check if the USART has a new input and check if the buffer isn't being read.
+    if(USART_GetITStatus(USART2, USART_IT_RXNE) != RESET && uart.bReady != SET)
     {
+    	//Receive char
+    	uart.inputBuffer[uart.iIndex] = (char)USART_ReceiveData(USART2);
+    	uart.iIndex++;								//Add 1 to the buffer index.
 
-    		inputBuffer[iIndex] = (char)USART_ReceiveData(USART2);
-    		iIndex++;
+    		USART_ClearITPendingBit(USART2, USART_IT_RXNE);	//Clear the USART FLAG
 
-    		USART_ClearITPendingBit(USART2, USART_IT_RXNE);
-
-    		if(iLine == 1)
+    		//Check if idle line is active.
+    		if(uart.iLine == SET)
     		{
-				if (uBusy == RESET){
-					uBusy = SET;
-					// Start de uBusy timer
-					TIM3->CNT = RESET;
-					TIM3->SR = ~(TIM_FLAG_Update);
-					TIM3->CR1 |= TIM_CR1_CEN; // start
-				}else{
+    			// Check if its the first input.
+				if (uart.uBusy == RESET){
+					uart.uBusy = SET;		//Set the usart busy FLAG
+					TIM3->CNT = RESET;		//Reset the timer.
+					TIM3->SR = ~(TIM_FLAG_Update);	//Update the TIM3 FLAG
+					TIM_ITConfig(TIM3, TIM_IT_Update, ENABLE);	//Enable interrupts
+					TIM3->CR1 |= TIM_CR1_CEN; // Start the timer
+				}else				//If its not the first input
+				{
 					// Reset de Ubusy timer
 					TIM3->CNT = RESET;
-					TIM3->SR = ~(TIM_FLAG_Update);
+					TIM3->SR = ~(TIM_FLAG_Update);	//Update the flag.
 				}
-    		}else
+    		}else	//Else if idle line isnt on.
     		{
-				if(inputBuffer[iIndex - 1] == '\n'){
-					inputBuffer[iIndex - 1] = '\0';
-				}else if(inputBuffer[iIndex -1] == CR){
-					inputBuffer[iIndex] = '\0';
-					bReady = SET;
+				if(uart.inputBuffer[uart.iIndex - 1] == '\n')	//Check for end of line char.
+				{
+					uart.inputBuffer[uart.iIndex - 1] = '\0';
+				}else if(uart.inputBuffer[uart.iIndex -1] == CR)	//Check for char return
+				{
+					uart.inputBuffer[uart.iIndex] = '\0';
+					uart.bReady = SET;							//CR => input complete, buffer is ready.
 				}
     		}
     }
-    return;
-}
+    return; //Return void from interrupt.
+}	//USART2_IRQh
 
 }  //namesspace UART
 

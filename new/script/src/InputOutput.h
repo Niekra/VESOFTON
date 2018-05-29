@@ -1,23 +1,62 @@
-/*
- * InputOutput.h
+/** @file InputOutput.h
+ *  @brief Function prototypes of the IO-layer.
  *
- *  Created on: May 23, 2018
- *      Author: M
+ *	Acts as a mediator for the UART and the rest of the program.
+ *
+ *  @author Matthijs Daggelders
+ *  @author Niek Ratering Arntz
  */
 
 #ifndef INPUTOUTPUT_H_
 #define INPUTOUTPUT_H_
 
-//#include <stm32_ub_vga_screen.h>
+//--------------------------------------------------------------
+// Includes
+//--------------------------------------------------------------
 #include <Uart.h>
-
 using namespace UART;
 
+/** @brief namespace IO
+ *
+ * 	Acts as a mediator between the UART and the rest of the program.
+ *
+ */
 namespace IO {
 
+/** @brief (Global) Write to UART.
+ *
+ *  @param char *text_out
+ *  @return int error
+ */
 int write(char *text_out);
+
+/** @brief (Global) Read from UART.
+ *
+ * 	Calls the UART::read() function.
+ *
+ *  @param char *buf Buffer to fill with the user input.
+ *  @return int error
+ */
 int read(char *buf);
-int initIO();
+
+/** @brief (Global) Stops the UART::read() function.
+ *
+ *	Stops the UART::read() function and return to the UI.
+ *
+ *  @param void
+ *  @return void
+ */
+void stop_Read();
+
+/** @brief (Global) Initiate the IO-layer.
+ *
+ * 	Calls the UART::init_UART function to start the UART.
+ * 	(Optional) call the UART::init_IDLE_LINE() for inputs without the carriage return char.
+ *
+ *  @param void
+ *  @return void
+ */
+int init_IO();
 
 } /* namespace IO */
 
