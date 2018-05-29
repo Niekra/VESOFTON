@@ -119,19 +119,20 @@ int Vgascreen::draw_line(int x1, int y1, int x2, int y2, int width, int color)
 
 int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad, int color, int fill)
 {
-
-	int hh = y_rad * y_rad;
-	int ww = x_rad * x_rad;
+	int w = int(x_rad/2);
+	int h = int(y_rad/2);
+	int hh = h * h;
+	int ww = w * w;
 	int hhww = hh * ww;
-	int x0 = x_rad;
+	int x0 = w;
 	int dx = 0;
 
 	// do the horizontal diameter
-	for (int x = -x_rad; x <= x_rad; x++)
+	for (int x = -w; x <= w; x++)
 	{
 		if (fill != true)
 		{
-			if (x == -x_rad || x == x_rad)
+			if (x == -w || x == w)
 				UB_VGA_SetPixel(x_mp + x, y_mp, color);
 		}
 		else
@@ -139,7 +140,7 @@ int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad, int color,
 	}
 
 	// now do both halves at the same time, away from the diameter
-	for (int y = 1; y <= y_rad; y++)
+	for (int y = 1; y <= h; y++)
 	{
 		int x1 = x0 - (dx - 1);  // try slopes of dx - 1 or more
 		for (; x1 > 0; x1--)
@@ -166,18 +167,17 @@ int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad, int color,
 		}
 	}
 
-	hh = x_rad * x_rad;
-	ww = y_rad * y_rad;
-	hhww = hh * ww;
-	x0 = y_rad;
+	std::swap(h, w);
+	std::swap(hh, ww);
+	x0 = w;
 	dx = 0;
 
 	// do the vertical diameter
-	for (int x = -y_rad; x <= y_rad; x++)
+	for (int x = -w; x <= w; x++)
 	{
 		if (fill != true)
 		{
-			if (x == -y_rad || x == y_rad)
+			if (x == -w || x == w)
 				UB_VGA_SetPixel(x_mp, y_mp + x, color);
 		}
 		else
@@ -185,7 +185,7 @@ int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad, int color,
 	}
 
 	// now do both halves at the same time, away from the diameter
-	for (int y = 1; y <= x_rad; y++)
+	for (int y = 1; y <= w; y++)
 	{
 		int x1 = x0 - (dx - 1);  // try slopes of dx - 1 or more
 		for (; x1 > 0; x1--)
@@ -201,7 +201,6 @@ int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad, int color,
 				UB_VGA_SetPixel(x_mp - y, y_mp + x, color);
 				UB_VGA_SetPixel(x_mp + y, y_mp + x, color);
 			}
-
 		}
 	}
 	return 0;
@@ -241,7 +240,7 @@ int Vgascreen::draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3,
 		int pt1[3] = {x2, y2};
 		int pt2[3] = {x3, y3};
 
-		if (pt0[1] > pt1[1])
+		if (pt0[1] > pt1[1]) //sort points based on height. pt0 is highest, pt2 lowest
 			std::swap(pt0, pt1);
 		if (pt0[1] > pt2[1])
 			std::swap(pt0, pt2);
@@ -289,7 +288,7 @@ int Vgascreen::draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3,
 		}
 
 	}
-
+	return 0;
 }
 
 
