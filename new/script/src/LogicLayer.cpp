@@ -142,6 +142,7 @@ int exec()
 	char *str;		//Local string to check with.
 	int a, b, c, d, e, f, g;		//Integers to save the strtol() values.
 	int i = 0;						//while loop counter.
+	int err = 0;
 	int color;//Integer to save the color value.
 	int fill;
 
@@ -231,6 +232,9 @@ int exec()
 									//Draw traingle
 									logic.screen.draw_triangle(a, b, c, d, e, f,
 											color, fill);
+								}else
+								{
+									err = TYPE_NOT_FOUND;
 								}
 							}	//With 6x int.
 						}	//With 5x int.
@@ -248,12 +252,11 @@ int exec()
 	{
 		logic.bufferIndex = RESET;
 		logic.bufferCnt = RESET;
-		return 1;
 	}else
 	{
 		logic.bufferIndex = logic.bufferIndex + i-1;
 	}
-	return 0;
+	return err;
 }	//exec
 
 //--------------------------------------------------------------
@@ -267,11 +270,13 @@ int set_Command(char *buf)
 	strcpy(str, buf);		//Copy the input
 	char *saveptr;			//Needed for the strtok_r
 	char *out;				//Output string
+	int err = 0;
 
 	//Check if maximum number of buffers are in use.
 	if(logic.bufferCnt >= MAX_BUFFERS)
 	{
 		logic.bufferCnt = RESET;
+		err = BUFFER_RESET;
 	}
 
 	// Get first word of the sentence. splitted by ","
@@ -315,11 +320,11 @@ int set_Command(char *buf)
 
 	// Check the waiting flag. If waiting is SET return. Else exec the command.
 	if(logic.waiting == SET){
-		return 1;
+		return err;
 	}else
 	{
-		exec();
-		return 0;
+		;
+		return exec();
 	}
 }	//set_Command
 

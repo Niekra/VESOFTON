@@ -62,15 +62,39 @@ void main_Loop()
 		}else if(buffered == RESET){		//If there's no new input.
 			err = LL::exec();				//Execute the buffered commands.
 		}
+
+		if(err > 0)
+		{
+			write_Error(err);
+		}
 	}
 }	//Mainloop
 
 //--------------------------------------------------------------
 // Write error message.
 //--------------------------------------------------------------
-void write_Error(int)
+void write_Error(int err)
 {
+	char *str;
+	if(ERRORS==1)
+	{
+		switch(err)
+		{
 
+			case 11:
+				str = (char*)"Command buffer leeg/Slechte input ontvangen.";
+				IO::write(str);
+				break;
+			case 12:
+				str = (char*)"Commmannd buffer vol. eerste commands worden verwijderd.";
+				IO::write(str);
+				break;
+			default:
+				return;
+				break;
+		}
+
+	}
 }	// Write error
 
 } /* namespace UI */

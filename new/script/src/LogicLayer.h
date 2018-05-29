@@ -84,6 +84,12 @@ namespace LL {
 
 /** @brief Maximum fill length */
 #define MAX_FILL_LENGTH 4
+
+/** @brief Error code: type not found. */
+#define TYPE_NOT_FOUND 11
+
+/** @brief Error code: command buffer overflow. */
+#define BUFFER_RESET 12
 /** @} */ // end of LL defines
 
 //--------------------------------------------------------------
