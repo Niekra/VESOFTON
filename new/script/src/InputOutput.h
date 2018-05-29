@@ -22,7 +22,7 @@
  *
  * 	Acts as a mediator between the UART and the rest of the program.
  * 	Gets commands from the UI and the LL and parses it
- * 	to the right UART functions.
+ * 	to UART.
  *
  */
 namespace IO {
@@ -71,7 +71,7 @@ int read(char *buf);
  */
 void stop_Read();
 
-/** @brief (Global) Initiate the IO-layer.
+/** @brief (Global) Initiate the IO layer.
  *
  * 	Calls the UART::init_UART function to start the UART.
  * 	(Optional) call the UART::init_IDLE_Line() for inputs without the carriage return char.
@@ -81,7 +81,7 @@ void stop_Read();
  */
 void init_IO();
 
-/** @brief (Global) Deletes the IO-layer.
+/** @brief (Global) Deletes the IO layer.
  *
  *	Deletes the IO-layer. Calls the UART::delete_UART() function.
  *

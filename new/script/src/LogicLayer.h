@@ -67,8 +67,8 @@ namespace LL {
 /** @brief Time period for the wait timer.
  *
  * 	TIM5
- * 	basefreq = 2*APB1 (APB1=42MHz) => TIM_CLK=84MHz
- * 	84Mhz/84000/1 = 1kHz
+ * 	basefreq = 2*APB1 (APB1=42MHz) => TIM_CLK=84MHz,
+ * 	84Mhz/84000/1 = 1kHz,
  * 	84Mhz = 84 MHz /x/ 84000   => x =  ms
  *
  *  */
@@ -205,7 +205,7 @@ int set_Command(char *buf);
 void TIM5_IRQHandler(void);
 
 // C functions uses TIM5.
-/** @brief (LOCAL)The wait function of the Logic layer.
+/** @brief (LOCAL)The wait function of the LL.
  *
  *	the function enables TIM5 and sets the prescale to give an interrupt at the chosen time.
  *	The waiting FLAG is also set, so no further commands will be executed.
@@ -215,7 +215,7 @@ void TIM5_IRQHandler(void);
  */
 void wait_Ms(int ms);
 
-/** @brief (LOCAL)Initiate TIM5 for the wait_Ms function.
+/** @brief (LOCAL)Initiate TIM5 for the wait_Ms() function.
  *
  * 	Sets the TIM5 and NVIC settings for interrupts on TIM5.
  *

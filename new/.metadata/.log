@@ -348,3 +348,9 @@ java.net.UnknownHostException: sumba.atollic.com
 !ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2018-05-09 10:44:24.560
 !MESSAGE Error in initializing ST-Link device.
 Reason: (2) ST-Link DLL error.
+
+!ENTRY org.eclipse.ui 4 4 2018-05-29 19:31:55.671
+!MESSAGE Referenced part does not exist yet: org.eclipse.ui.views.TaskList.
+
+!ENTRY org.eclipse.cdt.core 1 0 2018-05-29 23:49:38.235
+!MESSAGE Indexed 'script' (45 sources, 220 headers) in 5.73 sec: 20,040 declarations; 48,245 references; 1 unresolved inclusions; 35 syntax errors; 2 unresolved names (0.0029%)
