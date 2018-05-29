@@ -22,11 +22,13 @@
 #include "stm32f4xx.h"
 #include <stdio.h>
 #include<stdlib.h>
-#include <string>
+#include <string.h>
 #include "stm32f4xx_rcc.h"
 #include "stm32f4xx_tim.h"
 #include "stm32f4xx_gpio.h"
-using namespace IO;
+#include<InputOutput.h>
+
+
 
 //--------------------------------------------------------------
 // Namespace LL
@@ -82,6 +84,12 @@ namespace LL {
 
 /** @brief Maximum fill length */
 #define MAX_FILL_LENGTH 4
+
+/** @brief Error code: type not found. */
+#define TYPE_NOT_FOUND 11
+
+/** @brief Error code: command buffer overflow. */
+#define BUFFER_RESET 12
 /** @} */ // end of LL defines
 
 //--------------------------------------------------------------
@@ -152,7 +160,7 @@ int exec();
  *  @param void
  *  @return int error
  */
-int destroy_LL();
+int delete_LL();
 
 /** @brief (GLOBAL)Sets the command struct.
  *

@@ -19,11 +19,12 @@
 //--------------------------------------------------------------
 // Includes
 //--------------------------------------------------------------
+#include "stm32f4xx.h"
+#include "string.h"
 #include "stm32f4xx_usart.h"
 #include "stm32f4xx_gpio.h"
 #include "stm32f4xx_rcc.h"
 #include "stm32f4xx_tim.h"
-#include "string.h"
 
 //--------------------------------------------------------------
 // Namespace UART
@@ -96,7 +97,7 @@ typedef struct{
 	volatile int iLine;					/**< Idle line FLAG to enable/disable idle line detection. */
 	volatile int uBusy;					/**< USART busy flag, needed for the idle line detection. */
 	volatile int rCancel;				/**< read cancel FLAG. to cancel the read function. */
-	uint8_t inputBuffer[BUFFER_LENGTH];	/**< Input buffer with size BUFFER_LENGTH. */
+	char inputBuffer[BUFFER_LENGTH];	/**< Input buffer with size BUFFER_LENGTH. */
 }UART_T;
 
 //--------------------------------------------------------------
@@ -136,7 +137,7 @@ void stop_Read(void);
  *  @param void
  *  @return void
  */
-int init_UART2(void);
+void init_UART2(void);
 
 /** @brief (GLOBAL) Initiate the idle line detection for USART2.
  *
@@ -145,7 +146,7 @@ int init_UART2(void);
  *  @param void
  *  @return int error
  */
-int init_IDLE_Line(void);
+void init_IDLE_Line(void);
 
 /** @brief (GLOBAL) Disable idle line detection.
  *
@@ -154,7 +155,7 @@ int init_IDLE_Line(void);
  *  @param void
  *  @return int error
  */
-int disable_IDLE_line(void);
+void disable_IDLE_line(void);
 
 /** @brief (GLOBAL) Stops the UART and TIM3
  *
@@ -162,7 +163,7 @@ int disable_IDLE_line(void);
  *  @param void
  *  @return int error
  */
-int delete_UART(void);
+void delete_UART(void);
 
 //--------------------------------------------------------------
 // Includes

@@ -87,7 +87,7 @@ void init_NVIC(void);
 //--------------------------------------------------------------
 // initialize UART2
 //--------------------------------------------------------------
-int init_UART2()
+void init_UART2()
 {
 	/*local variables*/
 	uart.iIndex = RESET;					//Input index. Keeps track of which is the next buffer input.
@@ -101,13 +101,13 @@ int init_UART2()
 	init_USART();	//Initiate USART
 	init_NVIC();	//Initiate USART interrupts
 
-	return 0;
+	return;
 }
 
 //--------------------------------------------------------------
 // Stop UART2
 //--------------------------------------------------------------
-int delete_UART(void)
+void delete_UART(void)
 {
 	uart.iIndex = RESET;					//Input index. Keeps track of which is the next buffer input.
 	uart.bReady = RESET;					//Bool, to signal inputBuffer is ready for transfer.
@@ -119,7 +119,7 @@ int delete_UART(void)
 	USART_Cmd(USART2, DISABLE);				//Disable USART2
 	USART_ITConfig(USART2,USART_IT_RXNE,DISABLE);	//Disable USART2 IT RXNE interrupts
 
-	return 0;
+	return;
 }
 
 //--------------------------------------------------------------
@@ -178,7 +178,7 @@ void stop_Read()
 //--------------------------------------------------------------
 // Initiate the IDLE line detection
 //--------------------------------------------------------------
-int init_IDLE_Line(void)
+void init_IDLE_Line(void)
 {
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
 
@@ -207,13 +207,13 @@ int init_IDLE_Line(void)
 
 	uart.iLine = SET;	//Set the idle line FLAG.
 
-	return 0;
+	return;
 }	//init_IDLE_Line
 
 //--------------------------------------------------------------
 // Disalbe the idle line detection
 //--------------------------------------------------------------
-int disable_IDLE_line(void)
+void disable_IDLE_line(void)
 {
 	uart.iLine = RESET;
 	TIM3->CR1&=~TIM_CR1_CEN; // stop
@@ -221,7 +221,7 @@ int disable_IDLE_line(void)
 	TIM3->SR = ~(TIM_FLAG_Update);
 	TIM_ITConfig(TIM3, TIM_IT_Update, DISABLE);
 
-	return 0;
+	return;
 }	//disable_IDLE_Line()
 
 //--------------------------------------------------------------

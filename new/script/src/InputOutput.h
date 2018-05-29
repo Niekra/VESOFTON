@@ -14,8 +14,10 @@
 // Includes
 //--------------------------------------------------------------
 #include <Uart.h>
-using namespace UART;
 
+//--------------------------------------------------------------
+// Namespace IO
+//--------------------------------------------------------------
 /** @brief namespace IO
  *
  * 	Acts as a mediator between the UART and the rest of the program.
@@ -23,6 +25,9 @@ using namespace UART;
  */
 namespace IO {
 
+//--------------------------------------------------------------
+// Global functions
+//--------------------------------------------------------------
 /** @brief (Global) Write to UART.
  *
  *  @param char *text_out
@@ -56,7 +61,16 @@ void stop_Read();
  *  @param void
  *  @return void
  */
-int init_IO();
+void init_IO();
+
+/** @brief (Global) Deletes the IO-layer.
+ *
+ *	Deletes the IO-layer. Calls the UART::delete_UART() function.
+ *
+ *  @param void
+ *  @return void
+ */
+void delete_IO();
 
 } /* namespace IO */
 

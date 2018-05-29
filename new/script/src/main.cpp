@@ -11,8 +11,6 @@
 //--------------------------------------------------------------
 /* Includes */
 #include <Userinterface.h>
-#include <Vgascreen.h>
-#include <iostream>
 #include "stm32f4xx.h"
 #include "stm32f4_discovery.h"
 using namespace UI;
@@ -42,12 +40,12 @@ int main(void)
 	 */
 	SystemInit(); // System speed to 168MHz
 
-	UI::initUI();	//init the UI.
+	UI::init_UI();	//init the UI.
 
 	/* Infinite loop */
 	while (1)
 	{
-		UI::mainLoop();		//Main program loop.
+		UI::main_Loop();		//Main program loop.
 	}
 }
 

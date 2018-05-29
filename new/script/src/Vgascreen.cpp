@@ -38,14 +38,6 @@ int Vgascreen::VGA_pos(int x, int y)
 
 int Vgascreen::draw_line(int x1, int y1, int x2, int y2, int width, int color)
 {
-	if (x1>320)
-		x1=320;
-	if (x2>320)
-		x2=320;
-	if (y1>240)
-		y2=240;
-	if (y2>240)
-		y2=240;
 
 	const int dx = abs(x1 - x2);
 	const int dy = abs(y1 - y2);

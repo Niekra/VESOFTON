@@ -4,11 +4,9 @@
  *  Created on: May 3, 2018
  *      Author: M
  */
-/*!
- * \brief de VGA class
- */
 #ifndef VGASCREEN_H_
 #define VGASCREEN_H_
+
 const int smileyBmp[1025] =
 { 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 182, 109, 36, 0, 0, 0,
 		0, 36, 109, 182, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,
@@ -613,6 +611,9 @@ const unsigned char font2[96][6] =
 		{ 0x02, 0x01, 0x02, 0x01, 0x00, 0x00 }, // ~
 		{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 } };
 
+/*!
+ * \brief de VGA class
+ */
 class Vgascreen
 {
 	private:
