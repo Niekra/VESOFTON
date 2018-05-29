@@ -79,9 +79,6 @@ namespace LL {
 
 /** @brief Maximum text length. */
 #define MAX_TEXT_LENGTH 64
-
-/** @brief Maximum fill length */
-#define MAX_FILL_LENGTH 4
 /** @} */ // end of LL defines
 
 //--------------------------------------------------------------
@@ -102,7 +99,6 @@ typedef struct {
 	char input5[MAX_COLOR_LENGTH];	/**< Fifth input of the command. */
 	char input6[MAX_COLOR_LENGTH];	/**< Sixth input of the command.. */
 	char input7[MAX_COLOR_LENGTH];	/**< Seventh input of the command. */
-	char input8[MAX_FILL_LENGTH];	/**< eighth input of the command. */
 }command_t;
 
 /**

@@ -135,7 +135,7 @@ int exec()
 {
 	//Local variables
 	char *str;		//Local string to check with.
-	int a, b, c, d, e, f, g,h;		//Integers to save the strtol() values.
+	int a, b, c, d, e, f, g;		//Integers to save the strtol() values.
 	int i = 0;						//while loop counter.
 	int color;						//Integer to save the color value.
 
@@ -292,11 +292,7 @@ int set_Command(char *buf)
 		}else if(i==7)
 		{
 			strcpy(logic.buffers[logic.bufferCnt].input7, out);
-		}else if(i==8)
-		{
-			strcpy(logic.buffers[logic.bufferCnt].input8, out);
 		}
-
 		i++;		//Increase i.
 	}
 

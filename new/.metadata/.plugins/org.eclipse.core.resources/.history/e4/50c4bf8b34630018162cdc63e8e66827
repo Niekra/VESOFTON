@@ -87,12 +87,12 @@ namespace UART {
 
 /** @brief Struct UART_T.
  *
- * Contains the different variables needed for the UART to work.
+ * Contains the different viarables needed for the UART to work.
  *
  *  */
 typedef struct{
 	volatile int iIndex;				/**< Input index, keeps track what the next position is in the buffer. */
-	volatile int bReady;				/**< Buffer ready FLAG. To signal if there's any user input. */
+	volatile int bReady;				/**< Buffer ready FLAG. To signal if theres any user input. */
 	volatile int iLine;					/**< Idle line FLAG to enable/disable idle line detection. */
 	volatile int uBusy;					/**< USART busy flag, needed for the idle line detection. */
 	volatile int rCancel;				/**< read cancel FLAG. to cancel the read function. */

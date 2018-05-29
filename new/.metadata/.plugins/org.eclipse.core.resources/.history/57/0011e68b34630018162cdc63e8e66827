@@ -135,7 +135,7 @@ int exec()
 {
 	//Local variables
 	char *str;		//Local string to check with.
-	int a, b, c, d, e, f, g,h;		//Integers to save the strtol() values.
+	int a, b, c, d, e, f, g;		//Integers to save the strtol() values.
 	int i = 0;						//while loop counter.
 	int color;						//Integer to save the color value.
 
@@ -212,7 +212,7 @@ int exec()
 							}
 							else						//Commands with 6x int.
 							{
-								f = (int) strtol(logic.buffers[i+logic.bufferIndex].input6, NULL, 10);
+								f = (int) strtol(logic.buffers[i+logic.bufferIndex].input5, NULL, 10);
 								if (strcmp(str, "driehoek") == 0)
 								{
 									color = color_To_Int(logic.buffers[i+logic.bufferIndex].input7);
@@ -292,11 +292,7 @@ int set_Command(char *buf)
 		}else if(i==7)
 		{
 			strcpy(logic.buffers[logic.bufferCnt].input7, out);
-		}else if(i==8)
-		{
-			strcpy(logic.buffers[logic.bufferCnt].input8, out);
 		}
-
 		i++;		//Increase i.
 	}
 
