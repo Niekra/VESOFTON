@@ -85,7 +85,7 @@ int init_LL()
 //--------------------------------------------------------------
 // Destroy logicLevel
 //--------------------------------------------------------------
-int destroy_LL()
+int delete_LL()
 {
 	logic.screen.~Vgascreen();			//Delete Vgascreen object.
 	//Reset rest of the values
@@ -213,7 +213,7 @@ int exec()
 							e = (int) strtol(logic.buffers[i+logic.bufferIndex].input5, NULL, 10);
 							if (strcmp(str, "lijn") == 0)
 							{
-								color = color_To_Int(logic.buffers[i+logic.bufferIndex].input7);
+								color = color_To_Int(logic.buffers[i+logic.bufferIndex].input6);
 								//Draw line
 								logic.screen.draw_line(a, b, c, d, e, color);
 							}
@@ -224,7 +224,6 @@ int exec()
 									f = (int) strtol(logic.buffers[i+logic.bufferIndex].input6, NULL, 10);
 									fill = (int) strtol(logic.buffers[i+logic.bufferIndex].input8, NULL, 10);
 									color = color_To_Int(logic.buffers[i+logic.bufferIndex].input7);
-									e = (int) strtol(logic.buffers[i+logic.bufferIndex].input8, NULL, 10);
 
 									//Draw traingle
 									logic.screen.draw_triangle(a, b, c, d, e, f,

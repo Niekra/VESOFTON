@@ -35,7 +35,16 @@ namespace UI
  *  @param void
  *  @return void
  */
-void initUI(void);
+void init_UI(void);
+
+/** @brief (GLOBAL)initiates the UI.
+ *
+ *	Deletes the UI-layer. Calls the LL::delete_LL() and the IO::delete_IO() functions
+ *
+ *  @param void
+ *  @return void
+ */
+void delete_UI(void);
 
 /** @brief (Global)Starts the main UI loop.
  *
@@ -47,7 +56,7 @@ void initUI(void);
  *  @param void
  *  @return void
  */
-void mainLoop(void);
+void main_Loop(void);
 
 /** @brief (LOCAL)Write error.
  *
@@ -56,7 +65,7 @@ void mainLoop(void);
  *  @param void
  *  @return void
  */
-void write_error(int);
+void write_Error(int);
 
 } /* namespace UI */
 

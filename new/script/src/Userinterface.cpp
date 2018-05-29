@@ -22,16 +22,25 @@ namespace UI
 //--------------------------------------------------------------
 // Initiate UI.
 //--------------------------------------------------------------
-void initUI()
+void init_UI()
 {
 	IO::init_IO();
 	LL::init_LL();
 } // initUI
 
 //--------------------------------------------------------------
+// Deletes the UI layer.
+//--------------------------------------------------------------
+void delete_UI(int)
+{
+	IO::delete_IO();
+	LL::delete_LL();
+}	// Delete UI
+
+//--------------------------------------------------------------
 // MainLoop UI.
 //-------------------------------------------------------------
-void mainLoop()
+void main_Loop()
 {
 	int buffered;  				//Buffered flag
 	int err = RESET;			//Error flag
@@ -53,7 +62,7 @@ void mainLoop()
 //--------------------------------------------------------------
 // Write error message.
 //--------------------------------------------------------------
-void write_error(int)
+void write_Error(int)
 {
 
 }	// Write error

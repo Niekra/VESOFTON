@@ -56,7 +56,16 @@ void stop_Read();
  *  @param void
  *  @return void
  */
-int init_IO();
+void init_IO();
+
+/** @brief (Global) Deletes the IO-layer.
+ *
+ *	Deletes the IO-layer. Calls the UART::delete_UART() function.
+ *
+ *  @param void
+ *  @return void
+ */
+void delete_IO();
 
 } /* namespace IO */
 

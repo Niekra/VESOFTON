@@ -152,7 +152,7 @@ int exec();
  *  @param void
  *  @return int error
  */
-int destroy_LL();
+int delete_LL();
 
 /** @brief (GLOBAL)Sets the command struct.
  *
