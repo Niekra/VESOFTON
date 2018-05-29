@@ -73,7 +73,7 @@ int color_To_Int(char *color);
 //--------------------------------------------------------------
 // Initiate logicLevel
 //--------------------------------------------------------------
-void init_LL()
+int init_LL()
 {
 	// TODO Auto-generated constructor stub
 	logic.screen = Vgascreen();
@@ -82,20 +82,20 @@ void init_LL()
 	logic.bufferCnt = RESET;
 	init_TIM5();				//init TIM5 for the wait function.
 
-	return;
+	return 0;
 }
 
 //--------------------------------------------------------------
 // Destroy logicLevel
 //--------------------------------------------------------------
-void delete_LL()
+int delete_LL()
 {
 	logic.screen.~Vgascreen();			//Delete Vgascreen object.
 	//Reset rest of the values
 	logic.waiting = RESET;
 	logic.bufferIndex = RESET;
 	logic.bufferCnt = RESET;
-	return;
+	return 0;
 }
 
 //--------------------------------------------------------------

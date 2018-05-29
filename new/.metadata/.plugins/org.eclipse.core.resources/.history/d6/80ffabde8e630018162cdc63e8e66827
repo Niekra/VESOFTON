@@ -88,14 +88,14 @@ void init_LL()
 //--------------------------------------------------------------
 // Destroy logicLevel
 //--------------------------------------------------------------
-void delete_LL()
+int delete_LL()
 {
 	logic.screen.~Vgascreen();			//Delete Vgascreen object.
 	//Reset rest of the values
 	logic.waiting = RESET;
 	logic.bufferIndex = RESET;
 	logic.bufferCnt = RESET;
-	return;
+	return 0;
 }
 
 //--------------------------------------------------------------

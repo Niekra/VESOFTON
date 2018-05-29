@@ -146,10 +146,10 @@ void init_LL();
  * 	If the wait flag isnt set execute the command given by the bufferIndex.
  * 	While there are still commands in the command buffer keep executing them.
  *
- * 	if the waiting flag is set => return.
+ * 	if the waiting flag is set return.
  *
  *  @param void
- *  @return void
+ *  @return int error
  */
 int exec();
 
@@ -157,19 +157,17 @@ int exec();
  *
  *	Deletes and Vgascreen object and resets all the flags.
  *
- *	Gives the TYPE_NOT_FOUND error if a wrong input is given or the command buffer is empty.
- *
  *  @param void
  *  @return int error
  */
-void delete_LL();
+int delete_LL();
 
 /** @brief (GLOBAL)Sets the command struct.
  *
  *	Turns the input buffer into a command. It uses strtok_r to split the input at every ",".
  *
  *  @param char *buf the char buffer to set
- *  @return void
+ *  @return int error
  */
 int set_Command(char *buf);
 

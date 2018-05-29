@@ -95,7 +95,7 @@ void delete_LL()
 	logic.waiting = RESET;
 	logic.bufferIndex = RESET;
 	logic.bufferCnt = RESET;
-	return;
+	return 0;
 }
 
 //--------------------------------------------------------------
