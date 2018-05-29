@@ -28,7 +28,9 @@ namespace IO {
 //--------------------------------------------------------------
 // Global functions
 //--------------------------------------------------------------
-/** @brief (Global) Write to UART.
+/** @brief (Global) Write back thru UART.
+ *
+ *	Write the char *text_out using the UART::write() function.
  *
  *  @param char *text_out
  *  @return int error
@@ -37,7 +39,8 @@ int write(char *text_out);
 
 /** @brief (Global) Read from UART.
  *
- * 	Calls the UART::read() function.
+ * 	Calls the read() function of the UART. The user input is saved in the char *buf.
+ * 	The return state is whether a new user input was given(SET) or if the read was canceled (RESET).
  *
  *  @param char *buf Buffer to fill with the user input.
  *  @return int error
@@ -46,7 +49,7 @@ int read(char *buf);
 
 /** @brief (Global) Stops the UART::read() function.
  *
- *	Stops the UART::read() function and return to the UI.
+ *	Calls the UART::stop_Read() function to stop waiting for user input and check if there are buffered inputs.
  *
  *  @param void
  *  @return void

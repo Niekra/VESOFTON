@@ -37,7 +37,7 @@ logic_t logic;
 //--------------------------------------------------------------
 // Local constants
 //--------------------------------------------------------------
-/** @brief List with all color names.
+/** @brief List with all the color names.
  *
  *
  */
@@ -46,7 +46,7 @@ const char *colors[COLORS] =
 		"lichtcyaan", "rood", "lichtrood", "magenta", "lichtmagenta",
 		"bruin", "geel", "grijs", "wit" };
 
-/** @brief List with all color values.
+/** @brief List with all the color values.
  *
  *
  */

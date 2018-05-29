@@ -1,8 +1,7 @@
 /** @file InputOutput.cpp
  *  @brief Function prototypes of the Userinterface.
  *
- *	Gets the user input from the IO layer and parses it to the LogicLayer.
- *	Takes care of the error handling.
+ *	Acts as a mediator for the UART and the rest of the program.
  *
  *  @author Matthijs Daggelders
  *  @author Niek Ratering Arntz

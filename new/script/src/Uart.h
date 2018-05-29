@@ -45,10 +45,10 @@ namespace UART {
  *  @{
  */
 
-/** @brief Carraige return char. */
+/** @brief Carriage return char. */
 #define CR 13 // carriage return char
 
-/** @brief Linefeed char. */
+/** @brief Line feed char. */
 #define LF 10
 
 /** @brief TIM3 period.
@@ -159,6 +159,7 @@ void disable_IDLE_line(void);
 
 /** @brief (GLOBAL) Stops the UART and TIM3
  *
+ *	Deletes the UART stops the interrupts and the idle line detection by calling disable_IDLE_Line() if its on.
  *
  *  @param void
  *  @return int error
@@ -179,7 +180,7 @@ void TIM3_IRQHandler(void);
 
 /** @brief (GLOBAL) IT RXNE interrupt handler for USART2
  *
- *	Fills the input buffer and sets bReady flag when done.
+ *	Fills the input buffer and sets the bReady flag when done.
  *
  *  @param void
  *  @return void
