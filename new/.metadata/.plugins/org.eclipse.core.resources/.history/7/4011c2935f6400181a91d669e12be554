@@ -45,6 +45,12 @@ namespace UART {
  *  @{
  */
 
+/** @brief Carriage return char. */
+#define CR 13 // carriage return char
+
+/** @brief Line feed char. */
+#define LF 10
+
 /** @brief TIM3 period.
  *
  * Function  = Idle line detect.
@@ -174,7 +180,7 @@ void TIM3_IRQHandler(void);
 
 /** @brief (GLOBAL) IT RXNE interrupt handler for USART2
  *
- *	Fills the input buffer and sets the UART::UART_T.bReady flag when done.
+ *	Fills the input buffer and sets the LL::logic_t.bReady flag when done.
  *
  *  @param void
  *  @return void

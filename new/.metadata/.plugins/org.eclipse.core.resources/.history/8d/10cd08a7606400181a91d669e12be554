@@ -56,8 +56,8 @@ void delete_UI(void);
 /** @brief (Global)Starts the main UI loop.
  *
  * 	Main UI loop. This is where the rest of the program happens.
- * 	First the IO::read() function is called. If there’s a new user input.
- * 	LL::set_command() with the user input is called. If IO::read() returns empty call the LL::exec().
+ * 	First the UART::read function is called. If there’s a new user input.
+ * 	LL::set_command() with the user input is called. If UART::read returns empty call the LL::exec().
  * 	Errors from the LL will be printed using the UI::write_Error() function
  *
  *  @param void

@@ -196,9 +196,9 @@ int set_Command(char *buf);
 /** @brief (GLOBAL) TIM5 interrupt handler for wait_Ms().
 *
 *	The TIM5_IRQh interrupts when the timer is triggered.
-*	The interrupt stops the read function of the IO-layer by calling IO::stop_Read() to let the UI call LL::exec().
+*	The interrupt stops the read function of the IO::level to exec() the buffer.
 *	The waiting FLAG is also cleared.
-*	Directly calling the LL::exec() function messes with the VGA output.
+*	Directly calling the exec() function messes with the VGA output.
 *
  *  @param void
  *  @return void

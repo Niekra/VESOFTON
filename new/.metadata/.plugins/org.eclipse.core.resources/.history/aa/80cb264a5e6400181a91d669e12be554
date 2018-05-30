@@ -11,18 +11,18 @@
 #include <algorithm>
 #include <string.h>
 
-Vgascreen::Vgascreen(void)
+Vgascreen::Vgascreen()
 {
 	// TODO Auto-generated constructor stub
 	init_VGA();
 }
 
-Vgascreen::~Vgascreen(void)
+Vgascreen::~Vgascreen()
 {
 	// TODO Auto-generated destructor stub
 }
 
-int Vgascreen::init_VGA(void)
+int Vgascreen::init_VGA()
 {
 	UB_VGA_Screen_Init(); // Init VGA-Screen
 	UB_VGA_FillScreen(VGA_COL_GREEN); // Set screen green.
