@@ -386,9 +386,9 @@ void USART2_IRQHandler(void)
 				if(uart.inputBuffer[uart.iIndex - 1] == '\n')	//Check for end of line char.
 				{
 					uart.inputBuffer[uart.iIndex - 1] = '\0';
-				}else if(uart.inputBuffer[uart.iIndex -1] == CR)	//Check for char return
+				}else if(uart.inputBuffer[uart.iIndex -1] == '\r')	//Check for char return
 				{
-					uart.inputBuffer[uart.iIndex] = '\0';
+					uart.inputBuffer[uart.iIndex-1] = '\0';
 					uart.bReady = SET;							//CR => input complete, buffer is ready.
 				}
     		}
