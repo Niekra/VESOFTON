@@ -220,7 +220,7 @@ int Vgascreen::draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3,
 		int color, int fill)
 {
 
-	if (fill != true)
+	if (fill != true) //als de driehoek niet gevuld hoeft te worden, teken een lijn tussen elk punt
 	{
 		draw_line(x1, y1, x2, y2, 1, color);
 		draw_line(x1, y1, x3, y3, 1, color);
@@ -228,29 +228,25 @@ int Vgascreen::draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3,
 	}
 	else
 	{
-		int pt0[3] = {x1, y1};
+		int pt0[3] = {x1, y1}; //definieer hoekpunten
 		int pt1[3] = {x2, y2};
 		int pt2[3] = {x3, y3};
 
-		if (pt0[1] > pt1[1]) //sort points based on height. pt0 is highest, pt2 lowest
+		if (pt0[1] > pt1[1]) //sorteer punten op hoogte. pt0 is het hoogst op het scherm, pt2 laagst
 			std::swap(pt0, pt1);
 		if (pt0[1] > pt2[1])
 			std::swap(pt0, pt2);
 		if (pt1[1] > pt2[1])
 			std::swap(pt1, pt2);
 
-		int total_height = pt2[1] - pt0[1];
-		for (int y = pt0[1]; y <= pt1[1]; y++)
+		int total_height = pt2[1] - pt0[1]; //totale hoogte van de driehoek
+		for (int y = pt0[1]; y <= pt1[1]; y++) //teken de bovenste helft van de driehoek
 		{
-			int segment_height = pt1[1] - pt0[1] + 1;
+			int segment_height = pt1[1] - pt0[1] + 1; //hoogte van de bovenste helft van de driehoek+1
 			float alpha = (float) (y - pt0[1]) / total_height;
-			float beta = (float) (y - pt0[1]) / segment_height; // be careful with divisions by zero
-//			int A[3];
+			float beta = (float) (y - pt0[1]) / segment_height;
 			int A = int(pt0[0] + (pt2[0] - pt0[0]) * alpha);
-//			A[1] = int(pt0[1] + (pt2[1] - pt0[1]) * alpha);
-//			int B[3];
 			int B = int(pt0[0] + (pt1[0] - pt0[0]) * beta);
-//			B[1] = int(pt0[1] + (pt1[1] - pt0[1]) * beta);
 			if (A > B)
 				std::swap(A, B);
 			for (int j = A; j <= B; j++)
