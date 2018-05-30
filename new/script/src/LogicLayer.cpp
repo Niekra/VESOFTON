@@ -56,13 +56,13 @@ const int rgb[COLORS] =
 //--------------------------------------------------------------
 // Local functions
 //--------------------------------------------------------------
-/** @brief (LOCAL)Gets 8 bit rgb value from the colors name.
+/** @brief (LOCAL)Gets 8 bit color value from the color name.
  *
  *	Loops through the color names and checks whether a name is the same.
  *	Returns the 8 bit color value from rgb[].
  *
- *  @param char *colors
- *  @return int color, the color value from 0-255.
+ *  @param void
+ *  @return int error
  */
 int color_To_Int(char *color);
 

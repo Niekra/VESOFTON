@@ -20,7 +20,7 @@
  *
  * 	In the namespace UI are all the functions and variables concerning the User interface.
  * 	The UI gets the user input from the IO layer and parses it to the Logic-layer.
- * 	The LL may encounter an error and return an error code.
+ * 	The LL may encounter and return a error code.
  * 	The error text is send to the IO layer to be send back to the user if ERROR = on.
  *
  */
