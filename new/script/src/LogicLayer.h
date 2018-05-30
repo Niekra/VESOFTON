@@ -192,7 +192,7 @@ int set_Command(char *buf);
 //--------------------------------------------------------------
 // Global functions(C) and interrupt handler for TIM5
 //--------------------------------------------------------------
-/** @brief (GLOBAL) TIM5_IRQh for wait_Ms()
+/** @brief (GLOBAL) TIM5 interrupt handler for wait_Ms().
 *
 *	The TIM5_IRQh interrupts when the timer is triggered.
 *	The interrupt stops the read function of the IO::level to exec() the buffer.
@@ -208,7 +208,7 @@ void TIM5_IRQHandler(void);
 /** @brief (LOCAL)The wait function of the LL.
  *
  *	the function enables TIM5 and sets the prescale to give an interrupt at the chosen time.
- *	The waiting FLAG is also set, so no further commands will be executed.
+ *	The logic.waiting FLAG is also set, so no further commands will be executed.
  *
  *  @param int ms, the time to wait
  *  @return void
