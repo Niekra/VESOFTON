@@ -35,7 +35,17 @@
 //--------------------------------------------------------------
 /** @brief Namespace LL
  *
- * 	In the namespace LL are all the functions concerning the LogicLayer.
+ * 	The logic layer get's the user input from the UI.
+ * 	The input buffer is split into sperate inputs and saved in
+ * 	a command_t struct. This is stored in the command buffer
+ * 	logic_t.buffers. after the command is set exec() is called if
+ * 	the logic level isn't waiting.
+ *
+ * 	The function exec() sends the draw commands to the Vgascreen object.
+ * 	If there's more then 1 command buffered keep drawing until the buffer
+ * 	is empty, a wait is called or a repeat.
+ *
+ *	The Logic-layer uses TIM5 for the wait_Ms() function.
  *
  */
 namespace LL {
@@ -43,8 +53,8 @@ namespace LL {
 //--------------------------------------------------------------
 // Defines
 //--------------------------------------------------------------
-/** @defgroup LL defines
- *  Group of LL global defines.
+/** @defgroup Global defines
+ *  Group of global defines.
  *  @{
  */
 
@@ -57,8 +67,8 @@ namespace LL {
 /** @brief Time period for the wait timer.
  *
  * 	TIM5
- * 	basefreq = 2*APB1 (APB1=42MHz) => TIM_CLK=84MHz
- * 	84Mhz/84000/1 = 1kHz
+ * 	basefreq = 2*APB1 (APB1=42MHz) => TIM_CLK=84MHz,
+ * 	84Mhz/84000/1 = 1kHz,
  * 	84Mhz = 84 MHz /x/ 84000   => x =  ms
  *
  *  */
@@ -114,7 +124,7 @@ typedef struct {
 }command_t;
 
 /**
- * @brief Logic_t struct for the different flags and buffer.
+ * @brief logic_t struct for the different flags and buffer.
  *
  * The logic_t structs saves the different flags of the Logiclayer.
  * The struct also saves the commands in a buffer.
@@ -131,43 +141,45 @@ typedef struct{
 //--------------------------------------------------------------
 // Global functions
 //--------------------------------------------------------------
-/** @brief (GLOBAL)Initiate the LogicLevel.
+/** @brief (GLOBAL)Initiate the LL.
  *
  *	Initiates the LogicLevel. All the flags are reset and a Vgascreen object is created.
  *	Everything is saved in the logic struct.
  *
  *  @param void
- *  @return int error
+ *  @return void
  */
-int init_LL();
+void init_LL(void);
 
 /** @brief (GLOBAL)executes the last command or the command buffer.
  *
  * 	If the wait flag isnt set execute the command given by the bufferIndex.
  * 	While there are still commands in the command buffer keep executing them.
  *
- * 	if the waiting flag is set return.
+ * 	if the waiting flag is set => return.
  *
  *  @param void
- *  @return int error
+ *  @return void
  */
-int exec();
+int exec(void);
 
-/** @brief (GLOBAL)Destroy the LogicLayer
+/** @brief (GLOBAL)Destroy the LL
  *
  *	Deletes and Vgascreen object and resets all the flags.
  *
+ *	Gives the TYPE_NOT_FOUND error if a wrong input is given or the command buffer is empty.
+ *
  *  @param void
- *  @return int error
+ *  @return void
  */
-int delete_LL();
+void delete_LL(void);
 
 /** @brief (GLOBAL)Sets the command struct.
  *
  *	Turns the input buffer into a command. It uses strtok_r to split the input at every ",".
  *
  *  @param char *buf the char buffer to set
- *  @return int error
+ *  @return void
  */
 int set_Command(char *buf);
 
@@ -180,7 +192,7 @@ int set_Command(char *buf);
 //--------------------------------------------------------------
 // Global functions(C) and interrupt handler for TIM5
 //--------------------------------------------------------------
-/** @brief (GLOBAL) TIM5_IRQh for wait_Ms
+/** @brief (GLOBAL) TIM5_IRQh for wait_Ms()
 *
 *	The TIM5_IRQh interrupts when the timer is triggered.
 *	The interrupt stops the read function of the IO::level to exec() the buffer.
@@ -193,24 +205,24 @@ int set_Command(char *buf);
 void TIM5_IRQHandler(void);
 
 // C functions uses TIM5.
-/** @brief (LOCAL)The wait function of the LogicLevel
+/** @brief (LOCAL)The wait function of the LL.
  *
  *	the function enables TIM5 and sets the prescale to give an interrupt at the chosen time.
  *	The waiting FLAG is also set, so no further commands will be executed.
  *
  *  @param int ms, the time to wait
- *  @return int error
+ *  @return void
  */
-int wait_Ms(int ms);
+void wait_Ms(int ms);
 
-/** @brief (LOCAL)Initiate TIM5 for the wait_Ms function.
+/** @brief (LOCAL)Initiate TIM5 for the wait_Ms() function.
  *
  * 	Sets the TIM5 and NVIC settings for interrupts on TIM5.
  *
  *  @param void
- *  @return int error
+ *  @return void
  */
-int init_TIM5();
+void init_TIM5(void);
 
 #ifdef __cplusplus
 }

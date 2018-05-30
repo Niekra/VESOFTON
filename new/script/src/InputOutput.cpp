@@ -1,8 +1,7 @@
 /** @file InputOutput.cpp
  *  @brief Function prototypes of the Userinterface.
  *
- *	Gets the user input from the IO layer and parses it to the LogicLayer.
- *	Takes care of the error handling.
+ *	Acts as a mediator for the UART and the rest of the program.
  *
  *  @author Matthijs Daggelders
  *  @author Niek Ratering Arntz
@@ -12,6 +11,7 @@
 // Includes
 //--------------------------------------------------------------
 #include <InputOutput.h>
+#include <Uart.h>
 
 using namespace UART;
 
@@ -23,9 +23,9 @@ namespace IO {
 //--------------------------------------------------------------
 // IO::write()
 //--------------------------------------------------------------
-int write(char *text_out)
+void write(char *text_out)
 {
-	return UART::write(text_out);
+	UART::write(text_out);
 }
 
 //--------------------------------------------------------------

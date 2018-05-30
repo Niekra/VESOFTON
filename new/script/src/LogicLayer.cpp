@@ -8,7 +8,6 @@
  *
  *  @author Matthijs Daggelders
  *  @author Niek Ratering Arntz
- *  @bug Wait time isnt't correctly waiting the first time.
  */
 
 //--------------------------------------------------------------
@@ -37,7 +36,7 @@ logic_t logic;
 //--------------------------------------------------------------
 // Local constants
 //--------------------------------------------------------------
-/** @brief List with all color names.
+/** @brief List with all the color names.
  *
  *
  */
@@ -46,7 +45,7 @@ const char *colors[COLORS] =
 		"lichtcyaan", "rood", "lichtrood", "magenta", "lichtmagenta",
 		"bruin", "geel", "grijs", "wit" };
 
-/** @brief List with all color values.
+/** @brief List with all the color values.
  *
  *
  */
@@ -73,7 +72,7 @@ int color_To_Int(char *color);
 //--------------------------------------------------------------
 // Initiate logicLevel
 //--------------------------------------------------------------
-int init_LL()
+void init_LL()
 {
 	// TODO Auto-generated constructor stub
 	logic.screen = Vgascreen();
@@ -82,26 +81,26 @@ int init_LL()
 	logic.bufferCnt = RESET;
 	init_TIM5();				//init TIM5 for the wait function.
 
-	return 0;
+	return;
 }
 
 //--------------------------------------------------------------
 // Destroy logicLevel
 //--------------------------------------------------------------
-int delete_LL()
+void delete_LL(void)
 {
 	logic.screen.~Vgascreen();			//Delete Vgascreen object.
 	//Reset rest of the values
 	logic.waiting = RESET;
 	logic.bufferIndex = RESET;
 	logic.bufferCnt = RESET;
-	return 0;
+	return;
 }
 
 //--------------------------------------------------------------
 // Initiate TIM5
 //--------------------------------------------------------------
-int init_TIM5()
+void init_TIM5(void)
 {
 	//Enable the TIM5 system clock.
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM5, ENABLE);
@@ -130,13 +129,13 @@ int init_TIM5()
 	NVIC_Init(&nvicStructure);
 
 
-	return 0;	//Return
+	return;	//Return
 }
 
 //--------------------------------------------------------------
 // Execute command or command buffer.
 //--------------------------------------------------------------
-int exec()
+int exec(void)
 {
 	//Local variables
 	char *str;		//Local string to check with.
@@ -332,7 +331,7 @@ int set_Command(char *buf)
 //--------------------------------------------------------------
 // Wait x ms.
 //--------------------------------------------------------------
-int wait_Ms(int ms)
+void wait_Ms(int ms)
 {
 	//Set waiting flag.
 	logic.waiting = SET;
@@ -344,7 +343,7 @@ int wait_Ms(int ms)
 	TIM5->CR1 |= TIM_CR1_CEN; // start
 
 	//Return normal.
-	return 0;
+	return;
 }	//wait_Ms
 
 

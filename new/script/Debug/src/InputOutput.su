@@ -1,0 +1,5 @@
+InputOutput.cpp:26:6:void IO::write(char*)	16	static
+InputOutput.cpp:34:5:int IO::read(char*)	16	static
+InputOutput.cpp:42:6:void IO::stop_Read()	8	static
+InputOutput.cpp:51:6:void IO::init_IO()	8	static
+InputOutput.cpp:61:6:void IO::delete_IO()	8	static

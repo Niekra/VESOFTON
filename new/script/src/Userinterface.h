@@ -11,7 +11,6 @@
 #ifndef USERINTERFACE_H_
 #define USERINTERFACE_H_
 
-#define ERRORS 1
 
 //--------------------------------------------------------------
 // Includes
@@ -20,23 +19,34 @@
 /** @brief Namespace UI
  *
  * 	In the namespace UI are all the functions and variables concerning the User interface.
+ * 	The UI gets the user input from the IO layer and parses it to the Logic-layer.
+ * 	The LL may encounter and return a error code.
+ * 	The error text is send to the IO layer to be send back to the user if ERROR = on.
  *
  */
 namespace UI
 {
+/** @addtogroup Global defines
+  * @{
+  */
+/** @brief Error feedback 1=on/0=off. */
+#define ERRORS 1
+/**
+  * @}
+  */
 
-/** @brief (GLOBAL)initiates the UI.
+/** @brief (GLOBAL)Initiates the UI.
  *
- *	The UI sits at the hearth of the program en initiates the other layers.
+ *	Initializes the UI and initiates the logic layer and the IO-layer.
  *
  *  @param void
  *  @return void
  */
 void init_UI(void);
 
-/** @brief (GLOBAL)initiates the UI.
+/** @brief (GLOBAL)Deletes the UI.
  *
- *	Deletes the UI-layer. Calls the LL::delete_LL() and the IO::delete_IO() functions
+ *	Deletes the UI-layer. Calls the LL::delete_LL() and the IO::delete_IO() functions.
  *
  *  @param void
  *  @return void
@@ -45,10 +55,10 @@ void delete_UI(void);
 
 /** @brief (Global)Starts the main UI loop.
  *
- * 	In the mainLoop the UART is read using the IO-layer.
- * 	If there's an input given send the input to the LL-layer with the set_command.
- * 	If the IO read is cancelled by the wait interrupt call the LL-layer exec()
- * 	function to execute the buffered commands.
+ * 	Main UI loop. This is where the rest of the program happens.
+ * 	First the UART::read function is called. If there’s a new user input.
+ * 	LL::set_command() with the user input is called. If UART::read returns empty call the LL::exec().
+ * 	Errors from the LL will be printed using the UI::write_Error() function
  *
  *  @param void
  *  @return void
@@ -62,7 +72,8 @@ void main_Loop(void);
  *  @param void
  *  @return void
  */
-void write_Error(int);
+void write_Error(int err);
+/** @} */ // end of UI Global functions
 
 } /* namespace UI */
 

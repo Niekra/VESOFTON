@@ -1,0 +1,401 @@
+/** @file LogicLayer.cpp
+ *  @brief Functions of the logiclayer.
+ *
+ *  The Logiclayer gets the input from the User interface.
+ *  The input gets saved inside a command struct and then executed.
+ *  The LogicLayer uses TIM5 to beable to waiting executing commands
+ *  for x ms.
+ *
+ *  @author Matthijs Daggelders
+ *  @author Niek Ratering Arntz
+ *  @bug Wait time isnt't correctly waiting the first time.
+ */
+
+//--------------------------------------------------------------
+// Includes
+//--------------------------------------------------------------
+#include <LogicLayer.h>
+#include<InputOutput.h>
+#include "stm32f4xx.h"
+#include <stdio.h>
+#include<stdlib.h>
+#include <string.h>
+#include "stm32f4xx_rcc.h"
+#include "stm32f4xx_tim.h"
+#include "stm32f4xx_gpio.h"
+#include<InputOutput.h>
+
+using namespace IO;
+
+//--------------------------------------------------------------
+// Namespace LL
+//--------------------------------------------------------------
+namespace LL
+{
+
+//--------------------------------------------------------------
+// Local variables
+//--------------------------------------------------------------
+/** @brief Struct with the LL variables.
+ *
+ *
+ */
+logic_t logic;
+
+//--------------------------------------------------------------
+// Local constants
+//--------------------------------------------------------------
+/** @brief List with all color names.
+ *
+ *
+ */
+const char *colors[COLORS] =
+{ "zwart", "blauw", "lichtblauw", "groen", "lichtgroen", "cyaan",
+		"lichtcyaan", "rood", "lichtrood", "magenta", "lichtmagenta",
+		"bruin", "geel", "grijs", "wit" };
+
+/** @brief List with all color values.
+ *
+ *
+ */
+const int rgb[COLORS] =
+{ 0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x1F, 0x7F, 0xE0, 0xED, 0xE3, 0xCE, 0x64,
+		0xFC, 0x92, 0xFF };
+
+//--------------------------------------------------------------
+// Local functions
+//--------------------------------------------------------------
+/** @brief (LOCAL)Gets 8 bit color value from the color name.
+ *
+ *	Loops through the color names and checks whether a name is the same.
+ *	Returns the 8 bit color value from rgb[].
+ *
+ *  @param void
+ *  @return int error
+ */
+int color_To_Int(char *color);
+
+
+
+
+//--------------------------------------------------------------
+// Initiate logicLevel
+//--------------------------------------------------------------
+int init_LL()
+{
+	// TODO Auto-generated constructor stub
+	logic.screen = Vgascreen();
+	logic.waiting = RESET;
+	logic.bufferIndex = RESET;
+	logic.bufferCnt = RESET;
+	init_TIM5();				//init TIM5 for the wait function.
+
+	return 0;
+}
+
+//--------------------------------------------------------------
+// Destroy logicLevel
+//--------------------------------------------------------------
+int delete_LL()
+{
+	logic.screen.~Vgascreen();			//Delete Vgascreen object.
+	//Reset rest of the values
+	logic.waiting = RESET;
+	logic.bufferIndex = RESET;
+	logic.bufferCnt = RESET;
+	return 0;
+}
+
+//--------------------------------------------------------------
+// Initiate TIM5
+//--------------------------------------------------------------
+int init_TIM5()
+{
+	//Enable the TIM5 system clock.
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM5, ENABLE);
+
+	//Set the TIM5 settings
+	TIM_TimeBaseInitTypeDef timerInitStructure;
+	timerInitStructure.TIM_Prescaler = TIM5_PRESCALE;
+	timerInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
+	timerInitStructure.TIM_Period = TIM5_PERIOD;
+	timerInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+	timerInitStructure.TIM_RepetitionCounter = TIM5_REP;
+	TIM_TimeBaseInit(TIM5, &timerInitStructure);
+
+	TIM5->CNT = RESET;		//Reset the counter.
+	TIM5->SR = ~(TIM_FLAG_Update);	//Update the flag.
+
+	//Enable interrupts
+	TIM_ITConfig(TIM5, TIM_IT_Update, ENABLE);
+
+	//Set interrupt handler for TIM5
+	NVIC_InitTypeDef nvicStructure;
+	nvicStructure.NVIC_IRQChannel = TIM5_IRQn;
+	nvicStructure.NVIC_IRQChannelPreemptionPriority = LOW_PRIORITY;
+	nvicStructure.NVIC_IRQChannelSubPriority = LOW_PRIORITY;
+	nvicStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&nvicStructure);
+
+
+	return 0;	//Return
+}
+
+//--------------------------------------------------------------
+// Execute command or command buffer.
+//--------------------------------------------------------------
+int exec()
+{
+	//Local variables
+	char *str;		//Local string to check with.
+	int a, b, c, d, e, f, g;		//Integers to save the strtol() values.
+	int i = 0;						//while loop counter.
+	int color;//Integer to save the color value.
+	int fill;
+
+	//Execute commands as long as the index+i is below the bufferCnt and if the waiting flag isnt set.
+	while(i+logic.bufferIndex<logic.bufferCnt && logic.waiting == 0)
+	{
+		str = logic.buffers[i+logic.bufferIndex].type;
+
+		if (strcmp(str, "clearscherm") == 0)			//Command without int.
+		{
+			color = color_To_Int(logic.buffers[i+logic.bufferIndex].input1);		//Get the color value.
+			logic.screen.clear_screen(color);									//Clear the screen.
+		}else if(strcmp(str, "repeat") == 0)
+		{
+			//Only repeat if repat is the last input given.
+			//This way its possible to cancel the repeat loop by sending a new command.
+			if (i+logic.bufferIndex == logic.bufferCnt-1)
+			{
+				logic.bufferIndex = 0;		//Reset the bufferIndex
+				exec();					//Exec the first command. (Should be a wait ("wacht"))
+				return 0;				//Done here, return to finish the wait.
+			}
+		}
+		else							//Command with 1x int.
+		{
+			a = (int) strtol(logic.buffers[i+logic.bufferIndex].input1, NULL, 10);		//set int a as (int)input1
+			if (strcmp(str, "wacht") == 0)
+			{
+				wait_Ms(a);									// wait a ms.
+				i++;										//Increase i to not get stuck in an endless loop of waiting.
+			}
+			else										//Command with 2x int.
+			{
+				b = (int) strtol(logic.buffers[i+logic.bufferIndex].input2, NULL, 10);		//set int b as strtol(input2)
+				if (strcmp(str, "tekst") == 0)
+				{
+					color = color_To_Int(logic.buffers[i+logic.bufferIndex].input4);
+					g = (int) strtol(logic.buffers[i+logic.bufferIndex].input6, NULL, 10);
+
+					//Draw text on the screen.
+					logic.screen.draw_text(a, b, logic.buffers[i+logic.bufferIndex].input3, color, logic.buffers[i+logic.bufferIndex].input5,
+							g);
+				}
+				else									//Commands with 3x int.
+				{
+					c = (int) strtol(logic.buffers[i+logic.bufferIndex].input3, NULL, 10);
+					if (strcmp(str, "bitmap") == 0)
+					{
+						//Draw bitmap
+						logic.screen.draw_bitmap(a, b, c);
+					}
+					else								//Commands with 4x int.
+					{
+						d = (int) strtol(logic.buffers[i+logic.bufferIndex].input4, NULL, 10);
+						e = (int) strtol(logic.buffers[i+logic.bufferIndex].input6, NULL, 10);
+						color = color_To_Int(logic.buffers[i+logic.bufferIndex].input5);
+						if (strcmp(str, "rechthoek") == 0)
+						{
+							fill = (int) strtol(logic.buffers[i+logic.bufferIndex].input6, NULL, 10);
+
+							//Draw rectangle
+							logic.screen.draw_rectangle(a, b, c, d, color, fill);
+						}
+						else if (strcmp(str, "ellips") == 0)
+						{
+							fill = (int) strtol(logic.buffers[i+logic.bufferIndex].input6, NULL, 10);
+							//Draw ellipse
+							logic.screen.draw_ellipse(a, b, c, d, color, fill);
+						}
+						else							//Commands with 5x int.
+						{
+							e = (int) strtol(logic.buffers[i+logic.bufferIndex].input5, NULL, 10);
+							if (strcmp(str, "lijn") == 0)
+							{
+								color = color_To_Int(logic.buffers[i+logic.bufferIndex].input6);
+								//Draw line
+								logic.screen.draw_line(a, b, c, d, e, color);
+							}
+							else						//Commands with 6x int.
+							{
+								if (strcmp(str, "driehoek") == 0)
+								{
+									f = (int) strtol(logic.buffers[i+logic.bufferIndex].input6, NULL, 10);
+									fill = (int) strtol(logic.buffers[i+logic.bufferIndex].input8, NULL, 10);
+									color = color_To_Int(logic.buffers[i+logic.bufferIndex].input7);
+
+									//Draw traingle
+									logic.screen.draw_triangle(a, b, c, d, e, f,
+											color, fill);
+								}
+							}	//With 6x int.
+						}	//With 5x int.
+					}	//With 4x int.
+				}	//With 3x int.
+			}	//With 2x int.
+		}	//With 1x int.
+		i++;		//Increase i
+	}	//While loop.
+
+	// If finished with executing commands.
+	//if waiting = 0 all commands are executed and the buffer can be reseted.
+	//Else save the bufferIndex + i - 1. To execute the next command if the wait is over.
+	if(logic.waiting == 0)
+	{
+		logic.bufferIndex = RESET;
+		logic.bufferCnt = RESET;
+		return 1;
+	}else
+	{
+		logic.bufferIndex = logic.bufferIndex + i-1;
+	}
+	return 0;
+}	//exec
+
+//--------------------------------------------------------------
+// Set the command
+//--------------------------------------------------------------
+int set_Command(char *buf)
+{
+	//Local variables
+	int i = 1;
+	char str[BUFFER_LENGTH];			//Make string
+	strcpy(str, buf);		//Copy the input
+	char *saveptr;			//Needed for the strtok_r
+	char *out;				//Output string
+
+	//Check if maximum number of buffers are in use.
+	if(logic.bufferCnt >= MAX_BUFFERS)
+	{
+		logic.bufferCnt = RESET;
+	}
+
+	// Get first word of the sentence. splitted by ","
+	out = strtok_r(str, ",", &saveptr);
+	strcpy(logic.buffers[logic.bufferCnt].type, out);
+
+	//Loop through the rest of the sentence and save it inside a command.
+	while (out != NULL)
+	{
+		out = strtok_r(NULL, ",", &saveptr);
+
+		if(i==1){
+			strcpy(logic.buffers[logic.bufferCnt].input1, out);
+		}else if(i==2)
+		{
+			strcpy(logic.buffers[logic.bufferCnt].input2, out);
+		}else if(i==3)
+		{
+			strcpy(logic.buffers[logic.bufferCnt].input3, out);
+		}else if(i==4)
+		{
+			strcpy(logic.buffers[logic.bufferCnt].input4, out);
+		}else if(i==5)
+		{
+			strcpy(logic.buffers[logic.bufferCnt].input5, out);
+		}else if(i==6)
+		{
+			strcpy(logic.buffers[logic.bufferCnt].input6, out);
+		}else if(i==7)
+		{
+			strcpy(logic.buffers[logic.bufferCnt].input7, out);
+		}else if(i==8)
+		{
+			strcpy(logic.buffers[logic.bufferCnt].input8, out);
+		}
+
+		i++;		//Increase i.
+	}
+
+	logic.bufferCnt++;				//Increase bufferCnt since new input is filled.
+
+	// Check the waiting flag. If waiting is SET return. Else exec the command.
+	if(logic.waiting == SET){
+		return 1;
+	}else
+	{
+		exec();
+		return 0;
+	}
+}	//set_Command
+
+
+//--------------------------------------------------------------
+// Wait x ms.
+//--------------------------------------------------------------
+int wait_Ms(int ms)
+{
+	//Set waiting flag.
+	logic.waiting = SET;
+
+	//Set up TIM5 to interrupt after the wait and start it.
+	TIM5->PSC = ms;					//Set prescale to the amount of ms.
+	TIM5->CNT = RESET;				//Reset the counter.
+	TIM5->SR = ~(TIM_FLAG_Update);	//Update flag.
+	TIM5->CR1 |= TIM_CR1_CEN; // start
+
+	//Return normal.
+	return 0;
+}	//wait_Ms
+
+
+//--------------------------------------------------------------
+// Color name to 8bit color.
+//--------------------------------------------------------------
+int color_To_Int(char *color)
+{
+	for (int i = 0; i < COLORS; i++)				//Loop through the color names.
+	{
+		if (strcmp(color, colors[i]) == 0)			//Check for the right color.
+		{
+			if(i == 0)
+			{
+				// Return 0 rgb[0] was giving back '/0'.
+				return 0;
+			}else
+			{
+				return rgb[i];	//Return rgb value.
+			}
+		}
+
+	}
+	return 0;
+}	// color_To_Int
+
+
+//--------------------------------------------------------------
+// TIM5_IRQhandler
+//--------------------------------------------------------------
+void TIM5_IRQHandler(void)
+{
+	if (TIM_GetITStatus(TIM5, TIM_IT_Update)!=RESET)
+	{
+		TIM_ClearITPendingBit(TIM5, TIM_IT_Update);	//Clear interrupt flag.
+
+		logic.waiting = RESET;	// Clear the waiting flag.
+
+		//Update the timer.
+		TIM5->CNT = RESET;					//Reset the timer.
+		TIM5->SR = ~(TIM_FLAG_Update);		//Update TIM5 flag.
+		TIM5->CR1&=~(TIM_CR1_CEN); 			// Stop TIM5.
+		IO::stop_Read();					//Stop waiting for input and try running the buffered inputs.
+		return;
+	}
+
+	return;
+
+} // TIM5_IRQh
+
+} // namespace LL
