@@ -113,6 +113,7 @@ void init_TIM5(void)
 	timerInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 	timerInitStructure.TIM_RepetitionCounter = TIM5_REP;
 	TIM_TimeBaseInit(TIM5, &timerInitStructure);
+	//TIM_PrescalerConfig(TIM5,TIM5_PRESCALE,TIM_PSCReloadMode_Immediate);
 
 	TIM5->CNT = RESET;		//Reset the counter.
 	TIM5->SR = ~(TIM_FLAG_Update);	//Update the flag.
@@ -170,6 +171,7 @@ int exec(void)
 			a = (int) strtol(logic.buffers[i+logic.bufferIndex].input1, NULL, 10);		//set int a as (int)input1
 			if (strcmp(str, "wacht") == 0)
 			{
+
 				wait_Ms(a);									// wait a ms.
 				i++;										//Increase i to not get stuck in an endless loop of waiting.
 			}
@@ -333,10 +335,15 @@ void wait_Ms(int ms)
 	//Set waiting flag.
 	logic.waiting = SET;
 
+	TIM5->CR1&=~(TIM_CR1_CEN); 			// Stop TIM5.
+
 	//Set up TIM5 to interrupt after the wait and start it.
 	TIM5->PSC = ms;					//Set prescale to the amount of ms.
 	TIM5->CNT = RESET;				//Reset the counter.
+	TIM5->EGR |= TIM_EGR_UG;
 	TIM5->SR = ~(TIM_FLAG_Update);	//Update flag.
+
+	//TIM_PrescalerConfig(TIM5,ms,TIM_PSCReloadMode_Immediate);
 	TIM5->CR1 |= TIM_CR1_CEN; // start
 
 	//Return normal.
