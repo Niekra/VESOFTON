@@ -4,12 +4,12 @@ Vgascreen.cpp:20:1:virtual Vgascreen::~Vgascreen()	16	static
 Vgascreen.cpp:25:5:int Vgascreen::init_VGA()	16	static
 Vgascreen.cpp:32:5:int Vgascreen::VGA_pos(int, int)	24	static
 Vgascreen.cpp:39:5:int Vgascreen::draw_line(int, int, int, int, int, int)	56	static
-Vgascreen.cpp:112:5:int Vgascreen::draw_ellipse(int, int, int, int, int, int)	80	static
-Vgascreen.cpp:202:5:int Vgascreen::draw_rectangle(int, int, int, int, int, int)	48	static
-Vgascreen.cpp:220:5:int Vgascreen::draw_triangle(int, int, int, int, int, int, int, int)	144	static
-Vgascreen.cpp:288:5:int Vgascreen::draw_bitmap(int, int, int)	48	static
-Vgascreen.cpp:333:5:int DrawChar(char, int, int, int, int, int)	56	static
-Vgascreen.cpp:385:5:int Vgascreen::draw_text(int, int, const char*, int, const char*, int)	40	static
-Vgascreen.cpp:405:5:int Vgascreen::clear_screen(int)	16	static
+Vgascreen.cpp:112:5:int Vgascreen::draw_ellipse(int, int, int, int, int, int)	88	static
+Vgascreen.cpp:201:5:int Vgascreen::draw_rectangle(int, int, int, int, int, int)	48	static
+Vgascreen.cpp:219:5:int Vgascreen::draw_triangle(int, int, int, int, int, int, int, int)	144	static
+Vgascreen.cpp:283:5:int Vgascreen::draw_bitmap(int, int, int)	48	static
+Vgascreen.cpp:328:5:int DrawChar(char, int, int, int, int, int)	56	static
+Vgascreen.cpp:380:5:int Vgascreen::draw_text(int, int, const char*, int, const char*, int)	40	static
+Vgascreen.cpp:400:5:int Vgascreen::clear_screen(int)	16	static
 move.h:184:5:void std::swap(_Tp&, _Tp&) [with _Tp = int]	24	static
 move.h:206:5:void std::swap(_Tp (&)[_Nm], _Tp (&)[_Nm]) [with _Tp = int; unsigned int _Nm = 3u]	24	static
