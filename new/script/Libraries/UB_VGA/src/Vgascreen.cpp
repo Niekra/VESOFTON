@@ -243,7 +243,7 @@ int Vgascreen::draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3,
 		for (int y = pt0[1]; y <= pt1[1]; y++) //teken de bovenste helft van de driehoek
 		{
 			int segment_height = pt1[1] - pt0[1] + 1; //hoogte van de bovenste helft van de driehoek+1
-			float alpha = (float) (y - pt0[1]) / total_height;
+			float alpha = (float) (y - pt0[1]) / total_height; //bereken de verhouding van y op totale hoogte
 			float beta = (float) (y - pt0[1]) / segment_height;
 			int A = int(pt0[0] + (pt2[0] - pt0[0]) * alpha);
 			int B = int(pt0[0] + (pt1[0] - pt0[0]) * beta);
@@ -260,12 +260,8 @@ int Vgascreen::draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3,
 			int segment_height = pt2[1] - pt1[1] + 1;
 			float alpha = (float) (y - pt0[1]) / total_height;
 			float beta = (float) (y - pt1[1]) / segment_height; // be careful with divisions by zero
-//			int A[3];
 			int A = int(pt0[0] + (pt2[0] - pt0[0]) * alpha);
-//			A[1] = int(pt0[0] + (pt2[0] - pt0[0]) * alpha);
-//			int B[3];
 			int B = int(pt1[0] + (pt2[0] - pt1[0]) * beta);
-//			B[1] = int(pt1[1] + (pt2[1] - pt1[1]) * beta);
 
 			if (A > B)
 				std::swap(A, B);

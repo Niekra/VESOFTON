@@ -196,18 +196,15 @@ int exec(void)
 					else								//Commands with 4x int.
 					{
 						d = (int) strtol(logic.buffers[i+logic.bufferIndex].input4, NULL, 10);
-						e = (int) strtol(logic.buffers[i+logic.bufferIndex].input6, NULL, 10);
+						fill = (int) strtol(logic.buffers[i+logic.bufferIndex].input6, NULL, 10);
 						color = color_To_Int(logic.buffers[i+logic.bufferIndex].input5);
 						if (strcmp(str, "rechthoek") == 0)
 						{
-							fill = (int) strtol(logic.buffers[i+logic.bufferIndex].input6, NULL, 10);
-
 							//Draw rectangle
 							logic.screen.draw_rectangle(a, b, c, d, color, fill);
 						}
 						else if (strcmp(str, "ellips") == 0)
 						{
-							fill = (int) strtol(logic.buffers[i+logic.bufferIndex].input6, NULL, 10);
 							//Draw ellipse
 							logic.screen.draw_ellipse(a, b, c, d, color, fill);
 						}
