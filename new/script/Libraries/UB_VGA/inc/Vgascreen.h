@@ -645,50 +645,48 @@ class Vgascreen
 		 */
 		virtual ~Vgascreen();
 
-		/*!
-		 * \brief teken een lijn.
-		 * \param paramter int.
+		/** @brief Draw line on screen
+		 *  @param int x1, int y1, int x2, int y2, int width, int color
+		 *  @return int
 		 */
 		int draw_line(int x1, int y1, int x2, int y2, int width, int color);
 
-		/*!
-		 * \brief teken een lijn.
-		 * \param paramter int.
+		/** @brief Draw ellipse on screen
+		 *  @param int x_mp, int y_mp, int x_rad, int y_rad, int color, int fill
+		 *  @return int
 		 */
 		int draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad, int color, int fill);
 
-		/*!
-		 * \brief teken een lijn.
-		 * \param paramter int.
+		/** @brief Draw rectangle on screen
+		 *  @param int x_lo, int y_lo, int x_rb, int y_rb, int color, int fill
+		 *  @return int
 		 */
 		int draw_rectangle(int x_lo, int y_lo, int x_rb, int y_rb, int color, int fill);
 
-		/*!
-		 * \brief teken een lijn.
-		 * \param paramter int.
+		/** @brief Draw triangle on screen
+		 *  @param int x1, int y1, int x2, int y2, int x3, int y3, int color, int fill
+		 *  @return int
 		 */
 		int draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3,
 				int color, int fill);
 
-		/*!
-		 * \brief teken een lijn.
-		 * \param paramter int.
+		/** @brief Draw text on screen
+		 *  @param int x, int y, const char *str, int color, int style, int fontNr
+		 *  @return int
 		 */
 		int draw_text(int x, int y, const char *str, int color,
 				const char* style, int fontNr);
 
-		/*!
-		 * \brief teken een lijn.
-		 * \param paramter int.
+		/** @brief Draw bitmap on screen
+		 *  @param int nr, int x_lo, int y_lo
+		 *  @return int
 		 */
-
 		int draw_bitmap(int nr, int x_lo, int y_lo);
 
-		/*!
-		 * \brief teken een lijn.
-		 * \param paramter int.
+		/** @brief Fill screen with specified color
+		 *  @param int color
+		 *  @return int
 		 */
-
 		int clear_screen(int color);
 
 };

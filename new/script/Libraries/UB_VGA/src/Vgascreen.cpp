@@ -111,37 +111,37 @@ int Vgascreen::draw_line(int x1, int y1, int x2, int y2, int width, int color)
 
 int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad, int color, int fill)
 {
-	int w = int(x_rad/2);
+	int w = int(x_rad/2);//deel hoogte en breedte door 2. Dit wordt gedaan omdat deze waardes omdat de straal gebruikt wordt.
 	int h = int(y_rad/2);
 	int hh = h * h;
 	int ww = w * w;
 	int hhww = hh * ww;
-	int x0 = w;
-	int dx = 0;
+	int x0 = w; //breedte bij huidige hoogte
+	int dx = 0; //delta x
 
-	// do the horizontal diameter
-	for (int x = -w; x <= w; x++)
+	// teken eerst de horizontale diameter
+	for (int x = -w; x <= w; x++) //loop van negatieve straal tot positieve straal
 	{
-		if (fill != true)
+		if (fill != true)//vul niet wanneer fill geen '1' is
 		{
-			if (x == -w || x == w)
+			if (x == -w || x == w) //teken alleen pixel op de uiteindes
 				UB_VGA_SetPixel(x_mp + x, y_mp, color);
 		}
 		else
 			UB_VGA_SetPixel(x_mp + x, y_mp, color);
 	}
 
-	// now do both halves at the same time, away from the diameter
-	for (int y = 1; y <= h; y++)
+	// teken beide helften van de ellips tegelijk vanaf het midden tot de uiteindes
+	for (int y = 1; y <= h; y++)//loop de verticale straal af
 	{
-		int x1 = x0 - (dx - 1);  // try slopes of dx - 1 or more
+		int x1 = x0 - (dx - 1);  //vind de juiste waarde voor x1 in verband met de helling
 		for (; x1 > 0; x1--)
 			if (x1 * x1 * hh + y * y * ww <= hhww)
 				break;
-		dx = x0 - x1;  // current approximation of the slope
-		x0 = x1;
+		dx = x0 - x1;  // huidige schatting van de helling
+		x0 = x1; //maak x0 huidige breedte ten opzichte van de hoogte
 
-		for (int x = -x0; x <= x0; x++)
+		for (int x = -x0; x <= x0; x++) //teken pixels langs de breedte
 		{
 			if (fill != true)
 			{
@@ -159,7 +159,8 @@ int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad, int color,
 		}
 	}
 
-	std::swap(h, w);
+	// teken de ellips nogmaals 90 graden gedraaid om de pixels aan de randen die niet zijn meegepakt alsnog te vullen.
+	std::swap(h, w); //verwissel hoogte en breedte om de vorm van de ellips te behouden
 	std::swap(hh, ww);
 	x0 = w;
 	dx = 0;
@@ -176,14 +177,13 @@ int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad, int color,
 			UB_VGA_SetPixel(x_mp, y_mp + x, color);
 	}
 
-	// now do both halves at the same time, away from the diameter
 	for (int y = 1; y <= w; y++)
 	{
-		int x1 = x0 - (dx - 1);  // try slopes of dx - 1 or more
+		int x1 = x0 - (dx - 1);
 		for (; x1 > 0; x1--)
 			if (x1 * x1 * hh + y * y * ww <= hhww)
 				break;
-		dx = x0 - x1;  // current approximation of the slope
+		dx = x0 - x1;
 		x0 = x1;
 
 		for (int x = -x0; x <= x0; x++)
@@ -200,9 +200,9 @@ int Vgascreen::draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad, int color,
 
 int Vgascreen::draw_rectangle(int x_lo, int y_lo, int x_rb, int y_rb, int color, int fill)
 {
-	const int breedte = abs(y_lo - y_rb);
+	const int breedte = abs(y_lo - y_rb); //bereken breedte van de rechthoek
 
-	if (fill != true)
+	if (fill != true) //wanneer niet gevuld, teken lijnen tussen elk hoekpunt
 	{
 		draw_line(x_lo, y_rb, x_rb, y_rb, 1, color);
 		draw_line(x_rb, y_rb + 1, x_rb, y_lo, 1, color);
@@ -210,7 +210,7 @@ int Vgascreen::draw_rectangle(int x_lo, int y_lo, int x_rb, int y_rb, int color,
 		draw_line(x_lo, y_lo, x_lo, y_rb, 1, color);
 	}
 	else
-		draw_line(x_lo, y_lo, x_rb, y_lo, breedte, color);
+		draw_line(x_lo, y_lo, x_rb, y_lo, breedte, color);//om te vullen, teken één lijn ter breedte van de rechthoek
 
 	return 0;
 }
@@ -244,22 +244,22 @@ int Vgascreen::draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3,
 		{
 			int segment_height = pt1[1] - pt0[1] + 1; //hoogte van de bovenste helft van de driehoek+1
 			float alpha = (float) (y - pt0[1]) / total_height; //bereken de verhouding van y op totale hoogte
-			float beta = (float) (y - pt0[1]) / segment_height;
-			int A = int(pt0[0] + (pt2[0] - pt0[0]) * alpha);
-			int B = int(pt0[0] + (pt1[0] - pt0[0]) * beta);
+			float beta = (float) (y - pt0[1]) / segment_height;//bereken de verhouding van y op de bovenste helft
+			int A = int(pt0[0] + (pt2[0] - pt0[0]) * alpha);//bereken hoeveel pixels er getekend moeten worden tot de middenlijn van de driehoek
+			int B = int(pt0[0] + (pt1[0] - pt0[0]) * beta);//nu van de andere kant van de driehoek
 			if (A > B)
 				std::swap(A, B);
-			for (int j = A; j <= B; j++)
+			for (int j = A; j <= B; j++) //teken pixels van breedtecoördinaat A tot B
 			{
 				UB_VGA_SetPixel(j, y, color);
 			}
 		}
 
-		for (int y = pt1[1]; y <= pt2[1]; y++)
+		for (int y = pt1[1]; y <= pt2[1]; y++)//nu hetzelfde voor de onderzijde van de driehoek
 		{
 			int segment_height = pt2[1] - pt1[1] + 1;
 			float alpha = (float) (y - pt0[1]) / total_height;
-			float beta = (float) (y - pt1[1]) / segment_height; // be careful with divisions by zero
+			float beta = (float) (y - pt1[1]) / segment_height;
 			int A = int(pt0[0] + (pt2[0] - pt0[0]) * alpha);
 			int B = int(pt1[0] + (pt2[0] - pt1[0]) * beta);
 
@@ -267,7 +267,7 @@ int Vgascreen::draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3,
 				std::swap(A, B);
 			for (int j = A; j <= B; j++)
 			{
-				UB_VGA_SetPixel(j, y, color); // attention, due to int casts t0.y+i != A.y
+				UB_VGA_SetPixel(j, y, color);
 			}
 		}
 
@@ -306,12 +306,12 @@ int Vgascreen::draw_bitmap(int nr, int x_lo, int y_lo)
 			return 1; // Geen geldig bitmap nummer
 	}
 
-	for (int i = 0; i < 32; i++)
+	for (int i = 0; i < 32; i++)//alle bitmaps zijn 32 bij 32. Loop elk element van de bitmap af
 	{
 		for (int j = 0; j < 32; j++)
 		{
 			color = bitmap[count];
-			if (color < 100)
+			if (color < 100) // filter de witte achtergrond weg
 			{
 				UB_VGA_SetPixel(x_lo + j, y_lo + i, color);
 			}
@@ -325,7 +325,7 @@ int DrawChar(char c, int x, int y, int color, int stijl, int fontNr)
 {
 	int i, j, cursief, charWidth;
 	int charHeight = 8;
-	int index = c - 32;
+	int index = c - 32;// zorg dat charakterwaarde overeenkomt met die in de bitmap font
 
 	if (index < 0 || index > 95)
 		return 1; //ongeldige karakters ingevoerd
@@ -350,15 +350,15 @@ int DrawChar(char c, int x, int y, int color, int stijl, int fontNr)
 	}
 
 	// Draw pixels
-	for (j = 0; j < charWidth; j++)
+	for (j = 0; j < charWidth; j++)//loop charakter in de breedte af
 	{
 		cursief = 0;
-		for (i = 0; i < charHeight; i++)
+		for (i = 0; i < charHeight; i++)//teken een van de verticale lijnen van een charakter
 		{
-			if (chr[j] & (1 << i))
+			if (chr[j] & (1 << i))// Elk charakter is opgebouwd uit een aantal hex waardes. Elke waarde omgezet naar binair, is een verticale lijn waaruit een charakter is opgebouwd
 			{
 				if (stijl == 0)
-					UB_VGA_SetPixel(x + j - cursief, y + i, color);
+					UB_VGA_SetPixel(x + j - cursief, y + i, color);//verschuif de breedte elke laag iets meer voor een cursief effect
 				else if (stijl == 1)
 				{
 					UB_VGA_SetPixel(x + j, y + i, color);
@@ -377,7 +377,7 @@ int Vgascreen::draw_text(int x, int y, const char *str, int color,
 		const char* style, int fontNr)
 {
 
-	int stijl;
+	int stijl;//zet stijl om naar int
 	if (strcmp(style, "cursief") == 0)
 		stijl = 0;
 	else if (strcmp(style, "vet") == 0)
@@ -385,10 +385,10 @@ int Vgascreen::draw_text(int x, int y, const char *str, int color,
 	else
 		stijl = 3;
 
-	while (*str)
+	while (*str)//teken charakters een voor een
 	{
 		DrawChar(*str++, x, y, color, stijl, fontNr);
-		x += 6;
+		x += 6;//spring één charakterbreedte naar rechts voor het volgende charakter
 	}
 	return 0;
 }
