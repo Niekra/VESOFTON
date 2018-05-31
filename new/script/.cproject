@@ -115,10 +115,10 @@
 								<option id="com.atollic.truestudio.common_options.target.fpu.1747158321" name="Floating point" superClass="com.atollic.truestudio.common_options.target.fpu" useByScannerDiscovery="false"/>
 								<option id="com.atollic.truestudio.ldcc.optimization.do_garbage.1791969256" name="Dead code removal" superClass="com.atollic.truestudio.ldcc.optimization.do_garbage" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option id="com.atollic.truestudio.ldcc.general.scriptfile.615556214" name="Linker script" superClass="com.atollic.truestudio.ldcc.general.scriptfile" useByScannerDiscovery="false" value="../stm32f4_flash.ld" valueType="string"/>
-								<option id="com.atollic.truestudio.ldcc.libraries.list.1689816968" name="Libraries" superClass="com.atollic.truestudio.ldcc.libraries.list" useByScannerDiscovery="false" valueType="libs"/>
-								<option id="com.atollic.truestudio.ldcc.libraries.searchpath.852343551" name="Library search path" superClass="com.atollic.truestudio.ldcc.libraries.searchpath" useByScannerDiscovery="false" valueType="libPaths"/>
+								<option id="com.atollic.truestudio.ldcc.libraries.list.1689816968" name="Libraries" superClass="com.atollic.truestudio.ldcc.libraries.list" useByScannerDiscovery="false"/>
+								<option id="com.atollic.truestudio.ldcc.libraries.searchpath.852343551" name="Library search path" superClass="com.atollic.truestudio.ldcc.libraries.searchpath" useByScannerDiscovery="false"/>
 								<option id="com.atollic.truestudio.ldcc.misc.additional_objects.1625757359" name="Additional object files" superClass="com.atollic.truestudio.ldcc.misc.additional_objects" useByScannerDiscovery="false" valueType="userObjs">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Libraries/UB_VGA/src/VGAlib.a}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Libraries/UB_VGA/src/EE-API.lib}&quot;"/>
 								</option>
 								<inputType id="com.atollic.truestudio.ldcc.input.1751604019" name="Input" superClass="com.atollic.truestudio.ldcc.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>

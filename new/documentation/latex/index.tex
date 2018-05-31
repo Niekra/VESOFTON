@@ -52,6 +52,7 @@ $\ast$\+The idle line detection of the U\+A\+RT isn\textquotesingle{}t used so a
 ~~~~To use the repeat function the input commands need to be buffered. To achieve this the program ~\newline
  ~~~~needs to get a wait(\char`\"{}wacht\char`\"{}) command first, the commands after the wait will be buffered. If the ~\newline
  ~~~~last command in the buffer is \char`\"{}repeat\char`\"{} everything including the first wait will be repeated.~\newline
+ ~~~~To exit the loop send a single command and the loops ends at the end of the buffer and resets.~\newline
 ~\newline
  ~~~~{\bfseries N\+O\+TE\+:} giving the repeat command while the buffer is empty the program crashes. So make sure you have enough wait time.~\newline
  
