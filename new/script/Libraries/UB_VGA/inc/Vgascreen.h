@@ -1,9 +1,10 @@
-/*
- * VGA.h
+/** @file Vgascreen.h
+ *  @brief Function prototypes for drawing shapes and text on VGA screen.
  *
- *  Created on: May 3, 2018
- *      Author: M
+ *	@author Matthijs Daggelders
+ *  @author Niek Ratering Arntz
  */
+
 #ifndef VGASCREEN_H_
 #define VGASCREEN_H_
 
