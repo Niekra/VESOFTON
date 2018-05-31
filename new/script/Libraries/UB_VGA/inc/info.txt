@@ -1,4 +1,18 @@
 /*!
  * @page EE-API.lib
  *
+ * @section library_sec EE-API.lib
+ * The EE-API Library has 2 main functions. The first function is controlling and drawing on the VGA screen. This is done <br>
+ * with the class Vgascreen which uses the STM32_UB_VGA library to draw the single pixels on the screen and keep the screen <br>
+ * on (VGA needs constant updating). The second function is reading the UART input and sending messages back using UART to the<br>
+ * terminal.<br>
+ * <br>
+ * @subsection vga_sec Vgascreen
+ * If a Vgascreen object is created it initializes the STM32_UB_VGA library. After that the different draw methods can be called.<br>
+ * The different methods calculates which pixel needs to be set with the given color value and sends this to the STM32_UB_VGA lib.<br>
+ * The different fonts and bitmaps are kept in the header file.<br>
+ * <br>
+ * @subsection uart_sec UART
+ *
+ *
  */

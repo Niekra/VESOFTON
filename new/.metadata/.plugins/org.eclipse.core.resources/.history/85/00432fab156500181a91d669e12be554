@@ -3,8 +3,6 @@
  *	<b>Authors:</b><BR/>
  *  &nbsp;&nbsp;&nbsp;&nbsp;<i> Matthijs Daggelders </i><BR/>
  *  &nbsp;&nbsp;&nbsp;&nbsp;<i> Niek Ratering Arntz </i><BR/>
- * <br>
- * <b>Version:</b> 1.0<br>
  *	
  * \section intro_sec Introduction
  * &nbsp;&nbsp;&nbsp;&nbsp;This application runs on a STM32F4-discovery board and drives a 320x240 pixel VGA screen.<br>
