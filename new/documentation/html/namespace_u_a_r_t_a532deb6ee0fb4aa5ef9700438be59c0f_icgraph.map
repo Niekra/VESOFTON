@@ -1,0 +1,5 @@
+<map id="init_RCC" name="init_RCC">
+<area shape="rect" id="node2" href="$namespace_u_a_r_t.html#ab8b1cbca4aa5321487c7f78df50efdc6" title="(GLOBAL) Initiate the UART components. " alt="" coords="127,29,213,56"/>
+<area shape="rect" id="node3" href="$namespace_i_o.html#a83055f0dd9e551c9e898a69d48530663" title="(Global) Initiate the IO layer. " alt="" coords="261,29,341,56"/>
+<area shape="rect" id="node4" href="$namespace_u_i.html#aa043f0b62f9479eabada95f74e8370ed" title="(GLOBAL)Initiates the UI. " alt="" coords="389,29,468,56"/>
+</map>

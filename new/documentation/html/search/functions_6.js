@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['set_5fcommand',['set_Command',['../namespace_l_l.html#a487e020844f801061abc930461b1ff2b',1,'LL']]],
-  ['stop_5fread',['stop_Read',['../namespace_i_o.html#a04c5db8c053f07761c5c09894a4bd49d',1,'IO']]]
+  ['read',['read',['../namespace_i_o.html#a1087fba97ca797e5ca155228ff9eec55',1,'IO::read()'],['../namespace_u_a_r_t.html#a1087fba97ca797e5ca155228ff9eec55',1,'UART::read()']]]
 ];

@@ -1,0 +1,4 @@
+<map id="stop_Read" name="stop_Read">
+<area shape="rect" id="node2" href="$namespace_i_o.html#a04c5db8c053f07761c5c09894a4bd49d" title="(Global) Stops the UART::read() function. " alt="" coords="137,29,243,56"/>
+<area shape="rect" id="node3" href="$namespace_l_l.html#a5e66446caf21dd90191dc07a13ce2378" title="(GLOBAL) TIM5 interrupt handler for wait_Ms(). " alt="" coords="291,29,436,56"/>
+</map>

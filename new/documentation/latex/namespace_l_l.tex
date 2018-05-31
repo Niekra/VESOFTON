@@ -2,7 +2,7 @@
 \label{namespace_l_l}\index{LL@{LL}}
 
 
-Namespace \mbox{\hyperlink{namespace_l_l}{LL}}.  
+Includes.  
 
 
 \subsection*{Data Structures}
@@ -43,11 +43,13 @@ const int \mbox{\hyperlink{namespace_l_l_a49c70cdbac1a1c4df4224875018c75b4}{rgb}
 
 
 \subsection{Detailed Description}
-Namespace \mbox{\hyperlink{namespace_l_l}{LL}}. 
+Includes. 
+
+Namespace \mbox{\hyperlink{namespace_l_l}{LL}}
 
 The logic layer get\textquotesingle{}s the user input from the \mbox{\hyperlink{namespace_u_i}{UI}}. The input buffer is split into sperate inputs and saved in a \mbox{\hyperlink{struct_l_l_1_1command__t}{command\+\_\+t}} struct. This is stored in the command buffer \mbox{\hyperlink{struct_l_l_1_1logic__t_a09663354d4cddc7fc94fce6d60c2a9a2}{logic\+\_\+t.\+buffers}}. after the command is set \mbox{\hyperlink{namespace_l_l_ac98bc19f4e3468b76cfc2e43456527cc}{exec()}} is called if the logic level isn\textquotesingle{}t waiting.
 
-The function \mbox{\hyperlink{namespace_l_l_ac98bc19f4e3468b76cfc2e43456527cc}{exec()}} sends the draw commands to the Vgascreen object. If there\textquotesingle{}s more then 1 command buffered keep drawing until the buffer is empty, a wait is called or a repeat.
+The function \mbox{\hyperlink{namespace_l_l_ac98bc19f4e3468b76cfc2e43456527cc}{exec()}} sends the draw commands to the \mbox{\hyperlink{class_vgascreen}{Vgascreen}} object. If there\textquotesingle{}s more then 1 command buffered keep drawing until the buffer is empty, a wait is called or a repeat.
 
 The Logic-\/layer uses T\+I\+M5 for the \mbox{\hyperlink{namespace_l_l_ab30bdedb41438098df71bea7d5eb624d}{wait\+\_\+\+Ms()}} function. 
 
@@ -98,7 +100,7 @@ Here is the caller graph for this function\+:\nopagebreak
 
 (G\+L\+O\+B\+AL)Destroy the \mbox{\hyperlink{namespace_l_l}{LL}} 
 
-Deletes and Vgascreen object and resets all the flags.
+Deletes and \mbox{\hyperlink{class_vgascreen}{Vgascreen}} object and resets all the flags.
 
 Gives the T\+Y\+P\+E\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+ND error if a wrong input is given or the command buffer is empty.
 
@@ -114,7 +116,7 @@ Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=139pt]{namespace_l_l_a78899c6737310be03f8a2f05f9d7e09e_cgraph}
+\includegraphics[width=297pt]{namespace_l_l_a78899c6737310be03f8a2f05f9d7e09e_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:\nopagebreak
@@ -152,7 +154,7 @@ Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=223pt]{namespace_l_l_ac98bc19f4e3468b76cfc2e43456527cc_cgraph}
+\includegraphics[width=350pt]{namespace_l_l_ac98bc19f4e3468b76cfc2e43456527cc_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:\nopagebreak
@@ -172,7 +174,7 @@ Here is the caller graph for this function\+:\nopagebreak
 
 (G\+L\+O\+B\+AL)Initiate the \mbox{\hyperlink{namespace_l_l}{LL}}. 
 
-Initiates the Logic\+Level. All the flags are reset and a Vgascreen object is created. Everything is saved in the logic struct.
+Initiates the Logic\+Level. All the flags are reset and a \mbox{\hyperlink{class_vgascreen}{Vgascreen}} object is created. Everything is saved in the logic struct.
 
 
 \begin{DoxyParams}{Parameters}
@@ -254,7 +256,7 @@ Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=339pt]{namespace_l_l_a487e020844f801061abc930461b1ff2b_cgraph}
+\includegraphics[width=350pt]{namespace_l_l_a487e020844f801061abc930461b1ff2b_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:\nopagebreak
@@ -288,7 +290,7 @@ Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=287pt]{namespace_l_l_a5e66446caf21dd90191dc07a13ce2378_cgraph}
+\includegraphics[width=350pt]{namespace_l_l_a5e66446caf21dd90191dc07a13ce2378_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:\nopagebreak

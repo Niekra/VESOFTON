@@ -1,0 +1,4 @@
+<map id="init_UART2" name="init_UART2">
+<area shape="rect" id="node2" href="$namespace_i_o.html#a83055f0dd9e551c9e898a69d48530663" title="(Global) Initiate the IO layer. " alt="" coords="140,29,220,56"/>
+<area shape="rect" id="node3" href="$namespace_u_i.html#aa043f0b62f9479eabada95f74e8370ed" title="(GLOBAL)Initiates the UI. " alt="" coords="268,29,347,56"/>
+</map>

@@ -23,7 +23,7 @@ for the JavaScript code in this file
 */
 var NAVTREE =
 [
-  [ "STM32F4-discovery, 320x240 VGA", "index.html", [
+  [ "STM32F4-discovery, 320x240 VGA and EE-API.lib", "index.html", [
     [ "About", "index.html", [
       [ "Introduction", "index.html#intro_sec", null ],
       [ "Usasage", "index.html#usage_sec", [
@@ -31,6 +31,10 @@ var NAVTREE =
         [ "possible commands", "index.html#input_sec", null ],
         [ "possible colors", "index.html#colors", null ]
       ] ]
+    ] ],
+    [ "Design", "_design.html", [
+      [ "3-Layer model", "_design.html#model_sec", null ],
+      [ "Design", "_design.html#design_sec", null ]
     ] ],
     [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
@@ -46,6 +50,7 @@ var NAVTREE =
       [ "Data Structure Index", "classes.html", null ],
       [ "Data Fields", "functions.html", [
         [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ]
       ] ]
     ] ]
@@ -54,7 +59,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"_design.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

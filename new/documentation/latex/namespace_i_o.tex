@@ -9,11 +9,11 @@ namespace \mbox{\hyperlink{namespace_i_o}{IO}}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{namespace_i_o_a20b32a5769a95ed363726431c01702e9}{write}} (char $\ast$text\+\_\+out)
-\begin{DoxyCompactList}\small\item\em (Global) Writes back through U\+A\+RT. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em (Global) Writes back through \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}}. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{namespace_i_o_a1087fba97ca797e5ca155228ff9eec55}{read}} (char $\ast$buf)
-\begin{DoxyCompactList}\small\item\em (Global) Read from U\+A\+RT. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em (Global) Read from \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespace_i_o_a04c5db8c053f07761c5c09894a4bd49d}{stop\+\_\+\+Read}} ()
-\begin{DoxyCompactList}\small\item\em (Global) Stops the U\+A\+R\+T\+::read() function. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em (Global) Stops the \mbox{\hyperlink{namespace_u_a_r_t_a1087fba97ca797e5ca155228ff9eec55}{U\+A\+R\+T\+::read()}} function. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespace_i_o_a83055f0dd9e551c9e898a69d48530663}{init\+\_\+\+IO}} ()
 \begin{DoxyCompactList}\small\item\em (Global) Initiate the \mbox{\hyperlink{namespace_i_o}{IO}} layer. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespace_i_o_a71df3822c66f8b597b92e7e906a9d61f}{delete\+\_\+\+IO}} ()
@@ -23,7 +23,7 @@ void \mbox{\hyperlink{namespace_i_o_a71df3822c66f8b597b92e7e906a9d61f}{delete\+\
 \subsection{Detailed Description}
 namespace \mbox{\hyperlink{namespace_i_o}{IO}} 
 
-Acts as a mediator between the U\+A\+RT and the rest of the program. Gets commands from the \mbox{\hyperlink{namespace_u_i}{UI}} and the \mbox{\hyperlink{namespace_l_l}{LL}} and parses it to U\+A\+RT. 
+Acts as a mediator between the \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}} and the rest of the program. Gets commands from the \mbox{\hyperlink{namespace_u_i}{UI}} and the \mbox{\hyperlink{namespace_l_l}{LL}} and parses it to \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}}. 
 
 \subsection{Function Documentation}
 \mbox{\Hypertarget{namespace_i_o_a71df3822c66f8b597b92e7e906a9d61f}\label{namespace_i_o_a71df3822c66f8b597b92e7e906a9d61f}} 
@@ -36,7 +36,7 @@ Acts as a mediator between the U\+A\+RT and the rest of the program. Gets comman
 
 (Global) Deletes the \mbox{\hyperlink{namespace_i_o}{IO}} layer. 
 
-Deletes the I\+O-\/layer. Calls the U\+A\+R\+T\+::delete\+\_\+\+U\+A\+R\+T() function.
+Deletes the I\+O-\/layer. Calls the \mbox{\hyperlink{namespace_u_a_r_t_ab7d8037afb7dff98f21b6a07b3fc2158}{U\+A\+R\+T\+::delete\+\_\+\+U\+A\+R\+T()}} function.
 
 
 \begin{DoxyParams}{Parameters}
@@ -50,7 +50,7 @@ Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=138pt]{namespace_i_o_a71df3822c66f8b597b92e7e906a9d61f_cgraph}
+\includegraphics[width=279pt]{namespace_i_o_a71df3822c66f8b597b92e7e906a9d61f_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:\nopagebreak
@@ -70,7 +70,7 @@ Here is the caller graph for this function\+:\nopagebreak
 
 (Global) Initiate the \mbox{\hyperlink{namespace_i_o}{IO}} layer. 
 
-Calls the U\+A\+R\+T\+::init\+\_\+\+U\+A\+RT function to start the U\+A\+RT. (Optional) call the U\+A\+R\+T\+::init\+\_\+\+I\+D\+L\+E\+\_\+\+Line() for inputs without the carriage return char.
+Calls the U\+A\+R\+T\+::init\+\_\+\+U\+A\+RT function to start the \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}}. (Optional) call the \mbox{\hyperlink{namespace_u_a_r_t_aae0befbeb6fc7e852f7a200e9a9f4c7c}{U\+A\+R\+T\+::init\+\_\+\+I\+D\+L\+E\+\_\+\+Line()}} for inputs without the carriage return char.
 
 
 \begin{DoxyParams}{Parameters}
@@ -84,7 +84,7 @@ Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=124pt]{namespace_i_o_a83055f0dd9e551c9e898a69d48530663_cgraph}
+\includegraphics[width=350pt]{namespace_i_o_a83055f0dd9e551c9e898a69d48530663_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:\nopagebreak
@@ -102,9 +102,9 @@ Here is the caller graph for this function\+:\nopagebreak
 
 
 
-(Global) Read from U\+A\+RT. 
+(Global) Read from \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}}. 
 
-Calls the U\+A\+R\+T\+::read() function of the U\+A\+RT. The user input is saved in the char $\ast$buf. The return state is whether a new user input was given(\+S\+E\+T) or if the read was canceled (R\+E\+S\+ET).
+Calls the \mbox{\hyperlink{namespace_u_a_r_t_a1087fba97ca797e5ca155228ff9eec55}{U\+A\+R\+T\+::read()}} function of the \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}}. The user input is saved in the char $\ast$buf. The return state is whether a new user input was given(\+S\+E\+T) or if the read was canceled (R\+E\+S\+ET).
 
 
 \begin{DoxyParams}{Parameters}
@@ -118,7 +118,7 @@ Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=115pt]{namespace_i_o_a1087fba97ca797e5ca155228ff9eec55_cgraph}
+\includegraphics[width=218pt]{namespace_i_o_a1087fba97ca797e5ca155228ff9eec55_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:\nopagebreak
@@ -136,9 +136,9 @@ Here is the caller graph for this function\+:\nopagebreak
 
 
 
-(Global) Stops the U\+A\+R\+T\+::read() function. 
+(Global) Stops the \mbox{\hyperlink{namespace_u_a_r_t_a1087fba97ca797e5ca155228ff9eec55}{U\+A\+R\+T\+::read()}} function. 
 
-Calls the U\+A\+R\+T\+::stop\+\_\+\+Read() function to stop waiting for user input and check if there are buffered inputs.
+Calls the \mbox{\hyperlink{namespace_u_a_r_t_a996ffefd3d2ce666720596342364db03}{U\+A\+R\+T\+::stop\+\_\+\+Read()}} function to stop waiting for user input and check if there are buffered inputs.
 
 
 \begin{DoxyParams}{Parameters}
@@ -152,7 +152,7 @@ Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=143pt]{namespace_i_o_a04c5db8c053f07761c5c09894a4bd49d_cgraph}
+\includegraphics[width=274pt]{namespace_i_o_a04c5db8c053f07761c5c09894a4bd49d_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:\nopagebreak
@@ -170,9 +170,9 @@ Here is the caller graph for this function\+:\nopagebreak
 
 
 
-(Global) Writes back through U\+A\+RT. 
+(Global) Writes back through \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}}. 
 
-Write the char $\ast$text\+\_\+out using the U\+A\+R\+T\+::write() function.
+Write the char $\ast$text\+\_\+out using the \mbox{\hyperlink{namespace_u_a_r_t_a20b32a5769a95ed363726431c01702e9}{U\+A\+R\+T\+::write()}} function.
 
 
 \begin{DoxyParams}{Parameters}
@@ -186,7 +186,7 @@ Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=117pt]{namespace_i_o_a20b32a5769a95ed363726431c01702e9_cgraph}
+\includegraphics[width=344pt]{namespace_i_o_a20b32a5769a95ed363726431c01702e9_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:\nopagebreak

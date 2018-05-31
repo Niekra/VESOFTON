@@ -1,5 +1,12 @@
 <map id="set_Command" name="set_Command">
-<area shape="rect" id="node2" href="$namespace_l_l.html#ac98bc19f4e3468b76cfc2e43456527cc" title="(GLOBAL)executes the last command or the command buffer. " alt="" coords="160,67,211,93"/>
-<area shape="rect" id="node3" href="$namespace_l_l.html#af61e12d8feebbbdb330c2405c305840b" title="(LOCAL)Gets 8 bit rgb value from the colors name. " alt="" coords="259,29,351,56"/>
-<area shape="rect" id="node4" href="$namespace_l_l.html#ab30bdedb41438098df71bea7d5eb624d" title="(LOCAL)The wait function of the LL. " alt="" coords="269,104,340,131"/>
+<area shape="rect" id="node2" href="$namespace_l_l.html#ac98bc19f4e3468b76cfc2e43456527cc" title="(GLOBAL)executes the last command or the command buffer. " alt="" coords="160,256,211,283"/>
+<area shape="rect" id="node3" href="$namespace_l_l.html#af61e12d8feebbbdb330c2405c305840b" title="(LOCAL)Gets 8 bit rgb value from the colors name. " alt="" coords="302,29,394,56"/>
+<area shape="rect" id="node4" href="$class_vgascreen.html#a5420000fe45606af438d6de37cb59fa4" title="Fill screen with specified color. " alt="" coords="265,80,431,107"/>
+<area shape="rect" id="node5" href="$namespace_l_l.html#ab30bdedb41438098df71bea7d5eb624d" title="(LOCAL)The wait function of the LL. " alt="" coords="313,155,383,181"/>
+<area shape="rect" id="node6" href="$class_vgascreen.html#a711cdaf1b83fafcea034f2c4a54ad872" title="Draw text on screen. " alt="" coords="274,205,422,232"/>
+<area shape="rect" id="node7" href="$class_vgascreen.html#ad523b2dd47a6f2adde2d40cf1d809f27" title="Draw bitmap on screen. " alt="" coords="265,256,431,283"/>
+<area shape="rect" id="node8" href="$class_vgascreen.html#a27d717ae66ae00c3e8a88591b98b248c" title="Draw rectangle on screen. " alt="" coords="259,307,437,333"/>
+<area shape="rect" id="node9" href="$class_vgascreen.html#a10bbbae525020dcbd62b42ec3698bb0d" title="Draw line on screen. " alt="" coords="485,357,632,384"/>
+<area shape="rect" id="node10" href="$class_vgascreen.html#a5a7c38666c7bb33e7f75a2226505e002" title="Draw ellipse on screen. " alt="" coords="267,408,429,435"/>
+<area shape="rect" id="node11" href="$class_vgascreen.html#ae7d7e2b13c8aee3181ebe96d1547663f" title="Draw triangle on screen. " alt="" coords="264,459,432,485"/>
 </map>

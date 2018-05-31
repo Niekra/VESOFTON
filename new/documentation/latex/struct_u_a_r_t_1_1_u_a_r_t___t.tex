@@ -1,0 +1,71 @@
+\hypertarget{struct_u_a_r_t_1_1_u_a_r_t___t}{}\section{U\+A\+R\+T\+\_\+T Struct Reference}
+\label{struct_u_a_r_t_1_1_u_a_r_t___t}\index{U\+A\+R\+T\+\_\+T@{U\+A\+R\+T\+\_\+T}}
+
+
+Struct \mbox{\hyperlink{struct_u_a_r_t_1_1_u_a_r_t___t}{U\+A\+R\+T\+\_\+T}}.  
+
+
+
+
+{\ttfamily \#include \char`\"{}Uart.\+h\char`\"{}}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+volatile int \mbox{\hyperlink{struct_u_a_r_t_1_1_u_a_r_t___t_a54f54030cc41d7f220733e022d2f4df0}{i\+Index}}
+\item 
+volatile int \mbox{\hyperlink{struct_u_a_r_t_1_1_u_a_r_t___t_a8f2d43e22185dc1f3f4e5fcaacd0d559}{b\+Ready}}
+\item 
+volatile int \mbox{\hyperlink{struct_u_a_r_t_1_1_u_a_r_t___t_af24f69336f7db99e5523900be8c6cb93}{i\+Line}}
+\item 
+volatile int \mbox{\hyperlink{struct_u_a_r_t_1_1_u_a_r_t___t_a4b97414b016988708188b1911b464c46}{u\+Busy}}
+\item 
+volatile int \mbox{\hyperlink{struct_u_a_r_t_1_1_u_a_r_t___t_a54ac1ff09fc23246e68f05c8fe826a8c}{r\+Cancel}}
+\item 
+char \mbox{\hyperlink{struct_u_a_r_t_1_1_u_a_r_t___t_a3e02cd24d7ef63e42cbcced4084bd1c4}{input\+Buffer}} \mbox{[}\mbox{\hyperlink{group___u_a_r_t_gaf7b7dc9a200cb1404c280bd500fd1551}{B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Struct \mbox{\hyperlink{struct_u_a_r_t_1_1_u_a_r_t___t}{U\+A\+R\+T\+\_\+T}}. 
+
+Contains the different variables needed for the \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}} to work. 
+
+\subsection{Field Documentation}
+\mbox{\Hypertarget{struct_u_a_r_t_1_1_u_a_r_t___t_a8f2d43e22185dc1f3f4e5fcaacd0d559}\label{struct_u_a_r_t_1_1_u_a_r_t___t_a8f2d43e22185dc1f3f4e5fcaacd0d559}} 
+\index{U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T@{U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T}!b\+Ready@{b\+Ready}}
+\index{b\+Ready@{b\+Ready}!U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T@{U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T}}
+\subsubsection{\texorpdfstring{b\+Ready}{bReady}}
+{\footnotesize\ttfamily volatile int b\+Ready}
+
+Buffer ready F\+L\+AG. To signal if there\textquotesingle{}s any user input. \mbox{\Hypertarget{struct_u_a_r_t_1_1_u_a_r_t___t_a54f54030cc41d7f220733e022d2f4df0}\label{struct_u_a_r_t_1_1_u_a_r_t___t_a54f54030cc41d7f220733e022d2f4df0}} 
+\index{U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T@{U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T}!i\+Index@{i\+Index}}
+\index{i\+Index@{i\+Index}!U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T@{U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T}}
+\subsubsection{\texorpdfstring{i\+Index}{iIndex}}
+{\footnotesize\ttfamily volatile int i\+Index}
+
+Input index, keeps track what the next position is in the buffer. \mbox{\Hypertarget{struct_u_a_r_t_1_1_u_a_r_t___t_af24f69336f7db99e5523900be8c6cb93}\label{struct_u_a_r_t_1_1_u_a_r_t___t_af24f69336f7db99e5523900be8c6cb93}} 
+\index{U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T@{U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T}!i\+Line@{i\+Line}}
+\index{i\+Line@{i\+Line}!U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T@{U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T}}
+\subsubsection{\texorpdfstring{i\+Line}{iLine}}
+{\footnotesize\ttfamily volatile int i\+Line}
+
+Idle line F\+L\+AG to enable/disable idle line detection. \mbox{\Hypertarget{struct_u_a_r_t_1_1_u_a_r_t___t_a3e02cd24d7ef63e42cbcced4084bd1c4}\label{struct_u_a_r_t_1_1_u_a_r_t___t_a3e02cd24d7ef63e42cbcced4084bd1c4}} 
+\index{U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T@{U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T}!input\+Buffer@{input\+Buffer}}
+\index{input\+Buffer@{input\+Buffer}!U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T@{U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T}}
+\subsubsection{\texorpdfstring{input\+Buffer}{inputBuffer}}
+{\footnotesize\ttfamily char input\+Buffer\mbox{[}\mbox{\hyperlink{group___u_a_r_t_gaf7b7dc9a200cb1404c280bd500fd1551}{B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]}}
+
+Input buffer with size B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+TH. \mbox{\Hypertarget{struct_u_a_r_t_1_1_u_a_r_t___t_a54ac1ff09fc23246e68f05c8fe826a8c}\label{struct_u_a_r_t_1_1_u_a_r_t___t_a54ac1ff09fc23246e68f05c8fe826a8c}} 
+\index{U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T@{U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T}!r\+Cancel@{r\+Cancel}}
+\index{r\+Cancel@{r\+Cancel}!U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T@{U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T}}
+\subsubsection{\texorpdfstring{r\+Cancel}{rCancel}}
+{\footnotesize\ttfamily volatile int r\+Cancel}
+
+read cancel F\+L\+AG. to cancel the read function. \mbox{\Hypertarget{struct_u_a_r_t_1_1_u_a_r_t___t_a4b97414b016988708188b1911b464c46}\label{struct_u_a_r_t_1_1_u_a_r_t___t_a4b97414b016988708188b1911b464c46}} 
+\index{U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T@{U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T}!u\+Busy@{u\+Busy}}
+\index{u\+Busy@{u\+Busy}!U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T@{U\+A\+R\+T\+::\+U\+A\+R\+T\+\_\+T}}
+\subsubsection{\texorpdfstring{u\+Busy}{uBusy}}
+{\footnotesize\ttfamily volatile int u\+Busy}
+
+U\+S\+A\+RT busy flag, needed for the idle line detection. 

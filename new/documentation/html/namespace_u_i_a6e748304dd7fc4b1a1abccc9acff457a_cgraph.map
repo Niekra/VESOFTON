@@ -1,9 +1,19 @@
 <map id="main_Loop" name="main_Loop">
-<area shape="rect" id="node2" href="$namespace_i_o.html#a1087fba97ca797e5ca155228ff9eec55" title="(Global) Read from UART. " alt="" coords="169,29,237,56"/>
-<area shape="rect" id="node3" href="$namespace_l_l.html#a487e020844f801061abc930461b1ff2b" title="(GLOBAL)Sets the command struct. " alt="" coords="139,104,267,131"/>
-<area shape="rect" id="node4" href="$namespace_l_l.html#ac98bc19f4e3468b76cfc2e43456527cc" title="(GLOBAL)executes the last command or the command buffer. " alt="" coords="315,129,387,156"/>
-<area shape="rect" id="node7" href="$namespace_u_i.html#a8434054136c327b6f652949b52753e06" title="(LOCAL)Write error. " alt="" coords="161,229,245,256"/>
-<area shape="rect" id="node5" href="$namespace_l_l.html#af61e12d8feebbbdb330c2405c305840b" title="(LOCAL)Gets 8 bit rgb value from the colors name. " alt="" coords="435,92,549,119"/>
-<area shape="rect" id="node6" href="$namespace_l_l.html#ab30bdedb41438098df71bea7d5eb624d" title="(LOCAL)The wait function of the LL. " alt="" coords="446,167,538,193"/>
-<area shape="rect" id="node8" href="$namespace_i_o.html#a20b32a5769a95ed363726431c01702e9" title="(Global) Writes back through UART. " alt="" coords="315,229,386,256"/>
+<area shape="rect" id="node2" href="$namespace_i_o.html#a1087fba97ca797e5ca155228ff9eec55" title="(Global) Read from UART. " alt="" coords="169,207,237,233"/>
+<area shape="rect" id="node4" href="$namespace_l_l.html#a487e020844f801061abc930461b1ff2b" title="(GLOBAL)Sets the command struct. " alt="" coords="139,281,267,308"/>
+<area shape="rect" id="node5" href="$namespace_l_l.html#ac98bc19f4e3468b76cfc2e43456527cc" title="(GLOBAL)executes the last command or the command buffer. " alt="" coords="323,281,395,308"/>
+<area shape="rect" id="node15" href="$namespace_u_i.html#a8434054136c327b6f652949b52753e06" title="(LOCAL)Write error. " alt="" coords="161,445,245,472"/>
+<area shape="rect" id="node3" href="$namespace_u_a_r_t.html#a1087fba97ca797e5ca155228ff9eec55" title="(GLOBAL) Read from the USART2 " alt="" coords="315,207,404,233"/>
+<area shape="rect" id="node6" href="$namespace_l_l.html#af61e12d8feebbbdb330c2405c305840b" title="(LOCAL)Gets 8 bit rgb value from the colors name. " alt="" coords="484,29,599,56"/>
+<area shape="rect" id="node7" href="$class_vgascreen.html#a5420000fe45606af438d6de37cb59fa4" title="Fill screen with specified color. " alt="" coords="458,80,625,107"/>
+<area shape="rect" id="node8" href="$namespace_l_l.html#ab30bdedb41438098df71bea7d5eb624d" title="(LOCAL)The wait function of the LL. " alt="" coords="495,155,587,181"/>
+<area shape="rect" id="node9" href="$class_vgascreen.html#a711cdaf1b83fafcea034f2c4a54ad872" title="Draw text on screen. " alt="" coords="467,205,615,232"/>
+<area shape="rect" id="node10" href="$class_vgascreen.html#ad523b2dd47a6f2adde2d40cf1d809f27" title="Draw bitmap on screen. " alt="" coords="459,256,624,283"/>
+<area shape="rect" id="node11" href="$class_vgascreen.html#a27d717ae66ae00c3e8a88591b98b248c" title="Draw rectangle on screen. " alt="" coords="452,307,631,333"/>
+<area shape="rect" id="node12" href="$class_vgascreen.html#a10bbbae525020dcbd62b42ec3698bb0d" title="Draw line on screen. " alt="" coords="679,357,825,384"/>
+<area shape="rect" id="node13" href="$class_vgascreen.html#a5a7c38666c7bb33e7f75a2226505e002" title="Draw ellipse on screen. " alt="" coords="460,408,623,435"/>
+<area shape="rect" id="node14" href="$class_vgascreen.html#ae7d7e2b13c8aee3181ebe96d1547663f" title="Draw triangle on screen. " alt="" coords="457,459,625,485"/>
+<area shape="rect" id="node16" href="$namespace_i_o.html#a20b32a5769a95ed363726431c01702e9" title="(Global) Writes back through UART. " alt="" coords="324,491,395,517"/>
+<area shape="rect" id="node17" href="$namespace_u_a_r_t.html#a20b32a5769a95ed363726431c01702e9" title="(GLOBAL) Write text using UART2 " alt="" coords="496,509,587,536"/>
+<area shape="rect" id="node18" href="$namespace_u_a_r_t.html#ae9667edee69ced0a5f4ada356f4a4fa1" title="(Local) Print char using USART2 " alt="" coords="694,509,810,536"/>
 </map>

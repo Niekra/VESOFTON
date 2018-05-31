@@ -1,0 +1,6 @@
+<map id="init_UART2" name="init_UART2">
+<area shape="rect" id="node2" href="$namespace_u_a_r_t.html#a532deb6ee0fb4aa5ef9700438be59c0f" title="(Local) Initiate the needed systemclock " alt="" coords="148,5,221,32"/>
+<area shape="rect" id="node3" href="$namespace_u_a_r_t.html#a92da5727d9a24141d77c8acb1fc776d0" title="(Local) Initiate the GPIO for USART2 " alt="" coords="145,56,224,83"/>
+<area shape="rect" id="node4" href="$namespace_u_a_r_t.html#aaa88a606dc9d9361e67a256ed1f21a83" title="(Local) Initiate USART2 " alt="" coords="140,107,229,133"/>
+<area shape="rect" id="node5" href="$namespace_u_a_r_t.html#aa21807f2e7d59396d1c411f436ebd29b" title="(Local) Initiate the NVIC for the USART2 interrupt. " alt="" coords="147,157,223,184"/>
+</map>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>STM32F4-discovery, 320x240 VGA: IO Namespace Reference</title>
+<title>STM32F4-discovery, 320x240 VGA and EE-API.lib: IO Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">STM32F4-discovery, 320x240 VGA
+   <div id="projectname">STM32F4-discovery, 320x240 VGA and EE-API.lib
    </div>
   </td>
  </tr>
@@ -98,13 +98,13 @@ $(document).ready(function(){initNavTree('namespace_i_o.html','');});
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a20b32a5769a95ed363726431c01702e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_o.html#a20b32a5769a95ed363726431c01702e9">write</a> (char *text_out)</td></tr>
-<tr class="memdesc:a20b32a5769a95ed363726431c01702e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">(Global) Writes back through UART.  <a href="#a20b32a5769a95ed363726431c01702e9">More...</a><br /></td></tr>
+<tr class="memdesc:a20b32a5769a95ed363726431c01702e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">(Global) Writes back through <a class="el" href="namespace_u_a_r_t.html" title="namespace UART ">UART</a>.  <a href="#a20b32a5769a95ed363726431c01702e9">More...</a><br /></td></tr>
 <tr class="separator:a20b32a5769a95ed363726431c01702e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1087fba97ca797e5ca155228ff9eec55"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_o.html#a1087fba97ca797e5ca155228ff9eec55">read</a> (char *buf)</td></tr>
-<tr class="memdesc:a1087fba97ca797e5ca155228ff9eec55"><td class="mdescLeft">&#160;</td><td class="mdescRight">(Global) Read from UART.  <a href="#a1087fba97ca797e5ca155228ff9eec55">More...</a><br /></td></tr>
+<tr class="memdesc:a1087fba97ca797e5ca155228ff9eec55"><td class="mdescLeft">&#160;</td><td class="mdescRight">(Global) Read from <a class="el" href="namespace_u_a_r_t.html" title="namespace UART ">UART</a>.  <a href="#a1087fba97ca797e5ca155228ff9eec55">More...</a><br /></td></tr>
 <tr class="separator:a1087fba97ca797e5ca155228ff9eec55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04c5db8c053f07761c5c09894a4bd49d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_o.html#a04c5db8c053f07761c5c09894a4bd49d">stop_Read</a> ()</td></tr>
-<tr class="memdesc:a04c5db8c053f07761c5c09894a4bd49d"><td class="mdescLeft">&#160;</td><td class="mdescRight">(Global) Stops the UART::read() function.  <a href="#a04c5db8c053f07761c5c09894a4bd49d">More...</a><br /></td></tr>
+<tr class="memdesc:a04c5db8c053f07761c5c09894a4bd49d"><td class="mdescLeft">&#160;</td><td class="mdescRight">(Global) Stops the <a class="el" href="namespace_u_a_r_t.html#a1087fba97ca797e5ca155228ff9eec55" title="(GLOBAL) Read from the USART2 ">UART::read()</a> function.  <a href="#a04c5db8c053f07761c5c09894a4bd49d">More...</a><br /></td></tr>
 <tr class="separator:a04c5db8c053f07761c5c09894a4bd49d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83055f0dd9e551c9e898a69d48530663"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_i_o.html#a83055f0dd9e551c9e898a69d48530663">init_IO</a> ()</td></tr>
 <tr class="memdesc:a83055f0dd9e551c9e898a69d48530663"><td class="mdescLeft">&#160;</td><td class="mdescRight">(Global) Initiate the <a class="el" href="namespace_i_o.html" title="namespace IO ">IO</a> layer.  <a href="#a83055f0dd9e551c9e898a69d48530663">More...</a><br /></td></tr>
@@ -115,7 +115,7 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>namespace <a class="el" href="namespace_i_o.html" title="namespace IO ">IO</a> </p>
-<p>Acts as a mediator between the UART and the rest of the program. Gets commands from the <a class="el" href="namespace_u_i.html" title="Namespace UI. ">UI</a> and the <a class="el" href="namespace_l_l.html" title="Namespace LL. ">LL</a> and parses it to UART. </p>
+<p>Acts as a mediator between the <a class="el" href="namespace_u_a_r_t.html" title="namespace UART ">UART</a> and the rest of the program. Gets commands from the <a class="el" href="namespace_u_i.html" title="Namespace UI. ">UI</a> and the <a class="el" href="namespace_l_l.html" title="Includes. ">LL</a> and parses it to <a class="el" href="namespace_u_a_r_t.html" title="namespace UART ">UART</a>. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a71df3822c66f8b597b92e7e906a9d61f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a71df3822c66f8b597b92e7e906a9d61f">&#9670;&nbsp;</a></span>delete_IO()</h2>
@@ -133,7 +133,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>(Global) Deletes the <a class="el" href="namespace_i_o.html" title="namespace IO ">IO</a> layer. </p>
-<p>Deletes the IO-layer. Calls the UART::delete_UART() function.</p>
+<p>Deletes the IO-layer. Calls the <a class="el" href="namespace_u_a_r_t.html#ab7d8037afb7dff98f21b6a07b3fc2158" title="(GLOBAL) Stops the UART and TIM3 ">UART::delete_UART()</a> function.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">void</td><td></td></tr>
@@ -145,6 +145,9 @@ Functions</h2></td></tr>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespace_i_o_a71df3822c66f8b597b92e7e906a9d61f_cgraph.png" border="0" usemap="#namespace_i_o_a71df3822c66f8b597b92e7e906a9d61f_cgraph" alt=""/></div>
+<map name="namespace_i_o_a71df3822c66f8b597b92e7e906a9d61f_cgraph" id="namespace_i_o_a71df3822c66f8b597b92e7e906a9d61f_cgraph">
+<area shape="rect" id="node2" href="namespace_u_a_r_t.html#ab7d8037afb7dff98f21b6a07b3fc2158" title="(GLOBAL) Stops the UART and TIM3 " alt="" coords="131,29,271,56"/>
+</map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -173,7 +176,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>(Global) Initiate the <a class="el" href="namespace_i_o.html" title="namespace IO ">IO</a> layer. </p>
-<p>Calls the UART::init_UART function to start the UART. (Optional) call the UART::init_IDLE_Line() for inputs without the carriage return char.</p>
+<p>Calls the UART::init_UART function to start the <a class="el" href="namespace_u_a_r_t.html" title="namespace UART ">UART</a>. (Optional) call the <a class="el" href="namespace_u_a_r_t.html#aae0befbeb6fc7e852f7a200e9a9f4c7c" title="(GLOBAL) Initiate the idle line detection for USART2. ">UART::init_IDLE_Line()</a> for inputs without the carriage return char.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">void</td><td></td></tr>
@@ -185,6 +188,13 @@ Here is the caller graph for this function:</div>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespace_i_o_a83055f0dd9e551c9e898a69d48530663_cgraph.png" border="0" usemap="#namespace_i_o_a83055f0dd9e551c9e898a69d48530663_cgraph" alt=""/></div>
+<map name="namespace_i_o_a83055f0dd9e551c9e898a69d48530663_cgraph" id="namespace_i_o_a83055f0dd9e551c9e898a69d48530663_cgraph">
+<area shape="rect" id="node2" href="namespace_u_a_r_t.html#ab8b1cbca4aa5321487c7f78df50efdc6" title="(GLOBAL) Initiate the UART components. " alt="" coords="112,81,241,108"/>
+<area shape="rect" id="node3" href="namespace_u_a_r_t.html#a532deb6ee0fb4aa5ef9700438be59c0f" title="(Local) Initiate the needed systemclock " alt="" coords="297,5,412,32"/>
+<area shape="rect" id="node4" href="namespace_u_a_r_t.html#a92da5727d9a24141d77c8acb1fc776d0" title="(Local) Initiate the GPIO for USART2 " alt="" coords="295,56,415,83"/>
+<area shape="rect" id="node5" href="namespace_u_a_r_t.html#aaa88a606dc9d9361e67a256ed1f21a83" title="(Local) Initiate USART2 " alt="" coords="289,107,420,133"/>
+<area shape="rect" id="node6" href="namespace_u_a_r_t.html#aa21807f2e7d59396d1c411f436ebd29b" title="(Local) Initiate the NVIC for the USART2 interrupt. " alt="" coords="295,157,414,184"/>
+</map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -213,8 +223,8 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>(Global) Read from UART. </p>
-<p>Calls the UART::read() function of the UART. The user input is saved in the char *buf. The return state is whether a new user input was given(SET) or if the read was canceled (RESET).</p>
+<p>(Global) Read from <a class="el" href="namespace_u_a_r_t.html" title="namespace UART ">UART</a>. </p>
+<p>Calls the <a class="el" href="namespace_u_a_r_t.html#a1087fba97ca797e5ca155228ff9eec55" title="(GLOBAL) Read from the USART2 ">UART::read()</a> function of the <a class="el" href="namespace_u_a_r_t.html" title="namespace UART ">UART</a>. The user input is saved in the char *buf. The return state is whether a new user input was given(SET) or if the read was canceled (RESET).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">char</td><td>*buf Buffer to fill with the user input. </td></tr>
@@ -226,6 +236,9 @@ Here is the caller graph for this function:</div>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespace_i_o_a1087fba97ca797e5ca155228ff9eec55_cgraph.png" border="0" usemap="#namespace_i_o_a1087fba97ca797e5ca155228ff9eec55_cgraph" alt=""/></div>
+<map name="namespace_i_o_a1087fba97ca797e5ca155228ff9eec55_cgraph" id="namespace_i_o_a1087fba97ca797e5ca155228ff9eec55_cgraph">
+<area shape="rect" id="node2" href="namespace_u_a_r_t.html#a1087fba97ca797e5ca155228ff9eec55" title="(GLOBAL) Read from the USART2 " alt="" coords="100,5,189,32"/>
+</map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -253,8 +266,8 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>(Global) Stops the UART::read() function. </p>
-<p>Calls the UART::stop_Read() function to stop waiting for user input and check if there are buffered inputs.</p>
+<p>(Global) Stops the <a class="el" href="namespace_u_a_r_t.html#a1087fba97ca797e5ca155228ff9eec55" title="(GLOBAL) Read from the USART2 ">UART::read()</a> function. </p>
+<p>Calls the <a class="el" href="namespace_u_a_r_t.html#a996ffefd3d2ce666720596342364db03" title="(GLOBAL) Stops the read loop without user input. ">UART::stop_Read()</a> function to stop waiting for user input and check if there are buffered inputs.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">void</td><td></td></tr>
@@ -266,6 +279,9 @@ Here is the caller graph for this function:</div>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespace_i_o_a04c5db8c053f07761c5c09894a4bd49d_cgraph.png" border="0" usemap="#namespace_i_o_a04c5db8c053f07761c5c09894a4bd49d_cgraph" alt=""/></div>
+<map name="namespace_i_o_a04c5db8c053f07761c5c09894a4bd49d_cgraph" id="namespace_i_o_a04c5db8c053f07761c5c09894a4bd49d_cgraph">
+<area shape="rect" id="node2" href="namespace_u_a_r_t.html#a996ffefd3d2ce666720596342364db03" title="(GLOBAL) Stops the read loop without user input. " alt="" coords="137,5,264,32"/>
+</map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -294,8 +310,8 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>(Global) Writes back through UART. </p>
-<p>Write the char *text_out using the UART::write() function.</p>
+<p>(Global) Writes back through <a class="el" href="namespace_u_a_r_t.html" title="namespace UART ">UART</a>. </p>
+<p>Write the char *text_out using the <a class="el" href="namespace_u_a_r_t.html#a20b32a5769a95ed363726431c01702e9" title="(GLOBAL) Write text using UART2 ">UART::write()</a> function.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">char</td><td>*text_out </td></tr>
@@ -307,6 +323,10 @@ Here is the caller graph for this function:</div>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="namespace_i_o_a20b32a5769a95ed363726431c01702e9_cgraph.png" border="0" usemap="#namespace_i_o_a20b32a5769a95ed363726431c01702e9_cgraph" alt=""/></div>
+<map name="namespace_i_o_a20b32a5769a95ed363726431c01702e9_cgraph" id="namespace_i_o_a20b32a5769a95ed363726431c01702e9_cgraph">
+<area shape="rect" id="node2" href="namespace_u_a_r_t.html#a20b32a5769a95ed363726431c01702e9" title="(GLOBAL) Write text using UART2 " alt="" coords="103,5,193,32"/>
+<area shape="rect" id="node3" href="namespace_u_a_r_t.html#ae9667edee69ced0a5f4ada356f4a4fa1" title="(Local) Print char using USART2 " alt="" coords="241,5,357,32"/>
+</map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>

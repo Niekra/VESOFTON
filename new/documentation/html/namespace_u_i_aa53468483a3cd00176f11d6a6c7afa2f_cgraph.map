@@ -1,4 +1,6 @@
 <map id="delete_UI" name="delete_UI">
 <area shape="rect" id="node2" href="$namespace_i_o.html#a71df3822c66f8b597b92e7e906a9d61f" title="(Global) Deletes the IO layer. " alt="" coords="130,29,229,56"/>
-<area shape="rect" id="node3" href="$namespace_l_l.html#a78899c6737310be03f8a2f05f9d7e09e" title="(GLOBAL)Destroy the LL " alt="" coords="129,104,229,131"/>
+<area shape="rect" id="node4" href="$namespace_l_l.html#a78899c6737310be03f8a2f05f9d7e09e" title="(GLOBAL)Destroy the LL " alt="" coords="129,104,229,131"/>
+<area shape="rect" id="node3" href="$namespace_u_a_r_t.html#ab7d8037afb7dff98f21b6a07b3fc2158" title="(GLOBAL) Stops the UART and TIM3 " alt="" coords="289,29,429,56"/>
+<area shape="rect" id="node5" href="$class_vgascreen.html#aac39d059f15042b0d763c6a173540552" title="Destroy the VGAscreen object. " alt="" coords="277,104,440,131"/>
 </map>

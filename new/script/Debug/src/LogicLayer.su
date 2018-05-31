@@ -1,4 +1,4 @@
-LogicLayer.h:137:2:LL::logic_t::logic_t()	16	static
+LogicLayer.h:136:2:LL::logic_t::logic_t()	16	static
 Vgascreen.h:625:7:Vgascreen& Vgascreen::operator=(const Vgascreen&)	16	static
 LogicLayer.cpp:79:6:void LL::init_LL()	24	static
 LogicLayer.cpp:94:6:void LL::delete_LL()	8	static
@@ -8,6 +8,6 @@ LogicLayer.cpp:267:5:int LL::set_Command(char*)	136	static
 LogicLayer.cpp:336:6:void LL::wait_Ms(int)	16	static
 LogicLayer.cpp:360:5:int LL::color_To_Int(char*)	24	static
 LogicLayer.cpp:384:6:void LL::TIM5_IRQHandler()	8	static
-LogicLayer.h:137:2:LL::logic_t::~logic_t()	16	static
+LogicLayer.h:136:2:LL::logic_t::~logic_t()	16	static
 LogicLayer.cpp:404:1:void __static_initialization_and_destruction_0(int, int)	16	static
 LogicLayer.cpp:404:1:cpp)	8	static

@@ -1,3 +1,4 @@
 <map id="TIM5_IRQHandler" name="TIM5_IRQHandler">
 <area shape="rect" id="node2" href="$namespace_i_o.html#a04c5db8c053f07761c5c09894a4bd49d" title="(Global) Stops the UART::read() function. " alt="" coords="176,29,281,56"/>
+<area shape="rect" id="node3" href="$namespace_u_a_r_t.html#a996ffefd3d2ce666720596342364db03" title="(GLOBAL) Stops the read loop without user input. " alt="" coords="329,29,456,56"/>
 </map>

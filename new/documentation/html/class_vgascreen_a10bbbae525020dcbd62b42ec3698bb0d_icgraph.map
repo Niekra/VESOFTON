@@ -1,0 +1,7 @@
+<map id="draw_line" name="draw_line">
+<area shape="rect" id="node2" href="$namespace_l_l.html#ac98bc19f4e3468b76cfc2e43456527cc" title="(GLOBAL)executes the last command or the command buffer. " alt="" coords="287,55,359,81"/>
+<area shape="rect" id="node5" href="$class_vgascreen.html#a27d717ae66ae00c3e8a88591b98b248c" title="Draw rectangle on screen. " alt="" coords="129,55,239,81"/>
+<area shape="rect" id="node6" href="$class_vgascreen.html#ae7d7e2b13c8aee3181ebe96d1547663f" title="Draw triangle on screen. " alt="" coords="135,105,233,132"/>
+<area shape="rect" id="node3" href="$namespace_l_l.html#a487e020844f801061abc930461b1ff2b" title="(GLOBAL)Sets the command struct. " alt="" coords="407,29,535,56"/>
+<area shape="rect" id="node4" href="$namespace_u_i.html#a6e748304dd7fc4b1a1abccc9acff457a" title="(Global)Starts the main UI loop. " alt="" coords="583,55,688,81"/>
+</map>

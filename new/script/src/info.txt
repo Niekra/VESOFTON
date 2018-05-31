@@ -11,7 +11,7 @@
  * &nbsp;&nbsp;&nbsp;&nbsp;to buffer the given inputs and repeat them.<br>
  *
  * &nbsp;&nbsp;&nbsp;&nbsp;The application is designed to the 3-layer model. Here u can find the \ref Design.<br>
- * &nbsp;&nbsp;&nbsp;&nbsp;Link to the 3-layers: \ref IO, \ref UI and \ref LL.
+ * &nbsp;&nbsp;&nbsp;&nbsp;Link to the 3-layers: \ref IO, \ref UI and \ref LL and the used EE-API.lib<br>
  *
  * \section usage_sec Usasage
  * &nbsp;&nbsp;&nbsp;&nbsp;The program runs via a UART connection on pins PA2(Tx) and PA3(Rx) and drives a 320x240 pixel<br>
