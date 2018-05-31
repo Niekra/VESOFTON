@@ -1,5 +1,7 @@
-/*! \mainpage My Personal Index Page
+/*! \mainpage About
  *
+ *	
+ *	
  * \section intro_sec Introduction
  *
  * This is the introduction.
