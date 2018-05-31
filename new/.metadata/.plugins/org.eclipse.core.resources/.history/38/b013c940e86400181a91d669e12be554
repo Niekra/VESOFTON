@@ -22,7 +22,6 @@
  * &nbsp;&nbsp;&nbsp;&nbsp;- Hardware flow control disabled (RTS and CTS signals)<br>
  * &nbsp;&nbsp;&nbsp;&nbsp;- Receive and transmit enabled<br>
  * &nbsp;&nbsp;&nbsp;&nbsp;- Pins PA2(Tx) and PA3(Rx)<br>
- * &nbsp;&nbsp;&nbsp;&nbsp;- tested throughput 10 commands/s<br>
  * 
  * \subsection input_sec possible commands
  * &nbsp;&nbsp;&nbsp;&nbsp;line = <i>"lijn,x,y,x2,y2,width,color"</i><br>
@@ -38,7 +37,7 @@
  *
  * *The idle line detection of the UART isn't used so all commands should end with an carriage return.
  *
- * \subsection colors_sec possible colors
+ * \subsection colors possible colors
  * &nbsp;&nbsp;&nbsp;&nbsp;The application has 16 colors where the user can choose from.<br>
  * &nbsp;&nbsp;&nbsp;&nbsp;the colors are:<br>
  * &nbsp;&nbsp;&nbsp;&nbsp;black = "zwart"<br>
@@ -56,13 +55,5 @@
  * &nbsp;&nbsp;&nbsp;&nbsp;yellow = "geel"<br>
  * &nbsp;&nbsp;&nbsp;&nbsp;gray ="grijs"<br> 
  * &nbsp;&nbsp;&nbsp;&nbsp;white ="wit"<br>
- *
- * \subsection repeat_sec Repeat function.
- * &nbsp;&nbsp;&nbsp;&nbsp;To use the repeat function the input commands need to be buffered. To achieve this the program <br>
- * &nbsp;&nbsp;&nbsp;&nbsp;needs to get a wait("wacht") command first, the commands after the wait will be buffered. If the <br>
- * &nbsp;&nbsp;&nbsp;&nbsp;last command in the buffer is "repeat" everything including the first wait will be repeated.<br><br>
- * &nbsp;&nbsp;&nbsp;&nbsp;<b>NOTE:</b> giving the repeat command while the buffer is empty the program crashes. So make sure you have enough wait time.<br>
- *
- *
  *
  */
