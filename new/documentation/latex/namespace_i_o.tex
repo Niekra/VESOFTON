@@ -1,0 +1,198 @@
+\hypertarget{namespace_i_o}{}\section{IO Namespace Reference}
+\label{namespace_i_o}\index{IO@{IO}}
+
+
+namespace \mbox{\hyperlink{namespace_i_o}{IO}}  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespace_i_o_a20b32a5769a95ed363726431c01702e9}{write}} (char $\ast$text\+\_\+out)
+\begin{DoxyCompactList}\small\item\em (Global) Writes back through U\+A\+RT. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_i_o_a1087fba97ca797e5ca155228ff9eec55}{read}} (char $\ast$buf)
+\begin{DoxyCompactList}\small\item\em (Global) Read from U\+A\+RT. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_i_o_a04c5db8c053f07761c5c09894a4bd49d}{stop\+\_\+\+Read}} ()
+\begin{DoxyCompactList}\small\item\em (Global) Stops the U\+A\+R\+T\+::read() function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_i_o_a83055f0dd9e551c9e898a69d48530663}{init\+\_\+\+IO}} ()
+\begin{DoxyCompactList}\small\item\em (Global) Initiate the \mbox{\hyperlink{namespace_i_o}{IO}} layer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_i_o_a71df3822c66f8b597b92e7e906a9d61f}{delete\+\_\+\+IO}} ()
+\begin{DoxyCompactList}\small\item\em (Global) Deletes the \mbox{\hyperlink{namespace_i_o}{IO}} layer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+namespace \mbox{\hyperlink{namespace_i_o}{IO}} 
+
+Acts as a mediator between the U\+A\+RT and the rest of the program. Gets commands from the \mbox{\hyperlink{namespace_u_i}{UI}} and the \mbox{\hyperlink{namespace_l_l}{LL}} and parses it to U\+A\+RT. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespace_i_o_a71df3822c66f8b597b92e7e906a9d61f}\label{namespace_i_o_a71df3822c66f8b597b92e7e906a9d61f}} 
+\index{IO@{IO}!delete\+\_\+\+IO@{delete\+\_\+\+IO}}
+\index{delete\+\_\+\+IO@{delete\+\_\+\+IO}!IO@{IO}}
+\subsubsection{\texorpdfstring{delete\+\_\+\+I\+O()}{delete\_IO()}}
+{\footnotesize\ttfamily void delete\+\_\+\+IO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+(Global) Deletes the \mbox{\hyperlink{namespace_i_o}{IO}} layer. 
+
+Deletes the I\+O-\/layer. Calls the U\+A\+R\+T\+::delete\+\_\+\+U\+A\+R\+T() function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=138pt]{namespace_i_o_a71df3822c66f8b597b92e7e906a9d61f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{namespace_i_o_a71df3822c66f8b597b92e7e906a9d61f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_i_o_a83055f0dd9e551c9e898a69d48530663}\label{namespace_i_o_a83055f0dd9e551c9e898a69d48530663}} 
+\index{IO@{IO}!init\+\_\+\+IO@{init\+\_\+\+IO}}
+\index{init\+\_\+\+IO@{init\+\_\+\+IO}!IO@{IO}}
+\subsubsection{\texorpdfstring{init\+\_\+\+I\+O()}{init\_IO()}}
+{\footnotesize\ttfamily void init\+\_\+\+IO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+(Global) Initiate the \mbox{\hyperlink{namespace_i_o}{IO}} layer. 
+
+Calls the U\+A\+R\+T\+::init\+\_\+\+U\+A\+RT function to start the U\+A\+RT. (Optional) call the U\+A\+R\+T\+::init\+\_\+\+I\+D\+L\+E\+\_\+\+Line() for inputs without the carriage return char.
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=124pt]{namespace_i_o_a83055f0dd9e551c9e898a69d48530663_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{namespace_i_o_a83055f0dd9e551c9e898a69d48530663_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_i_o_a1087fba97ca797e5ca155228ff9eec55}\label{namespace_i_o_a1087fba97ca797e5ca155228ff9eec55}} 
+\index{IO@{IO}!read@{read}}
+\index{read@{read}!IO@{IO}}
+\subsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily int read (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf }\end{DoxyParamCaption})}
+
+
+
+(Global) Read from U\+A\+RT. 
+
+Calls the U\+A\+R\+T\+::read() function of the U\+A\+RT. The user input is saved in the char $\ast$buf. The return state is whether a new user input was given(\+S\+E\+T) or if the read was canceled (R\+E\+S\+ET).
+
+
+\begin{DoxyParams}{Parameters}
+{\em char} & $\ast$buf Buffer to fill with the user input. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int exit\+\_\+state returns whether the read functions was returned with new user input or by the \mbox{\hyperlink{namespace_i_o_a04c5db8c053f07761c5c09894a4bd49d}{stop\+\_\+\+Read()}} function. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=115pt]{namespace_i_o_a1087fba97ca797e5ca155228ff9eec55_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{namespace_i_o_a1087fba97ca797e5ca155228ff9eec55_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_i_o_a04c5db8c053f07761c5c09894a4bd49d}\label{namespace_i_o_a04c5db8c053f07761c5c09894a4bd49d}} 
+\index{IO@{IO}!stop\+\_\+\+Read@{stop\+\_\+\+Read}}
+\index{stop\+\_\+\+Read@{stop\+\_\+\+Read}!IO@{IO}}
+\subsubsection{\texorpdfstring{stop\+\_\+\+Read()}{stop\_Read()}}
+{\footnotesize\ttfamily void stop\+\_\+\+Read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+(Global) Stops the U\+A\+R\+T\+::read() function. 
+
+Calls the U\+A\+R\+T\+::stop\+\_\+\+Read() function to stop waiting for user input and check if there are buffered inputs.
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=143pt]{namespace_i_o_a04c5db8c053f07761c5c09894a4bd49d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{namespace_i_o_a04c5db8c053f07761c5c09894a4bd49d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_i_o_a20b32a5769a95ed363726431c01702e9}\label{namespace_i_o_a20b32a5769a95ed363726431c01702e9}} 
+\index{IO@{IO}!write@{write}}
+\index{write@{write}!IO@{IO}}
+\subsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void write (\begin{DoxyParamCaption}\item[{char $\ast$}]{text\+\_\+out }\end{DoxyParamCaption})}
+
+
+
+(Global) Writes back through U\+A\+RT. 
+
+Write the char $\ast$text\+\_\+out using the U\+A\+R\+T\+::write() function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em char} & $\ast$text\+\_\+out \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=117pt]{namespace_i_o_a20b32a5769a95ed363726431c01702e9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{namespace_i_o_a20b32a5769a95ed363726431c01702e9_icgraph}
+\end{center}
+\end{figure}

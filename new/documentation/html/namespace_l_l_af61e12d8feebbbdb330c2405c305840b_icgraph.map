@@ -1,0 +1,5 @@
+<map id="color_To_Int" name="color_To_Int">
+<area shape="rect" id="node2" href="$namespace_l_l.html#ac98bc19f4e3468b76cfc2e43456527cc" title="(GLOBAL)executes the last command or the command buffer. " alt="" coords="145,55,196,81"/>
+<area shape="rect" id="node3" href="$namespace_l_l.html#a487e020844f801061abc930461b1ff2b" title="(GLOBAL)Sets the command struct. " alt="" coords="244,29,351,56"/>
+<area shape="rect" id="node4" href="$namespace_u_i.html#a6e748304dd7fc4b1a1abccc9acff457a" title="(Global)Starts the main UI loop. " alt="" coords="399,55,504,81"/>
+</map>

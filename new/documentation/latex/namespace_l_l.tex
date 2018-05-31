@@ -1,0 +1,380 @@
+\hypertarget{namespace_l_l}{}\section{LL Namespace Reference}
+\label{namespace_l_l}\index{LL@{LL}}
+
+
+Namespace \mbox{\hyperlink{namespace_l_l}{LL}}.  
+
+
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_l_l_1_1command__t}{command\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Struct \mbox{\hyperlink{struct_l_l_1_1command__t}{command\+\_\+t}} for saving incoming commands. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_l_l_1_1logic__t}{logic\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_l_l_1_1logic__t}{logic\+\_\+t}} struct for the different flags and buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespace_l_l_af61e12d8feebbbdb330c2405c305840b}{color\+\_\+\+To\+\_\+\+Int}} (char $\ast$color)
+\begin{DoxyCompactList}\small\item\em (L\+O\+C\+AL)Gets 8 bit rgb value from the colors name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_l_l_a201bbec5c7219ca80c90d31b0a31b482}{init\+\_\+\+LL}} (void)
+\begin{DoxyCompactList}\small\item\em (G\+L\+O\+B\+AL)Initiate the \mbox{\hyperlink{namespace_l_l}{LL}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_l_l_a78899c6737310be03f8a2f05f9d7e09e}{delete\+\_\+\+LL}} (void)
+\begin{DoxyCompactList}\small\item\em (G\+L\+O\+B\+AL)Destroy the \mbox{\hyperlink{namespace_l_l}{LL}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_l_l_a559eb54e37dc62032e9774315c2b4638}{init\+\_\+\+T\+I\+M5}} (void)
+\begin{DoxyCompactList}\small\item\em (L\+O\+C\+AL)Initiate T\+I\+M5 for the \mbox{\hyperlink{namespace_l_l_ab30bdedb41438098df71bea7d5eb624d}{wait\+\_\+\+Ms()}} function. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_l_l_ac98bc19f4e3468b76cfc2e43456527cc}{exec}} (void)
+\begin{DoxyCompactList}\small\item\em (G\+L\+O\+B\+AL)executes the last command or the command buffer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_l_l_a487e020844f801061abc930461b1ff2b}{set\+\_\+\+Command}} (char $\ast$buf)
+\begin{DoxyCompactList}\small\item\em (G\+L\+O\+B\+AL)Sets the command struct. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_l_l_ab30bdedb41438098df71bea7d5eb624d}{wait\+\_\+\+Ms}} (int ms)
+\begin{DoxyCompactList}\small\item\em (L\+O\+C\+AL)The wait function of the \mbox{\hyperlink{namespace_l_l}{LL}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_l_l_a5e66446caf21dd90191dc07a13ce2378}{T\+I\+M5\+\_\+\+I\+R\+Q\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em (G\+L\+O\+B\+AL) T\+I\+M5 interrupt handler for \mbox{\hyperlink{namespace_l_l_ab30bdedb41438098df71bea7d5eb624d}{wait\+\_\+\+Ms()}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_l_l_1_1logic__t}{logic\+\_\+t}} \mbox{\hyperlink{namespace_l_l_ac675f1a7fd8efbaf36d511424a5f24ce}{logic}}
+\begin{DoxyCompactList}\small\item\em Struct with the \mbox{\hyperlink{namespace_l_l}{LL}} variables. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{namespace_l_l_a4a2f81c33b1d2c746488022b4ebf7a3a}{colors}} \mbox{[}\mbox{\hyperlink{group___global_ga883046b8f0d1f6368a9b9eaf5ca36af3}{C\+O\+L\+O\+RS}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em List with all the color names. \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{namespace_l_l_a49c70cdbac1a1c4df4224875018c75b4}{rgb}} \mbox{[}\mbox{\hyperlink{group___global_ga883046b8f0d1f6368a9b9eaf5ca36af3}{C\+O\+L\+O\+RS}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em List with all the color values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Namespace \mbox{\hyperlink{namespace_l_l}{LL}}. 
+
+The logic layer get\textquotesingle{}s the user input from the \mbox{\hyperlink{namespace_u_i}{UI}}. The input buffer is split into sperate inputs and saved in a \mbox{\hyperlink{struct_l_l_1_1command__t}{command\+\_\+t}} struct. This is stored in the command buffer \mbox{\hyperlink{struct_l_l_1_1logic__t_a09663354d4cddc7fc94fce6d60c2a9a2}{logic\+\_\+t.\+buffers}}. after the command is set \mbox{\hyperlink{namespace_l_l_ac98bc19f4e3468b76cfc2e43456527cc}{exec()}} is called if the logic level isn\textquotesingle{}t waiting.
+
+The function \mbox{\hyperlink{namespace_l_l_ac98bc19f4e3468b76cfc2e43456527cc}{exec()}} sends the draw commands to the Vgascreen object. If there\textquotesingle{}s more then 1 command buffered keep drawing until the buffer is empty, a wait is called or a repeat.
+
+The Logic-\/layer uses T\+I\+M5 for the \mbox{\hyperlink{namespace_l_l_ab30bdedb41438098df71bea7d5eb624d}{wait\+\_\+\+Ms()}} function. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespace_l_l_af61e12d8feebbbdb330c2405c305840b}\label{namespace_l_l_af61e12d8feebbbdb330c2405c305840b}} 
+\index{LL@{LL}!color\+\_\+\+To\+\_\+\+Int@{color\+\_\+\+To\+\_\+\+Int}}
+\index{color\+\_\+\+To\+\_\+\+Int@{color\+\_\+\+To\+\_\+\+Int}!LL@{LL}}
+\subsubsection{\texorpdfstring{color\+\_\+\+To\+\_\+\+Int()}{color\_To\_Int()}}
+{\footnotesize\ttfamily int color\+\_\+\+To\+\_\+\+Int (\begin{DoxyParamCaption}\item[{char $\ast$}]{color }\end{DoxyParamCaption})}
+
+
+
+(L\+O\+C\+AL)Gets 8 bit rgb value from the colors name. 
+
+Loops through the color names and checks whether a name is the same. Returns the 8 bit color value from rgb\mbox{[}\mbox{]}.
+
+The color names are\+:\char`\"{}zwart\char`\"{}, \char`\"{}blauw\char`\"{}, \char`\"{}lichtblauw\char`\"{}, \char`\"{}groen\char`\"{}, \char`\"{}lichtgroen\char`\"{}, \char`\"{}cyaan\char`\"{}, \char`\"{}lichtcyaan\char`\"{}, \char`\"{}rood\char`\"{}, \char`\"{}lichtrood\char`\"{}, \char`\"{}magenta\char`\"{}, \char`\"{}lichtmagenta\char`\"{}, \char`\"{}bruin\char`\"{}, \char`\"{}geel\char`\"{}, \char`\"{}grijs\char`\"{}, \char`\"{}wit\char`\"{}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em char} & $\ast$colors \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int color, the color value from 0-\/255. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=149pt]{namespace_l_l_af61e12d8feebbbdb330c2405c305840b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_l_l_af61e12d8feebbbdb330c2405c305840b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_l_l_a78899c6737310be03f8a2f05f9d7e09e}\label{namespace_l_l_a78899c6737310be03f8a2f05f9d7e09e}} 
+\index{LL@{LL}!delete\+\_\+\+LL@{delete\+\_\+\+LL}}
+\index{delete\+\_\+\+LL@{delete\+\_\+\+LL}!LL@{LL}}
+\subsubsection{\texorpdfstring{delete\+\_\+\+L\+L()}{delete\_LL()}}
+{\footnotesize\ttfamily void delete\+\_\+\+LL (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+(G\+L\+O\+B\+AL)Destroy the \mbox{\hyperlink{namespace_l_l}{LL}} 
+
+Deletes and Vgascreen object and resets all the flags.
+
+Gives the T\+Y\+P\+E\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+ND error if a wrong input is given or the command buffer is empty.
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=139pt]{namespace_l_l_a78899c6737310be03f8a2f05f9d7e09e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{namespace_l_l_a78899c6737310be03f8a2f05f9d7e09e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_l_l_ac98bc19f4e3468b76cfc2e43456527cc}\label{namespace_l_l_ac98bc19f4e3468b76cfc2e43456527cc}} 
+\index{LL@{LL}!exec@{exec}}
+\index{exec@{exec}!LL@{LL}}
+\subsubsection{\texorpdfstring{exec()}{exec()}}
+{\footnotesize\ttfamily int exec (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+(G\+L\+O\+B\+AL)executes the last command or the command buffer. 
+
+If the wait flag isnt set execute the command given by the buffer\+Index. While there are still commands in the command buffer keep executing them.
+
+if the waiting flag is set =$>$ return.
+
+Possible inputs\+: \char`\"{}wacht\char`\"{}, \char`\"{}repeat\char`\"{}, \char`\"{}clearscherm\char`\"{}, \char`\"{}lijn\char`\"{}, \char`\"{}ellips\char`\"{}, \char`\"{}rechthoek\char`\"{}, \char`\"{}tekst\char`\"{}, \char`\"{}bitmap\char`\"{} and \char`\"{}driehoek\char`\"{}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{namespace_l_l_ac98bc19f4e3468b76cfc2e43456527cc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{namespace_l_l_ac98bc19f4e3468b76cfc2e43456527cc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_l_l_a201bbec5c7219ca80c90d31b0a31b482}\label{namespace_l_l_a201bbec5c7219ca80c90d31b0a31b482}} 
+\index{LL@{LL}!init\+\_\+\+LL@{init\+\_\+\+LL}}
+\index{init\+\_\+\+LL@{init\+\_\+\+LL}!LL@{LL}}
+\subsubsection{\texorpdfstring{init\+\_\+\+L\+L()}{init\_LL()}}
+{\footnotesize\ttfamily void init\+\_\+\+LL (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+(G\+L\+O\+B\+AL)Initiate the \mbox{\hyperlink{namespace_l_l}{LL}}. 
+
+Initiates the Logic\+Level. All the flags are reset and a Vgascreen object is created. Everything is saved in the logic struct.
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{namespace_l_l_a201bbec5c7219ca80c90d31b0a31b482_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{namespace_l_l_a201bbec5c7219ca80c90d31b0a31b482_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_l_l_a559eb54e37dc62032e9774315c2b4638}\label{namespace_l_l_a559eb54e37dc62032e9774315c2b4638}} 
+\index{LL@{LL}!init\+\_\+\+T\+I\+M5@{init\+\_\+\+T\+I\+M5}}
+\index{init\+\_\+\+T\+I\+M5@{init\+\_\+\+T\+I\+M5}!LL@{LL}}
+\subsubsection{\texorpdfstring{init\+\_\+\+T\+I\+M5()}{init\_TIM5()}}
+{\footnotesize\ttfamily void init\+\_\+\+T\+I\+M5 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+(L\+O\+C\+AL)Initiate T\+I\+M5 for the \mbox{\hyperlink{namespace_l_l_ab30bdedb41438098df71bea7d5eb624d}{wait\+\_\+\+Ms()}} function. 
+
+Sets the T\+I\+M5 and N\+V\+IC settings for interrupts on T\+I\+M5.
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=136pt]{namespace_l_l_a559eb54e37dc62032e9774315c2b4638_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{namespace_l_l_a559eb54e37dc62032e9774315c2b4638_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_l_l_a487e020844f801061abc930461b1ff2b}\label{namespace_l_l_a487e020844f801061abc930461b1ff2b}} 
+\index{LL@{LL}!set\+\_\+\+Command@{set\+\_\+\+Command}}
+\index{set\+\_\+\+Command@{set\+\_\+\+Command}!LL@{LL}}
+\subsubsection{\texorpdfstring{set\+\_\+\+Command()}{set\_Command()}}
+{\footnotesize\ttfamily int set\+\_\+\+Command (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf }\end{DoxyParamCaption})}
+
+
+
+(G\+L\+O\+B\+AL)Sets the command struct. 
+
+Turns the input buffer into a command. It uses strtok\+\_\+r to split the input at every \char`\"{},\char`\"{}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em char} & $\ast$buf the char buffer to set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{namespace_l_l_a487e020844f801061abc930461b1ff2b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{namespace_l_l_a487e020844f801061abc930461b1ff2b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_l_l_a5e66446caf21dd90191dc07a13ce2378}\label{namespace_l_l_a5e66446caf21dd90191dc07a13ce2378}} 
+\index{LL@{LL}!T\+I\+M5\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M5\+\_\+\+I\+R\+Q\+Handler}}
+\index{T\+I\+M5\+\_\+\+I\+R\+Q\+Handler@{T\+I\+M5\+\_\+\+I\+R\+Q\+Handler}!LL@{LL}}
+\subsubsection{\texorpdfstring{T\+I\+M5\+\_\+\+I\+R\+Q\+Handler()}{TIM5\_IRQHandler()}}
+{\footnotesize\ttfamily void T\+I\+M5\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+(G\+L\+O\+B\+AL) T\+I\+M5 interrupt handler for \mbox{\hyperlink{namespace_l_l_ab30bdedb41438098df71bea7d5eb624d}{wait\+\_\+\+Ms()}}. 
+
+The T\+I\+M5\+\_\+\+I\+R\+Qh interrupts when the timer is triggered. The interrupt stops the read function of the I\+O-\/layer by calling \mbox{\hyperlink{namespace_i_o_a04c5db8c053f07761c5c09894a4bd49d}{I\+O\+::stop\+\_\+\+Read()}} to let the \mbox{\hyperlink{namespace_u_i}{UI}} call \mbox{\hyperlink{namespace_l_l_ac98bc19f4e3468b76cfc2e43456527cc}{L\+L\+::exec()}}. The waiting F\+L\+AG is also cleared. Directly calling the \mbox{\hyperlink{namespace_l_l_ac98bc19f4e3468b76cfc2e43456527cc}{L\+L\+::exec()}} function messes with the V\+GA output.
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=287pt]{namespace_l_l_a5e66446caf21dd90191dc07a13ce2378_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{namespace_l_l_a5e66446caf21dd90191dc07a13ce2378_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_l_l_ab30bdedb41438098df71bea7d5eb624d}\label{namespace_l_l_ab30bdedb41438098df71bea7d5eb624d}} 
+\index{LL@{LL}!wait\+\_\+\+Ms@{wait\+\_\+\+Ms}}
+\index{wait\+\_\+\+Ms@{wait\+\_\+\+Ms}!LL@{LL}}
+\subsubsection{\texorpdfstring{wait\+\_\+\+Ms()}{wait\_Ms()}}
+{\footnotesize\ttfamily void wait\+\_\+\+Ms (\begin{DoxyParamCaption}\item[{int}]{ms }\end{DoxyParamCaption})}
+
+
+
+(L\+O\+C\+AL)The wait function of the \mbox{\hyperlink{namespace_l_l}{LL}}. 
+
+the function enables T\+I\+M5 and sets the prescale to give an interrupt at the chosen time. The logic.\+waiting F\+L\+AG is also set, so no further commands will be executed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & ms, the time to wait \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=133pt]{namespace_l_l_ab30bdedb41438098df71bea7d5eb624d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_l_l_ab30bdedb41438098df71bea7d5eb624d_icgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespace_l_l_a4a2f81c33b1d2c746488022b4ebf7a3a}\label{namespace_l_l_a4a2f81c33b1d2c746488022b4ebf7a3a}} 
+\index{LL@{LL}!colors@{colors}}
+\index{colors@{colors}!LL@{LL}}
+\subsubsection{\texorpdfstring{colors}{colors}}
+{\footnotesize\ttfamily const char$\ast$ colors\mbox{[}\mbox{\hyperlink{group___global_ga883046b8f0d1f6368a9b9eaf5ca36af3}{C\+O\+L\+O\+RS}}\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+\{ \textcolor{stringliteral}{"zwart"}, \textcolor{stringliteral}{"blauw"}, \textcolor{stringliteral}{"lichtblauw"}, \textcolor{stringliteral}{"groen"}, \textcolor{stringliteral}{"lichtgroen"}, \textcolor{stringliteral}{"cyaan"},
+        \textcolor{stringliteral}{"lichtcyaan"}, \textcolor{stringliteral}{"rood"}, \textcolor{stringliteral}{"lichtrood"}, \textcolor{stringliteral}{"magenta"}, \textcolor{stringliteral}{"lichtmagenta"},
+        \textcolor{stringliteral}{"bruin"}, \textcolor{stringliteral}{"geel"}, \textcolor{stringliteral}{"grijs"}, \textcolor{stringliteral}{"wit"} \}
+\end{DoxyCode}
+
+
+List with all the color names. 
+
+\mbox{\Hypertarget{namespace_l_l_ac675f1a7fd8efbaf36d511424a5f24ce}\label{namespace_l_l_ac675f1a7fd8efbaf36d511424a5f24ce}} 
+\index{LL@{LL}!logic@{logic}}
+\index{logic@{logic}!LL@{LL}}
+\subsubsection{\texorpdfstring{logic}{logic}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_l_l_1_1logic__t}{logic\+\_\+t}} logic}
+
+
+
+Struct with the \mbox{\hyperlink{namespace_l_l}{LL}} variables. 
+
+\mbox{\Hypertarget{namespace_l_l_a49c70cdbac1a1c4df4224875018c75b4}\label{namespace_l_l_a49c70cdbac1a1c4df4224875018c75b4}} 
+\index{LL@{LL}!rgb@{rgb}}
+\index{rgb@{rgb}!LL@{LL}}
+\subsubsection{\texorpdfstring{rgb}{rgb}}
+{\footnotesize\ttfamily const int rgb\mbox{[}\mbox{\hyperlink{group___global_ga883046b8f0d1f6368a9b9eaf5ca36af3}{C\+O\+L\+O\+RS}}\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+=
+\{ 0x00, 0x03, 0x0F, 0x1C, 0x0E, 0x1F, 0x7F, 0xE0, 0xED, 0xE3, 0xCE, 0x64,
+        0xFC, 0x92, 0xFF \}
+\end{DoxyCode}
+
+
+List with all the color values. 
+

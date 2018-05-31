@@ -1,0 +1,34 @@
+{\bfseries Authors\+:}~\newline
+ ~~~~{\itshape  Matthijs Daggelders }~\newline
+ ~~~~{\itshape  Niek Ratering Arntz }~\newline
+\hypertarget{index_intro_sec}{}\section{Introduction}\label{index_intro_sec}
+~~~~This application runs on a S\+T\+M32\+F4-\/discovery board and drives a 320x240 pixel V\+GA screen.~\newline
+ ~~~~Different inputs can be given to the application using a U\+A\+RT connection. With the input thats~\newline
+ ~~~~given a variety of shapes, text and bitmaps can be displayed on the screen. It\textquotesingle{}s also possible~\newline
+ ~~~~to buffer the given inputs and repeat them.\hypertarget{index_usage_sec}{}\section{Usasage}\label{index_usage_sec}
+~~~~The program runs via a U\+A\+RT connection on pins P\+A2(\+Tx) and P\+A3(\+Rx) and drives a 320x240 pixel~\newline
+ ~~~~V\+GA screen.\+It uses the E\+E-\/\+A\+P\+I.\+lib to drive the V\+GA screen and the U\+A\+RT connection.~\newline
+\hypertarget{index_uart_sec}{}\subsection{U\+A\+R\+T connection}\label{index_uart_sec}
+~~~~-\/ Baud\+Rate = 115200 baud~\newline
+ ~~~~-\/ Word Length = 8 Bits~\newline
+ ~~~~-\/ One Stop Bit~\newline
+ ~~~~-\/ No parity~\newline
+ ~~~~-\/ Hardware flow control disabled (R\+TS and C\+TS signals)~\newline
+ ~~~~-\/ Receive and transmit enabled~\newline
+ ~~~~-\/ Pins P\+A2(\+Tx) and P\+A3(\+Rx)~\newline
+\hypertarget{index_input_sec}{}\subsection{possible commands}\label{index_input_sec}
+~~~~line = {\itshape \char`\"{}lijn,x,y,x2,y2,width,color\char`\"{}}~\newline
+ ~~~~ellipse = {\itshape \char`\"{}ellips,x-\/mp,y-\/mp,radius-\/x,radius-\/y,color,fill\char`\"{}}~\newline
+ ~~~~rectangle = {\itshape \char`\"{}rechthoek,x-\/lo,y-\/lo,x-\/rb,y-\/rb,color,fill\char`\"{}}~\newline
+ ~~~~traingle = {\itshape \char`\"{}driehoek,x,y,x2,2,x3,y3,color,fill\char`\"{}}~\newline
+ ~~~~text = {\itshape \char`\"{}tekst,x,y,text,fontname,color,style\char`\"{}} \mbox{[}style\+: \char`\"{}normaal\char`\"{},\char`\"{}vet\char`\"{},\char`\"{}cursief\char`\"{}\mbox{]}~\newline
+ ~~~~bitmap = {\itshape \char`\"{}bitmap,nr,x-\/lo,y-\/lo\char`\"{}} \mbox{[}nr; 0=happysmily, 1=sadsmiley, 2=arrow-\/up, 3=arrow-\/down,~\newline
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~4=arrow-\/left, 5=arrow-\/right\mbox{]}~\newline
+ ~~~~clearscreen = {\itshape \char`\"{}clearscherm,color\char`\"{}}~\newline
+ ~~~~wait = {\itshape \char`\"{}wacht,ms\char`\"{}}~\newline
+ ~~~~repeat = {\itshape \char`\"{}repeat\char`\"{}}~\newline
+
+
+$\ast$\+The idle line detection of the U\+A\+RT isn\textquotesingle{}t used so all commands should end with an carriage return.\hypertarget{index_colors}{}\subsection{possible colors}\label{index_colors}
+\hypertarget{index_desing_sec}{}\section{Design}\label{index_desing_sec}
+ 

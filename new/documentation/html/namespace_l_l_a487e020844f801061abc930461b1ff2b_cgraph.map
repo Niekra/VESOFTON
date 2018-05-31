@@ -1,0 +1,5 @@
+<map id="set_Command" name="set_Command">
+<area shape="rect" id="node2" href="$namespace_l_l.html#ac98bc19f4e3468b76cfc2e43456527cc" title="(GLOBAL)executes the last command or the command buffer. " alt="" coords="160,67,211,93"/>
+<area shape="rect" id="node3" href="$namespace_l_l.html#af61e12d8feebbbdb330c2405c305840b" title="(LOCAL)Gets 8 bit rgb value from the colors name. " alt="" coords="259,29,351,56"/>
+<area shape="rect" id="node4" href="$namespace_l_l.html#ab30bdedb41438098df71bea7d5eb624d" title="(LOCAL)The wait function of the LL. " alt="" coords="269,104,340,131"/>
+</map>

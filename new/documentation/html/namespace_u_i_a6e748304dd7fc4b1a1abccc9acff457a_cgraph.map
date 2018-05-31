@@ -1,0 +1,9 @@
+<map id="main_Loop" name="main_Loop">
+<area shape="rect" id="node2" href="$namespace_i_o.html#a1087fba97ca797e5ca155228ff9eec55" title="(Global) Read from UART. " alt="" coords="169,29,237,56"/>
+<area shape="rect" id="node3" href="$namespace_l_l.html#a487e020844f801061abc930461b1ff2b" title="(GLOBAL)Sets the command struct. " alt="" coords="139,104,267,131"/>
+<area shape="rect" id="node4" href="$namespace_l_l.html#ac98bc19f4e3468b76cfc2e43456527cc" title="(GLOBAL)executes the last command or the command buffer. " alt="" coords="315,129,387,156"/>
+<area shape="rect" id="node7" href="$namespace_u_i.html#a8434054136c327b6f652949b52753e06" title="(LOCAL)Write error. " alt="" coords="161,229,245,256"/>
+<area shape="rect" id="node5" href="$namespace_l_l.html#af61e12d8feebbbdb330c2405c305840b" title="(LOCAL)Gets 8 bit rgb value from the colors name. " alt="" coords="435,92,549,119"/>
+<area shape="rect" id="node6" href="$namespace_l_l.html#ab30bdedb41438098df71bea7d5eb624d" title="(LOCAL)The wait function of the LL. " alt="" coords="446,167,538,193"/>
+<area shape="rect" id="node8" href="$namespace_i_o.html#a20b32a5769a95ed363726431c01702e9" title="(Global) Writes back through UART. " alt="" coords="315,229,386,256"/>
+</map>

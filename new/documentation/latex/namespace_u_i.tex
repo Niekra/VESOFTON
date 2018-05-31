@@ -1,0 +1,162 @@
+\hypertarget{namespace_u_i}{}\section{UI Namespace Reference}
+\label{namespace_u_i}\index{UI@{UI}}
+
+
+Namespace \mbox{\hyperlink{namespace_u_i}{UI}}.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespace_u_i_aa043f0b62f9479eabada95f74e8370ed}{init\+\_\+\+UI}} (void)
+\begin{DoxyCompactList}\small\item\em (G\+L\+O\+B\+AL)Initiates the \mbox{\hyperlink{namespace_u_i}{UI}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_u_i_aa53468483a3cd00176f11d6a6c7afa2f}{delete\+\_\+\+UI}} (void)
+\begin{DoxyCompactList}\small\item\em (G\+L\+O\+B\+AL)Deletes the \mbox{\hyperlink{namespace_u_i}{UI}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_u_i_a6e748304dd7fc4b1a1abccc9acff457a}{main\+\_\+\+Loop}} (void)
+\begin{DoxyCompactList}\small\item\em (Global)Starts the main \mbox{\hyperlink{namespace_u_i}{UI}} loop. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_u_i_a8434054136c327b6f652949b52753e06}{write\+\_\+\+Error}} (int err)
+\begin{DoxyCompactList}\small\item\em (L\+O\+C\+AL)Write error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Namespace \mbox{\hyperlink{namespace_u_i}{UI}}. 
+
+In the namespace \mbox{\hyperlink{namespace_u_i}{UI}} are all the functions and variables concerning the User interface. The \mbox{\hyperlink{namespace_u_i}{UI}} gets the user input from the \mbox{\hyperlink{namespace_i_o}{IO}} layer and parses it to the Logic-\/layer. The \mbox{\hyperlink{namespace_l_l}{LL}} may encounter an error and return an error code. The error text is send to the \mbox{\hyperlink{namespace_i_o}{IO}} layer to be send back to the user if E\+R\+R\+OR = on. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespace_u_i_aa53468483a3cd00176f11d6a6c7afa2f}\label{namespace_u_i_aa53468483a3cd00176f11d6a6c7afa2f}} 
+\index{UI@{UI}!delete\+\_\+\+UI@{delete\+\_\+\+UI}}
+\index{delete\+\_\+\+UI@{delete\+\_\+\+UI}!UI@{UI}}
+\subsubsection{\texorpdfstring{delete\+\_\+\+U\+I()}{delete\_UI()}}
+{\footnotesize\ttfamily void delete\+\_\+\+UI (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+(G\+L\+O\+B\+AL)Deletes the \mbox{\hyperlink{namespace_u_i}{UI}}. 
+
+Deletes the U\+I-\/layer. Calls the \mbox{\hyperlink{namespace_l_l_a78899c6737310be03f8a2f05f9d7e09e}{L\+L\+::delete\+\_\+\+L\+L()}} and the \mbox{\hyperlink{namespace_i_o_a71df3822c66f8b597b92e7e906a9d61f}{I\+O\+::delete\+\_\+\+I\+O()}} functions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{namespace_u_i_aa53468483a3cd00176f11d6a6c7afa2f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=137pt]{namespace_u_i_aa53468483a3cd00176f11d6a6c7afa2f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_u_i_aa043f0b62f9479eabada95f74e8370ed}\label{namespace_u_i_aa043f0b62f9479eabada95f74e8370ed}} 
+\index{UI@{UI}!init\+\_\+\+UI@{init\+\_\+\+UI}}
+\index{init\+\_\+\+UI@{init\+\_\+\+UI}!UI@{UI}}
+\subsubsection{\texorpdfstring{init\+\_\+\+U\+I()}{init\_UI()}}
+{\footnotesize\ttfamily void init\+\_\+\+UI (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+(G\+L\+O\+B\+AL)Initiates the \mbox{\hyperlink{namespace_u_i}{UI}}. 
+
+Initializes the \mbox{\hyperlink{namespace_u_i}{UI}} and initiates the logic layer and the I\+O-\/layer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{namespace_u_i_aa043f0b62f9479eabada95f74e8370ed_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=124pt]{namespace_u_i_aa043f0b62f9479eabada95f74e8370ed_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_u_i_a6e748304dd7fc4b1a1abccc9acff457a}\label{namespace_u_i_a6e748304dd7fc4b1a1abccc9acff457a}} 
+\index{UI@{UI}!main\+\_\+\+Loop@{main\+\_\+\+Loop}}
+\index{main\+\_\+\+Loop@{main\+\_\+\+Loop}!UI@{UI}}
+\subsubsection{\texorpdfstring{main\+\_\+\+Loop()}{main\_Loop()}}
+{\footnotesize\ttfamily void main\+\_\+\+Loop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+(Global)Starts the main \mbox{\hyperlink{namespace_u_i}{UI}} loop. 
+
+Main \mbox{\hyperlink{namespace_u_i}{UI}} loop. This is where the rest of the program happens. First the \mbox{\hyperlink{namespace_i_o_a1087fba97ca797e5ca155228ff9eec55}{I\+O\+::read()}} function is called. If there’s a new user input. L\+L\+::set\+\_\+command() with the user input is called. If \mbox{\hyperlink{namespace_i_o_a1087fba97ca797e5ca155228ff9eec55}{I\+O\+::read()}} returns empty call the \mbox{\hyperlink{namespace_l_l_ac98bc19f4e3468b76cfc2e43456527cc}{L\+L\+::exec()}}. Errors from the \mbox{\hyperlink{namespace_l_l}{LL}} will be printed using the \mbox{\hyperlink{namespace_u_i_a8434054136c327b6f652949b52753e06}{U\+I\+::write\+\_\+\+Error()}} function
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_u_i_a6e748304dd7fc4b1a1abccc9acff457a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=144pt]{namespace_u_i_a6e748304dd7fc4b1a1abccc9acff457a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespace_u_i_a8434054136c327b6f652949b52753e06}\label{namespace_u_i_a8434054136c327b6f652949b52753e06}} 
+\index{UI@{UI}!write\+\_\+\+Error@{write\+\_\+\+Error}}
+\index{write\+\_\+\+Error@{write\+\_\+\+Error}!UI@{UI}}
+\subsubsection{\texorpdfstring{write\+\_\+\+Error()}{write\_Error()}}
+{\footnotesize\ttfamily void write\+\_\+\+Error (\begin{DoxyParamCaption}\item[{int}]{err }\end{DoxyParamCaption})}
+
+
+
+(L\+O\+C\+AL)Write error. 
+
+Writes the error message back to the user.
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{namespace_u_i_a8434054136c327b6f652949b52753e06_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{namespace_u_i_a8434054136c327b6f652949b52753e06_icgraph}
+\end{center}
+\end{figure}

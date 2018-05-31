@@ -1,0 +1,72 @@
+\hypertarget{struct_l_l_1_1logic__t}{}\section{logic\+\_\+t Struct Reference}
+\label{struct_l_l_1_1logic__t}\index{logic\+\_\+t@{logic\+\_\+t}}
+
+
+\mbox{\hyperlink{struct_l_l_1_1logic__t}{logic\+\_\+t}} struct for the different flags and buffer.  
+
+
+
+
+{\ttfamily \#include \char`\"{}Logic\+Layer.\+h\char`\"{}}
+
+
+
+Collaboration diagram for logic\+\_\+t\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=148pt]{struct_l_l_1_1logic__t__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+Vgascreen \mbox{\hyperlink{struct_l_l_1_1logic__t_ac344c4d62de62802f8246dc20de6c21f}{screen}}
+\item 
+volatile int \mbox{\hyperlink{struct_l_l_1_1logic__t_a4ed52bbb2709b6819f5afc2641f6e768}{waiting}}
+\item 
+volatile int \mbox{\hyperlink{struct_l_l_1_1logic__t_a4b89a73e0fa3f732d2ad4bc0982f83f1}{buffer\+Index}}
+\item 
+volatile int \mbox{\hyperlink{struct_l_l_1_1logic__t_af3833538ae97a141cd1c33f92d0de926}{buffer\+Cnt}}
+\item 
+\mbox{\hyperlink{struct_l_l_1_1command__t}{command\+\_\+t}} \mbox{\hyperlink{struct_l_l_1_1logic__t_a09663354d4cddc7fc94fce6d60c2a9a2}{buffers}} \mbox{[}\mbox{\hyperlink{group___global_ga7781bc9613ec655352585fb1bac2595d}{M\+A\+X\+\_\+\+B\+U\+F\+F\+E\+RS}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\mbox{\hyperlink{struct_l_l_1_1logic__t}{logic\+\_\+t}} struct for the different flags and buffer. 
+
+The \mbox{\hyperlink{struct_l_l_1_1logic__t}{logic\+\_\+t}} structs saves the different flags of the Logiclayer. The struct also saves the commands in a buffer. 
+
+\subsection{Field Documentation}
+\mbox{\Hypertarget{struct_l_l_1_1logic__t_af3833538ae97a141cd1c33f92d0de926}\label{struct_l_l_1_1logic__t_af3833538ae97a141cd1c33f92d0de926}} 
+\index{L\+L\+::logic\+\_\+t@{L\+L\+::logic\+\_\+t}!buffer\+Cnt@{buffer\+Cnt}}
+\index{buffer\+Cnt@{buffer\+Cnt}!L\+L\+::logic\+\_\+t@{L\+L\+::logic\+\_\+t}}
+\subsubsection{\texorpdfstring{buffer\+Cnt}{bufferCnt}}
+{\footnotesize\ttfamily volatile int buffer\+Cnt}
+
+Amount of commands buffered. \mbox{\Hypertarget{struct_l_l_1_1logic__t_a4b89a73e0fa3f732d2ad4bc0982f83f1}\label{struct_l_l_1_1logic__t_a4b89a73e0fa3f732d2ad4bc0982f83f1}} 
+\index{L\+L\+::logic\+\_\+t@{L\+L\+::logic\+\_\+t}!buffer\+Index@{buffer\+Index}}
+\index{buffer\+Index@{buffer\+Index}!L\+L\+::logic\+\_\+t@{L\+L\+::logic\+\_\+t}}
+\subsubsection{\texorpdfstring{buffer\+Index}{bufferIndex}}
+{\footnotesize\ttfamily volatile int buffer\+Index}
+
+Integer for the current command. \mbox{\Hypertarget{struct_l_l_1_1logic__t_a09663354d4cddc7fc94fce6d60c2a9a2}\label{struct_l_l_1_1logic__t_a09663354d4cddc7fc94fce6d60c2a9a2}} 
+\index{L\+L\+::logic\+\_\+t@{L\+L\+::logic\+\_\+t}!buffers@{buffers}}
+\index{buffers@{buffers}!L\+L\+::logic\+\_\+t@{L\+L\+::logic\+\_\+t}}
+\subsubsection{\texorpdfstring{buffers}{buffers}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_l_l_1_1command__t}{command\+\_\+t}} buffers\mbox{[}\mbox{\hyperlink{group___global_ga7781bc9613ec655352585fb1bac2595d}{M\+A\+X\+\_\+\+B\+U\+F\+F\+E\+RS}}\mbox{]}}
+
+Buffer for the commands. \mbox{\Hypertarget{struct_l_l_1_1logic__t_ac344c4d62de62802f8246dc20de6c21f}\label{struct_l_l_1_1logic__t_ac344c4d62de62802f8246dc20de6c21f}} 
+\index{L\+L\+::logic\+\_\+t@{L\+L\+::logic\+\_\+t}!screen@{screen}}
+\index{screen@{screen}!L\+L\+::logic\+\_\+t@{L\+L\+::logic\+\_\+t}}
+\subsubsection{\texorpdfstring{screen}{screen}}
+{\footnotesize\ttfamily Vgascreen screen}
+
+The Vgascreen object. \mbox{\Hypertarget{struct_l_l_1_1logic__t_a4ed52bbb2709b6819f5afc2641f6e768}\label{struct_l_l_1_1logic__t_a4ed52bbb2709b6819f5afc2641f6e768}} 
+\index{L\+L\+::logic\+\_\+t@{L\+L\+::logic\+\_\+t}!waiting@{waiting}}
+\index{waiting@{waiting}!L\+L\+::logic\+\_\+t@{L\+L\+::logic\+\_\+t}}
+\subsubsection{\texorpdfstring{waiting}{waiting}}
+{\footnotesize\ttfamily volatile int waiting}
+
+The waiting F\+L\+AG. 
