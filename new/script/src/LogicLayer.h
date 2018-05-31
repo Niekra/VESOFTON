@@ -80,7 +80,7 @@ namespace LL {
 #define LOW_PRIORITY 0
 
 /** @brief Amount of commando's that can be buffered. */
-#define MAX_BUFFERS 120
+#define MAX_BUFFERS 240
 
 /** @brief Maximum string length for command types and colors. */
 #define MAX_COLOR_LENGTH 15

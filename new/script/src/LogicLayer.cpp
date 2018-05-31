@@ -325,7 +325,6 @@ int set_Command(char *buf)
 		return err;
 	}else
 	{
-		;
 		return exec();
 	}
 }	//set_Command
