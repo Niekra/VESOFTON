@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;Applicatie/Libraries/UB_VGA/src/VGAlib.a&apos; to &apos;EE-API.lib&apos;" description="Rename resource &apos;VGAlib.a&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Libraries/UB_VGA/src/VGAlib.a" name="EE-API.lib" stamp="1527782330248" updateReferences="true"/>
-</session>
