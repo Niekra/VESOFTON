@@ -613,7 +613,7 @@ const unsigned char font2[96][6] =
 		{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 } };
 
 /*!
- * \brief The VGAscreen class
+ * \brief The Vgascreen class
  *
  * The VGAscreen is a class that enables the VGA screen using the UB library.
  * The different methods of class are to draw different shapes on the VGA screen.
