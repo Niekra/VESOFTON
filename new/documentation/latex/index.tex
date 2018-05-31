@@ -16,6 +16,7 @@
  ~~~~-\/ Hardware flow control disabled (R\+TS and C\+TS signals)~\newline
  ~~~~-\/ Receive and transmit enabled~\newline
  ~~~~-\/ Pins P\+A2(\+Tx) and P\+A3(\+Rx)~\newline
+ ~~~~-\/ tested throughput 10 commands/s~\newline
 \hypertarget{index_input_sec}{}\subsection{possible commands}\label{index_input_sec}
 ~~~~line = {\itshape \char`\"{}lijn,x,y,x2,y2,width,color\char`\"{}}~\newline
  ~~~~ellipse = {\itshape \char`\"{}ellips,x-\/mp,y-\/mp,radius-\/x,radius-\/y,color,fill\char`\"{}}~\newline
@@ -29,7 +30,7 @@
  ~~~~repeat = {\itshape \char`\"{}repeat\char`\"{}}~\newline
 
 
-$\ast$\+The idle line detection of the U\+A\+RT isn\textquotesingle{}t used so all commands should end with an carriage return.\hypertarget{index_colors}{}\subsection{possible colors}\label{index_colors}
+$\ast$\+The idle line detection of the U\+A\+RT isn\textquotesingle{}t used so all commands should end with an carriage return.\hypertarget{index_colors_sec}{}\subsection{possible colors}\label{index_colors_sec}
 ~~~~The application has 16 colors where the user can choose from.~\newline
  ~~~~the colors are\+:~\newline
  ~~~~black = \char`\"{}zwart\char`\"{}~\newline
@@ -44,7 +45,13 @@ $\ast$\+The idle line detection of the U\+A\+RT isn\textquotesingle{}t used so a
  ~~~~magenta = \char`\"{}magenta\char`\"{}~\newline
  ~~~~light magenta = \char`\"{}lichtmagenta\char`\"{}~\newline
  ~~~~brown = \char`\"{}bruin\char`\"{}~\newline
- ~~~~yellow =\char`\"{}geel\char`\"{}~\newline
- ~~~~gray=\char`\"{}grijs\char`\"{}~\newline
- ~~~~white=\char`\"{}wit\char`\"{}~\newline
+ ~~~~yellow = \char`\"{}geel\char`\"{}~\newline
+ ~~~~gray =\char`\"{}grijs\char`\"{}~\newline
+ ~~~~white =\char`\"{}wit\char`\"{}~\newline
+\hypertarget{index_repeat_sec}{}\subsection{Repeat function.}\label{index_repeat_sec}
+~~~~To use the repeat function the input commands need to be buffered. To achieve this the program ~\newline
+ ~~~~needs to get a wait(\char`\"{}wacht\char`\"{}) command first, the commands after the wait will be buffered. If the ~\newline
+ ~~~~last command in the buffer is \char`\"{}repeat\char`\"{} everything including the first wait will be repeated.~\newline
+~\newline
+ ~~~~{\bfseries N\+O\+TE\+:} giving the repeat command while the buffer is empty the program crashes. So make sure you have enough wait time.~\newline
  

@@ -171,7 +171,7 @@ int exec(void);
  *	Gives the TYPE_NOT_FOUND error if a wrong input is given or the command buffer is empty.
  *
  *  @param void
- *  @return int error, error CODE if a bug error appeared.
+ *  @return void
  */
 void delete_LL(void);
 
@@ -180,7 +180,7 @@ void delete_LL(void);
  *	Turns the input buffer into a command. It uses strtok_r to split the input at every ",".
  *
  *  @param char *buf the char buffer to set
- *  @return int error, error CODE if a bug error appeared.
+ *  @return void
  */
 int set_Command(char *buf);
 

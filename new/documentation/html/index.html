@@ -113,6 +113,7 @@ UART connection</h2>
  &#160;&#160;&#160;&#160;- Hardware flow control disabled (RTS and CTS signals)<br />
  &#160;&#160;&#160;&#160;- Receive and transmit enabled<br />
  &#160;&#160;&#160;&#160;- Pins PA2(Tx) and PA3(Rx)<br />
+ &#160;&#160;&#160;&#160;- tested throughput 10 commands/s<br />
 </p>
 <h2><a class="anchor" id="input_sec"></a>
 possible commands</h2>
@@ -128,7 +129,7 @@ possible commands</h2>
  &#160;&#160;&#160;&#160;repeat = <em>"repeat"</em><br />
 </p>
 <p>*The idle line detection of the UART isn't used so all commands should end with an carriage return.</p>
-<h2><a class="anchor" id="colors"></a>
+<h2><a class="anchor" id="colors_sec"></a>
 possible colors</h2>
 <p>&#160;&#160;&#160;&#160;The application has 16 colors where the user can choose from.<br />
  &#160;&#160;&#160;&#160;the colors are:<br />
@@ -144,9 +145,17 @@ possible colors</h2>
  &#160;&#160;&#160;&#160;magenta = "magenta"<br />
  &#160;&#160;&#160;&#160;light magenta = "lichtmagenta"<br />
  &#160;&#160;&#160;&#160;brown = "bruin"<br />
- &#160;&#160;&#160;&#160;yellow ="geel"<br />
- &#160;&#160;&#160;&#160;gray="grijs"<br />
- &#160;&#160;&#160;&#160;white="wit"<br />
+ &#160;&#160;&#160;&#160;yellow = "geel"<br />
+ &#160;&#160;&#160;&#160;gray ="grijs"<br />
+ &#160;&#160;&#160;&#160;white ="wit"<br />
+</p>
+<h2><a class="anchor" id="repeat_sec"></a>
+Repeat function.</h2>
+<p>&#160;&#160;&#160;&#160;To use the repeat function the input commands need to be buffered. To achieve this the program <br />
+ &#160;&#160;&#160;&#160;needs to get a wait("wacht") command first, the commands after the wait will be buffered. If the <br />
+ &#160;&#160;&#160;&#160;last command in the buffer is "repeat" everything including the first wait will be repeated.<br />
+<br />
+ &#160;&#160;&#160;&#160;<b>NOTE:</b> giving the repeat command while the buffer is empty the program crashes. So make sure you have enough wait time.<br />
  </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->

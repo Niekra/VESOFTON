@@ -29,7 +29,8 @@ var NAVTREE =
       [ "Usasage", "index.html#usage_sec", [
         [ "UART connection", "index.html#uart_sec", null ],
         [ "possible commands", "index.html#input_sec", null ],
-        [ "possible colors", "index.html#colors", null ]
+        [ "possible colors", "index.html#colors_sec", null ],
+        [ "Repeat function.", "index.html#repeat_sec", null ]
       ] ]
     ] ],
     [ "Modules", "modules.html", "modules" ],
