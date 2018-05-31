@@ -1,10 +1,9 @@
-/** @file Vgascreen.h
- *  @brief Function prototypes for drawing shapes and text on VGA screen.
+/*
+ * VGA.h
  *
- *	@author Matthijs Daggelders
- *  @author Niek Ratering Arntz
+ *  Created on: May 3, 2018
+ *      Author: M
  */
-
 #ifndef VGASCREEN_H_
 #define VGASCREEN_H_
 
@@ -613,14 +612,7 @@ const unsigned char font2[96][6] =
 		{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 } };
 
 /*!
- * \brief The VGAscreen class
- *
- * The VGAscreen is a class that enables the VGA screen using the UB library.
- * The different methods of class are to draw different shapes on the VGA screen.
- *
- * can draw: lijn, rechthoek, ellips, driehoek, tekst and bitmaps.
- * (lines, rectangles, ellipse, triangle, text and bitmaps)
- *
+ * \brief de VGA class
  */
 class Vgascreen
 {
@@ -629,126 +621,71 @@ class Vgascreen
 		int y_pos;
 
 		/*!
-		 * \brief Initiates the VGA screen.
-		 *
-		 * Calls the UB library init() function.
-		 *
-		 * \param void.
+		 * \brief teken een lijn.
+		 * \param paramter int.
 		 */
-		int init_VGA(void);
+		int init_VGA();
 
 		/*!
-		 * \brief set current position.
-		 * \param int x, x coordinate.
-		 * \param int y, y coordinate.
+		 * \brief teken een lijn.
+		 * \param paramter int.
 		 */
 		int VGA_pos(int x, int y);
 
 	public:
 		/*!
-		 * \brief Create VGAscreen object.
-		 * \param void.
+		 * \brief teken een lijn.
+		 * \param paramter int.
 		 */
-		Vgascreen(void);
+		Vgascreen();
 
 		/*!
-		 * \brief Destroy the VGAscreen object.
-		 * \param void.
+		 * \brief teken een lijn.
+		 * \param paramter int.
 		 */
-		virtual ~Vgascreen(void);
+		virtual ~Vgascreen();
 
 		/** @brief Draw line on screen
-		 *
-		 * 	Draws a line between 2 points (x1,y1,x2,y2).
-		 *
-		 *  @param int x1, the first x coordinate of the line.
-		 *  @param int y1, the first y coordinate of the line.
-		 *  @param int x2, the second x coordinate of the line.
-		 *  @param int y2, the second y coordinate of the line.
-		 *  @param int witdh, the witdh of the line.
-		 *  @param int color, 256-color value.
-		 *  @return int error
+		 *  @param int x1, int y1, int x2, int y2, int width, int color
+		 *  @return int
 		 */
 		int draw_line(int x1, int y1, int x2, int y2, int width, int color);
 
 		/** @brief Draw ellipse on screen
-		 *
-		 * Draws an ellipse on the screen using a middle point and the x and y radius
-		 *
-		 *  @param int x_mp, x coordinate of the middle point.
-		 *  @param int y_mp, x coordinate of the middle point.
-		 *  @param int x_rad, radius in the x direction.
-		 *  @param int y_rad, radius in the y direction.
-		 *  @param int color, 256-color value.
-		 *  @param int fill, fill the ellipse.
-		 *  @return int error
+		 *  @param int x_mp, int y_mp, int x_rad, int y_rad, int color, int fill
+		 *  @return int
 		 */
 		int draw_ellipse(int x_mp, int y_mp, int x_rad, int y_rad, int color, int fill);
 
 		/** @brief Draw rectangle on screen
-		 *
-		 * Draws a rectangle from the bottom left corner(x_lo,y_lo) to the top right corner (x_rb, y_rb).
-		 *
-		 *  @param int x_lo, bottom left x coordinate.
-		 *  @param int y_lo, bottom left y coordinate.
-		 *  @param int x_rb, top right x coordinate.
-		 *  @param int y_rb, top right y coordinate.
-		 *  @param int color, 256-color value.
-		 *  @param int fill, fill the rectangle.
-		 *  @return int error
+		 *  @param int x_lo, int y_lo, int x_rb, int y_rb, int color, int fill
+		 *  @return int
 		 */
 		int draw_rectangle(int x_lo, int y_lo, int x_rb, int y_rb, int color, int fill);
 
 		/** @brief Draw triangle on screen
-		 *
-		 *  Draws a triangle between 3 points ((x1,y1),(x2,y2),(x3,y3).
-		 *
-		 *  @param int x1, x coordinate of the first point.
-		 *  @param int y1, y coordinate of the first point.
-		 *  @param int x2, x coordinate of the second point.
-		 *  @param int y2, y coordinate of the second point.
-		 *  @param int x3, x coordinate of the third point.
-		 *  @param int y3, y coordinate of the third point.
-		 *  @param int color, 256-color value.
-		 *  @param int fill, fill the rectangle.
-		 *  @return int error
+		 *  @param int x1, int y1, int x2, int y2, int x3, int y3, int color, int fill
+		 *  @return int
 		 */
 		int draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3,
 				int color, int fill);
 
 		/** @brief Draw text on screen
-		 *
-		 * 	Draws the given text on the screen. there are 2 fonts ("1"/"2") and 3 styles ("norm","cursief","vet").
-		 *
-		 *  @param int x, x coordiante bottom left of the text.
-		 *  @param int y, y coordiante bottom left of the text.
-		 *  @param const char *str, Text to be displayed.
-		 *  @param int color, text color (256-color value).
-		 *  @param int style, style of the text ("norm","cursief","vet").
-		 *  @param int fontNr, select differtn fonts ("1"/"2").
-		 *  @return int error
+		 *  @param int x, int y, const char *str, int color, int style, int fontNr
+		 *  @return int
 		 */
 		int draw_text(int x, int y, const char *str, int color,
 				const char* style, int fontNr);
 
 		/** @brief Draw bitmap on screen
-		 *
-		 * 	Draws a bitmap from the bootem left coordinate.
-		 * 	bitmaps: 0=smileface, 1=sadface, 2=arrow up, 3=arrow down.
-		 *
-		 *  @param int nr, number of the bitmap to be displayed (0=smileface, 1=sadface, 2=arrow up, 3=arrow down).
-		 *  @param int x_lo, bottom left x coordinate.
-		 *  @param int y_lo, bottom left y coordinate.
-		 *  @return int error
+		 *  @param int nr, int x_lo, int y_lo
+		 *  @return int
 		 */
 		int draw_bitmap(int nr, int x_lo, int y_lo);
 
 		/** @brief Fill screen with specified color
-		 *
-		 * 	Clear the screen in a specific color.
-		 *
-		 *  @param int color, 256-color value.
-		 *  @return int error
+		 *  @param int color
+		 *  @return int
 		 */
 		int clear_screen(int color);
 

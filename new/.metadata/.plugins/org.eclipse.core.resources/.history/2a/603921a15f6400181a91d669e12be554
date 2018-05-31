@@ -45,6 +45,12 @@ namespace UART {
  *  @{
  */
 
+/** @brief Carriage return char. */
+#define CR 13 // carriage return char
+
+/** @brief Line feed char. */
+#define LF 10
+
 /** @brief TIM3 period.
  *
  * Function  = Idle line detect.

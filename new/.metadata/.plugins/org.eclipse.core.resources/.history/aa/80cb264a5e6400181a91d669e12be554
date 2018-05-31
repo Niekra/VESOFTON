@@ -1,8 +1,8 @@
-/** @file Vgascreen.cpp
- *  @brief Functions for drawing shapes and text on VGA screen.
+/*
+ * Vgascreen.cpp
  *
- *	@author Matthijs Daggelders
- *  @author Niek Ratering Arntz
+ *  Created on: May 3, 2018
+ *      Author: M
  */
 
 #include <stm32_ub_vga_screen.h>
@@ -11,18 +11,18 @@
 #include <algorithm>
 #include <string.h>
 
-Vgascreen::Vgascreen(void)
+Vgascreen::Vgascreen()
 {
 	// TODO Auto-generated constructor stub
 	init_VGA();
 }
 
-Vgascreen::~Vgascreen(void)
+Vgascreen::~Vgascreen()
 {
 	// TODO Auto-generated destructor stub
 }
 
-int Vgascreen::init_VGA(void)
+int Vgascreen::init_VGA()
 {
 	UB_VGA_Screen_Init(); // Init VGA-Screen
 	UB_VGA_FillScreen(VGA_COL_GREEN); // Set screen green.
@@ -313,7 +313,7 @@ int Vgascreen::draw_bitmap(int nr, int x_lo, int y_lo)
 			color = bitmap[count];
 			if (color < 100) // filter de witte achtergrond weg
 			{
-				UB_VGA_SetPixel(x_lo + j, y_lo -32 + i, color);
+				UB_VGA_SetPixel(x_lo + j, y_lo + i, color);
 			}
 			count++;
 		}

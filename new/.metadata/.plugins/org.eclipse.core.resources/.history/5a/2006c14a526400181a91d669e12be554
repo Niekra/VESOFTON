@@ -61,10 +61,6 @@ const int rgb[COLORS] =
  *	Loops through the color names and checks whether a name is the same.
  *	Returns the 8 bit color value from rgb[].
  *
- *	The color names are:"zwart", "blauw", "lichtblauw", "groen", "lichtgroen", "cyaan",
- *		"lichtcyaan", "rood", "lichtrood", "magenta", "lichtmagenta",
- *		"bruin", "geel", "grijs", "wit".
- *
  *  @param char *colors
  *  @return int color, the color value from 0-255.
  */
