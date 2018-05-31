@@ -39,7 +39,11 @@ var NAVTREE =
         [ "The application design with the EE-API.lib", "_design.html#design_sec", null ]
       ] ]
     ] ],
-    [ "EE-API.lib", "_e_e-_a_p_i_8lib.html", null ],
+    [ "EE-API.lib", "_e_e-_a_p_i_8lib.html", [
+      [ "EE-API.lib", "_e_e-_a_p_i_8lib.html#library_sec", [
+        [ "Vgascreen", "_e_e-_a_p_i_8lib.html#vga_sec", null ]
+      ] ]
+    ] ],
     [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],

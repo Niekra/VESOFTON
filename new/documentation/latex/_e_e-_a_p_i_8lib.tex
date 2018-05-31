@@ -1,0 +1,19 @@
+\hypertarget{_e_e-_a_p_i_8lib_library_sec}{}\section{E\+E-\/\+A\+P\+I.\+lib}\label{_e_e-_a_p_i_8lib_library_sec}
+The E\+E-\/\+A\+PI Library has 2 main functions. The first function is controlling and drawing on the V\+GA screen. This is done ~\newline
+ with the class \mbox{\hyperlink{class_vgascreen}{Vgascreen}} which uses the S\+T\+M32\+\_\+\+U\+B\+\_\+\+V\+GA library to draw the single pixels on the screen and keep the screen ~\newline
+ on (V\+GA needs constant updating). The second function is reading the \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}} input and sending messages back using \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}} to the~\newline
+ terminal.~\newline
+ ~\newline
+ \hypertarget{_e_e-_a_p_i_8lib_vga_sec}{}\subsection{Vgascreen}\label{_e_e-_a_p_i_8lib_vga_sec}
+If a \mbox{\hyperlink{class_vgascreen}{Vgascreen}} object is created it initializes the S\+T\+M32\+\_\+\+U\+B\+\_\+\+V\+GA library. After that the different draw methods can be called.~\newline
+ The different methods calculates which pixel needs to be set with the given color value and sends this to the S\+T\+M32\+\_\+\+U\+B\+\_\+\+V\+GA lib.~\newline
+ The different fonts and bitmaps are kept in the header file.~\newline
+ ~\newline
+ \hypertarget{index_uart_sec}{}\subsection{U\+A\+R\+T connection}\label{index_uart_sec}
+The \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}} can be used in 2 different modes. The first mode is pure interrupt based and needs a carriage return (CR) to know when~\newline
+ a single command of the user is done. The other mode is the idle line detection. The idle line detection works with an interrupt~\newline
+ timer that waits a bit longer then it takes to receive a byte. So when another byte is received the counter can be reset. If the~\newline
+ interrupt triggers there are no more inputs on the \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}} and the full command has been received. To enable the idle line detection~\newline
+ \mbox{\hyperlink{namespace_u_a_r_t_aae0befbeb6fc7e852f7a200e9a9f4c7c}{U\+A\+R\+T\+::init\+\_\+\+I\+D\+L\+E\+\_\+\+Line()}} needs to be called.~\newline
+ ~\newline
+ 

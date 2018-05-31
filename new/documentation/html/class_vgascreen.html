@@ -86,7 +86,9 @@ $(document).ready(function(){initNavTree('class_vgascreen.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">Vgascreen Class Reference</div>  </div>
 </div><!--header-->
@@ -126,6 +128,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5420000fe45606af438d6de37cb59fa4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vgascreen.html#a5420000fe45606af438d6de37cb59fa4">clear_screen</a> (int color)</td></tr>
 <tr class="memdesc:a5420000fe45606af438d6de37cb59fa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill screen with specified color.  <a href="#a5420000fe45606af438d6de37cb59fa4">More...</a><br /></td></tr>
 <tr class="separator:a5420000fe45606af438d6de37cb59fa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a8240f97328e1e32fdec08a113c927e4f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vgascreen.html#a8240f97328e1e32fdec08a113c927e4f">init_VGA</a> (void)</td></tr>
+<tr class="memdesc:a8240f97328e1e32fdec08a113c927e4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiates the VGA screen.  <a href="#a8240f97328e1e32fdec08a113c927e4f">More...</a><br /></td></tr>
+<tr class="separator:a8240f97328e1e32fdec08a113c927e4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e52b131d405cf11ad6aed9b993ed138"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vgascreen.html#a4e52b131d405cf11ad6aed9b993ed138">VGA_pos</a> (int x, int y)</td></tr>
+<tr class="memdesc:a4e52b131d405cf11ad6aed9b993ed138"><td class="mdescLeft">&#160;</td><td class="mdescRight">set current position.  <a href="#a4e52b131d405cf11ad6aed9b993ed138">More...</a><br /></td></tr>
+<tr class="separator:a4e52b131d405cf11ad6aed9b993ed138"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:af1617c91937fbd9d9d670940427d9b44"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vgascreen.html#af1617c91937fbd9d9d670940427d9b44">x_pos</a></td></tr>
+<tr class="separator:af1617c91937fbd9d9d670940427d9b44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a375120430014d7e06dcc37d9ca4fcdb8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vgascreen.html#a375120430014d7e06dcc37d9ca4fcdb8">y_pos</a></td></tr>
+<tr class="separator:a375120430014d7e06dcc37d9ca4fcdb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="class_vgascreen.html" title="The Vgascreen class. ">Vgascreen</a> class. </p>
@@ -155,6 +173,14 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_vgascreen_ad5914fac8c1af8491b92dfe780490191_cgraph.png" border="0" usemap="#class_vgascreen_ad5914fac8c1af8491b92dfe780490191_cgraph" alt=""/></div>
+<map name="class_vgascreen_ad5914fac8c1af8491b92dfe780490191_cgraph" id="class_vgascreen_ad5914fac8c1af8491b92dfe780490191_cgraph">
+<area shape="rect" id="node2" href="class_vgascreen.html#a8240f97328e1e32fdec08a113c927e4f" title="Initiates the VGA screen. " alt="" coords="137,5,212,32"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -710,6 +736,139 @@ Here is the caller graph for this function:</div>
 <area shape="rect" id="node4" href="namespace_u_i.html#a6e748304dd7fc4b1a1abccc9acff457a" title="(Global)Starts the main UI loop. " alt="" coords="448,55,553,81"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="a8240f97328e1e32fdec08a113c927e4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8240f97328e1e32fdec08a113c927e4f">&#9670;&nbsp;</a></span>init_VGA()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int init_VGA </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initiates the VGA screen. </p>
+<p>Calls the UB library init() function.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void.</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_vgascreen_a8240f97328e1e32fdec08a113c927e4f_icgraph.png" border="0" usemap="#class_vgascreen_a8240f97328e1e32fdec08a113c927e4f_icgraph" alt=""/></div>
+<map name="class_vgascreen_a8240f97328e1e32fdec08a113c927e4f_icgraph" id="class_vgascreen_a8240f97328e1e32fdec08a113c927e4f_icgraph">
+<area shape="rect" id="node2" href="class_vgascreen.html#ad5914fac8c1af8491b92dfe780490191" title="Create VGAscreen object. " alt="" coords="128,5,212,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4e52b131d405cf11ad6aed9b993ed138"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e52b131d405cf11ad6aed9b993ed138">&#9670;&nbsp;</a></span>VGA_pos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int VGA_pos </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>set current position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>x, x coordinate. </td></tr>
+    <tr><td class="paramname">int</td><td>y, y coordinate. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Field Documentation</h2>
+<a id="af1617c91937fbd9d9d670940427d9b44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1617c91937fbd9d9d670940427d9b44">&#9670;&nbsp;</a></span>x_pos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int x_pos</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a375120430014d7e06dcc37d9ca4fcdb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a375120430014d7e06dcc37d9ca4fcdb8">&#9670;&nbsp;</a></span>y_pos</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int y_pos</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

@@ -85,7 +85,31 @@ $(document).ready(function(){initNavTree('_e_e-_a_p_i_8lib.html','');});
 </div>
 
 <div class="contents">
-<div class="textblock"></div></div><!-- contents -->
+<div class="textblock"><h1><a class="anchor" id="library_sec"></a>
+EE-API.lib</h1>
+<p>The EE-API Library has 2 main functions. The first function is controlling and drawing on the VGA screen. This is done <br />
+ with the class <a class="el" href="class_vgascreen.html" title="The Vgascreen class. ">Vgascreen</a> which uses the STM32_UB_VGA library to draw the single pixels on the screen and keep the screen <br />
+ on (VGA needs constant updating). The second function is reading the <a class="el" href="namespace_u_a_r_t.html" title="namespace UART ">UART</a> input and sending messages back using <a class="el" href="namespace_u_a_r_t.html" title="namespace UART ">UART</a> to the<br />
+ terminal.<br />
+ <br />
+ </p>
+<h2><a class="anchor" id="vga_sec"></a>
+Vgascreen</h2>
+<p>If a <a class="el" href="class_vgascreen.html" title="The Vgascreen class. ">Vgascreen</a> object is created it initializes the STM32_UB_VGA library. After that the different draw methods can be called.<br />
+ The different methods calculates which pixel needs to be set with the given color value and sends this to the STM32_UB_VGA lib.<br />
+ The different fonts and bitmaps are kept in the header file.<br />
+ <br />
+ </p>
+<h2><a class="anchor" id="uart_sec"></a>
+UART connection</h2>
+<p>The <a class="el" href="namespace_u_a_r_t.html" title="namespace UART ">UART</a> can be used in 2 different modes. The first mode is pure interrupt based and needs a carriage return (CR) to know when<br />
+ a single command of the user is done. The other mode is the idle line detection. The idle line detection works with an interrupt<br />
+ timer that waits a bit longer then it takes to receive a byte. So when another byte is received the counter can be reset. If the<br />
+ interrupt triggers there are no more inputs on the <a class="el" href="namespace_u_a_r_t.html" title="namespace UART ">UART</a> and the full command has been received. To enable the idle line detection<br />
+ <a class="el" href="namespace_u_a_r_t.html#aae0befbeb6fc7e852f7a200e9a9f4c7c" title="(GLOBAL) Initiate the idle line detection for USART2. ">UART::init_IDLE_Line()</a> needs to be called.<br />
+ <br />
+ </p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

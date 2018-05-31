@@ -30,6 +30,20 @@ int \mbox{\hyperlink{class_vgascreen_ad523b2dd47a6f2adde2d40cf1d809f27}{draw\+\_
 \begin{DoxyCompactList}\small\item\em Draw bitmap on screen. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_vgascreen_a5420000fe45606af438d6de37cb59fa4}{clear\+\_\+screen}} (int color)
 \begin{DoxyCompactList}\small\item\em Fill screen with specified color. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_vgascreen_a8240f97328e1e32fdec08a113c927e4f}{init\+\_\+\+V\+GA}} (void)
+\begin{DoxyCompactList}\small\item\em Initiates the V\+GA screen. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_vgascreen_a4e52b131d405cf11ad6aed9b993ed138}{V\+G\+A\+\_\+pos}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em set current position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_vgascreen_af1617c91937fbd9d9d670940427d9b44}{x\+\_\+pos}}
+\item 
+int \mbox{\hyperlink{class_vgascreen_a375120430014d7e06dcc37d9ca4fcdb8}{y\+\_\+pos}}
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -55,6 +69,14 @@ Create V\+G\+Ascreen object.
 {\em void.} & \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{class_vgascreen_ad5914fac8c1af8491b92dfe780490191_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{class_vgascreen_aac39d059f15042b0d763c6a173540552}\label{class_vgascreen_aac39d059f15042b0d763c6a173540552}} 
 \index{Vgascreen@{Vgascreen}!````~Vgascreen@{$\sim$\+Vgascreen}}
 \index{````~Vgascreen@{$\sim$\+Vgascreen}!Vgascreen@{Vgascreen}}
@@ -70,7 +92,8 @@ Destroy the V\+G\+Ascreen object.
 {\em void.} & \\
 \hline
 \end{DoxyParams}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -100,7 +123,8 @@ Clear the screen in a specific color.
 \begin{DoxyReturn}{Returns}
 int error 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -131,7 +155,8 @@ Draws a bitmap from the bootem left coordinate. bitmaps\+: 0=smileface, 1=sadfac
 \begin{DoxyReturn}{Returns}
 int error 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -168,7 +193,8 @@ Draws an ellipse on the screen using a middle point and the x and y radius
 \begin{DoxyReturn}{Returns}
 int error 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -205,7 +231,8 @@ Draws a line between 2 points (x1,y1,x2,y2).
 \begin{DoxyReturn}{Returns}
 int error 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -242,14 +269,16 @@ Draws a rectangle from the bottom left corner(x\+\_\+lo,y\+\_\+lo) to the top ri
 \begin{DoxyReturn}{Returns}
 int error 
 \end{DoxyReturn}
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=255pt]{class_vgascreen_a27d717ae66ae00c3e8a88591b98b248c_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -286,7 +315,8 @@ Draws the given text on the screen. there are 2 fonts (\char`\"{}1\char`\"{}/\ch
 \begin{DoxyReturn}{Returns}
 int error 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -327,17 +357,76 @@ Draws a triangle between 3 points ((x1,y1),(x2,y2),(x3,y3).
 \begin{DoxyReturn}{Returns}
 int error 
 \end{DoxyReturn}
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=247pt]{class_vgascreen_ae7d7e2b13c8aee3181ebe96d1547663f_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_vgascreen_ae7d7e2b13c8aee3181ebe96d1547663f_icgraph}
 \end{center}
 \end{figure}
+\mbox{\Hypertarget{class_vgascreen_a8240f97328e1e32fdec08a113c927e4f}\label{class_vgascreen_a8240f97328e1e32fdec08a113c927e4f}} 
+\index{Vgascreen@{Vgascreen}!init\+\_\+\+V\+GA@{init\+\_\+\+V\+GA}}
+\index{init\+\_\+\+V\+GA@{init\+\_\+\+V\+GA}!Vgascreen@{Vgascreen}}
+\subsubsection{\texorpdfstring{init\+\_\+\+V\+G\+A()}{init\_VGA()}}
+{\footnotesize\ttfamily int init\+\_\+\+V\+GA (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initiates the V\+GA screen. 
+
+Calls the UB library init() function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em void.} & \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{class_vgascreen_a8240f97328e1e32fdec08a113c927e4f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_vgascreen_a4e52b131d405cf11ad6aed9b993ed138}\label{class_vgascreen_a4e52b131d405cf11ad6aed9b993ed138}} 
+\index{Vgascreen@{Vgascreen}!V\+G\+A\+\_\+pos@{V\+G\+A\+\_\+pos}}
+\index{V\+G\+A\+\_\+pos@{V\+G\+A\+\_\+pos}!Vgascreen@{Vgascreen}}
+\subsubsection{\texorpdfstring{V\+G\+A\+\_\+pos()}{VGA\_pos()}}
+{\footnotesize\ttfamily int V\+G\+A\+\_\+pos (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+set current position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & x, x coordinate. \\
+\hline
+{\em int} & y, y coordinate. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Field Documentation}
+\mbox{\Hypertarget{class_vgascreen_af1617c91937fbd9d9d670940427d9b44}\label{class_vgascreen_af1617c91937fbd9d9d670940427d9b44}} 
+\index{Vgascreen@{Vgascreen}!x\+\_\+pos@{x\+\_\+pos}}
+\index{x\+\_\+pos@{x\+\_\+pos}!Vgascreen@{Vgascreen}}
+\subsubsection{\texorpdfstring{x\+\_\+pos}{x\_pos}}
+{\footnotesize\ttfamily int x\+\_\+pos\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_vgascreen_a375120430014d7e06dcc37d9ca4fcdb8}\label{class_vgascreen_a375120430014d7e06dcc37d9ca4fcdb8}} 
+\index{Vgascreen@{Vgascreen}!y\+\_\+pos@{y\+\_\+pos}}
+\index{y\+\_\+pos@{y\+\_\+pos}!Vgascreen@{Vgascreen}}
+\subsubsection{\texorpdfstring{y\+\_\+pos}{y\_pos}}
+{\footnotesize\ttfamily int y\+\_\+pos\hspace{0.3cm}{\ttfamily [private]}}
+

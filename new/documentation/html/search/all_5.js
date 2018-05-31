@@ -12,6 +12,7 @@ var searchData=
   ['init_5fuart2',['init_UART2',['../namespace_u_a_r_t.html#ab8b1cbca4aa5321487c7f78df50efdc6',1,'UART']]],
   ['init_5fui',['init_UI',['../namespace_u_i.html#aa043f0b62f9479eabada95f74e8370ed',1,'UI']]],
   ['init_5fusart',['init_USART',['../namespace_u_a_r_t.html#aaa88a606dc9d9361e67a256ed1f21a83',1,'UART']]],
+  ['init_5fvga',['init_VGA',['../class_vgascreen.html#a8240f97328e1e32fdec08a113c927e4f',1,'Vgascreen']]],
   ['input1',['input1',['../struct_l_l_1_1command__t.html#adde4065396e31487528868110c952672',1,'LL::command_t']]],
   ['input2',['input2',['../struct_l_l_1_1command__t.html#acfad2cb4ebf4d78e6bcb762a4e802e0c',1,'LL::command_t']]],
   ['input3',['input3',['../struct_l_l_1_1command__t.html#a0d3262af18e36d5f86a8871515a3403a',1,'LL::command_t']]],
