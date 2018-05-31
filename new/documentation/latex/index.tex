@@ -9,12 +9,13 @@
 
 
 ~~~~The application is designed to the 3-\/layer model. Here u can find the \mbox{\hyperlink{_design}{Design}}.~\newline
- ~~~~Link to the 3-\/layers\+: \mbox{\hyperlink{namespace_i_o}{IO}}, \mbox{\hyperlink{namespace_u_i}{UI}} and \mbox{\hyperlink{namespace_l_l}{LL}} and the used E\+E-\/\+A\+P\+I.\+lib~\newline
+ ~~~~Link to the 3-\/layers\+: \mbox{\hyperlink{namespace_i_o}{IO}}, \mbox{\hyperlink{namespace_u_i}{UI}} and \mbox{\hyperlink{namespace_l_l}{LL}} and the used {\bfseries \href{_e_e-_a_p_i_8lib.html}{\tt E\+E-\/\+A\+P\+I.\+lib}}~\newline
 \hypertarget{index_usage_sec}{}\section{Usasage}\label{index_usage_sec}
 ~~~~The program runs via a \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}} connection on pins P\+A2(\+Tx) and P\+A3(\+Rx) and drives a 320x240 pixel~\newline
- ~~~~V\+GA screen. It uses the \mbox{\hyperlink{class_vgascreen}{Vgascreen}} class of the E\+E-\/\+A\+P\+I.\+lib to drive the V\+GA screen and the \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}}~\newline
+ ~~~~V\+GA screen. It uses the \mbox{\hyperlink{class_vgascreen}{Vgascreen}} class of the {\bfseries \href{_e_e-_a_p_i_8lib.html}{\tt E\+E-\/\+A\+P\+I.\+lib}} to drive the V\+GA screen and the \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}}~\newline
  ~~~~namespace for the \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}} connection.~\newline
-\hypertarget{index_uart_sec}{}\subsection{U\+A\+R\+T connection}\label{index_uart_sec}
+ ~\newline
+ ~~~~Uses\+: T\+I\+M1, T\+I\+M2, T\+I\+M3, T\+I\+M5, U\+S\+A\+R\+T2, G\+P\+IO P\+A2+\+P\+A3, D\+M\+A2 channel6 stream4\hypertarget{index_uart_sec}{}\subsection{U\+A\+R\+T connection}\label{index_uart_sec}
 ~~~~-\/ Baud\+Rate = 115200 baud~\newline
  ~~~~-\/ Word Length = 8 Bits~\newline
  ~~~~-\/ One Stop Bit~\newline
@@ -35,7 +36,9 @@
  ~~~~repeat = {\itshape \char`\"{}repeat\char`\"{}}~\newline
 
 
-$\ast$\+The idle line detection of the \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}} isn\textquotesingle{}t used so all commands should end with an carriage return.\hypertarget{index_colors}{}\subsection{possible colors}\label{index_colors}
+The idle line detection of the \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}} isn\textquotesingle{}t used so all commands should end with an carriage return.~\newline
+ {\bfseries {\itshape N\+O\+TE\+: bug}} If the repeat command is send when the buffer is empty the program crashes.~\newline
+\hypertarget{index_colors}{}\subsection{possible colors}\label{index_colors}
 ~~~~The application has 16 colors where the user can choose from.~\newline
  ~~~~the colors are\+:~\newline
  ~~~~black = \char`\"{}zwart\char`\"{}~\newline

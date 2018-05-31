@@ -33,9 +33,13 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Design", "_design.html", [
-      [ "3-Layer model", "_design.html#model_sec", null ],
-      [ "Design", "_design.html#design_sec", null ]
+      [ "3-Layer model", "_design.html#model_sec", [
+        [ "How it works", "_design.html#howitworks_sec", null ],
+        [ "3-layer seperation", "_design.html#speration_sec", null ],
+        [ "The application design with the EE-API.lib", "_design.html#design_sec", null ]
+      ] ]
     ] ],
+    [ "EE-API.lib", "_e_e-_a_p_i_8lib.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],

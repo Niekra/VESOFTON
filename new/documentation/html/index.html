@@ -101,14 +101,15 @@ Introduction</h1>
  &#160;&#160;&#160;&#160;to buffer the given inputs and repeat them.<br />
 </p>
 <p>&#160;&#160;&#160;&#160;The application is designed to the 3-layer model. Here u can find the <a class="el" href="_design.html">Design</a>.<br />
- &#160;&#160;&#160;&#160;Link to the 3-layers: <a class="el" href="namespace_i_o.html">IO</a>, <a class="el" href="namespace_u_i.html">UI</a> and <a class="el" href="namespace_l_l.html">LL</a> and the used EE-API.lib<br />
+ &#160;&#160;&#160;&#160;Link to the 3-layers: <a class="el" href="namespace_i_o.html">IO</a>, <a class="el" href="namespace_u_i.html">UI</a> and <a class="el" href="namespace_l_l.html">LL</a> and the used <b><a href="_e_e-_a_p_i_8lib.html">EE-API.lib</a></b><br />
 </p>
 <h1><a class="anchor" id="usage_sec"></a>
 Usasage</h1>
 <p>&#160;&#160;&#160;&#160;The program runs via a <a class="el" href="namespace_u_a_r_t.html" title="namespace UART ">UART</a> connection on pins PA2(Tx) and PA3(Rx) and drives a 320x240 pixel<br />
- &#160;&#160;&#160;&#160;VGA screen. It uses the <a class="el" href="class_vgascreen.html" title="The Vgascreen class. ">Vgascreen</a> class of the EE-API.lib to drive the VGA screen and the <a class="el" href="namespace_u_a_r_t.html" title="namespace UART ">UART</a><br />
+ &#160;&#160;&#160;&#160;VGA screen. It uses the <a class="el" href="class_vgascreen.html" title="The Vgascreen class. ">Vgascreen</a> class of the <b><a href="_e_e-_a_p_i_8lib.html">EE-API.lib</a></b> to drive the VGA screen and the <a class="el" href="namespace_u_a_r_t.html" title="namespace UART ">UART</a><br />
  &#160;&#160;&#160;&#160;namespace for the <a class="el" href="namespace_u_a_r_t.html" title="namespace UART ">UART</a> connection.<br />
-</p>
+ <br />
+ &#160;&#160;&#160;&#160;Uses: TIM1, TIM2, TIM3, TIM5, USART2, GPIO PA2+PA3, DMA2 channel6 stream4</p>
 <h2><a class="anchor" id="uart_sec"></a>
 UART connection</h2>
 <p>&#160;&#160;&#160;&#160;- BaudRate = 115200 baud<br />
@@ -132,7 +133,9 @@ possible commands</h2>
  &#160;&#160;&#160;&#160;wait = <em>"wacht,ms"</em><br />
  &#160;&#160;&#160;&#160;repeat = <em>"repeat"</em><br />
 </p>
-<p>*The idle line detection of the <a class="el" href="namespace_u_a_r_t.html" title="namespace UART ">UART</a> isn't used so all commands should end with an carriage return.</p>
+<p>The idle line detection of the <a class="el" href="namespace_u_a_r_t.html" title="namespace UART ">UART</a> isn't used so all commands should end with an carriage return.<br />
+ <b><em>NOTE: bug</em></b> If the repeat command is send when the buffer is empty the program crashes.<br />
+</p>
 <h2><a class="anchor" id="colors"></a>
 possible colors</h2>
 <p>&#160;&#160;&#160;&#160;The application has 16 colors where the user can choose from.<br />

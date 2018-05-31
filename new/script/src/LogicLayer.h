@@ -12,20 +12,7 @@
 
 #ifndef LOGICLAYER_H_
 #define LOGICLAYER_H_
-
-//--------------------------------------------------------------
-// Includes
-//--------------------------------------------------------------
 #include <Vgascreen.h>
-#include<InputOutput.h>
-#include "stm32f4xx.h"
-#include <stdio.h>
-#include<stdlib.h>
-#include <string.h>
-#include "stm32f4xx_rcc.h"
-#include "stm32f4xx_tim.h"
-#include "stm32f4xx_gpio.h"
-#include<InputOutput.h>
 
 //--------------------------------------------------------------
 // Namespace LL

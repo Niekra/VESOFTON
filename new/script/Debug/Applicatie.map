@@ -2859,7 +2859,7 @@ LOAD c:/program files (x86)/atollic/truestudio for stm32 9.0.1/armtools/bin/../l
                 0x00000759       0x1e c:/program files (x86)/atollic/truestudio for stm32 9.0.1/armtools/bin/../lib/gcc/arm-atollic-eabi/6.3.1/armv7e-m/crtn.o
 OUTPUT(Applicatie.elf elf32-littlearm)
 
-.debug_line     0x00000000     0x533c
+.debug_line     0x00000000     0x511e
  .debug_line    0x00000000       0x8a Libraries\CMSIS\src\startup_stm32f40xx.o
  .debug_line    0x0000008a      0x237 Libraries\CMSIS\src\stm32f4xx_it.o
  .debug_line    0x000002c1      0x229 Libraries\CMSIS\src\system_stm32f4xx.o
@@ -2874,13 +2874,13 @@ OUTPUT(Applicatie.elf elf32-littlearm)
  .debug_line    0x00002c5f      0x70f Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o
  .debug_line    0x0000336e      0x2a3 src\InputOutput.o
  .debug_line    0x00003611      0x602 src\LogicLayer.o
- .debug_line    0x00003c13      0x466 src\Userinterface.o
- .debug_line    0x00004079      0x1c8 src\main.o
- .debug_line    0x00004241      0x483 ..\Libraries\UB_VGA\src\VGAlib.a(Uart.o)
- .debug_line    0x000046c4      0x8d1 ..\Libraries\UB_VGA\src\VGAlib.a(Vgascreen.o)
- .debug_line    0x00004f95      0x3a7 ..\Libraries\UB_VGA\src\VGAlib.a(stm32_ub_vga_screen.o)
+ .debug_line    0x00003c13      0x248 src\Userinterface.o
+ .debug_line    0x00003e5b      0x1c8 src\main.o
+ .debug_line    0x00004023      0x483 ..\Libraries\UB_VGA\src\VGAlib.a(Uart.o)
+ .debug_line    0x000044a6      0x8d1 ..\Libraries\UB_VGA\src\VGAlib.a(Vgascreen.o)
+ .debug_line    0x00004d77      0x3a7 ..\Libraries\UB_VGA\src\VGAlib.a(stm32_ub_vga_screen.o)
 
-.debug_info     0x00000000     0xddd7
+.debug_info     0x00000000     0xd165
  .debug_info    0x00000000       0x7e Libraries\CMSIS\src\startup_stm32f40xx.o
  .debug_info    0x0000007e      0x154 Libraries\CMSIS\src\stm32f4xx_it.o
  .debug_info    0x000001d2      0x5dd Libraries\CMSIS\src\system_stm32f4xx.o
@@ -2895,13 +2895,13 @@ OUTPUT(Applicatie.elf elf32-littlearm)
  .debug_info    0x00005ebf     0x10a5 Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o
  .debug_info    0x00006f64      0x9a2 src\InputOutput.o
  .debug_info    0x00007906     0x1958 src\LogicLayer.o
- .debug_info    0x0000925e      0xf3e src\Userinterface.o
- .debug_info    0x0000a19c      0x13a src\main.o
- .debug_info    0x0000a2d6     0x13f5 ..\Libraries\UB_VGA\src\VGAlib.a(Uart.o)
- .debug_info    0x0000b6cb     0x1c28 ..\Libraries\UB_VGA\src\VGAlib.a(Vgascreen.o)
- .debug_info    0x0000d2f3      0xae4 ..\Libraries\UB_VGA\src\VGAlib.a(stm32_ub_vga_screen.o)
+ .debug_info    0x0000925e      0x2cc src\Userinterface.o
+ .debug_info    0x0000952a      0x13a src\main.o
+ .debug_info    0x00009664     0x13f5 ..\Libraries\UB_VGA\src\VGAlib.a(Uart.o)
+ .debug_info    0x0000aa59     0x1c28 ..\Libraries\UB_VGA\src\VGAlib.a(Vgascreen.o)
+ .debug_info    0x0000c681      0xae4 ..\Libraries\UB_VGA\src\VGAlib.a(stm32_ub_vga_screen.o)
 
-.debug_abbrev   0x00000000     0x258e
+.debug_abbrev   0x00000000     0x2430
  .debug_abbrev  0x00000000       0x12 Libraries\CMSIS\src\startup_stm32f40xx.o
  .debug_abbrev  0x00000012       0x78 Libraries\CMSIS\src\stm32f4xx_it.o
  .debug_abbrev  0x0000008a      0x158 Libraries\CMSIS\src\system_stm32f4xx.o
@@ -2916,11 +2916,11 @@ OUTPUT(Applicatie.elf elf32-littlearm)
  .debug_abbrev  0x00000e93      0x276 Utilities\STM32F4-Discovery\stm32f4_discovery_audio_codec.o
  .debug_abbrev  0x00001109      0x206 src\InputOutput.o
  .debug_abbrev  0x0000130f      0x4c0 src\LogicLayer.o
- .debug_abbrev  0x000017cf      0x2c5 src\Userinterface.o
- .debug_abbrev  0x00001a94       0xcd src\main.o
- .debug_abbrev  0x00001b61      0x300 ..\Libraries\UB_VGA\src\VGAlib.a(Uart.o)
- .debug_abbrev  0x00001e61      0x532 ..\Libraries\UB_VGA\src\VGAlib.a(Vgascreen.o)
- .debug_abbrev  0x00002393      0x1fb ..\Libraries\UB_VGA\src\VGAlib.a(stm32_ub_vga_screen.o)
+ .debug_abbrev  0x000017cf      0x167 src\Userinterface.o
+ .debug_abbrev  0x00001936       0xcd src\main.o
+ .debug_abbrev  0x00001a03      0x300 ..\Libraries\UB_VGA\src\VGAlib.a(Uart.o)
+ .debug_abbrev  0x00001d03      0x532 ..\Libraries\UB_VGA\src\VGAlib.a(Vgascreen.o)
+ .debug_abbrev  0x00002235      0x1fb ..\Libraries\UB_VGA\src\VGAlib.a(stm32_ub_vga_screen.o)
 
 .debug_aranges  0x00000000      0xcf8
  .debug_aranges
@@ -3011,7 +3011,7 @@ OUTPUT(Applicatie.elf elf32-littlearm)
  .debug_str     0x00003680      0x408 src\LogicLayer.o
                                0x1186 (size before relaxing)
  .debug_str     0x00003a88       0x97 src\Userinterface.o
-                                0x7f5 (size before relaxing)
+                                0x2d8 (size before relaxing)
  .debug_str     0x00003b1f       0x57 src\main.o
                                 0x250 (size before relaxing)
  .debug_str     0x00003b76      0x24f ..\Libraries\UB_VGA\src\VGAlib.a(Uart.o)

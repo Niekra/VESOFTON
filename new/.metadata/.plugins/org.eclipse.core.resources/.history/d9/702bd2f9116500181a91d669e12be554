@@ -1,0 +1,66 @@
+/*! \mainpage About
+ *
+ *	<b>Authors:</b><BR/>
+ *  &nbsp;&nbsp;&nbsp;&nbsp;<i> Matthijs Daggelders </i><BR/>
+ *  &nbsp;&nbsp;&nbsp;&nbsp;<i> Niek Ratering Arntz </i><BR/>
+ *	
+ * \section intro_sec Introduction
+ * &nbsp;&nbsp;&nbsp;&nbsp;This application runs on a STM32F4-discovery board and drives a 320x240 pixel VGA screen.<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;Different inputs can be given to the application using a UART connection. With the input thats<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;given a variety of shapes, text and bitmaps can be displayed on the screen. It's also possible<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;to buffer the given inputs and repeat them.<br>
+ *
+ * &nbsp;&nbsp;&nbsp;&nbsp;The application is designed to the 3-layer model. Here u can find the \ref Design.<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;Link to the 3-layers: \ref IO, \ref UI and \ref LL and the used <b><a href="_e_e-_a_p_i_8lib.html">EE-API.lib</a></b><br>
+ *
+ * \section usage_sec Usasage
+ * &nbsp;&nbsp;&nbsp;&nbsp;The program runs via a UART connection on pins PA2(Tx) and PA3(Rx) and drives a 320x240 pixel<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;VGA screen. It uses the Vgascreen class of the <b><a href="_e_e-_a_p_i_8lib.html">EE-API.lib</a></b> to drive the VGA screen and the UART<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;namespace for the UART connection.<br>
+ * <br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;Uses: TIM1, TIM2, TIM3, TIM5, USART2, GPIO PA2+PA3, DMA2 channel6 stream4
+ *
+ * \subsection uart_sec UART connection
+ * &nbsp;&nbsp;&nbsp;&nbsp;- BaudRate = 115200 baud<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;- Word Length = 8 Bits<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;- One Stop Bit<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;- No parity<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;- Hardware flow control disabled (RTS and CTS signals)<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;- Receive and transmit enabled<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;- Pins PA2(Tx) and PA3(Rx)<br>
+ * 
+ * \subsection input_sec possible commands
+ * &nbsp;&nbsp;&nbsp;&nbsp;line = <i>"lijn,x,y,x2,y2,width,color"</i><br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;ellipse = <i>"ellips,x-mp,y-mp,radius-x,radius-y,color,fill"</i><br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;rectangle = <i>"rechthoek,x-lo,y-lo,x-rb,y-rb,color,fill"</i><br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;traingle = <i>"driehoek,x,y,x2,2,x3,y3,color,fill"</i><br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;text = <i>"tekst,x,y,text,fontname,color,style"</i>  [style: "normaal","vet","cursief"]<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;bitmap = <i>"bitmap,nr,x-lo,y-lo"</i>  [nr; 0=happysmily, 1=sadsmiley, 2=arrow-up, 3=arrow-down,<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4=arrow-left, 5=arrow-right]<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;clearscreen = <i>"clearscherm,color"</i><br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;wait = <i>"wacht,ms"</i><br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;repeat = <i>"repeat"</i><br>
+ *
+ * The idle line detection of the UART isn't used so all commands should end with an carriage return.<br>
+ * <b><i>NOTE: bug</i><b/> If the repeat command is send when the buffer is emppty the program crashes.<br>
+ *
+ * \subsection colors possible colors
+ * &nbsp;&nbsp;&nbsp;&nbsp;The application has 16 colors where the user can choose from.<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;the colors are:<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;black = "zwart"<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;blue = "blauw"<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;light blue = "lichtblauw"<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;green = "groen"<br> 
+ * &nbsp;&nbsp;&nbsp;&nbsp;lightgreen = "lichtgroen"<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;cyan = "cyaan"<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;light cyan = "lichtcyaan"<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;red = "rood"<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;light red = "lichtrood"<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;magenta = "magenta"<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;light magenta = "lichtmagenta"<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;brown = "bruin"<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;yellow = "geel"<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;gray ="grijs"<br> 
+ * &nbsp;&nbsp;&nbsp;&nbsp;white ="wit"<br>
+ *
+ */

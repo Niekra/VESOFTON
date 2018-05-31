@@ -1,2 +1,35 @@
 \hypertarget{_design_model_sec}{}\section{3-\/\+Layer model}\label{_design_model_sec}
-\hypertarget{_design_design_sec}{}\section{Design}\label{_design_design_sec}
+\hypertarget{_design_howitworks_sec}{}\subsection{How it works}\label{_design_howitworks_sec}
+The 3 layers of the design are the Input/\+Output-\/layer (\mbox{\hyperlink{namespace_i_o}{IO}}), User Interface (\mbox{\hyperlink{namespace_u_i}{UI}}) and de Logic-\/layer (\mbox{\hyperlink{namespace_l_l}{LL}}). The program~\newline
+ uses the {\bfseries \href{_e_e-_a_p_i_8lib.html}{\tt E\+E-\/\+A\+P\+I.\+lib}} for the \mbox{\hyperlink{class_vgascreen}{Vgascreen}} and the \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}} connection.~\newline
+ ~\newline
+ The idea of the 3-\/layer model is separation of code and functionality. Each layer has its own tasks that are grouped~\newline
+ together. The user interface (\mbox{\hyperlink{namespace_u_i}{UI}}) is there to get the user input and parse it to the rest of the program. To get the~\newline
+ user input the \mbox{\hyperlink{namespace_u_i}{UI}} calls the \mbox{\hyperlink{namespace_i_o_a1087fba97ca797e5ca155228ff9eec55}{I\+O\+::read()}} to get the user input. The I\+O-\/layer goes on its turn to the \mbox{\hyperlink{namespace_u_a_r_t_a1087fba97ca797e5ca155228ff9eec55}{U\+A\+R\+T\+::read()}} from the~\newline
+ {\bfseries \href{_e_e-_a_p_i_8lib.html}{\tt E\+E-\/\+A\+P\+I.\+lib}}. The \mbox{\hyperlink{namespace_u_a_r_t_a1087fba97ca797e5ca155228ff9eec55}{U\+A\+R\+T\+::read()}} function waits until a complete user input is received and copys it to the \mbox{\hyperlink{namespace_u_i}{UI}} input~\newline
+ buffer and then returns to the \mbox{\hyperlink{namespace_i_o}{IO}} -\/$>$ \mbox{\hyperlink{namespace_u_i}{UI}}. The \mbox{\hyperlink{namespace_u_i}{UI}} parses the buffered input to the \mbox{\hyperlink{namespace_l_l}{LL}} where is decided what to do with it.~\newline
+ ~\newline
+ The \mbox{\hyperlink{namespace_l_l}{LL}} receives the user input from the \mbox{\hyperlink{namespace_u_i}{UI}}. This input is split up and stored in a \mbox{\hyperlink{struct_l_l_1_1command__t}{L\+L\+::command\+\_\+t}} struct. The command struct~\newline
+ itself is saved in \mbox{\hyperlink{struct_l_l_1_1logic__t}{L\+L\+::logic\+\_\+t}} struct L\+L\+::logic.\+buffers. After the command is saved it will be executed and whipped for the next~\newline
+ command. If a wait command was called the logic. Waiting flag is set and no commands will be executed during this time~\newline
+ but they are stored in L\+L\+::logic.\+buffers\mbox{[}\mbox{]} up to \mbox{\hyperlink{group___global_ga7781bc9613ec655352585fb1bac2595d}{L\+L\+::\+M\+A\+X\+\_\+\+B\+U\+F\+F\+E\+RS}}. After the wait time is over the \mbox{\hyperlink{namespace_i_o_a04c5db8c053f07761c5c09894a4bd49d}{I\+O\+::stop\+\_\+\+Read()}} is called and~\newline
+ the buffer will be executed one by one. If the last command is a repeat =$>$ repeat all stored commands (F\+I\+FO) until a new~\newline
+ command is received that isnt a repeat call.~\newline
+ ~\newline
+ {\bfseries {\itshape This is after the initilization of the different layers and class.}}~\newline
+ ~\newline
+ \hypertarget{_design_speration_sec}{}\subsection{3-\/layer seperation}\label{_design_speration_sec}
+In this application \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}} is used, but in future something like I2C could also be used. The \mbox{\hyperlink{namespace_u_i}{UI}} would still call the same~\newline
+ \mbox{\hyperlink{namespace_i_o}{IO}} functions the functions might function differently but as long as the same output is created the rest of the application~\newline
+ would still work.~\newline
+ ~\newline
+ Changing the \mbox{\hyperlink{namespace_u_i}{UI}} into something else won’t change the way the user input is received (\mbox{\hyperlink{namespace_i_o}{IO}}), how its interpreted (\mbox{\hyperlink{namespace_l_l}{LL}}) or~\newline
+ send back (\mbox{\hyperlink{namespace_i_o}{IO}}).~\newline
+ ~\newline
+ The logic-\/layer (\mbox{\hyperlink{namespace_l_l}{LL}}) is where all the calculations happens. The other 2-\/layers are dump in the sense that they just ask~\newline
+ for data and then parses it on. So if the \mbox{\hyperlink{namespace_l_l}{LL}} is expanded with more functionality the rest of the program stays the same.~\newline
+ This is because the \mbox{\hyperlink{namespace_u_i}{UI}} and the \mbox{\hyperlink{namespace_i_o}{IO}} don’t know the functionality of the program they just get the data and make sure that~\newline
+ it gets where its needed.~\newline
+ ~\newline
+ \hypertarget{_design_design_sec}{}\subsection{The application design with the E\+E-\/\+A\+P\+I.\+lib}\label{_design_design_sec}
+ 

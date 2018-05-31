@@ -1,0 +1,41 @@
+/*!
+ * @page Design
+ *
+ * @section model_sec 3-Layer model
+ *
+ * @subsection howitworks_sec How it works
+ * The 3 layers of the design are the Input/Output-layer (IO), User Interface (UI) and de Logic-layer (LL). The program<br>
+ * uses the <b><a href="_e_e-_a_p_i_8lib.html">EE-API.lib</a></b> for the Vgascreen and the UART connection.<br>
+ * <br>
+ * The idea of the 3-layer model is separation of code and functionality. Each layer has its own tasks that are grouped<br>
+ * together. The user interface (UI) is there to get the user input and parse it to the rest of the program. To get the<br>
+ * user input the UI calls the IO::read() to get the user input. The IO-layer goes on its turn to the UART::read() from the<br>
+ * EE-API.lib. The UART::read() function waits until a complete user input is received and copys it to the UI input<br>
+ * buffer and then returns to the IO -> UI. The UI parses the buffered input to the LL where is decided what to do with it.<br>
+ * <br>
+ * The LL receives the user input from the UI. This input is split up and stored in a \ref command_t struct. The command struct<br>
+ * itself is saved in \ref logic_t struct \ref logic.buffers[]. After the command is saved it will be executed and whipped for the next<br>
+ * command. If a wait command was called the logic. waiting flag is set and no commands will be executed during this time<br>
+ * but they are stored in \ref logic.buffers[] up to \ref MAX_BUFFERS. After the wait time is over the IO::stop_Read() is called and<br>
+ * the buffer will be executed one by one. If the last command is a repeat => repeat all stored commands (FIFO) until a new<br>
+ * command is received that isnt a repeat call.<br>
+ * <br>
+ * <b><i>This is after the initilization of the different layers and class.</i></b><br>
+ * <br>
+ * @subsection speration_sec 3-layer seperation
+ * In this application UART is used, but in future something like I2C could also be used. The UI would still call the same<br>
+ * IO functions the functions might function differently but as long as the same output is created the rest of the application<br>
+ * would still work.<br>
+ * <br>
+ * Changing the UI into something else won’t change the way the user input is received (IO), how its interpreted (LL) or<br>
+ * send back (IO).<br>
+ * <br>
+ * The logic-layer (LL) is where all the calculations happens. The other 2-layers are dump in the sense that they just ask<br>
+ * for data and then parses it on. So if the LL is expanded with more functionality the rest of the program stays the same.<br>
+ * This is because the UI and the IO don’t know the functionality of the program they just get the data and make sure that<br>
+ * it gets where its needed.<br>
+ * <br>
+ * @subsection design_sec The application design with the EE-API.lib
+ * <img src="design.jpg" alt="Design" width="1050" height="1400">
+ *
+ */
