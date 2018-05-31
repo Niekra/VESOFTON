@@ -12,7 +12,7 @@
  *
  * \section usage_sec Usasage
  * &nbsp;&nbsp;&nbsp;&nbsp;The program runs via a UART connection on pins PA2(Tx) and PA3(Rx) and drives a 320x240 pixel<br>
- * &nbsp;&nbsp;&nbsp;&nbsp;VGA screen.It uses the <a href="">EE-API.lib</a> to drive the VGA screen and the UART connection.<br>
+ * &nbsp;&nbsp;&nbsp;&nbsp;VGA screen.It uses the EE-API.lib to drive the VGA screen and the UART connection.<br>
  *
  * \subsection uart_sec UART connection
  * &nbsp;&nbsp;&nbsp;&nbsp;- BaudRate = 115200 baud<br>
@@ -38,22 +38,9 @@
  * *The idle line detection of the UART isn't used so all commands should end with an carriage return.
  *
  * \subsection colors possible colors
- * &nbsp;&nbsp;&nbsp;&nbsp;The application has 16 colors where the user can choose from.<br>
- * &nbsp;&nbsp;&nbsp;&nbsp;the colors are:<br>
- * &nbsp;&nbsp;&nbsp;&nbsp;black = "zwart"<br>
- * &nbsp;&nbsp;&nbsp;&nbsp;blue = "blauw"<br>
- * &nbsp;&nbsp;&nbsp;&nbsp;light blue = "lichtblauw"<br>
- * &nbsp;&nbsp;&nbsp;&nbsp;green = "groen"<br> 
- * &nbsp;&nbsp;&nbsp;&nbsp;lightgreen = "lichtgroen"<br>
- * &nbsp;&nbsp;&nbsp;&nbsp;cyan = "cyaan"<br>
- * &nbsp;&nbsp;&nbsp;&nbsp;light cyan = "lichtcyaan"<br>
- * &nbsp;&nbsp;&nbsp;&nbsp;red = "rood"<br>
- * &nbsp;&nbsp;&nbsp;&nbsp;light red = "lichtrood"<br>
- * &nbsp;&nbsp;&nbsp;&nbsp;magenta = "magenta"<br>
- * &nbsp;&nbsp;&nbsp;&nbsp;light magenta = "lichtmagenta"<br>
- * &nbsp;&nbsp;&nbsp;&nbsp;brown = "bruin"<br>
- * &nbsp;&nbsp;&nbsp;&nbsp;yellow = "geel"<br>
- * &nbsp;&nbsp;&nbsp;&nbsp;gray ="grijs"<br> 
- * &nbsp;&nbsp;&nbsp;&nbsp;white ="wit"<br>
+ *
+ * \section desing_sec Design
+ *
+ * <img src="design.jpg" alt="Design" width="1200" height="1600">
  *
  */

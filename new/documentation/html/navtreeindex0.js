@@ -22,7 +22,6 @@ var NAVTREEINDEX0 =
 "index.html":[],
 "index.html":[0],
 "index.html#colors":[0,1,2],
-"index.html#desing_sec":[0,2],
 "index.html#input_sec":[0,1,1],
 "index.html#intro_sec":[0,0],
 "index.html#uart_sec":[0,1,0],

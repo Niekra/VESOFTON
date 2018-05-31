@@ -21,7 +21,8 @@
 /** @brief namespace IO
  *
  * 	Acts as a mediator between the UART and the rest of the program.
- * 	Gets commands from the UI and the LL and parses it to UART.
+ * 	Gets commands from the UI and the LL and parses it
+ * 	to UART.
  *
  */
 namespace IO {

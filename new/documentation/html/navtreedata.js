@@ -30,8 +30,7 @@ var NAVTREE =
         [ "UART connection", "index.html#uart_sec", null ],
         [ "possible commands", "index.html#input_sec", null ],
         [ "possible colors", "index.html#colors", null ]
-      ] ],
-      [ "Design", "index.html#desing_sec", null ]
+      ] ]
     ] ],
     [ "Modules", "modules.html", "modules" ],
     [ "Namespaces", "namespaces.html", [
