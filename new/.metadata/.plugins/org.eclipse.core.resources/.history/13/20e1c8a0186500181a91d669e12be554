@@ -1,0 +1,23 @@
+/*!
+ * @page EE-API.lib
+ *
+ * @section library_sec EE-API.lib
+ * The EE-API Library has 2 main functions. The first function is controlling and drawing on the VGA screen. This is done <br>
+ * with the class Vgascreen which uses the STM32_UB_VGA library to draw the single pixels on the screen and keep the screen <br>
+ * on (VGA needs constant updating). The second function is reading the UART input and sending messages back using UART to the<br>
+ * terminal.<br>
+ * <br>
+ * @subsection vga_sec Vgascreen
+ * If a Vgascreen object is created it initializes the STM32_UB_VGA library. After that the different draw methods can be called.<br>
+ * The different methods calculates which pixel needs to be set with the given color value and sends this to the STM32_UB_VGA lib.<br>
+ * The different fonts and bitmaps are kept in the header file.<br>
+ * <br>
+ * @subsection uart_sec UART
+ * The UART can be used in 2 different modes. The first mode is pure interrupt based and needs a carriage return (CR) to know when<br>
+ * a single command of the user is done. The other mode is the idle line detection. The idle line detection works with an interrupt<br>
+ * timer that waits a bit longer then it takes to receive a byte. So when another byte is received the counter can be reset. If the<br>
+ * interrupt triggers there are no more inputs on the UART and the full command has been received. To enable the idle line detection<br>
+ * UART::init_IDLE_Line() needs to be called.<br>
+ * <br>
+ *
+ */

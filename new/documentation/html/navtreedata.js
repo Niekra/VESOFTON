@@ -41,7 +41,8 @@ var NAVTREE =
     ] ],
     [ "EE-API.lib", "_e_e-_a_p_i_8lib.html", [
       [ "EE-API.lib", "_e_e-_a_p_i_8lib.html#library_sec", [
-        [ "Vgascreen", "_e_e-_a_p_i_8lib.html#vga_sec", null ]
+        [ "Vgascreen", "_e_e-_a_p_i_8lib.html#vga_sec", null ],
+        [ "UART", "_e_e-_a_p_i_8lib.html#uart2_sec", null ]
       ] ]
     ] ],
     [ "Modules", "modules.html", "modules" ],

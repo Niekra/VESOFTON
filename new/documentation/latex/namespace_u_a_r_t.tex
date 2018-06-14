@@ -51,7 +51,10 @@ void \mbox{\hyperlink{namespace_u_a_r_t_aa21807f2e7d59396d1c411f436ebd29b}{init\
 \subsection{Detailed Description}
 namespace \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}} 
 
-Reads and sends data to the user using U\+S\+A\+R\+T2. Hardware used\+: U\+S\+A\+R\+T2, T\+I\+M3, U\+S\+A\+R\+T2 TX P\+A2, U\+S\+A\+R\+T2 RX P\+A3 
+Reads and sends data to the user using U\+S\+A\+R\+T2.~\newline
+ Hardware used\+: U\+S\+A\+R\+T2, T\+I\+M3, U\+S\+A\+R\+T2 TX P\+A2, U\+S\+A\+R\+T2 RX P\+A3~\newline
+ The \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}} has 2 modes 1= normal interrupt based 2=interrupt+idle line detection.~\newline
+ 
 
 \subsection{Function Documentation}
 \mbox{\Hypertarget{namespace_u_a_r_t_ab7d8037afb7dff98f21b6a07b3fc2158}\label{namespace_u_a_r_t_ab7d8037afb7dff98f21b6a07b3fc2158}} 
@@ -64,7 +67,7 @@ Reads and sends data to the user using U\+S\+A\+R\+T2. Hardware used\+: U\+S\+A\
 
 (G\+L\+O\+B\+AL) Stops the \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}} and T\+I\+M3 
 
-Deletes the \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}} stops the interrupts and the idle line detection by calling U\+A\+R\+T\+::disable\+\_\+\+I\+D\+L\+E\+\_\+\+Line() if its on.
+Deletes the \mbox{\hyperlink{namespace_u_a_r_t}{U\+A\+RT}} stops the interrupts and the idle line detection by calling \mbox{\hyperlink{namespace_u_a_r_t_ade4e159fcbcb9a63bcf9557b23f064df}{U\+A\+R\+T\+::disable\+\_\+\+I\+D\+L\+E\+\_\+line()}} if its on.
 
 
 \begin{DoxyParams}{Parameters}

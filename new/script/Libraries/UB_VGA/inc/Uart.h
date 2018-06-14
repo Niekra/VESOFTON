@@ -31,8 +31,9 @@
 //--------------------------------------------------------------
  /** @brief namespace UART
   *
-  *	Reads and sends data to the user using USART2.
-  *	Hardware used: USART2, TIM3, USART2 TX PA2, USART2 RX PA3
+  *	Reads and sends data to the user using USART2.<br>
+  *	Hardware used: USART2, TIM3, USART2 TX PA2, USART2 RX PA3<br>
+  *	The UART has 2 modes 1= normal interrupt based 2=interrupt+idle line detection.<br>
   *
   */
 namespace UART {
@@ -153,7 +154,7 @@ void disable_IDLE_line(void);
 
 /** @brief (GLOBAL) Stops the UART and TIM3
  *
- *	Deletes the UART stops the interrupts and the idle line detection by calling UART::disable_IDLE_Line() if its on.
+ *	Deletes the UART stops the interrupts and the idle line detection by calling UART::disable_IDLE_line() if its on.
  *
  *  @param void
  *  @return int error

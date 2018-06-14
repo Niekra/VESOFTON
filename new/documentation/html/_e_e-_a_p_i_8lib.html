@@ -91,6 +91,7 @@ EE-API.lib</h1>
  with the class <a class="el" href="class_vgascreen.html" title="The Vgascreen class. ">Vgascreen</a> which uses the STM32_UB_VGA library to draw the single pixels on the screen and keep the screen <br />
  on (VGA needs constant updating). The second function is reading the <a class="el" href="namespace_u_a_r_t.html" title="namespace UART ">UART</a> input and sending messages back using <a class="el" href="namespace_u_a_r_t.html" title="namespace UART ">UART</a> to the<br />
  terminal.<br />
+ <b>Uses:</b> TIM1, TIM2, TIM3, USART2, GPIO PA2+PA3, DMA2 channel6 stream4.<br />
  <br />
  </p>
 <h2><a class="anchor" id="vga_sec"></a>
@@ -100,8 +101,8 @@ Vgascreen</h2>
  The different fonts and bitmaps are kept in the header file.<br />
  <br />
  </p>
-<h2><a class="anchor" id="uart_sec"></a>
-UART connection</h2>
+<h2><a class="anchor" id="uart2_sec"></a>
+UART</h2>
 <p>The <a class="el" href="namespace_u_a_r_t.html" title="namespace UART ">UART</a> can be used in 2 different modes. The first mode is pure interrupt based and needs a carriage return (CR) to know when<br />
  a single command of the user is done. The other mode is the idle line detection. The idle line detection works with an interrupt<br />
  timer that waits a bit longer then it takes to receive a byte. So when another byte is received the counter can be reset. If the<br />

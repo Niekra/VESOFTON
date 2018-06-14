@@ -676,13 +676,13 @@ class Vgascreen
 
 	public:
 		/*!
-		 * \brief Create VGAscreen object.
+		 * \brief Create Vgascreen object.
 		 * \param void.
 		 */
 		Vgascreen(void);
 
 		/*!
-		 * \brief Destroy the VGAscreen object.
+		 * \brief Destroy the Vgascreen object.
 		 * \param void.
 		 */
 		virtual ~Vgascreen(void);
