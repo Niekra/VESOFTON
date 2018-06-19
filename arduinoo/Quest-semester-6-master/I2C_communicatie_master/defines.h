@@ -5,6 +5,8 @@
 #define TRIL_MOTOR1 3
 #define TRIL_MOTOR2 5
 
+#define AMPPIN 2
+
 /************ Static variables **************************/
 #define BUFFER_SIZE 20
 #define MP3_SEND 8

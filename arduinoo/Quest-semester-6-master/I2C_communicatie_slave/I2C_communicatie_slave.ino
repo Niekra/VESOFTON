@@ -145,6 +145,7 @@ void receiveEvent(int howMany) {
   for(int x = 1; x<i; x++)
   {
     split_buffer[x-1] = input_buffer[x];
+    //delay(10);
     //Serial.println(split_buffer[x-1]);
   }
 

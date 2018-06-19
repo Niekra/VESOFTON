@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="profiles">
+        <item>Profiel 1</item>
+        <item>Profiel 2</item>
+        <item>Profiel 3</item>
+        <item>Profiel 4</item>
+        <item>Profiel 5</item>
+    </string-array>
+
+    <string-array name="app_modus">
+        <item>Manual</item>
+        <item>trillen/geluid/licht</item>
+        <item>trillen/geluid</item>
+        <item>licht/trillen</item>
+        <item>(licht+trillen)/geluid</item>
+        <item>(geluid+trillen)/licht</item>
+        <item>(licht+geluid)/trillen</item>
+        <item>(geluid/licht)+trillen</item>
+        <item>(licht/trillen)+geluid</item>
+        <item>(geluid/trillen)+licht</item>
+    </string-array>
+
+    <string-array name="play_modus">
+        <item>folder</item>
+        <item>repeat</item>
+        <item>shuffle</item>
+        <item>single</item>
+    </string-array>
+
+    <string-array name="light_modus">
+        <item>"kleur"</item>
+        <item>random</item>
+        <item>disolve</item>
+        <item>blink</item>
+        <item>kleur wissen</item>
+        <item>regenboog</item>
+        <item>achtervolging</item>
+        <item>regenboog chase</item>
+        <item>wat is dit?1</item>
+        <item>wat is dit?1</item>
+        <item>gestreept</item>
+    </string-array>
+
+</resources>

@@ -4,6 +4,10 @@ void light_manager(char c, int b)
   {
     case 'a':
         strip_on = (int)b;
+        if(b == 0)
+        {
+          allColor(z);
+        }
       break;
     case 'b':
         strip_modus = (int)b;
