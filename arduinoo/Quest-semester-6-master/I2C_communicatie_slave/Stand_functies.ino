@@ -4,6 +4,7 @@ void light_manager(char c, int b)
   {
     case 'a':
         strip_on = (int)b;
+        mode_changed = 1;
         if(b == 0)
         {
           allColor(z);
@@ -11,6 +12,7 @@ void light_manager(char c, int b)
       break;
     case 'b':
         strip_modus = (int)b;
+        mode_changed = 1;
       break;
     case 'm':
       eye_on();

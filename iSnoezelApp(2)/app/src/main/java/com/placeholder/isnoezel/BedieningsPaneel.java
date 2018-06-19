@@ -204,7 +204,7 @@ public class BedieningsPaneel extends AppCompatActivity {
                 if(onItemInterrupt) {
                     try {
                         if(userStatus) {
-                            Toast.makeText(getBaseContext(), "ul" + String.valueOf(position) + "!", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getBaseContext(), "ul" + String.valueOf(position) + "!", Toast.LENGTH_SHORT).show();
                             ct.write("ul" + String.valueOf(position) + "!");
                         }
                     } catch (Exception e) {
@@ -225,7 +225,7 @@ public class BedieningsPaneel extends AppCompatActivity {
                 if(onItemInterrupt) {
                     try {
                         if(userStatus) {
-                            Toast.makeText(getBaseContext(), "mm" + String.valueOf(position) + "!", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getBaseContext(), "mm" + String.valueOf(position) + "!", Toast.LENGTH_SHORT).show();
                             ct.write("mm" + String.valueOf(position) + "!");
                         }
                     } catch (Exception e) {
@@ -247,7 +247,7 @@ public class BedieningsPaneel extends AppCompatActivity {
                 int totalSeconds = Integer.parseInt(str1) * 60 + Integer.parseInt(str2);
 
                 if(userStatus) {
-                    Toast.makeText(getBaseContext(), "md" + String.valueOf(totalSeconds) + "!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getBaseContext(), "md" + String.valueOf(totalSeconds) + "!", Toast.LENGTH_SHORT).show();
                     ct.write("md" + String.valueOf(totalSeconds) + "!");
                 }
 
@@ -269,7 +269,7 @@ public class BedieningsPaneel extends AppCompatActivity {
                 int totalSeconds = Integer.parseInt(str1) * 60 + Integer.parseInt(str2);
 
                 if(userStatus) {
-                    Toast.makeText(getBaseContext(), "md" + String.valueOf(totalSeconds) + "!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getBaseContext(), "md" + String.valueOf(totalSeconds) + "!", Toast.LENGTH_SHORT).show();
                     ct.write("md" + String.valueOf(totalSeconds) + "!");
                 }
 
@@ -300,7 +300,7 @@ public class BedieningsPaneel extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 if(userStatus) {
-                    Toast.makeText(getBaseContext(), String.valueOf(progressChanged), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getBaseContext(), String.valueOf(progressChanged), Toast.LENGTH_SHORT).show();
                     ct.write("sv" + String.valueOf(progressChanged) + "!");
                 }
             }
@@ -312,13 +312,13 @@ public class BedieningsPaneel extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean bChecked) {
                 if (bChecked) {
                     if(userStatus) {
-                        Toast.makeText(getBaseContext(), "on", Toast.LENGTH_SHORT).show();
-                        ct.write("sS!");
+                        //Toast.makeText(getBaseContext(), "on", Toast.LENGTH_SHORT).show();
+                        ct.write("sW!");
                     }
                 } else {
                     if(userStatus) {
-                        Toast.makeText(getBaseContext(), "off", Toast.LENGTH_SHORT).show();
-                        ct.write("sW!");
+                        //Toast.makeText(getBaseContext(), "off", Toast.LENGTH_SHORT).show();
+                        ct.write("sS!");
                     }
                 }
             }
@@ -361,7 +361,7 @@ public class BedieningsPaneel extends AppCompatActivity {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 String str = sInput.getText().toString();
                 if(userStatus) {
-                    Toast.makeText(getBaseContext(), "sk" + str + "!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getBaseContext(), "sk" + str + "!", Toast.LENGTH_SHORT).show();
                     ct.write("sk" + str + "!");
                 }
 
@@ -380,7 +380,7 @@ public class BedieningsPaneel extends AppCompatActivity {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 String str = mInput.getText().toString();
                 if(userStatus) {
-                    Toast.makeText(getBaseContext(), "sF" + str + "!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getBaseContext(), "sF" + str + "!", Toast.LENGTH_SHORT).show();
                     ct.write("sF" + str + "!");
                 }
 
@@ -400,7 +400,7 @@ public class BedieningsPaneel extends AppCompatActivity {
             public void onClick(View v) {
                 //Todo: Close te bluetooth connection and .
                 if(userStatus) {
-                    Toast.makeText(getBaseContext(), "s<!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getBaseContext(), "s<!", Toast.LENGTH_SHORT).show();
                     ct.write("s<!");
                 }
             }
@@ -412,7 +412,7 @@ public class BedieningsPaneel extends AppCompatActivity {
             public void onClick(View v) {
                 //Todo: Close te bluetooth connection and .
                 if(userStatus) {
-                    Toast.makeText(getBaseContext(), "s>!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getBaseContext(), "s>!", Toast.LENGTH_SHORT).show();
                     ct.write("s>!");
                 }
             }
@@ -424,7 +424,7 @@ public class BedieningsPaneel extends AppCompatActivity {
             public void onClick(View v) {
                 //Todo: Close te bluetooth connection and .
                 if(userStatus) {
-                    Toast.makeText(getBaseContext(), "sp!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getBaseContext(), "sp!", Toast.LENGTH_SHORT).show();
                     ct.write("sp!");
                 }
             }
@@ -436,7 +436,7 @@ public class BedieningsPaneel extends AppCompatActivity {
             public void onClick(View v) {
                 //Todo: Close te bluetooth connection and .
                 if(userStatus) {
-                    Toast.makeText(getBaseContext(), "sP!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getBaseContext(), "sP!", Toast.LENGTH_SHORT).show();
                     ct.write("sP!");
                 }
             }
@@ -459,7 +459,7 @@ public class BedieningsPaneel extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 if(userStatus) {
-                    Toast.makeText(getBaseContext(), String.valueOf(progressChanged), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getBaseContext(), String.valueOf(progressChanged), Toast.LENGTH_SHORT).show();
                     ct.write("vi" + String.valueOf(progressChanged) + "!");
                 }
             }
@@ -471,12 +471,12 @@ public class BedieningsPaneel extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean bChecked) {
                 if (bChecked) {
                     if(userStatus) {
-                        Toast.makeText(getBaseContext(), "on", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getBaseContext(), "on", Toast.LENGTH_SHORT).show();
                         ct.write("vo!");
                     }
                 } else {
                     if(userStatus) {
-                        Toast.makeText(getBaseContext(), "off", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getBaseContext(), "off", Toast.LENGTH_SHORT).show();
                         ct.write("vf!");
                     }
                 }
@@ -488,7 +488,7 @@ public class BedieningsPaneel extends AppCompatActivity {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 String str = vDuration.getText().toString();
                 if(userStatus) {
-                    Toast.makeText(getBaseContext(), "vv" + str + "!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getBaseContext(), "vv" + str + "!", Toast.LENGTH_SHORT).show();
                     ct.write("vv" + str + "!");
                 }
 
@@ -507,7 +507,7 @@ public class BedieningsPaneel extends AppCompatActivity {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 String str = vInterval.getText().toString();
                 if(userStatus) {
-                    Toast.makeText(getBaseContext(), "vz" + str + "!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getBaseContext(), "vz" + str + "!", Toast.LENGTH_SHORT).show();
                     ct.write("vz" + str + "!");
                 }
 
@@ -538,7 +538,7 @@ public class BedieningsPaneel extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 if(userStatus) {
-                    Toast.makeText(getBaseContext(), "lo" + String.valueOf(progressChanged) + "!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getBaseContext(), "lo" + String.valueOf(progressChanged) + "!", Toast.LENGTH_SHORT).show();
                     ct.write("lo" + String.valueOf(progressChanged) + "!");
                 }
             }
@@ -550,12 +550,12 @@ public class BedieningsPaneel extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean bChecked) {
                 if (bChecked) {
                     if(userStatus) {
-                        Toast.makeText(getBaseContext(), "on", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getBaseContext(), "on", Toast.LENGTH_SHORT).show();
                         ct.write("la1!");
                     }
                 } else {
                     if(userStatus) {
-                        Toast.makeText(getBaseContext(), "off", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getBaseContext(), "off", Toast.LENGTH_SHORT).show();
                         ct.write("la0!");
                     }
                 }
@@ -569,7 +569,7 @@ public class BedieningsPaneel extends AppCompatActivity {
                 if(onItemInterrupt) {
                     try {
                         if(userStatus) {
-                            Toast.makeText(getBaseContext(), "lb" + String.valueOf(position) + "!", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getBaseContext(), "lb" + String.valueOf(position) + "!", Toast.LENGTH_SHORT).show();
                             ct.write("lb" + String.valueOf(position) + "!");
                         }
                     } catch (Exception e) {
@@ -589,12 +589,12 @@ public class BedieningsPaneel extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean bChecked) {
                 if (bChecked) {
                     if(userStatus) {
-                        Toast.makeText(getBaseContext(), "on", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getBaseContext(), "on", Toast.LENGTH_SHORT).show();
                         ct.write("lm!");
                     }
                 } else {
                     if(userStatus) {
-                        Toast.makeText(getBaseContext(), "off", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getBaseContext(), "off", Toast.LENGTH_SHORT).show();
                         ct.write("ln!");
                     }
                 }
@@ -606,7 +606,7 @@ public class BedieningsPaneel extends AppCompatActivity {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 String str = eDuration.getText().toString();
                 if(userStatus) {
-                    Toast.makeText(getBaseContext(), "lq" + str + "!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getBaseContext(), "lq" + str + "!", Toast.LENGTH_SHORT).show();
                     ct.write("lq" + str + "!");
                 }
 
@@ -625,7 +625,7 @@ public class BedieningsPaneel extends AppCompatActivity {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 String str = eInterval.getText().toString();
                 if(userStatus) {
-                    Toast.makeText(getBaseContext(), "lr" + str + "!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getBaseContext(), "lr" + str + "!", Toast.LENGTH_SHORT).show();
                     ct.write("lr" + str + "!");
                 }
 

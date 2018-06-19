@@ -8,26 +8,26 @@
 void sendMP3Command(char c, int ints) {
   switch (c) {
 
-    case 'p':
+    case 'p':   //play
       Serial.println("Play ");
       sendCommand(CMD_PLAY, 0);
       sendCommand(CMD_PLAYING_N, 0x0000); // ask for the number of file is playing
       ampon();
       break;
 
-    case 'P':
+    case 'P':   //pause
       Serial.println("Pause");
       sendCommand(CMD_PAUSE, 0);
       ampoff();
       break;
 
-    case '>':
+    case '>':   //next
       Serial.println("Next");
       sendCommand(CMD_NEXT_SONG, 0);
       sendCommand(CMD_PLAYING_N, 0x0000); // ask for the number of file is playing
       break;
 
-    case '<':
+    case '<':   //previous
       Serial.println("Previous");
       sendCommand(CMD_PREV_SONG, 0);
       sendCommand(CMD_PLAYING_N, 0x0000); // ask for the number of file is playing
@@ -54,21 +54,21 @@ void sendMP3Command(char c, int ints) {
       users[currentUser].volume = ints;
       break;
 
-    case 'S':
+    case 'S':   //Sleep
       Serial.println("Sleep");
       sendCommand(CMD_SLEEP_MODE, 0x00);
       users[currentUser].s_status = 0;
       ampoff();
       break;
 
-    case 'W':
+    case 'W':   //Wake
       Serial.println("Wake up");
       sendCommand(CMD_WAKE_UP, 0x00);
-      users[currentUser].s_status = 3;
+      users[currentUser].s_status = 1;
       //ampon();
       break;
 
-    case 'r':
+    case 'r':   //Reset
       Serial.println("Reset");
       sendCommand(CMD_RESET, 0x00);
       break;
@@ -130,7 +130,7 @@ void sendMP3Command(char c, int ints) {
       users[currentUser].start_song = ints;
       break;
 
-   case 'R':
+   case 'R':    //Folder cycle
       Serial.println("folder cycle");
       delay(20);
       Send_buf[0] = 0x7e;   //
@@ -153,11 +153,12 @@ void sendMP3Command(char c, int ints) {
   }
   delay(30);
   //EEPROM_writeAnything(0, users);
-  EEPROM.put(0,user1);
-  EEPROM.put(75,user2);
-  EEPROM.put(150,user3);
-  EEPROM.put(225,user4);
-  EEPROM.put(300,user5);
+  EEPROM.put(0,users[0]);
+  EEPROM.put(75,users[1]);
+  EEPROM.put(150,users[2]);
+  EEPROM.put(225,users[3]);
+  //EEPROM.put(300,users[4]);
+  Serial.println("user data saved");
   delay(100);
   //TODO save settings
 }

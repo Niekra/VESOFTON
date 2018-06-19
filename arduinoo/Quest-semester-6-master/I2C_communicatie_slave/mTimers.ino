@@ -11,7 +11,7 @@ void mTimer()
 SIGNAL(TIMER0_COMPA_vect) 
 {
   eye_counter++;
-  if(eye_counter > 2000000000){
+  if(eye_counter > 20000000){
     eye_counter = 0;
   }
 }

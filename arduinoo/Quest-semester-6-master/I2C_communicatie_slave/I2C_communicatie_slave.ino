@@ -29,6 +29,7 @@ int eye_intensity = 255;
 int eye_modus = 0;
 int eye_status = 0;
 int cycles = 10;
+int mode_changed = 0;
 
 int speed =100;
 
@@ -39,7 +40,7 @@ void setup() {
   Serial.println("slave");
 
   FastLED.addLeds<WS2812, DATA_PIN, GRB>(leds, NUM_LEDS);
-  delay(500);
+  delay(300);
   allColor(z);
   randomSeed(analogRead(0));
   pinMode(EYE1, OUTPUT);
@@ -55,6 +56,7 @@ void setup() {
 }
 
 void loop() {
+  delay(10);
   if(strip_on == 1)
   {
     switch(strip_modus)
@@ -72,19 +74,20 @@ void loop() {
       case 2:
         Serial.print(2);
         allColor(leds);
-        disolve(1, cycles, speed);
+        disolve(1, 1, speed*6);
         break;
       case 3:
         Serial.print(3);
-        flash(randomColor(), 4, speed*10);
+        flash(randomColor(), 1, speed);
         break;
       case 4:
         Serial.print(4);
+        allColor(leds);
         colorWipe(randomColor(), speed, FORWARD);
         break;
       case 5:
         Serial.print(5);
-        rainbow(1, speed/15);
+        rainbow(1, speed*10);
         break;
       case 6:
         Serial.print(6);
@@ -96,19 +99,27 @@ void loop() {
         break;
       case 8:
         Serial.print(8);
-        lightning(randomColor(), 3, 1, speed/2);
+        lightning(randomColor(), 3, 1, speed);
         break;
       case 9:
         Serial.print(9);
-        cylon(randomColor(), 3, speed/2);
+        allRandom();
+        cylon(randomColor(),1, speed);
+        //delay(300);
         break;
       case 10:
         Serial.print(10);
         stripes(randomColor(), randomColor(), 1);
-        delay(1000);
+        delay(200);
         break;                  
     }
+    if(strip_on == 0)
+    {
+      allColor(z);
+    }
+    mode_changed = 0;
   }else{
+    allColor(z);
     delay(100);
   }
 

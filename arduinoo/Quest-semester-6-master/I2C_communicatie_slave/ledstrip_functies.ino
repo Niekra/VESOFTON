@@ -22,6 +22,10 @@ void disolve(int simultaneous, int cycles, int speed){
       int idx = random(NUM_LEDS);
       leds[idx] = CRGB::Black;
       check_eye();
+      if(mode_changed == 1)
+      {
+        return;
+      }
     }
     FastLED.show();
     delay(speed);
@@ -37,6 +41,10 @@ void flash(CRGB c, int count, int speed){
     if(c){
       allColor(c);
       check_eye();
+      if(mode_changed == 1)
+      {
+        return;
+      }
     }
     else{
       allColor(randomColor());
@@ -52,6 +60,10 @@ void colorWipe(CRGB c, int speed, int direction){
   for(int i=0; i<NUM_LEDS; i++){
     if(direction == FORWARD){
       leds[i] = c;
+      if(mode_changed == 1)
+      {
+        return;
+      }
     }
     else{
       leds[NUM_LEDS-1-i] = c;
@@ -68,6 +80,10 @@ void rainbow(int cycles, int speed){ // TODO direction
     for(int i=0; i< NUM_LEDS; i++) {
       leds[i] = Wheel(((i * 256 / NUM_LEDS)) & 255);
       check_eye();
+      if(mode_changed == 1)
+      {
+        return;
+      }
     }
     FastLED.show();
   }
@@ -76,9 +92,13 @@ void rainbow(int cycles, int speed){ // TODO direction
       for(int i=0; i< NUM_LEDS; i++) {
         leds[i] = Wheel(((i * 256 / NUM_LEDS) + j) & 255);
         check_eye();
+        if(mode_changed == 1)
+      {
+        return;
+      }
       }
       FastLED.show();
-      delay(speed);
+      delay(speed/10);
     }
   }
 }
@@ -88,10 +108,14 @@ void theaterChase(CRGB c, int cycles, int speed){ // TODO direction
 
   for (int j=0; j<cycles; j++) {  
     for (int q=0; q < 3; q++) {
-      for (int i=0; i < NUM_LEDS; i=i+3) {
+      for (int i=0; i < NUM_LEDS; i=i+9) {
         int pos = i+q;
         leds[pos] = c;    //turn every third pixel on
         check_eye();
+        if(mode_changed == 1)
+      {
+        return;
+      }
       }
       FastLED.show();
 
@@ -107,12 +131,16 @@ void theaterChase(CRGB c, int cycles, int speed){ // TODO direction
 
 // Theater-style crawling lights with rainbow effect
 void theaterChaseRainbow(int cycles, int speed){ // TODO direction, duration
-  for (int j=0; j < 256 * cycles; j++) {     // cycle all 256 colors in the wheel
+  for (int j=0; j < 64 * cycles; j++) {     // cycle all 256 colors in the wheel
     for (int q=0; q < 3; q++) {
       for (int i=0; i < NUM_LEDS; i=i+3) {
         int pos = i+q;
         leds[pos] = Wheel( (i+j) % 255);    //turn every third pixel on
         check_eye();
+        if(mode_changed == 1)
+      {
+        return;
+      }
       }
       FastLED.show();
 
@@ -136,6 +164,10 @@ void lightning(CRGB c, int simultaneous, int cycles, int speed){
       flashes[j] = idx;
       leds[idx] = c ? c : randomColor();
       check_eye();
+      if(mode_changed == 1)
+      {
+        return;
+      }
     }
     FastLED.show();
     delay(speed);
@@ -151,26 +183,34 @@ void lightning(CRGB c, int simultaneous, int cycles, int speed){
 void cylon(CRGB c, int width, int speed){
   // First slide the leds in one direction
   for(int i = 0; i <= NUM_LEDS-width; i++) {
-    for(int j=0; j<width; j++){
+    for(int j=0; j<width-1; j++){
       leds[i+j] = c;
+      if(mode_changed == 1)
+      {
+        return;
+      }
       check_eye();
     }
 
     FastLED.show();
 
     // now that we've shown the leds, reset to black for next loop
-    for(int j=0; j<5; j++){
+    for(int j=0; j<width; j++){
       leds[i+j] = CRGB::Black;
       check_eye();
     }
     delay(speed);
   }
-
+  /*
   // Now go in the other direction.  
   for(int i = NUM_LEDS-width; i >= 0; i--) {
     for(int j=0; j<width; j++){
       leds[i+j] = c;
       check_eye();
+      if(mode_changed == 1)
+      {
+        return;
+      }
     }
     FastLED.show();
     for(int j=0; j<width; j++){
@@ -178,7 +218,7 @@ void cylon(CRGB c, int width, int speed){
     }
 
     delay(speed);
-  }
+  }*/
 }
 
 // Display alternating stripes
@@ -186,9 +226,17 @@ void stripes(CRGB c1, CRGB c2, int width){
   for(int i=0; i<NUM_LEDS; i++){
     if(i % (width * 2) < width){
       leds[i] = c1;
+      if(mode_changed == 1)
+      {
+        return;
+      }
     }
     else{
       leds[i] = c2;
+      if(mode_changed == 1)
+      {
+        return;
+      }
     } 
     check_eye();
   }

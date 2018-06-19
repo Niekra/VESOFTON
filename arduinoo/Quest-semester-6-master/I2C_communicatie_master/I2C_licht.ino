@@ -12,55 +12,71 @@ void light_manager(char c, int ints){
   {
     str = String(ints);
     str.toCharArray(t, 5);
-    Wire.write(t); // sends one byte
-    Serial.println(c);
-    Serial.println(t);
+    Wire.write(t); // Send the int input as char array
   }else
   {
-    Wire.write("0");
-    Serial.println(c);
-    Serial.println("0");
+    Wire.write("0");    //write '0' if no input was given.
   }
   
   Wire.endTransmission();    // stop transmitting
+
+  //DEBUG code
+  Serial.print("I2C: ");
+  Serial.print(c);
+  Serial.println(ints);
 
   
 
   //Todo set light variables. and save.
   switch (c)
   {
-    case 'a':
+    case 'a':   //Strip on/off
+      Serial.print("led strip status: ");
+      Serial.println(ints);
       users[currentUser].lit_status = (int)ints;
       break;
-    case 'b':
+    case 'b':   //Strip modus
+      Serial.print("led strip modus: ");
+      Serial.println(ints);
       users[currentUser].lit_modus = (int)ints;
       break;
-    case 'm':
+    case 'm':   //Eye on
+      Serial.println("eye on.");
       users[currentUser].eye_status = 1;
       break;
-    case 'n':
+    case 'n':   //Eye off
+      Serial.print("eye off.");
       users[currentUser].eye_status = 0;
       break;
     case 'o':
+      Serial.print("eye intensity: ");
+      Serial.println(ints);
       users[currentUser].eye_intensity= ints;
       break;
-    case 'p':
+    case 'p':   //eye intensity
+      Serial.print("eye state: ");
+      Serial.println(ints);
       users[currentUser].eye_status = (ints);
       break;  
-    case 'q':
+    case 'q':   //eye duration
+      Serial.print("eye on duration: ");
+      Serial.println(ints*1000);
       users[currentUser].eye_on_duration = 1000 * (int)ints;
       break;
-    case 'r':
+    case 'r':   //eye off duration
+      Serial.print("eye off duration: ");
+      Serial.println(ints*1000);
       users[currentUser].eye_off_duration = 1000 * (int)ints;
       break;      
   }
   delay(30);
-  //EEPROM_writeAnything(0, users);
-  EEPROM.put(0,user1);
-  EEPROM.put(75,user2);
-  EEPROM.put(150,user3);
-  EEPROM.put(225,user4);
-  EEPROM.put(300,user5);
+  //Save user data
+  EEPROM.put(0,users[0]);
+  EEPROM.put(75,users[1]);
+  EEPROM.put(150,users[2]);
+  EEPROM.put(225,users[3]);
+  //EEPROM.put(300,users[4]);
+  Serial.println("user data saved.");
   delay(100);
 }
 
