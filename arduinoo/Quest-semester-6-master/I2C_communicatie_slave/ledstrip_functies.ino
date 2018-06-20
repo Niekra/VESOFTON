@@ -60,6 +60,7 @@ void colorWipe(CRGB c, int speed, int direction){
   for(int i=0; i<NUM_LEDS; i++){
     if(direction == FORWARD){
       leds[i] = c;
+      check_eye();
       if(mode_changed == 1)
       {
         return;

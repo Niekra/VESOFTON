@@ -3,15 +3,15 @@
 
 // How many leds in your strip?
 #define NUM_LEDS 30
-#define DATA_PIN 6
+#define DATA_PIN 9
 #define pwm 5
 #define FORWARD 0
 #define BACKWARD 1
 #define SLOW 250
 #define MEDIUM 50
 #define FAST 5
-#define EYE1 5
-#define EYE2 3
+#define EYE1 10
+#define EYE2 11
 
 CRGB leds[NUM_LEDS];
 CRGB z = CRGB::Black;
@@ -57,6 +57,7 @@ void setup() {
 
 void loop() {
   delay(10);
+  check_eye();
   if(strip_on == 1)
   {
     switch(strip_modus)

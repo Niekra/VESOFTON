@@ -16,9 +16,11 @@ void light_manager(char c, int b)
       break;
     case 'm':
       eye_on();
+      eye_modus = 1;
       break;
     case 'n':
       eye_off();
+      eye_modus = 0;
       break;
     case 'o':
       set_eye_intensity((int)b);
