@@ -13,6 +13,9 @@
 #define EYE1 10
 #define EYE2 11
 
+#define B_HEAD 2
+#define B_TAIL 3
+
 CRGB leds[NUM_LEDS];
 CRGB z = CRGB::Black;
 
@@ -33,6 +36,7 @@ int mode_changed = 0;
 
 int speed =100;
 
+
 void setup() {
   Wire.begin(8);                // join i2c bus with address #8
   Wire.onReceive(receiveEvent); // register event
@@ -51,9 +55,16 @@ void setup() {
   digitalWrite(EYE2, LOW);
   //rainbow(0,NULL);
 
+  pinMode(B_HEAD, INPUT);
+  attachInterrupt(digitalPinToInterrupt(B_HEAD), head_interrupt, CHANGE); // set interrupt on rising and falling edge of digital signal
+
+  pinMode(B_TAIL, INPUT);
+  attachInterrupt(digitalPinToInterrupt(B_TAIL), tail_interrupt, CHANGE); // set interrupt on rising and falling edge of digital signal
+
   mTimer();
   
 }
+
 
 void loop() {
   delay(10);
@@ -155,6 +166,8 @@ void receiveEvent(int howMany) {
   //Serial.println(input1);         // print the character
 
   for(int x = 1; x<i; x++)
+
+  
   {
     split_buffer[x-1] = input_buffer[x];
     //delay(10);
@@ -170,6 +183,27 @@ void receiveEvent(int howMany) {
 
 }
 
-  
- 
+void head_interrupt(){
+  volatile bool head_button_state = false;
+  head_button_state = digitalRead(B_HEAD); 
+  if(head_button_state == true){
+    strip_modus ++;
+    if(strip_modus > 9){
+      strip_modus = 0;
+    }
+    light_manager('b', strip_modus);
+  }
+}
+
+void tail_interrupt(){
+  volatile bool tail_button_state = false;
+  tail_button_state = digitalRead(B_TAIL); 
+  if(tail_button_state == true){
+    strip_modus ++;
+    if(strip_modus > 9){
+      strip_modus = 0;
+    }
+    light_manager('b', strip_modus);
+  }
+}
 

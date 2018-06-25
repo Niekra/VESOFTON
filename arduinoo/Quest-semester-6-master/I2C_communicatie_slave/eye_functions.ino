@@ -3,7 +3,7 @@ void eye_on(){
   analogWrite(EYE2, eye_intensity);
   eye_status = 1;
   eye_counter = 0;
-  eye_modus = 1;
+  //eye_modus = 1;
   return;
 }
 
@@ -12,7 +12,7 @@ void eye_off(){
   analogWrite(EYE2, LOW);
   eye_status = 0;
   eye_counter = 0;
-  eye_modus = 0;
+  //eye_modus = 0;
   return;
 }
 
